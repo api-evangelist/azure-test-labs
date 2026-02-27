@@ -1,0 +1,51 @@
+name: Azure DevTest Labs API
+description: Azure DevTest Labs enables developers to efficiently self-manage virtual machines (VMs) and PaaS resources without waiting for approvals. DevTest Labs creates labs consisting of pre-configured bases or Azure Resource Manager templates.
+image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+url: https://raw.githubusercontent.com/api-search/cloud/main/azure-devtest-labs/apis.yml
+created: 2024-01-01 00:00:00+00:00
+modified: 2024-01-01 00:00:00+00:00
+specificationVersion: '0.18'
+tags:
+- Virtual Machines
+- Development
+- Testing
+- Labs
+- Infrastructure
+apis:
+- name: Azure DevTest Labs API
+  description: The DevTest Labs Client enables you to manage virtual machines, environments, artifacts, formulas, and custom images for development and testing purposes.
+  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  humanURL: https://azure.microsoft.com/en-us/services/devtest-lab/
+  baseURL: https://management.azure.com
+  tags:
+  - Virtual Machines
+  - Labs
+  - Environments
+  - Artifacts
+  - Formulas
+  properties:
+  - type: Documentation
+    url: https://docs.microsoft.com/en-us/azure/devtest-labs/
+  - type: OpenAPI
+    url: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/main/specification/devtestlabs/resource-manager/Microsoft.DevTestLab/stable/2018-09-15/DevTestLabs.json
+  - type: Swagger
+    url: https://github.com/Azure/azure-rest-api-specs/tree/main/specification/devtestlabs/resource-manager
+  - type: Pricing
+    url: https://azure.microsoft.com/en-us/pricing/details/devtest-lab/
+common:
+- type: Portal
+  url: https://portal.azure.com
+- type: Getting Started
+  url: https://azure.microsoft.com/en-us/get-started/
+- type: Status
+  url: https://status.azure.com/
+- type: Blog
+  url: https://azure.microsoft.com/en-us/blog/
+- type: Support
+  url: https://azure.microsoft.com/en-us/support/
+- type: Terms of Service
+  url: https://azure.microsoft.com/en-us/support/legal/
+maintainers:
+- FN: API Evangelist
+  url: http://apievangelist.com
+  email: info@apievangelist.com
