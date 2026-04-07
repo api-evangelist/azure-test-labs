@@ -8,11 +8,11 @@ description: >-
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
-  - Virtual Machines
   - Development
-  - Testing
-  - Labs
   - Infrastructure
+  - Labs
+  - Testing
+  - Virtual Machines
 url: >-
   https://raw.githubusercontent.com/api-evangelist/azure-test-labs/refs/heads/main/apis.yml
 created: '2024-01-01'
@@ -28,10 +28,10 @@ apis:
     humanURL: https://azure.microsoft.com/en-us/services/devtest-lab/
     baseURL: https://management.azure.com
     tags:
-      - Virtual Machines
-      - Labs
-      - Environments
       - Artifacts
+      - Environments
+      - Labs
+      - Virtual Machines
     properties:
       - type: Documentation
         url: https://docs.microsoft.com/en-us/azure/devtest-labs/
