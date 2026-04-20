@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/azure-test-labs/refs/heads/main/json-schema/azure-test-labs-artifact-deployment-status-properties-schema.json",
+  "title": "ArtifactDeploymentStatusProperties",
+  "description": "Properties of an artifact deployment.",
+  "type": "object",
+  "properties": {
+    "artifactsApplied": {
+      "description": "The total count of the artifacts that were successfully applied.",
+      "format": "int32",
+      "type": "integer"
+    },
+    "deploymentStatus": {
+      "description": "The deployment status of the artifact.",
+      "type": "string"
+    },
+    "totalArtifacts": {
+      "description": "The total count of the artifacts that were tentatively applied.",
+      "format": "int32",
+      "type": "integer"
+    }
+  }
+}

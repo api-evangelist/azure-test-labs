@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/azure-test-labs/refs/heads/main/json-structure/azure-test-labs-artifact-parameter-properties-structure.json",
+  "description": "Properties of an artifact parameter.",
+  "type": "object",
+  "properties": {
+    "name": {
+      "description": "The name of the artifact parameter.",
+      "type": "string"
+    },
+    "value": {
+      "description": "The value of the artifact parameter.",
+      "type": "string"
+    }
+  },
+  "name": "ArtifactParameterProperties"
+}

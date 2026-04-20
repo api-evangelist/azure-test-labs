@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/azure-test-labs/refs/heads/main/json-structure/azure-test-labs-artifact-source-properties-structure.json",
+  "description": "Properties of an artifact source.",
+  "type": "object",
+  "properties": {
+    "armTemplateFolderPath": {
+      "description": "The folder containing Azure Resource Manager templates.",
+      "type": "string"
+    },
+    "branchRef": {
+      "description": "The artifact source's branch reference.",
+      "type": "string"
+    },
+    "createdDate": {
+      "description": "The artifact source's creation date.",
+      "format": "date-time",
+      "readOnly": true,
+      "type": "string"
+    },
+    "displayName": {
+      "description": "The artifact source's display name.",
+      "type": "string"
+    },
+    "folderPath": {
+      "description": "The folder containing artifacts.",
+      "type": "string"
+    },
+    "provisioningState": {
+      "description": "The provisioning status of the resource.",
+      "readOnly": true,
+      "type": "string"
+    },
+    "securityToken": {
+      "description": "The security token to authenticate to the artifact source.",
+      "type": "string"
+    },
+    "sourceType": {
+      "description": "The artifact source's type.",
+      "enum": [
+        "VsoGit",
+        "GitHub"
+      ],
+      "type": "string",
+      "x-ms-enum": {
+        "modelAsString": true,
+        "name": "SourceControlType"
+      }
+    },
+    "status": {
+      "description": "Indicates if the artifact source is enabled (values: Enabled, Disabled).",
+      "enum": [
+        "Enabled",
+        "Disabled"
+      ],
+      "type": "string",
+      "x-ms-enum": {
+        "modelAsString": true,
+        "name": "EnableStatus"
+      }
+    },
+    "uniqueIdentifier": {
+      "description": "The unique immutable identifier of a resource (Guid).",
+      "readOnly": true,
+      "type": "string"
+    },
+    "uri": {
+      "description": "The artifact source's URI.",
+      "type": "string"
+    }
+  },
+  "name": "ArtifactSourceProperties"
+}

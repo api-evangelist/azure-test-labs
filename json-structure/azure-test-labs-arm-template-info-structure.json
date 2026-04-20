@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/azure-test-labs/refs/heads/main/json-structure/azure-test-labs-arm-template-info-structure.json",
+  "description": "Information about a generated ARM template.",
+  "type": "object",
+  "properties": {
+    "parameters": {
+      "description": "The parameters of the ARM template.",
+      "type": "object"
+    },
+    "template": {
+      "description": "The template's contents.",
+      "type": "object"
+    }
+  },
+  "name": "ArmTemplateInfo"
+}

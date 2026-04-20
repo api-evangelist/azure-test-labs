@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/azure-test-labs/refs/heads/main/json-schema/azure-test-labs-arm-template-parameter-properties-schema.json",
+  "title": "ArmTemplateParameterProperties",
+  "description": "Properties of an Azure Resource Manager template parameter.",
+  "type": "object",
+  "properties": {
+    "name": {
+      "description": "The name of the template parameter.",
+      "type": "string"
+    },
+    "value": {
+      "description": "The value of the template parameter.",
+      "type": "string"
+    }
+  }
+}

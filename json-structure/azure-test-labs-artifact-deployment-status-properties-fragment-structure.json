@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/azure-test-labs/refs/heads/main/json-structure/azure-test-labs-artifact-deployment-status-properties-fragment-structure.json",
+  "description": "Properties of an artifact deployment.",
+  "type": "object",
+  "properties": {
+    "artifactsApplied": {
+      "description": "The total count of the artifacts that were successfully applied.",
+      "format": "int32",
+      "type": "integer"
+    },
+    "deploymentStatus": {
+      "description": "The deployment status of the artifact.",
+      "type": "string"
+    },
+    "totalArtifacts": {
+      "description": "The total count of the artifacts that were tentatively applied.",
+      "format": "int32",
+      "type": "integer"
+    }
+  },
+  "name": "ArtifactDeploymentStatusPropertiesFragment"
+}

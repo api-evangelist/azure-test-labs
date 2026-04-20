@@ -1,0 +1,142 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "azuretestlabs": "https://azure.microsoft.com/azure-test-labs/schema/",
+    "schema": "https://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "ApplicableSchedule": "azuretestlabs:ApplicableSchedule",
+    "ApplicableScheduleFragment": "azuretestlabs:ApplicableScheduleFragment",
+    "ApplicableScheduleProperties": "azuretestlabs:ApplicableScheduleProperties",
+    "ApplicableSchedulePropertiesFragment": "azuretestlabs:ApplicableSchedulePropertiesFragment",
+    "ApplyArtifactsRequest": "azuretestlabs:ApplyArtifactsRequest",
+    "ArmTemplate": "azuretestlabs:ArmTemplate",
+    "ArmTemplateInfo": "azuretestlabs:ArmTemplateInfo",
+    "ArmTemplateList": "azuretestlabs:ArmTemplateList",
+    "ArmTemplateParameterProperties": "azuretestlabs:ArmTemplateParameterProperties",
+    "ArmTemplateParameterPropertiesFragment": "azuretestlabs:ArmTemplateParameterPropertiesFragment",
+    "ArmTemplateProperties": "azuretestlabs:ArmTemplateProperties",
+    "Artifact": "azuretestlabs:Artifact",
+    "ArtifactDeploymentStatusProperties": "azuretestlabs:ArtifactDeploymentStatusProperties",
+    "ArtifactDeploymentStatusPropertiesFragment": "azuretestlabs:ArtifactDeploymentStatusPropertiesFragment",
+    "ArtifactInstallProperties": "azuretestlabs:ArtifactInstallProperties",
+    "ArtifactInstallPropertiesFragment": "azuretestlabs:ArtifactInstallPropertiesFragment",
+    "ArtifactList": "azuretestlabs:ArtifactList",
+    "ArtifactParameterProperties": "azuretestlabs:ArtifactParameterProperties",
+    "ArtifactParameterPropertiesFragment": "azuretestlabs:ArtifactParameterPropertiesFragment",
+    "ArtifactProperties": "azuretestlabs:ArtifactProperties",
+    "properties": {
+      "@id": "azuretestlabs:properties",
+      "@type": "xsd:string"
+    },
+    "labVmsShutdown": {
+      "@id": "azuretestlabs:labVmsShutdown",
+      "@type": "xsd:string"
+    },
+    "labVmsStartup": {
+      "@id": "azuretestlabs:labVmsStartup",
+      "@type": "xsd:string"
+    },
+    "artifacts": {
+      "@id": "azuretestlabs:artifacts",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "parameters": {
+      "@id": "azuretestlabs:parameters",
+      "@type": "@id"
+    },
+    "template": {
+      "@id": "azuretestlabs:template",
+      "@type": "@id"
+    },
+    "nextLink": {
+      "@id": "azuretestlabs:nextLink",
+      "@type": "xsd:string"
+    },
+    "value": {
+      "@id": "azuretestlabs:value",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "name": "schema:name",
+    "contents": {
+      "@id": "azuretestlabs:contents",
+      "@type": "@id"
+    },
+    "createdDate": {
+      "@id": "azuretestlabs:createdDate",
+      "@type": "xsd:string"
+    },
+    "description": "schema:description",
+    "displayName": {
+      "@id": "azuretestlabs:displayName",
+      "@type": "xsd:string"
+    },
+    "enabled": {
+      "@id": "azuretestlabs:enabled",
+      "@type": "xsd:boolean"
+    },
+    "icon": {
+      "@id": "azuretestlabs:icon",
+      "@type": "xsd:string"
+    },
+    "parametersValueFilesInfo": {
+      "@id": "azuretestlabs:parametersValueFilesInfo",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "publisher": {
+      "@id": "azuretestlabs:publisher",
+      "@type": "xsd:string"
+    },
+    "artifactsApplied": {
+      "@id": "azuretestlabs:artifactsApplied",
+      "@type": "xsd:integer"
+    },
+    "deploymentStatus": {
+      "@id": "azuretestlabs:deploymentStatus",
+      "@type": "xsd:string"
+    },
+    "totalArtifacts": {
+      "@id": "azuretestlabs:totalArtifacts",
+      "@type": "xsd:integer"
+    },
+    "artifactId": {
+      "@id": "azuretestlabs:artifactId",
+      "@type": "xsd:string"
+    },
+    "artifactTitle": {
+      "@id": "azuretestlabs:artifactTitle",
+      "@type": "xsd:string"
+    },
+    "deploymentStatusMessage": {
+      "@id": "azuretestlabs:deploymentStatusMessage",
+      "@type": "xsd:string"
+    },
+    "installTime": {
+      "@id": "azuretestlabs:installTime",
+      "@type": "xsd:string"
+    },
+    "status": {
+      "@id": "azuretestlabs:status",
+      "@type": "xsd:string"
+    },
+    "vmExtensionStatusMessage": {
+      "@id": "azuretestlabs:vmExtensionStatusMessage",
+      "@type": "xsd:string"
+    },
+    "filePath": {
+      "@id": "azuretestlabs:filePath",
+      "@type": "xsd:string"
+    },
+    "targetOsType": {
+      "@id": "azuretestlabs:targetOsType",
+      "@type": "xsd:string"
+    },
+    "title": {
+      "@id": "azuretestlabs:title",
+      "@type": "xsd:string"
+    }
+  }
+}

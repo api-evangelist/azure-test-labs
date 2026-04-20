@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/azure-test-labs/refs/heads/main/json-schema/azure-test-labs-arm-template-info-schema.json",
+  "title": "ArmTemplateInfo",
+  "description": "Information about a generated ARM template.",
+  "type": "object",
+  "properties": {
+    "parameters": {
+      "description": "The parameters of the ARM template.",
+      "type": "object"
+    },
+    "template": {
+      "description": "The template's contents.",
+      "type": "object"
+    }
+  }
+}

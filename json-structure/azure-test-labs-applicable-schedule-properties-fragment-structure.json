@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/azure-test-labs/refs/heads/main/json-structure/azure-test-labs-applicable-schedule-properties-fragment-structure.json",
+  "description": "Properties of a schedules applicable to a virtual machine.",
+  "type": "object",
+  "properties": {
+    "labVmsShutdown": {
+      "$ref": "#/definitions/ScheduleFragment",
+      "description": "The auto-shutdown schedule, if one has been set at the lab or lab resource level."
+    },
+    "labVmsStartup": {
+      "$ref": "#/definitions/ScheduleFragment",
+      "description": "The auto-startup schedule, if one has been set at the lab or lab resource level."
+    }
+  },
+  "name": "ApplicableSchedulePropertiesFragment"
+}

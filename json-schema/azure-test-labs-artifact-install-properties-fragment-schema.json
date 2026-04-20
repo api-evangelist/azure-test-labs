@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/azure-test-labs/refs/heads/main/json-schema/azure-test-labs-artifact-install-properties-fragment-schema.json",
+  "title": "ArtifactInstallPropertiesFragment",
+  "description": "Properties of an artifact.",
+  "type": "object",
+  "properties": {
+    "artifactId": {
+      "description": "The artifact's identifier.",
+      "type": "string"
+    },
+    "artifactTitle": {
+      "description": "The artifact's title.",
+      "type": "string"
+    },
+    "deploymentStatusMessage": {
+      "description": "The status message from the deployment.",
+      "type": "string"
+    },
+    "installTime": {
+      "description": "The time that the artifact starts to install on the virtual machine.",
+      "format": "date-time",
+      "type": "string"
+    },
+    "parameters": {
+      "description": "The parameters of the artifact.",
+      "items": {
+        "$ref": "#/definitions/ArtifactParameterPropertiesFragment"
+      },
+      "type": "array"
+    },
+    "status": {
+      "description": "The status of the artifact.",
+      "type": "string"
+    },
+    "vmExtensionStatusMessage": {
+      "description": "The status message from the virtual machine extension.",
+      "type": "string"
+    }
+  }
+}

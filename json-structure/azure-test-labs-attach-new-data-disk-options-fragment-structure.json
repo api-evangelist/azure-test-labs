@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/azure-test-labs/refs/heads/main/json-structure/azure-test-labs-attach-new-data-disk-options-fragment-structure.json",
+  "description": "Properties to attach new disk to the Virtual Machine.",
+  "type": "object",
+  "properties": {
+    "diskName": {
+      "description": "The name of the disk to be attached.",
+      "type": "string"
+    },
+    "diskSizeGiB": {
+      "description": "Size of the disk to be attached in GibiBytes.",
+      "format": "int32",
+      "type": "integer"
+    },
+    "diskType": {
+      "description": "The storage type for the disk (i.e. Standard, Premium).",
+      "enum": [
+        "Standard",
+        "Premium",
+        "StandardSSD"
+      ],
+      "type": "string",
+      "x-ms-enum": {
+        "modelAsString": true,
+        "name": "StorageType"
+      }
+    }
+  },
+  "name": "AttachNewDataDiskOptionsFragment"
+}

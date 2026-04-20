@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/azure-test-labs/refs/heads/main/json-schema/azure-test-labs-arm-template-properties-schema.json",
+  "title": "ArmTemplateProperties",
+  "description": "Properties of an Azure Resource Manager template.",
+  "type": "object",
+  "properties": {
+    "contents": {
+      "description": "The contents of the ARM template.",
+      "readOnly": true,
+      "type": "object"
+    },
+    "createdDate": {
+      "description": "The creation date of the armTemplate.",
+      "format": "date-time",
+      "readOnly": true,
+      "type": "string"
+    },
+    "description": {
+      "description": "The description of the ARM template.",
+      "readOnly": true,
+      "type": "string"
+    },
+    "displayName": {
+      "description": "The display name of the ARM template.",
+      "readOnly": true,
+      "type": "string"
+    },
+    "enabled": {
+      "description": "Whether or not ARM template is enabled for use by lab user.",
+      "readOnly": true,
+      "type": "boolean"
+    },
+    "icon": {
+      "description": "The URI to the icon of the ARM template.",
+      "readOnly": true,
+      "type": "string"
+    },
+    "parametersValueFilesInfo": {
+      "description": "File name and parameter values information from all azuredeploy.*.parameters.json for the ARM template.",
+      "items": {
+        "$ref": "#/definitions/ParametersValueFileInfo"
+      },
+      "readOnly": true,
+      "type": "array"
+    },
+    "publisher": {
+      "description": "The publisher of the ARM template.",
+      "readOnly": true,
+      "type": "string"
+    }
+  }
+}

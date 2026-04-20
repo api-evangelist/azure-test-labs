@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/azure-test-labs/refs/heads/main/json-structure/azure-test-labs-artifact-list-structure.json",
+  "description": "The response of a list operation.",
+  "type": "object",
+  "properties": {
+    "nextLink": {
+      "description": "Link for next set of results.",
+      "type": "string"
+    },
+    "value": {
+      "description": "Results of the list operation.",
+      "items": {
+        "$ref": "#/definitions/Artifact"
+      },
+      "type": "array"
+    }
+  },
+  "name": "ArtifactList"
+}

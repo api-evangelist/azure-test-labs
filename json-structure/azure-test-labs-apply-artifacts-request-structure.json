@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/azure-test-labs/refs/heads/main/json-structure/azure-test-labs-apply-artifacts-request-structure.json",
+  "description": "Request body for applying artifacts to a virtual machine.",
+  "type": "object",
+  "properties": {
+    "artifacts": {
+      "description": "The list of artifacts to apply.",
+      "items": {
+        "$ref": "#/definitions/ArtifactInstallProperties"
+      },
+      "type": "array"
+    }
+  },
+  "name": "ApplyArtifactsRequest"
+}

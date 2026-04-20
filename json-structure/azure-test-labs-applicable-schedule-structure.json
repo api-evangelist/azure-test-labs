@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/azure-test-labs/refs/heads/main/json-structure/azure-test-labs-applicable-schedule-structure.json",
+  "description": "Schedules applicable to a virtual machine. The schedules may have been defined on a VM or on lab level.",
+  "type": "object",
+  "properties": {
+    "properties": {
+      "$ref": "#/definitions/ApplicableScheduleProperties",
+      "description": "The properties of the resource.",
+      "x-ms-client-flatten": true
+    }
+  },
+  "required": [
+    "properties"
+  ],
+  "name": "ApplicableSchedule"
+}

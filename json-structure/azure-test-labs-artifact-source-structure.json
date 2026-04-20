@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/azure-test-labs/refs/heads/main/json-structure/azure-test-labs-artifact-source-structure.json",
+  "description": "Properties of an artifact source.",
+  "type": "object",
+  "properties": {
+    "properties": {
+      "$ref": "#/definitions/ArtifactSourceProperties",
+      "description": "The properties of the resource.",
+      "x-ms-client-flatten": true
+    }
+  },
+  "required": [
+    "properties"
+  ],
+  "name": "ArtifactSource"
+}

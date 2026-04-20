@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/azure-test-labs/refs/heads/main/json-structure/azure-test-labs-arm-template-structure.json",
+  "description": "An Azure Resource Manager template.",
+  "type": "object",
+  "properties": {
+    "properties": {
+      "$ref": "#/definitions/ArmTemplateProperties",
+      "description": "The properties of the resource.",
+      "x-ms-client-flatten": true
+    }
+  },
+  "required": [
+    "properties"
+  ],
+  "name": "ArmTemplate"
+}

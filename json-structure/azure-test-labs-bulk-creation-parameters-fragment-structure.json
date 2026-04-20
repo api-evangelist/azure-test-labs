@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/azure-test-labs/refs/heads/main/json-structure/azure-test-labs-bulk-creation-parameters-fragment-structure.json",
+  "description": "Parameters for creating multiple virtual machines as a single action.",
+  "type": "object",
+  "properties": {
+    "instanceCount": {
+      "description": "The number of virtual machine instances to create.",
+      "format": "int32",
+      "type": "integer"
+    }
+  },
+  "name": "BulkCreationParametersFragment"
+}

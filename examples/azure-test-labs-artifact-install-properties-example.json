@@ -1,0 +1,11 @@
+{
+  "artifactId": "example-string",
+  "artifactTitle": "example-string",
+  "deploymentStatusMessage": "example-string",
+  "installTime": "2026-04-19T12:00:00Z",
+  "parameters": [
+    {}
+  ],
+  "status": "example-string",
+  "vmExtensionStatusMessage": "example-string"
+}

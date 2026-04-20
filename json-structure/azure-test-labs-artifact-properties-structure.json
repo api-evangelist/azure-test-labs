@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/azure-test-labs/refs/heads/main/json-structure/azure-test-labs-artifact-properties-structure.json",
+  "description": "Properties of an artifact.",
+  "type": "object",
+  "properties": {
+    "createdDate": {
+      "description": "The artifact's creation date.",
+      "format": "date-time",
+      "readOnly": true,
+      "type": "string"
+    },
+    "description": {
+      "description": "The artifact's description.",
+      "readOnly": true,
+      "type": "string"
+    },
+    "filePath": {
+      "description": "The file path to the artifact.",
+      "readOnly": true,
+      "type": "string"
+    },
+    "icon": {
+      "description": "The URI to the artifact icon.",
+      "readOnly": true,
+      "type": "string"
+    },
+    "parameters": {
+      "description": "The artifact's parameters.",
+      "readOnly": true,
+      "type": "object"
+    },
+    "publisher": {
+      "description": "The artifact's publisher.",
+      "readOnly": true,
+      "type": "string"
+    },
+    "targetOsType": {
+      "description": "The artifact's target OS.",
+      "readOnly": true,
+      "type": "string"
+    },
+    "title": {
+      "description": "The artifact's title.",
+      "readOnly": true,
+      "type": "string"
+    }
+  },
+  "name": "ArtifactProperties"
+}

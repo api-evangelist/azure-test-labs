@@ -1,0 +1,10 @@
+{
+  "armTemplateFolderPath": "example-string",
+  "branchRef": "example-string",
+  "displayName": "example-string",
+  "folderPath": "example-string",
+  "securityToken": "example-string",
+  "sourceType": "VsoGit",
+  "status": "Enabled",
+  "uri": "example-string"
+}

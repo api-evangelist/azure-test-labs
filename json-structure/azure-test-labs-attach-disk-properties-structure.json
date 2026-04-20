@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/azure-test-labs/refs/heads/main/json-structure/azure-test-labs-attach-disk-properties-structure.json",
+  "description": "Properties of the disk to attach.",
+  "type": "object",
+  "properties": {
+    "leasedByLabVmId": {
+      "description": "The resource ID of the Lab virtual machine to which the disk is attached.",
+      "type": "string"
+    }
+  },
+  "name": "AttachDiskProperties"
+}
