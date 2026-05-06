@@ -1,104 +1,195 @@
-naftiko: "1.0.0-alpha1"
-
+naftiko: 1.0.0-alpha2
 info:
-  label: "Azure DevTest Labs Management"
-  description: "Workflow capability for managing Azure DevTest Labs resources. Used by cloud engineers and DevOps teams."
+  label: Azure DevTest Labs Management
+  description: Workflow capability for managing Azure DevTest Labs resources. Used by cloud engineers and DevOps teams.
   tags:
-    - Azure
-    - Cloud
-    - Management
-  created: "2026-04-19"
-  modified: "2026-04-19"
-
+  - Azure
+  - Cloud
+  - Management
+  created: '2026-04-19'
+  modified: '2026-05-06'
 binds:
-  - namespace: env
-    keys:
-      AZURE_SUBSCRIPTION_ID: AZURE_SUBSCRIPTION_ID
-      AZURE_ACCESS_TOKEN: AZURE_ACCESS_TOKEN
-
+- namespace: env
+  keys:
+    AZURE_SUBSCRIPTION_ID: AZURE_SUBSCRIPTION_ID
+    AZURE_ACCESS_TOKEN: AZURE_ACCESS_TOKEN
 capability:
   consumes:
-    - import: azure-test-labs
-      location: ./shared/azure-test-labs.yaml
-
+  - type: http
+    namespace: azure-test-labs
+    baseUri: https://management.azure.com
+    description: Azure DevTest Labs REST API
+    authentication:
+      type: bearer
+      token: '{{AZURE_ACCESS_TOKEN}}'
+    resources:
+    - name: lab
+      path: /subscriptions/{subscriptionId}/providers/Microsoft.Lab/Labs
+      description: Manage Lab resources
+      operations:
+      - name: list-labs
+        method: GET
+        description: List all Lab resources
+        inputParameters:
+        - name: subscriptionId
+          in: path
+          type: string
+          required: true
+          description: Azure subscription ID
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: virtual-machine
+      path: /subscriptions/{subscriptionId}/providers/Microsoft.VirtualMachine/VirtualMachines
+      description: Manage VirtualMachine resources
+      operations:
+      - name: list-virtual-machines
+        method: GET
+        description: List all VirtualMachine resources
+        inputParameters:
+        - name: subscriptionId
+          in: path
+          type: string
+          required: true
+          description: Azure subscription ID
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: environment
+      path: /subscriptions/{subscriptionId}/providers/Microsoft.Environment/Environments
+      description: Manage Environment resources
+      operations:
+      - name: list-environments
+        method: GET
+        description: List all Environment resources
+        inputParameters:
+        - name: subscriptionId
+          in: path
+          type: string
+          required: true
+          description: Azure subscription ID
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: formula
+      path: /subscriptions/{subscriptionId}/providers/Microsoft.Formula/Formulas
+      description: Manage Formula resources
+      operations:
+      - name: list-formulas
+        method: GET
+        description: List all Formula resources
+        inputParameters:
+        - name: subscriptionId
+          in: path
+          type: string
+          required: true
+          description: Azure subscription ID
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: custom-image
+      path: /subscriptions/{subscriptionId}/providers/Microsoft.CustomImage/CustomImages
+      description: Manage CustomImage resources
+      operations:
+      - name: list-custom-images
+        method: GET
+        description: List all CustomImage resources
+        inputParameters:
+        - name: subscriptionId
+          in: path
+          type: string
+          required: true
+          description: Azure subscription ID
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
   exposes:
-    - type: rest
-      port: 8088
-      namespace: azure-test-labs-management-api
-      description: "Unified REST API for Azure DevTest Labs management."
-      resources:
-        - path: /v1/resources
-          name: resources
-          description: "Resource management"
-          operations:
-            - method: GET
-              name: list
-              description: "List all resources"
-              call: "azure-test-labs.list-labs"
-              with:
-                subscriptionId: "rest.subscriptionId"
-              outputParameters:
-                - type: object
-                  mapping: "$."
-
-    - type: mcp
-      port: 9098
-      namespace: azure-test-labs-management-mcp
-      transport: http
-      description: "MCP server for AI-assisted Azure DevTest Labs management."
-      tools:
-        - name: list-labs
-          description: "List Lab resources"
-          hints:
-            readOnly: true
-            openWorld: true
-          call: "azure-test-labs.list-labs"
-          with:
-            subscriptionId: "tools.subscriptionId"
-          outputParameters:
-            - type: object
-              mapping: "$."
-        - name: list-virtual-machines
-          description: "List VirtualMachine resources"
-          hints:
-            readOnly: true
-            openWorld: true
-          call: "azure-test-labs.list-virtual-machines"
-          with:
-            subscriptionId: "tools.subscriptionId"
-          outputParameters:
-            - type: object
-              mapping: "$."
-        - name: list-environments
-          description: "List Environment resources"
-          hints:
-            readOnly: true
-            openWorld: true
-          call: "azure-test-labs.list-environments"
-          with:
-            subscriptionId: "tools.subscriptionId"
-          outputParameters:
-            - type: object
-              mapping: "$."
-        - name: list-formulas
-          description: "List Formula resources"
-          hints:
-            readOnly: true
-            openWorld: true
-          call: "azure-test-labs.list-formulas"
-          with:
-            subscriptionId: "tools.subscriptionId"
-          outputParameters:
-            - type: object
-              mapping: "$."
-        - name: list-custom-images
-          description: "List CustomImage resources"
-          hints:
-            readOnly: true
-            openWorld: true
-          call: "azure-test-labs.list-custom-images"
-          with:
-            subscriptionId: "tools.subscriptionId"
-          outputParameters:
-            - type: object
-              mapping: "$."
+  - type: rest
+    port: 8088
+    namespace: azure-test-labs-management-api
+    description: Unified REST API for Azure DevTest Labs management.
+    resources:
+    - path: /v1/resources
+      name: resources
+      description: Resource management
+      operations:
+      - method: GET
+        name: list
+        description: List all resources
+        call: azure-test-labs.list-labs
+        with:
+          subscriptionId: rest.subscriptionId
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    port: 9098
+    namespace: azure-test-labs-management-mcp
+    transport: http
+    description: MCP server for AI-assisted Azure DevTest Labs management.
+    tools:
+    - name: list-labs
+      description: List Lab resources
+      hints:
+        readOnly: true
+        openWorld: true
+      call: azure-test-labs.list-labs
+      with:
+        subscriptionId: tools.subscriptionId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-virtual-machines
+      description: List VirtualMachine resources
+      hints:
+        readOnly: true
+        openWorld: true
+      call: azure-test-labs.list-virtual-machines
+      with:
+        subscriptionId: tools.subscriptionId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-environments
+      description: List Environment resources
+      hints:
+        readOnly: true
+        openWorld: true
+      call: azure-test-labs.list-environments
+      with:
+        subscriptionId: tools.subscriptionId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-formulas
+      description: List Formula resources
+      hints:
+        readOnly: true
+        openWorld: true
+      call: azure-test-labs.list-formulas
+      with:
+        subscriptionId: tools.subscriptionId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-custom-images
+      description: List CustomImage resources
+      hints:
+        readOnly: true
+        openWorld: true
+      call: azure-test-labs.list-custom-images
+      with:
+        subscriptionId: tools.subscriptionId
+      outputParameters:
+      - type: object
+        mapping: $.
