@@ -1,0 +1,91 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: DevTestLabsClient — PolicySets
+  description: 'DevTestLabsClient — PolicySets. 1 operations. Lead operation: Azure DevTest Labs Policy Sets_ Evaluate Policies.
+    Self-contained Naftiko capability covering one Azure Test Labs business surface.'
+  tags:
+  - Azure Test Labs
+  - PolicySets
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AZURE_TEST_LABS_API_KEY: AZURE_TEST_LABS_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: azure-test-labs-policysets
+    baseUri: https://management.azure.com
+    description: DevTestLabsClient — PolicySets business capability. Self-contained, no shared references.
+    resources:
+    - name: subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof
+      path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/policysets/{name}/evaluatePolicies
+      operations:
+      - name: policysetsevaluatepolicies
+        method: POST
+        description: Azure DevTest Labs Policy Sets_ Evaluate Policies
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: labName
+          in: path
+          type: string
+          description: The name of the lab.
+          required: true
+        - name: name
+          in: path
+          type: string
+          description: The name of the policy set.
+          required: true
+        - name: evaluatePoliciesRequest
+          in: body
+          type: string
+          description: Request body for evaluating a policy set.
+          required: true
+  exposes:
+  - type: rest
+    namespace: azure-test-labs-policysets-rest
+    port: 8080
+    description: REST adapter for DevTestLabsClient — PolicySets. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft-devtestlab/labs/{labname}/policysets/{name}/evaluatepolicies
+      name: subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsof
+      description: REST surface for subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof.
+      operations:
+      - method: POST
+        name: policysetsevaluatepolicies
+        description: Azure DevTest Labs Policy Sets_ Evaluate Policies
+        call: azure-test-labs-policysets.policysetsevaluatepolicies
+        with:
+          labName: rest.labName
+          name: rest.name
+          evaluatePoliciesRequest: rest.evaluatePoliciesRequest
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: azure-test-labs-policysets-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for DevTestLabsClient — PolicySets. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: azure-devtest-labs-policy-sets
+      description: Azure DevTest Labs Policy Sets_ Evaluate Policies
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: azure-test-labs-policysets.policysetsevaluatepolicies
+      with:
+        labName: tools.labName
+        name: tools.name
+        evaluatePoliciesRequest: tools.evaluatePoliciesRequest
+      outputParameters:
+      - type: object
+        mapping: $.

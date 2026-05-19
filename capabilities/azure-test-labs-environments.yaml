@@ -1,0 +1,331 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: DevTestLabsClient — Environments
+  description: 'DevTestLabsClient — Environments. 5 operations. Lead operation: Azure DevTest Labs Environments_ List. Self-contained
+    Naftiko capability covering one Azure Test Labs business surface.'
+  tags:
+  - Azure Test Labs
+  - Environments
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AZURE_TEST_LABS_API_KEY: AZURE_TEST_LABS_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: azure-test-labs-environments
+    baseUri: https://management.azure.com
+    description: DevTestLabsClient — Environments business capability. Self-contained, no shared references.
+    resources:
+    - name: subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof
+      path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/users/{userName}/environments
+      operations:
+      - name: environmentslist
+        method: GET
+        description: Azure DevTest Labs Environments_ List
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: labName
+          in: path
+          type: string
+          description: The name of the lab.
+          required: true
+        - name: userName
+          in: path
+          type: string
+          description: The name of the user profile.
+          required: true
+        - name: $expand
+          in: query
+          type: string
+          description: 'Specify the $expand query. Example: ''properties($select=deploymentProperties)'''
+        - name: $filter
+          in: query
+          type: string
+          description: 'The filter to apply to the operation. Example: ''$filter=contains(name,''myName'')'
+        - name: $top
+          in: query
+          type: integer
+          description: 'The maximum number of resources to return from the operation. Example: ''$top=10'''
+        - name: $orderby
+          in: query
+          type: string
+          description: 'The ordering expression for the results, using OData notation. Example: ''$orderby=name desc'''
+    - name: subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof
+      path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/users/{userName}/environments/{name}
+      operations:
+      - name: environmentsdelete
+        method: DELETE
+        description: Azure DevTest Labs Environments_ Delete
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: labName
+          in: path
+          type: string
+          description: The name of the lab.
+          required: true
+        - name: userName
+          in: path
+          type: string
+          description: The name of the user profile.
+          required: true
+        - name: name
+          in: path
+          type: string
+          description: The name of the environment.
+          required: true
+      - name: environmentsget
+        method: GET
+        description: Azure DevTest Labs Environments_ Get
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: labName
+          in: path
+          type: string
+          description: The name of the lab.
+          required: true
+        - name: userName
+          in: path
+          type: string
+          description: The name of the user profile.
+          required: true
+        - name: name
+          in: path
+          type: string
+          description: The name of the environment.
+          required: true
+        - name: $expand
+          in: query
+          type: string
+          description: 'Specify the $expand query. Example: ''properties($select=deploymentProperties)'''
+      - name: environmentsupdate
+        method: PATCH
+        description: Azure DevTest Labs Environments_ Update
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: labName
+          in: path
+          type: string
+          description: The name of the lab.
+          required: true
+        - name: userName
+          in: path
+          type: string
+          description: The name of the user profile.
+          required: true
+        - name: name
+          in: path
+          type: string
+          description: The name of the environment.
+          required: true
+        - name: dtlEnvironment
+          in: body
+          type: string
+          description: An environment, which is essentially an ARM template deployment.
+          required: true
+      - name: environmentscreateorupdate
+        method: PUT
+        description: Azure DevTest Labs Environments_ Create or Update
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: labName
+          in: path
+          type: string
+          description: The name of the lab.
+          required: true
+        - name: userName
+          in: path
+          type: string
+          description: The name of the user profile.
+          required: true
+        - name: name
+          in: path
+          type: string
+          description: The name of the environment.
+          required: true
+        - name: dtlEnvironment
+          in: body
+          type: string
+          description: An environment, which is essentially an ARM template deployment.
+          required: true
+  exposes:
+  - type: rest
+    namespace: azure-test-labs-environments-rest
+    port: 8080
+    description: REST adapter for DevTestLabsClient — Environments. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft-devtestlab/labs/{labname}/users/{username}/environments
+      name: subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsof
+      description: REST surface for subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof.
+      operations:
+      - method: GET
+        name: environmentslist
+        description: Azure DevTest Labs Environments_ List
+        call: azure-test-labs-environments.environmentslist
+        with:
+          labName: rest.labName
+          userName: rest.userName
+          $expand: rest.$expand
+          $filter: rest.$filter
+          $top: rest.$top
+          $orderby: rest.$orderby
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft-devtestlab/labs/{labname}/users/{username}/environments/{name}
+      name: subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsof
+      description: REST surface for subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof.
+      operations:
+      - method: DELETE
+        name: environmentsdelete
+        description: Azure DevTest Labs Environments_ Delete
+        call: azure-test-labs-environments.environmentsdelete
+        with:
+          labName: rest.labName
+          userName: rest.userName
+          name: rest.name
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: environmentsget
+        description: Azure DevTest Labs Environments_ Get
+        call: azure-test-labs-environments.environmentsget
+        with:
+          labName: rest.labName
+          userName: rest.userName
+          name: rest.name
+          $expand: rest.$expand
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: environmentsupdate
+        description: Azure DevTest Labs Environments_ Update
+        call: azure-test-labs-environments.environmentsupdate
+        with:
+          labName: rest.labName
+          userName: rest.userName
+          name: rest.name
+          dtlEnvironment: rest.dtlEnvironment
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: environmentscreateorupdate
+        description: Azure DevTest Labs Environments_ Create or Update
+        call: azure-test-labs-environments.environmentscreateorupdate
+        with:
+          labName: rest.labName
+          userName: rest.userName
+          name: rest.name
+          dtlEnvironment: rest.dtlEnvironment
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: azure-test-labs-environments-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for DevTestLabsClient — Environments. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: azure-devtest-labs-environments-list
+      description: Azure DevTest Labs Environments_ List
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: azure-test-labs-environments.environmentslist
+      with:
+        labName: tools.labName
+        userName: tools.userName
+        $expand: tools.$expand
+        $filter: tools.$filter
+        $top: tools.$top
+        $orderby: tools.$orderby
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: azure-devtest-labs-environments-delete
+      description: Azure DevTest Labs Environments_ Delete
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: azure-test-labs-environments.environmentsdelete
+      with:
+        labName: tools.labName
+        userName: tools.userName
+        name: tools.name
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: azure-devtest-labs-environments-get
+      description: Azure DevTest Labs Environments_ Get
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: azure-test-labs-environments.environmentsget
+      with:
+        labName: tools.labName
+        userName: tools.userName
+        name: tools.name
+        $expand: tools.$expand
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: azure-devtest-labs-environments-update
+      description: Azure DevTest Labs Environments_ Update
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: azure-test-labs-environments.environmentsupdate
+      with:
+        labName: tools.labName
+        userName: tools.userName
+        name: tools.name
+        dtlEnvironment: tools.dtlEnvironment
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: azure-devtest-labs-environments-create
+      description: Azure DevTest Labs Environments_ Create or Update
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: azure-test-labs-environments.environmentscreateorupdate
+      with:
+        labName: tools.labName
+        userName: tools.userName
+        name: tools.name
+        dtlEnvironment: tools.dtlEnvironment
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,387 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: DevTestLabsClient — VirtualMachineSchedules
+  description: 'DevTestLabsClient — VirtualMachineSchedules. 6 operations. Lead operation: Azure DevTest Labs Virtual Machine
+    Schedules_ List. Self-contained Naftiko capability covering one Azure Test Labs business surface.'
+  tags:
+  - Azure Test Labs
+  - VirtualMachineSchedules
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AZURE_TEST_LABS_API_KEY: AZURE_TEST_LABS_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: azure-test-labs-virtualmachineschedules
+    baseUri: https://management.azure.com
+    description: DevTestLabsClient — VirtualMachineSchedules business capability. Self-contained, no shared references.
+    resources:
+    - name: subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof
+      path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/virtualmachines/{virtualMachineName}/schedules
+      operations:
+      - name: virtualmachinescheduleslist
+        method: GET
+        description: Azure DevTest Labs Virtual Machine Schedules_ List
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: labName
+          in: path
+          type: string
+          description: The name of the lab.
+          required: true
+        - name: virtualMachineName
+          in: path
+          type: string
+          description: The name of the virtual machine.
+          required: true
+        - name: $expand
+          in: query
+          type: string
+          description: 'Specify the $expand query. Example: ''properties($select=status)'''
+        - name: $filter
+          in: query
+          type: string
+          description: 'The filter to apply to the operation. Example: ''$filter=contains(name,''myName'')'
+        - name: $top
+          in: query
+          type: integer
+          description: 'The maximum number of resources to return from the operation. Example: ''$top=10'''
+        - name: $orderby
+          in: query
+          type: string
+          description: 'The ordering expression for the results, using OData notation. Example: ''$orderby=name desc'''
+    - name: subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof
+      path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/virtualmachines/{virtualMachineName}/schedules/{name}
+      operations:
+      - name: virtualmachineschedulesdelete
+        method: DELETE
+        description: Azure DevTest Labs Virtual Machine Schedules_ Delete
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: labName
+          in: path
+          type: string
+          description: The name of the lab.
+          required: true
+        - name: virtualMachineName
+          in: path
+          type: string
+          description: The name of the virtual machine.
+          required: true
+        - name: name
+          in: path
+          type: string
+          description: The name of the schedule.
+          required: true
+      - name: virtualmachineschedulesget
+        method: GET
+        description: Azure DevTest Labs Virtual Machine Schedules_ Get
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: labName
+          in: path
+          type: string
+          description: The name of the lab.
+          required: true
+        - name: virtualMachineName
+          in: path
+          type: string
+          description: The name of the virtual machine.
+          required: true
+        - name: name
+          in: path
+          type: string
+          description: The name of the schedule.
+          required: true
+        - name: $expand
+          in: query
+          type: string
+          description: 'Specify the $expand query. Example: ''properties($select=status)'''
+      - name: virtualmachineschedulesupdate
+        method: PATCH
+        description: Azure DevTest Labs Virtual Machine Schedules_ Update
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: labName
+          in: path
+          type: string
+          description: The name of the lab.
+          required: true
+        - name: virtualMachineName
+          in: path
+          type: string
+          description: The name of the virtual machine.
+          required: true
+        - name: name
+          in: path
+          type: string
+          description: The name of the schedule.
+          required: true
+        - name: schedule
+          in: body
+          type: string
+          description: A schedule.
+          required: true
+      - name: virtualmachineschedulescreateorupdate
+        method: PUT
+        description: Azure DevTest Labs Virtual Machine Schedules_ Create or Update
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: labName
+          in: path
+          type: string
+          description: The name of the lab.
+          required: true
+        - name: virtualMachineName
+          in: path
+          type: string
+          description: The name of the virtual machine.
+          required: true
+        - name: name
+          in: path
+          type: string
+          description: The name of the schedule.
+          required: true
+        - name: schedule
+          in: body
+          type: string
+          description: A schedule.
+          required: true
+    - name: subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof
+      path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/virtualmachines/{virtualMachineName}/schedules/{name}/execute
+      operations:
+      - name: virtualmachineschedulesexecute
+        method: POST
+        description: Azure DevTest Labs Virtual Machine Schedules_ Execute
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: labName
+          in: path
+          type: string
+          description: The name of the lab.
+          required: true
+        - name: virtualMachineName
+          in: path
+          type: string
+          description: The name of the virtual machine.
+          required: true
+        - name: name
+          in: path
+          type: string
+          description: The name of the schedule.
+          required: true
+  exposes:
+  - type: rest
+    namespace: azure-test-labs-virtualmachineschedules-rest
+    port: 8080
+    description: REST adapter for DevTestLabsClient — VirtualMachineSchedules. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft-devtestlab/labs/{labname}/virtualmachines/{virtualmachinename}/schedules
+      name: subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsof
+      description: REST surface for subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof.
+      operations:
+      - method: GET
+        name: virtualmachinescheduleslist
+        description: Azure DevTest Labs Virtual Machine Schedules_ List
+        call: azure-test-labs-virtualmachineschedules.virtualmachinescheduleslist
+        with:
+          labName: rest.labName
+          virtualMachineName: rest.virtualMachineName
+          $expand: rest.$expand
+          $filter: rest.$filter
+          $top: rest.$top
+          $orderby: rest.$orderby
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft-devtestlab/labs/{labname}/virtualmachines/{virtualmachinename}/schedules/{name}
+      name: subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsof
+      description: REST surface for subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof.
+      operations:
+      - method: DELETE
+        name: virtualmachineschedulesdelete
+        description: Azure DevTest Labs Virtual Machine Schedules_ Delete
+        call: azure-test-labs-virtualmachineschedules.virtualmachineschedulesdelete
+        with:
+          labName: rest.labName
+          virtualMachineName: rest.virtualMachineName
+          name: rest.name
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: virtualmachineschedulesget
+        description: Azure DevTest Labs Virtual Machine Schedules_ Get
+        call: azure-test-labs-virtualmachineschedules.virtualmachineschedulesget
+        with:
+          labName: rest.labName
+          virtualMachineName: rest.virtualMachineName
+          name: rest.name
+          $expand: rest.$expand
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: virtualmachineschedulesupdate
+        description: Azure DevTest Labs Virtual Machine Schedules_ Update
+        call: azure-test-labs-virtualmachineschedules.virtualmachineschedulesupdate
+        with:
+          labName: rest.labName
+          virtualMachineName: rest.virtualMachineName
+          name: rest.name
+          schedule: rest.schedule
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: virtualmachineschedulescreateorupdate
+        description: Azure DevTest Labs Virtual Machine Schedules_ Create or Update
+        call: azure-test-labs-virtualmachineschedules.virtualmachineschedulescreateorupdate
+        with:
+          labName: rest.labName
+          virtualMachineName: rest.virtualMachineName
+          name: rest.name
+          schedule: rest.schedule
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft-devtestlab/labs/{labname}/virtualmachines/{virtualmachinename}/schedules/{name}/execute
+      name: subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsof
+      description: REST surface for subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof.
+      operations:
+      - method: POST
+        name: virtualmachineschedulesexecute
+        description: Azure DevTest Labs Virtual Machine Schedules_ Execute
+        call: azure-test-labs-virtualmachineschedules.virtualmachineschedulesexecute
+        with:
+          labName: rest.labName
+          virtualMachineName: rest.virtualMachineName
+          name: rest.name
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: azure-test-labs-virtualmachineschedules-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for DevTestLabsClient — VirtualMachineSchedules. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: azure-devtest-labs-virtual-machine
+      description: Azure DevTest Labs Virtual Machine Schedules_ List
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: azure-test-labs-virtualmachineschedules.virtualmachinescheduleslist
+      with:
+        labName: tools.labName
+        virtualMachineName: tools.virtualMachineName
+        $expand: tools.$expand
+        $filter: tools.$filter
+        $top: tools.$top
+        $orderby: tools.$orderby
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: azure-devtest-labs-virtual-machine-2
+      description: Azure DevTest Labs Virtual Machine Schedules_ Delete
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: azure-test-labs-virtualmachineschedules.virtualmachineschedulesdelete
+      with:
+        labName: tools.labName
+        virtualMachineName: tools.virtualMachineName
+        name: tools.name
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: azure-devtest-labs-virtual-machine-3
+      description: Azure DevTest Labs Virtual Machine Schedules_ Get
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: azure-test-labs-virtualmachineschedules.virtualmachineschedulesget
+      with:
+        labName: tools.labName
+        virtualMachineName: tools.virtualMachineName
+        name: tools.name
+        $expand: tools.$expand
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: azure-devtest-labs-virtual-machine-4
+      description: Azure DevTest Labs Virtual Machine Schedules_ Update
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: azure-test-labs-virtualmachineschedules.virtualmachineschedulesupdate
+      with:
+        labName: tools.labName
+        virtualMachineName: tools.virtualMachineName
+        name: tools.name
+        schedule: tools.schedule
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: azure-devtest-labs-virtual-machine-5
+      description: Azure DevTest Labs Virtual Machine Schedules_ Create or Update
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: azure-test-labs-virtualmachineschedules.virtualmachineschedulescreateorupdate
+      with:
+        labName: tools.labName
+        virtualMachineName: tools.virtualMachineName
+        name: tools.name
+        schedule: tools.schedule
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: azure-devtest-labs-virtual-machine-6
+      description: Azure DevTest Labs Virtual Machine Schedules_ Execute
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: azure-test-labs-virtualmachineschedules.virtualmachineschedulesexecute
+      with:
+        labName: tools.labName
+        virtualMachineName: tools.virtualMachineName
+        name: tools.name
+      outputParameters:
+      - type: object
+        mapping: $.

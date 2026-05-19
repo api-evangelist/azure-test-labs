@@ -1,0 +1,175 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: DevTestLabsClient — ServiceRunners
+  description: 'DevTestLabsClient — ServiceRunners. 3 operations. Lead operation: Azure DevTest Labs Service Runners_ Delete.
+    Self-contained Naftiko capability covering one Azure Test Labs business surface.'
+  tags:
+  - Azure Test Labs
+  - ServiceRunners
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AZURE_TEST_LABS_API_KEY: AZURE_TEST_LABS_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: azure-test-labs-servicerunners
+    baseUri: https://management.azure.com
+    description: DevTestLabsClient — ServiceRunners business capability. Self-contained, no shared references.
+    resources:
+    - name: subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof
+      path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/servicerunners/{name}
+      operations:
+      - name: servicerunnersdelete
+        method: DELETE
+        description: Azure DevTest Labs Service Runners_ Delete
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: labName
+          in: path
+          type: string
+          description: The name of the lab.
+          required: true
+        - name: name
+          in: path
+          type: string
+          description: The name of the service runner.
+          required: true
+      - name: servicerunnersget
+        method: GET
+        description: Azure DevTest Labs Service Runners_ Get
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: labName
+          in: path
+          type: string
+          description: The name of the lab.
+          required: true
+        - name: name
+          in: path
+          type: string
+          description: The name of the service runner.
+          required: true
+      - name: servicerunnerscreateorupdate
+        method: PUT
+        description: Azure DevTest Labs Service Runners_ Create or Update
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: labName
+          in: path
+          type: string
+          description: The name of the lab.
+          required: true
+        - name: name
+          in: path
+          type: string
+          description: The name of the service runner.
+          required: true
+        - name: serviceRunner
+          in: body
+          type: string
+          description: A container for a managed identity to execute DevTest lab services.
+          required: true
+  exposes:
+  - type: rest
+    namespace: azure-test-labs-servicerunners-rest
+    port: 8080
+    description: REST adapter for DevTestLabsClient — ServiceRunners. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft-devtestlab/labs/{labname}/servicerunners/{name}
+      name: subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsof
+      description: REST surface for subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof.
+      operations:
+      - method: DELETE
+        name: servicerunnersdelete
+        description: Azure DevTest Labs Service Runners_ Delete
+        call: azure-test-labs-servicerunners.servicerunnersdelete
+        with:
+          labName: rest.labName
+          name: rest.name
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: servicerunnersget
+        description: Azure DevTest Labs Service Runners_ Get
+        call: azure-test-labs-servicerunners.servicerunnersget
+        with:
+          labName: rest.labName
+          name: rest.name
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: servicerunnerscreateorupdate
+        description: Azure DevTest Labs Service Runners_ Create or Update
+        call: azure-test-labs-servicerunners.servicerunnerscreateorupdate
+        with:
+          labName: rest.labName
+          name: rest.name
+          serviceRunner: rest.serviceRunner
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: azure-test-labs-servicerunners-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for DevTestLabsClient — ServiceRunners. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: azure-devtest-labs-service-runners
+      description: Azure DevTest Labs Service Runners_ Delete
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: azure-test-labs-servicerunners.servicerunnersdelete
+      with:
+        labName: tools.labName
+        name: tools.name
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: azure-devtest-labs-service-runners-2
+      description: Azure DevTest Labs Service Runners_ Get
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: azure-test-labs-servicerunners.servicerunnersget
+      with:
+        labName: tools.labName
+        name: tools.name
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: azure-devtest-labs-service-runners-3
+      description: Azure DevTest Labs Service Runners_ Create or Update
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: azure-test-labs-servicerunners.servicerunnerscreateorupdate
+      with:
+        labName: tools.labName
+        name: tools.name
+        serviceRunner: tools.serviceRunner
+      outputParameters:
+      - type: object
+        mapping: $.

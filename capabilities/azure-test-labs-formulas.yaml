@@ -1,0 +1,296 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: DevTestLabsClient — Formulas
+  description: 'DevTestLabsClient — Formulas. 5 operations. Lead operation: Azure DevTest Labs Formulas_ List. Self-contained
+    Naftiko capability covering one Azure Test Labs business surface.'
+  tags:
+  - Azure Test Labs
+  - Formulas
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AZURE_TEST_LABS_API_KEY: AZURE_TEST_LABS_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: azure-test-labs-formulas
+    baseUri: https://management.azure.com
+    description: DevTestLabsClient — Formulas business capability. Self-contained, no shared references.
+    resources:
+    - name: subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof
+      path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/formulas
+      operations:
+      - name: formulaslist
+        method: GET
+        description: Azure DevTest Labs Formulas_ List
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: labName
+          in: path
+          type: string
+          description: The name of the lab.
+          required: true
+        - name: $expand
+          in: query
+          type: string
+          description: 'Specify the $expand query. Example: ''properties($select=description)'''
+        - name: $filter
+          in: query
+          type: string
+          description: 'The filter to apply to the operation. Example: ''$filter=contains(name,''myName'')'
+        - name: $top
+          in: query
+          type: integer
+          description: 'The maximum number of resources to return from the operation. Example: ''$top=10'''
+        - name: $orderby
+          in: query
+          type: string
+          description: 'The ordering expression for the results, using OData notation. Example: ''$orderby=name desc'''
+    - name: subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof
+      path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/formulas/{name}
+      operations:
+      - name: formulasdelete
+        method: DELETE
+        description: Azure DevTest Labs Formulas_ Delete
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: labName
+          in: path
+          type: string
+          description: The name of the lab.
+          required: true
+        - name: name
+          in: path
+          type: string
+          description: The name of the formula.
+          required: true
+      - name: formulasget
+        method: GET
+        description: Azure DevTest Labs Formulas_ Get
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: labName
+          in: path
+          type: string
+          description: The name of the lab.
+          required: true
+        - name: name
+          in: path
+          type: string
+          description: The name of the formula.
+          required: true
+        - name: $expand
+          in: query
+          type: string
+          description: 'Specify the $expand query. Example: ''properties($select=description)'''
+      - name: formulasupdate
+        method: PATCH
+        description: Azure DevTest Labs Formulas_ Update
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: labName
+          in: path
+          type: string
+          description: The name of the lab.
+          required: true
+        - name: name
+          in: path
+          type: string
+          description: The name of the formula.
+          required: true
+        - name: formula
+          in: body
+          type: string
+          description: A formula for creating a VM, specifying an image base and other parameters
+          required: true
+      - name: formulascreateorupdate
+        method: PUT
+        description: Azure DevTest Labs Formulas_ Create or Update
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: labName
+          in: path
+          type: string
+          description: The name of the lab.
+          required: true
+        - name: name
+          in: path
+          type: string
+          description: The name of the formula.
+          required: true
+        - name: formula
+          in: body
+          type: string
+          description: A formula for creating a VM, specifying an image base and other parameters
+          required: true
+  exposes:
+  - type: rest
+    namespace: azure-test-labs-formulas-rest
+    port: 8080
+    description: REST adapter for DevTestLabsClient — Formulas. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft-devtestlab/labs/{labname}/formulas
+      name: subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsof
+      description: REST surface for subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof.
+      operations:
+      - method: GET
+        name: formulaslist
+        description: Azure DevTest Labs Formulas_ List
+        call: azure-test-labs-formulas.formulaslist
+        with:
+          labName: rest.labName
+          $expand: rest.$expand
+          $filter: rest.$filter
+          $top: rest.$top
+          $orderby: rest.$orderby
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft-devtestlab/labs/{labname}/formulas/{name}
+      name: subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsof
+      description: REST surface for subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof.
+      operations:
+      - method: DELETE
+        name: formulasdelete
+        description: Azure DevTest Labs Formulas_ Delete
+        call: azure-test-labs-formulas.formulasdelete
+        with:
+          labName: rest.labName
+          name: rest.name
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: formulasget
+        description: Azure DevTest Labs Formulas_ Get
+        call: azure-test-labs-formulas.formulasget
+        with:
+          labName: rest.labName
+          name: rest.name
+          $expand: rest.$expand
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: formulasupdate
+        description: Azure DevTest Labs Formulas_ Update
+        call: azure-test-labs-formulas.formulasupdate
+        with:
+          labName: rest.labName
+          name: rest.name
+          formula: rest.formula
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: formulascreateorupdate
+        description: Azure DevTest Labs Formulas_ Create or Update
+        call: azure-test-labs-formulas.formulascreateorupdate
+        with:
+          labName: rest.labName
+          name: rest.name
+          formula: rest.formula
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: azure-test-labs-formulas-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for DevTestLabsClient — Formulas. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: azure-devtest-labs-formulas-list
+      description: Azure DevTest Labs Formulas_ List
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: azure-test-labs-formulas.formulaslist
+      with:
+        labName: tools.labName
+        $expand: tools.$expand
+        $filter: tools.$filter
+        $top: tools.$top
+        $orderby: tools.$orderby
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: azure-devtest-labs-formulas-delete
+      description: Azure DevTest Labs Formulas_ Delete
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: azure-test-labs-formulas.formulasdelete
+      with:
+        labName: tools.labName
+        name: tools.name
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: azure-devtest-labs-formulas-get
+      description: Azure DevTest Labs Formulas_ Get
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: azure-test-labs-formulas.formulasget
+      with:
+        labName: tools.labName
+        name: tools.name
+        $expand: tools.$expand
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: azure-devtest-labs-formulas-update
+      description: Azure DevTest Labs Formulas_ Update
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: azure-test-labs-formulas.formulasupdate
+      with:
+        labName: tools.labName
+        name: tools.name
+        formula: tools.formula
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: azure-devtest-labs-formulas-create
+      description: Azure DevTest Labs Formulas_ Create or Update
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: azure-test-labs-formulas.formulascreateorupdate
+      with:
+        labName: tools.labName
+        name: tools.name
+        formula: tools.formula
+      outputParameters:
+      - type: object
+        mapping: $.

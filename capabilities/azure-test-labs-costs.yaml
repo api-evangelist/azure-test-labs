@@ -1,0 +1,139 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: DevTestLabsClient — Costs
+  description: 'DevTestLabsClient — Costs. 2 operations. Lead operation: Azure DevTest Labs Costs_ Get. Self-contained Naftiko
+    capability covering one Azure Test Labs business surface.'
+  tags:
+  - Azure Test Labs
+  - Costs
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AZURE_TEST_LABS_API_KEY: AZURE_TEST_LABS_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: azure-test-labs-costs
+    baseUri: https://management.azure.com
+    description: DevTestLabsClient — Costs business capability. Self-contained, no shared references.
+    resources:
+    - name: subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof
+      path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/costs/{name}
+      operations:
+      - name: costsget
+        method: GET
+        description: Azure DevTest Labs Costs_ Get
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: labName
+          in: path
+          type: string
+          description: The name of the lab.
+          required: true
+        - name: name
+          in: path
+          type: string
+          description: The name of the cost.
+          required: true
+        - name: $expand
+          in: query
+          type: string
+          description: 'Specify the $expand query. Example: ''properties($expand=labCostDetails)'''
+      - name: costscreateorupdate
+        method: PUT
+        description: Azure DevTest Labs Costs_ Create or Update
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: labName
+          in: path
+          type: string
+          description: The name of the lab.
+          required: true
+        - name: name
+          in: path
+          type: string
+          description: The name of the cost.
+          required: true
+        - name: labCost
+          in: body
+          type: string
+          description: A cost item.
+          required: true
+  exposes:
+  - type: rest
+    namespace: azure-test-labs-costs-rest
+    port: 8080
+    description: REST adapter for DevTestLabsClient — Costs. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft-devtestlab/labs/{labname}/costs/{name}
+      name: subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsof
+      description: REST surface for subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof.
+      operations:
+      - method: GET
+        name: costsget
+        description: Azure DevTest Labs Costs_ Get
+        call: azure-test-labs-costs.costsget
+        with:
+          labName: rest.labName
+          name: rest.name
+          $expand: rest.$expand
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: costscreateorupdate
+        description: Azure DevTest Labs Costs_ Create or Update
+        call: azure-test-labs-costs.costscreateorupdate
+        with:
+          labName: rest.labName
+          name: rest.name
+          labCost: rest.labCost
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: azure-test-labs-costs-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for DevTestLabsClient — Costs. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: azure-devtest-labs-costs-get
+      description: Azure DevTest Labs Costs_ Get
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: azure-test-labs-costs.costsget
+      with:
+        labName: tools.labName
+        name: tools.name
+        $expand: tools.$expand
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: azure-devtest-labs-costs-create
+      description: Azure DevTest Labs Costs_ Create or Update
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: azure-test-labs-costs.costscreateorupdate
+      with:
+        labName: tools.labName
+        name: tools.name
+        labCost: tools.labCost
+      outputParameters:
+      - type: object
+        mapping: $.

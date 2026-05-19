@@ -1,0 +1,499 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: DevTestLabsClient — ServiceFabrics
+  description: 'DevTestLabsClient — ServiceFabrics. 8 operations. Lead operation: Azure DevTest Labs Service Fabrics_ List.
+    Self-contained Naftiko capability covering one Azure Test Labs business surface.'
+  tags:
+  - Azure Test Labs
+  - ServiceFabrics
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AZURE_TEST_LABS_API_KEY: AZURE_TEST_LABS_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: azure-test-labs-servicefabrics
+    baseUri: https://management.azure.com
+    description: DevTestLabsClient — ServiceFabrics business capability. Self-contained, no shared references.
+    resources:
+    - name: subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof
+      path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/users/{userName}/servicefabrics
+      operations:
+      - name: servicefabricslist
+        method: GET
+        description: Azure DevTest Labs Service Fabrics_ List
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: labName
+          in: path
+          type: string
+          description: The name of the lab.
+          required: true
+        - name: userName
+          in: path
+          type: string
+          description: The name of the user profile.
+          required: true
+        - name: $expand
+          in: query
+          type: string
+          description: 'Specify the $expand query. Example: ''properties($expand=applicableSchedule)'''
+        - name: $filter
+          in: query
+          type: string
+          description: 'The filter to apply to the operation. Example: ''$filter=contains(name,''myName'')'
+        - name: $top
+          in: query
+          type: integer
+          description: 'The maximum number of resources to return from the operation. Example: ''$top=10'''
+        - name: $orderby
+          in: query
+          type: string
+          description: 'The ordering expression for the results, using OData notation. Example: ''$orderby=name desc'''
+    - name: subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof
+      path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/users/{userName}/servicefabrics/{name}
+      operations:
+      - name: servicefabricsdelete
+        method: DELETE
+        description: Azure DevTest Labs Service Fabrics_ Delete
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: labName
+          in: path
+          type: string
+          description: The name of the lab.
+          required: true
+        - name: userName
+          in: path
+          type: string
+          description: The name of the user profile.
+          required: true
+        - name: name
+          in: path
+          type: string
+          description: The name of the service fabric.
+          required: true
+      - name: servicefabricsget
+        method: GET
+        description: Azure DevTest Labs Service Fabrics_ Get
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: labName
+          in: path
+          type: string
+          description: The name of the lab.
+          required: true
+        - name: userName
+          in: path
+          type: string
+          description: The name of the user profile.
+          required: true
+        - name: name
+          in: path
+          type: string
+          description: The name of the service fabric.
+          required: true
+        - name: $expand
+          in: query
+          type: string
+          description: 'Specify the $expand query. Example: ''properties($expand=applicableSchedule)'''
+      - name: servicefabricsupdate
+        method: PATCH
+        description: Azure DevTest Labs Service Fabrics_ Update
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: labName
+          in: path
+          type: string
+          description: The name of the lab.
+          required: true
+        - name: userName
+          in: path
+          type: string
+          description: The name of the user profile.
+          required: true
+        - name: name
+          in: path
+          type: string
+          description: The name of the service fabric.
+          required: true
+        - name: serviceFabric
+          in: body
+          type: string
+          description: A Service Fabric.
+          required: true
+      - name: servicefabricscreateorupdate
+        method: PUT
+        description: Azure DevTest Labs Service Fabrics_ Create or Update
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: labName
+          in: path
+          type: string
+          description: The name of the lab.
+          required: true
+        - name: userName
+          in: path
+          type: string
+          description: The name of the user profile.
+          required: true
+        - name: name
+          in: path
+          type: string
+          description: The name of the service fabric.
+          required: true
+        - name: serviceFabric
+          in: body
+          type: string
+          description: A Service Fabric.
+          required: true
+    - name: subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof
+      path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/users/{userName}/servicefabrics/{name}/listApplicableSchedules
+      operations:
+      - name: servicefabricslistapplicableschedules
+        method: POST
+        description: Azure DevTest Labs Service Fabrics_ List Applicable Schedules
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: labName
+          in: path
+          type: string
+          description: The name of the lab.
+          required: true
+        - name: userName
+          in: path
+          type: string
+          description: The name of the user profile.
+          required: true
+        - name: name
+          in: path
+          type: string
+          description: The name of the service fabric.
+          required: true
+    - name: subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof
+      path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/users/{userName}/servicefabrics/{name}/start
+      operations:
+      - name: servicefabricsstart
+        method: POST
+        description: Azure DevTest Labs Service Fabrics_ Start
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: labName
+          in: path
+          type: string
+          description: The name of the lab.
+          required: true
+        - name: userName
+          in: path
+          type: string
+          description: The name of the user profile.
+          required: true
+        - name: name
+          in: path
+          type: string
+          description: The name of the service fabric.
+          required: true
+    - name: subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof
+      path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/users/{userName}/servicefabrics/{name}/stop
+      operations:
+      - name: servicefabricsstop
+        method: POST
+        description: Azure DevTest Labs Service Fabrics_ Stop
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: labName
+          in: path
+          type: string
+          description: The name of the lab.
+          required: true
+        - name: userName
+          in: path
+          type: string
+          description: The name of the user profile.
+          required: true
+        - name: name
+          in: path
+          type: string
+          description: The name of the service fabric.
+          required: true
+  exposes:
+  - type: rest
+    namespace: azure-test-labs-servicefabrics-rest
+    port: 8080
+    description: REST adapter for DevTestLabsClient — ServiceFabrics. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft-devtestlab/labs/{labname}/users/{username}/servicefabrics
+      name: subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsof
+      description: REST surface for subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof.
+      operations:
+      - method: GET
+        name: servicefabricslist
+        description: Azure DevTest Labs Service Fabrics_ List
+        call: azure-test-labs-servicefabrics.servicefabricslist
+        with:
+          labName: rest.labName
+          userName: rest.userName
+          $expand: rest.$expand
+          $filter: rest.$filter
+          $top: rest.$top
+          $orderby: rest.$orderby
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft-devtestlab/labs/{labname}/users/{username}/servicefabrics/{name}
+      name: subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsof
+      description: REST surface for subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof.
+      operations:
+      - method: DELETE
+        name: servicefabricsdelete
+        description: Azure DevTest Labs Service Fabrics_ Delete
+        call: azure-test-labs-servicefabrics.servicefabricsdelete
+        with:
+          labName: rest.labName
+          userName: rest.userName
+          name: rest.name
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: servicefabricsget
+        description: Azure DevTest Labs Service Fabrics_ Get
+        call: azure-test-labs-servicefabrics.servicefabricsget
+        with:
+          labName: rest.labName
+          userName: rest.userName
+          name: rest.name
+          $expand: rest.$expand
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: servicefabricsupdate
+        description: Azure DevTest Labs Service Fabrics_ Update
+        call: azure-test-labs-servicefabrics.servicefabricsupdate
+        with:
+          labName: rest.labName
+          userName: rest.userName
+          name: rest.name
+          serviceFabric: rest.serviceFabric
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: servicefabricscreateorupdate
+        description: Azure DevTest Labs Service Fabrics_ Create or Update
+        call: azure-test-labs-servicefabrics.servicefabricscreateorupdate
+        with:
+          labName: rest.labName
+          userName: rest.userName
+          name: rest.name
+          serviceFabric: rest.serviceFabric
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft-devtestlab/labs/{labname}/users/{username}/servicefabrics/{name}/listapplicableschedules
+      name: subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsof
+      description: REST surface for subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof.
+      operations:
+      - method: POST
+        name: servicefabricslistapplicableschedules
+        description: Azure DevTest Labs Service Fabrics_ List Applicable Schedules
+        call: azure-test-labs-servicefabrics.servicefabricslistapplicableschedules
+        with:
+          labName: rest.labName
+          userName: rest.userName
+          name: rest.name
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft-devtestlab/labs/{labname}/users/{username}/servicefabrics/{name}/start
+      name: subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsof
+      description: REST surface for subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof.
+      operations:
+      - method: POST
+        name: servicefabricsstart
+        description: Azure DevTest Labs Service Fabrics_ Start
+        call: azure-test-labs-servicefabrics.servicefabricsstart
+        with:
+          labName: rest.labName
+          userName: rest.userName
+          name: rest.name
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft-devtestlab/labs/{labname}/users/{username}/servicefabrics/{name}/stop
+      name: subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsof
+      description: REST surface for subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof.
+      operations:
+      - method: POST
+        name: servicefabricsstop
+        description: Azure DevTest Labs Service Fabrics_ Stop
+        call: azure-test-labs-servicefabrics.servicefabricsstop
+        with:
+          labName: rest.labName
+          userName: rest.userName
+          name: rest.name
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: azure-test-labs-servicefabrics-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for DevTestLabsClient — ServiceFabrics. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: azure-devtest-labs-service-fabrics
+      description: Azure DevTest Labs Service Fabrics_ List
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: azure-test-labs-servicefabrics.servicefabricslist
+      with:
+        labName: tools.labName
+        userName: tools.userName
+        $expand: tools.$expand
+        $filter: tools.$filter
+        $top: tools.$top
+        $orderby: tools.$orderby
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: azure-devtest-labs-service-fabrics-2
+      description: Azure DevTest Labs Service Fabrics_ Delete
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: azure-test-labs-servicefabrics.servicefabricsdelete
+      with:
+        labName: tools.labName
+        userName: tools.userName
+        name: tools.name
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: azure-devtest-labs-service-fabrics-3
+      description: Azure DevTest Labs Service Fabrics_ Get
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: azure-test-labs-servicefabrics.servicefabricsget
+      with:
+        labName: tools.labName
+        userName: tools.userName
+        name: tools.name
+        $expand: tools.$expand
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: azure-devtest-labs-service-fabrics-4
+      description: Azure DevTest Labs Service Fabrics_ Update
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: azure-test-labs-servicefabrics.servicefabricsupdate
+      with:
+        labName: tools.labName
+        userName: tools.userName
+        name: tools.name
+        serviceFabric: tools.serviceFabric
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: azure-devtest-labs-service-fabrics-5
+      description: Azure DevTest Labs Service Fabrics_ Create or Update
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: azure-test-labs-servicefabrics.servicefabricscreateorupdate
+      with:
+        labName: tools.labName
+        userName: tools.userName
+        name: tools.name
+        serviceFabric: tools.serviceFabric
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: azure-devtest-labs-service-fabrics-6
+      description: Azure DevTest Labs Service Fabrics_ List Applicable Schedules
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: azure-test-labs-servicefabrics.servicefabricslistapplicableschedules
+      with:
+        labName: tools.labName
+        userName: tools.userName
+        name: tools.name
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: azure-devtest-labs-service-fabrics-7
+      description: Azure DevTest Labs Service Fabrics_ Start
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: azure-test-labs-servicefabrics.servicefabricsstart
+      with:
+        labName: tools.labName
+        userName: tools.userName
+        name: tools.name
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: azure-devtest-labs-service-fabrics-8
+      description: Azure DevTest Labs Service Fabrics_ Stop
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: azure-test-labs-servicefabrics.servicefabricsstop
+      with:
+        labName: tools.labName
+        userName: tools.userName
+        name: tools.name
+      outputParameters:
+      - type: object
+        mapping: $.

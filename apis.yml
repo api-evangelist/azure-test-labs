@@ -1,10 +1,8 @@
 aid: azure-test-labs
 name: Azure DevTest Labs
-description: >-
-  Azure DevTest Labs enables developers to efficiently self-manage virtual
-  machines and PaaS resources without waiting for approvals. DevTest Labs
-  creates labs consisting of pre-configured bases or Azure Resource Manager
-  templates for development and testing purposes.
+description: Azure DevTest Labs enables developers to efficiently self-manage virtual machines and PaaS resources without
+  waiting for approvals. DevTest Labs creates labs consisting of pre-configured bases or Azure Resource Manager templates
+  for development and testing purposes.
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
@@ -14,18 +12,15 @@ tags:
 - Labs
 - Testing
 - Virtual Machines
-url: >-
-  https://raw.githubusercontent.com/api-evangelist/azure-test-labs/refs/heads/main/apis.yml
+url: https://raw.githubusercontent.com/api-evangelist/azure-test-labs/refs/heads/main/apis.yml
 created: '2024-01-01'
-modified: '2026-04-19'
+modified: '2026-05-19'
 specificationVersion: '0.19'
 apis:
 - aid: azure-test-labs:azure-devtest-labs-api
   name: Azure DevTest Labs API
-  description: >-
-    The DevTest Labs Client enables you to manage virtual machines,
-    environments, artifacts, formulas, and custom images for development
-    and testing purposes.
+  description: The DevTest Labs Client enables you to manage virtual machines, environments, artifacts, formulas, and custom
+    images for development and testing purposes.
   humanURL: https://azure.microsoft.com/en-us/services/devtest-lab/
   baseURL: https://management.azure.com
   tags:
@@ -38,6 +33,56 @@ apis:
     url: https://docs.microsoft.com/en-us/azure/devtest-labs/
   - type: OpenAPI
     url: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/main/specification/devtestlabs/resource-manager/Microsoft.DevTestLab/stable/2018-09-15/DevTestLabs.json
+  - type: NaftikoCapability
+    url: capabilities/azure-test-labs-armtemplates.yaml
+  - type: NaftikoCapability
+    url: capabilities/azure-test-labs-artifactsources.yaml
+  - type: NaftikoCapability
+    url: capabilities/azure-test-labs-artifacts.yaml
+  - type: NaftikoCapability
+    url: capabilities/azure-test-labs-costs.yaml
+  - type: NaftikoCapability
+    url: capabilities/azure-test-labs-customimages.yaml
+  - type: NaftikoCapability
+    url: capabilities/azure-test-labs-disks.yaml
+  - type: NaftikoCapability
+    url: capabilities/azure-test-labs-environments.yaml
+  - type: NaftikoCapability
+    url: capabilities/azure-test-labs-formulas.yaml
+  - type: NaftikoCapability
+    url: capabilities/azure-test-labs-galleryimages.yaml
+  - type: NaftikoCapability
+    url: capabilities/azure-test-labs-globalschedules.yaml
+  - type: NaftikoCapability
+    url: capabilities/azure-test-labs-labs.yaml
+  - type: NaftikoCapability
+    url: capabilities/azure-test-labs-notificationchannels.yaml
+  - type: NaftikoCapability
+    url: capabilities/azure-test-labs-operations.yaml
+  - type: NaftikoCapability
+    url: capabilities/azure-test-labs-policies.yaml
+  - type: NaftikoCapability
+    url: capabilities/azure-test-labs-policysets.yaml
+  - type: NaftikoCapability
+    url: capabilities/azure-test-labs-provideroperations.yaml
+  - type: NaftikoCapability
+    url: capabilities/azure-test-labs-schedules.yaml
+  - type: NaftikoCapability
+    url: capabilities/azure-test-labs-secrets.yaml
+  - type: NaftikoCapability
+    url: capabilities/azure-test-labs-servicefabricschedules.yaml
+  - type: NaftikoCapability
+    url: capabilities/azure-test-labs-servicefabrics.yaml
+  - type: NaftikoCapability
+    url: capabilities/azure-test-labs-servicerunners.yaml
+  - type: NaftikoCapability
+    url: capabilities/azure-test-labs-users.yaml
+  - type: NaftikoCapability
+    url: capabilities/azure-test-labs-virtualmachineschedules.yaml
+  - type: NaftikoCapability
+    url: capabilities/azure-test-labs-virtualmachines.yaml
+  - type: NaftikoCapability
+    url: capabilities/azure-test-labs-virtualnetworks.yaml
 common:
 - type: Portal
   url: https://portal.azure.com
@@ -61,10 +106,6 @@ common:
   url: https://raw.githubusercontent.com/api-evangelist/azure-test-labs/refs/heads/main/vocabulary/azure-test-labs-vocabulary.yaml
 - type: JSONLD
   url: https://raw.githubusercontent.com/api-evangelist/azure-test-labs/refs/heads/main/json-ld/azure-test-labs-context.jsonld
-- type: NaftikoCapability
-  url: https://raw.githubusercontent.com/api-evangelist/azure-test-labs/refs/heads/main/capabilities/azure-test-labs-management.yaml
-- type: NaftikoCapability
-  url: https://raw.githubusercontent.com/api-evangelist/azure-test-labs/refs/heads/main/capabilities/shared/azure-test-labs.yaml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com

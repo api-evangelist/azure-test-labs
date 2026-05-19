@@ -1,0 +1,352 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: DevTestLabsClient — NotificationChannels
+  description: 'DevTestLabsClient — NotificationChannels. 6 operations. Lead operation: Azure DevTest Labs Notification Channels_
+    List. Self-contained Naftiko capability covering one Azure Test Labs business surface.'
+  tags:
+  - Azure Test Labs
+  - NotificationChannels
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AZURE_TEST_LABS_API_KEY: AZURE_TEST_LABS_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: azure-test-labs-notificationchannels
+    baseUri: https://management.azure.com
+    description: DevTestLabsClient — NotificationChannels business capability. Self-contained, no shared references.
+    resources:
+    - name: subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof
+      path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/notificationchannels
+      operations:
+      - name: notificationchannelslist
+        method: GET
+        description: Azure DevTest Labs Notification Channels_ List
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: labName
+          in: path
+          type: string
+          description: The name of the lab.
+          required: true
+        - name: $expand
+          in: query
+          type: string
+          description: 'Specify the $expand query. Example: ''properties($select=webHookUrl)'''
+        - name: $filter
+          in: query
+          type: string
+          description: 'The filter to apply to the operation. Example: ''$filter=contains(name,''myName'')'
+        - name: $top
+          in: query
+          type: integer
+          description: 'The maximum number of resources to return from the operation. Example: ''$top=10'''
+        - name: $orderby
+          in: query
+          type: string
+          description: 'The ordering expression for the results, using OData notation. Example: ''$orderby=name desc'''
+    - name: subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof
+      path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/notificationchannels/{name}
+      operations:
+      - name: notificationchannelsdelete
+        method: DELETE
+        description: Azure DevTest Labs Notification Channels_ Delete
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: labName
+          in: path
+          type: string
+          description: The name of the lab.
+          required: true
+        - name: name
+          in: path
+          type: string
+          description: The name of the notification channel.
+          required: true
+      - name: notificationchannelsget
+        method: GET
+        description: Azure DevTest Labs Notification Channels_ Get
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: labName
+          in: path
+          type: string
+          description: The name of the lab.
+          required: true
+        - name: name
+          in: path
+          type: string
+          description: The name of the notification channel.
+          required: true
+        - name: $expand
+          in: query
+          type: string
+          description: 'Specify the $expand query. Example: ''properties($select=webHookUrl)'''
+      - name: notificationchannelsupdate
+        method: PATCH
+        description: Azure DevTest Labs Notification Channels_ Update
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: labName
+          in: path
+          type: string
+          description: The name of the lab.
+          required: true
+        - name: name
+          in: path
+          type: string
+          description: The name of the notification channel.
+          required: true
+        - name: notificationChannel
+          in: body
+          type: string
+          description: A notification.
+          required: true
+      - name: notificationchannelscreateorupdate
+        method: PUT
+        description: Azure DevTest Labs Notification Channels_ Create or Update
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: labName
+          in: path
+          type: string
+          description: The name of the lab.
+          required: true
+        - name: name
+          in: path
+          type: string
+          description: The name of the notification channel.
+          required: true
+        - name: notificationChannel
+          in: body
+          type: string
+          description: A notification.
+          required: true
+    - name: subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof
+      path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/notificationchannels/{name}/notify
+      operations:
+      - name: notificationchannelsnotify
+        method: POST
+        description: Azure DevTest Labs Notification Channels_ Notify
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: labName
+          in: path
+          type: string
+          description: The name of the lab.
+          required: true
+        - name: name
+          in: path
+          type: string
+          description: The name of the notification channel.
+          required: true
+        - name: notifyParameters
+          in: body
+          type: string
+          description: Properties for generating a Notification.
+          required: true
+  exposes:
+  - type: rest
+    namespace: azure-test-labs-notificationchannels-rest
+    port: 8080
+    description: REST adapter for DevTestLabsClient — NotificationChannels. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft-devtestlab/labs/{labname}/notificationchannels
+      name: subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsof
+      description: REST surface for subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof.
+      operations:
+      - method: GET
+        name: notificationchannelslist
+        description: Azure DevTest Labs Notification Channels_ List
+        call: azure-test-labs-notificationchannels.notificationchannelslist
+        with:
+          labName: rest.labName
+          $expand: rest.$expand
+          $filter: rest.$filter
+          $top: rest.$top
+          $orderby: rest.$orderby
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft-devtestlab/labs/{labname}/notificationchannels/{name}
+      name: subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsof
+      description: REST surface for subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof.
+      operations:
+      - method: DELETE
+        name: notificationchannelsdelete
+        description: Azure DevTest Labs Notification Channels_ Delete
+        call: azure-test-labs-notificationchannels.notificationchannelsdelete
+        with:
+          labName: rest.labName
+          name: rest.name
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: notificationchannelsget
+        description: Azure DevTest Labs Notification Channels_ Get
+        call: azure-test-labs-notificationchannels.notificationchannelsget
+        with:
+          labName: rest.labName
+          name: rest.name
+          $expand: rest.$expand
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: notificationchannelsupdate
+        description: Azure DevTest Labs Notification Channels_ Update
+        call: azure-test-labs-notificationchannels.notificationchannelsupdate
+        with:
+          labName: rest.labName
+          name: rest.name
+          notificationChannel: rest.notificationChannel
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: notificationchannelscreateorupdate
+        description: Azure DevTest Labs Notification Channels_ Create or Update
+        call: azure-test-labs-notificationchannels.notificationchannelscreateorupdate
+        with:
+          labName: rest.labName
+          name: rest.name
+          notificationChannel: rest.notificationChannel
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft-devtestlab/labs/{labname}/notificationchannels/{name}/notify
+      name: subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsof
+      description: REST surface for subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof.
+      operations:
+      - method: POST
+        name: notificationchannelsnotify
+        description: Azure DevTest Labs Notification Channels_ Notify
+        call: azure-test-labs-notificationchannels.notificationchannelsnotify
+        with:
+          labName: rest.labName
+          name: rest.name
+          notifyParameters: rest.notifyParameters
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: azure-test-labs-notificationchannels-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for DevTestLabsClient — NotificationChannels. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: azure-devtest-labs-notification-channels
+      description: Azure DevTest Labs Notification Channels_ List
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: azure-test-labs-notificationchannels.notificationchannelslist
+      with:
+        labName: tools.labName
+        $expand: tools.$expand
+        $filter: tools.$filter
+        $top: tools.$top
+        $orderby: tools.$orderby
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: azure-devtest-labs-notification-channels-2
+      description: Azure DevTest Labs Notification Channels_ Delete
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: azure-test-labs-notificationchannels.notificationchannelsdelete
+      with:
+        labName: tools.labName
+        name: tools.name
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: azure-devtest-labs-notification-channels-3
+      description: Azure DevTest Labs Notification Channels_ Get
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: azure-test-labs-notificationchannels.notificationchannelsget
+      with:
+        labName: tools.labName
+        name: tools.name
+        $expand: tools.$expand
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: azure-devtest-labs-notification-channels-4
+      description: Azure DevTest Labs Notification Channels_ Update
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: azure-test-labs-notificationchannels.notificationchannelsupdate
+      with:
+        labName: tools.labName
+        name: tools.name
+        notificationChannel: tools.notificationChannel
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: azure-devtest-labs-notification-channels-5
+      description: Azure DevTest Labs Notification Channels_ Create or Update
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: azure-test-labs-notificationchannels.notificationchannelscreateorupdate
+      with:
+        labName: tools.labName
+        name: tools.name
+        notificationChannel: tools.notificationChannel
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: azure-devtest-labs-notification-channels-6
+      description: Azure DevTest Labs Notification Channels_ Notify
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: azure-test-labs-notificationchannels.notificationchannelsnotify
+      with:
+        labName: tools.labName
+        name: tools.name
+        notifyParameters: tools.notifyParameters
+      outputParameters:
+      - type: object
+        mapping: $.
