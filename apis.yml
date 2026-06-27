@@ -33,55 +33,55 @@ apis:
     url: https://docs.microsoft.com/en-us/azure/devtest-labs/
   - type: OpenAPI
     url: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/main/specification/devtestlabs/resource-manager/Microsoft.DevTestLab/stable/2018-09-15/DevTestLabs.json
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/azure-test-labs-armtemplates.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/azure-test-labs-artifactsources.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/azure-test-labs-artifacts.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/azure-test-labs-costs.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/azure-test-labs-customimages.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/azure-test-labs-disks.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/azure-test-labs-environments.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/azure-test-labs-formulas.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/azure-test-labs-galleryimages.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/azure-test-labs-globalschedules.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/azure-test-labs-labs.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/azure-test-labs-notificationchannels.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/azure-test-labs-operations.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/azure-test-labs-policies.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/azure-test-labs-policysets.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/azure-test-labs-provideroperations.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/azure-test-labs-schedules.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/azure-test-labs-secrets.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/azure-test-labs-servicefabricschedules.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/azure-test-labs-servicefabrics.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/azure-test-labs-servicerunners.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/azure-test-labs-users.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/azure-test-labs-virtualmachineschedules.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/azure-test-labs-virtualmachines.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/azure-test-labs-virtualnetworks.yaml
 common:
 - type: Portal
