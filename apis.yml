@@ -84,6 +84,10 @@ apis:
   - type: X-NaftikoCapability
     url: capabilities/azure-test-labs-virtualnetworks.yaml
 common:
+- type: DomainSecurity
+  url: security/azure-test-labs-domain-security.yml
+- type: Authentication
+  url: authentication/azure-test-labs-authentication.yml
 - type: OAuthScopes
   url: scopes/azure-test-labs-scopes.yml
 - type: Portal
