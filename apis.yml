@@ -84,6 +84,8 @@ apis:
   - type: X-NaftikoCapability
     url: capabilities/azure-test-labs-virtualnetworks.yaml
 common:
+- type: OAuthScopes
+  url: scopes/azure-test-labs-scopes.yml
 - type: Portal
   url: https://portal.azure.com
 - type: Documentation

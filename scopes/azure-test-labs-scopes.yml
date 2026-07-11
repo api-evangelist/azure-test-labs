@@ -1,0 +1,17 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/azure-test-labs-openapi.yaml
+schemes:
+- name: azure_auth
+  source: openapi/azure-test-labs-openapi.yaml
+  flows:
+  - flow: implicit
+    authorizationUrl: https://login.microsoftonline.com/common/oauth2/authorize
+  description: OAuth2 Implicit Grant
+scopes:
+- scope: user_impersonation
+  description: Access Microsoft Azure
+  flows:
+  - implicit
+  sources:
+  - openapi/azure-test-labs-openapi.yaml
