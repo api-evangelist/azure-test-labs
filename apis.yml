@@ -84,6 +84,8 @@ apis:
   - type: X-NaftikoCapability
     url: capabilities/azure-test-labs-virtualnetworks.yaml
 common:
+- type: AgenticAccess
+  url: agentic-access/azure-test-labs-agentic-access.yml
 - type: DomainSecurity
   url: security/azure-test-labs-domain-security.yml
 - type: Authentication
