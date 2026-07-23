@@ -1,0 +1,187 @@
+swagger: '2.0'
+info:
+  description: The DevTest Labs Client.
+  title: DevTestLabsClient ArmTemplates Operations API
+  version: '2018-09-15'
+  x-apisguru-categories:
+  - cloud
+  x-logo:
+    url: https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png
+  x-origin:
+  - format: swagger
+    url: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/devtestlabs/resource-manager/Microsoft.DevTestLab/stable/2018-09-15/DTL.json
+    version: '2.0'
+  x-preferred: true
+  x-providerName: azure.com
+  x-serviceName: devtestlabs-DTL
+  x-tags:
+  - Azure
+  - Microsoft
+host: management.azure.com
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+security:
+- azure_auth:
+  - user_impersonation
+tags:
+- name: Operations
+paths:
+  /subscriptions/{subscriptionId}/providers/Microsoft.DevTestLab/locations/{locationName}/operations/{name}:
+    get:
+      description: Get operation.
+      operationId: Operations_Get
+      parameters:
+      - $ref: '#/parameters/subscriptionId'
+      - $ref: '#/parameters/locationName'
+      - description: The name of the operation.
+        in: path
+        name: name
+        required: true
+        type: string
+        example: example-value
+      - $ref: '#/parameters/api-version'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/OperationResult'
+        default:
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/CloudError'
+      tags:
+      - Operations
+      summary: Azure DevTest Labs Operations_ Get
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+definitions:
+  OperationResult:
+    description: An Operation Result
+    properties:
+      error:
+        $ref: '#/definitions/OperationError'
+        description: Error details for the operation in case of a failure.
+      status:
+        description: The operation status.
+        type: string
+      statusCode:
+        description: The status code for the operation.
+        enum:
+        - Continue
+        - SwitchingProtocols
+        - OK
+        - Created
+        - Accepted
+        - NonAuthoritativeInformation
+        - NoContent
+        - ResetContent
+        - PartialContent
+        - MultipleChoices
+        - MovedPermanently
+        - Redirect
+        - SeeOther
+        - NotModified
+        - UseProxy
+        - Unused
+        - TemporaryRedirect
+        - BadRequest
+        - Unauthorized
+        - PaymentRequired
+        - Forbidden
+        - NotFound
+        - MethodNotAllowed
+        - NotAcceptable
+        - ProxyAuthenticationRequired
+        - RequestTimeout
+        - Conflict
+        - Gone
+        - LengthRequired
+        - PreconditionFailed
+        - RequestEntityTooLarge
+        - RequestUriTooLong
+        - UnsupportedMediaType
+        - RequestedRangeNotSatisfiable
+        - ExpectationFailed
+        - UpgradeRequired
+        - InternalServerError
+        - NotImplemented
+        - BadGateway
+        - ServiceUnavailable
+        - GatewayTimeout
+        - HttpVersionNotSupported
+        type: string
+        x-ms-enum:
+          modelAsString: true
+          name: HttpStatusCode
+    type: object
+  CloudError:
+    description: Error from a REST request.
+    properties:
+      error:
+        $ref: '#/definitions/CloudErrorBody'
+        description: The cloud error that occurred
+    type: object
+    x-ms-external: true
+  CloudErrorBody:
+    description: Body of an error from a REST request.
+    properties:
+      code:
+        description: The error code.
+        type: string
+      details:
+        description: Inner errors.
+        items:
+          $ref: '#/definitions/CloudErrorBody'
+        type: array
+      message:
+        description: The error message.
+        type: string
+      target:
+        description: The error target.
+        type: string
+    type: object
+    x-ms-external: true
+  OperationError:
+    description: Error details for the operation in case of a failure.
+    properties:
+      code:
+        description: The error code of the operation error.
+        type: string
+      message:
+        description: The error message of the operation error.
+        type: string
+    type: object
+parameters:
+  locationName:
+    description: The name of the location.
+    in: path
+    name: locationName
+    required: true
+    type: string
+    x-ms-parameter-location: method
+  subscriptionId:
+    description: The subscription ID.
+    in: path
+    name: subscriptionId
+    required: true
+    type: string
+  api-version:
+    default: '2018-09-15'
+    description: Client API version.
+    in: query
+    name: api-version
+    required: true
+    type: string
+securityDefinitions:
+  azure_auth:
+    authorizationUrl: https://login.microsoftonline.com/common/oauth2/authorize
+    description: OAuth2 Implicit Grant
+    flow: implicit
+    scopes:
+      user_impersonation: Access Microsoft Azure
+    type: oauth2

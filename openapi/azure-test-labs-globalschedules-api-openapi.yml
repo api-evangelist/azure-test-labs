@@ -1,0 +1,650 @@
+swagger: '2.0'
+info:
+  description: The DevTest Labs Client.
+  title: DevTestLabsClient ArmTemplates GlobalSchedules API
+  version: '2018-09-15'
+  x-apisguru-categories:
+  - cloud
+  x-logo:
+    url: https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png
+  x-origin:
+  - format: swagger
+    url: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/devtestlabs/resource-manager/Microsoft.DevTestLab/stable/2018-09-15/DTL.json
+    version: '2.0'
+  x-preferred: true
+  x-providerName: azure.com
+  x-serviceName: devtestlabs-DTL
+  x-tags:
+  - Azure
+  - Microsoft
+host: management.azure.com
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+security:
+- azure_auth:
+  - user_impersonation
+tags:
+- name: GlobalSchedules
+paths:
+  /subscriptions/{subscriptionId}/providers/Microsoft.DevTestLab/schedules:
+    get:
+      description: List schedules in a subscription.
+      operationId: GlobalSchedules_ListBySubscription
+      parameters:
+      - $ref: '#/parameters/subscriptionId'
+      - description: 'Specify the $expand query. Example: ''properties($select=status)'''
+        in: query
+        name: $expand
+        type: string
+        example: example-value
+      - description: 'The filter to apply to the operation. Example: ''$filter=contains(name,''myName'')'
+        in: query
+        name: $filter
+        type: string
+        example: example-value
+      - description: 'The maximum number of resources to return from the operation. Example: ''$top=10'''
+        format: int32
+        in: query
+        name: $top
+        type: integer
+        example: example-value
+      - description: 'The ordering expression for the results, using OData notation. Example: ''$orderby=name desc'''
+        in: query
+        name: $orderby
+        type: string
+        example: example-value
+      - $ref: '#/parameters/api-version'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/ScheduleList'
+        default:
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/CloudError'
+      tags:
+      - GlobalSchedules
+      x-ms-odata: '#/definitions/Schedule'
+      x-ms-pageable:
+        nextLinkName: nextLink
+      summary: Azure DevTest Labs Global Schedules_ List by Subscription
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/schedules:
+    get:
+      description: List schedules in a resource group.
+      operationId: GlobalSchedules_ListByResourceGroup
+      parameters:
+      - $ref: '#/parameters/subscriptionId'
+      - $ref: '#/parameters/resourceGroupName'
+      - description: 'Specify the $expand query. Example: ''properties($select=status)'''
+        in: query
+        name: $expand
+        type: string
+        example: example-value
+      - description: 'The filter to apply to the operation. Example: ''$filter=contains(name,''myName'')'
+        in: query
+        name: $filter
+        type: string
+        example: example-value
+      - description: 'The maximum number of resources to return from the operation. Example: ''$top=10'''
+        format: int32
+        in: query
+        name: $top
+        type: integer
+        example: example-value
+      - description: 'The ordering expression for the results, using OData notation. Example: ''$orderby=name desc'''
+        in: query
+        name: $orderby
+        type: string
+        example: example-value
+      - $ref: '#/parameters/api-version'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/ScheduleList'
+        default:
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/CloudError'
+      tags:
+      - GlobalSchedules
+      x-ms-odata: '#/definitions/Schedule'
+      x-ms-pageable:
+        nextLinkName: nextLink
+      summary: Azure DevTest Labs Global Schedules_ List by Resource Group
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/schedules/{name}:
+    delete:
+      description: Delete schedule.
+      operationId: GlobalSchedules_Delete
+      parameters:
+      - $ref: '#/parameters/subscriptionId'
+      - $ref: '#/parameters/resourceGroupName'
+      - description: The name of the schedule.
+        in: path
+        name: name
+        required: true
+        type: string
+        example: example-value
+      - $ref: '#/parameters/api-version'
+      responses:
+        '200':
+          description: OK
+        '204':
+          description: No Content
+        default:
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/CloudError'
+      tags:
+      - GlobalSchedules
+      summary: Azure DevTest Labs Global Schedules_ Delete
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    get:
+      description: Get schedule.
+      operationId: GlobalSchedules_Get
+      parameters:
+      - $ref: '#/parameters/subscriptionId'
+      - $ref: '#/parameters/resourceGroupName'
+      - description: The name of the schedule.
+        in: path
+        name: name
+        required: true
+        type: string
+        example: example-value
+      - description: 'Specify the $expand query. Example: ''properties($select=status)'''
+        in: query
+        name: $expand
+        type: string
+        example: example-value
+      - $ref: '#/parameters/api-version'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Schedule'
+        default:
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/CloudError'
+      tags:
+      - GlobalSchedules
+      summary: Azure DevTest Labs Global Schedules_ Get
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    patch:
+      description: Allows modifying tags of schedules. All other properties will be ignored.
+      operationId: GlobalSchedules_Update
+      parameters:
+      - $ref: '#/parameters/subscriptionId'
+      - $ref: '#/parameters/resourceGroupName'
+      - description: The name of the schedule.
+        in: path
+        name: name
+        required: true
+        type: string
+        example: example-value
+      - description: A schedule.
+        in: body
+        name: schedule
+        required: true
+        schema:
+          $ref: '#/definitions/ScheduleFragment'
+        example: example-value
+      - $ref: '#/parameters/api-version'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Schedule'
+        default:
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/CloudError'
+      tags:
+      - GlobalSchedules
+      summary: Azure DevTest Labs Global Schedules_ Update
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    put:
+      description: Create or replace an existing schedule.
+      operationId: GlobalSchedules_CreateOrUpdate
+      parameters:
+      - $ref: '#/parameters/subscriptionId'
+      - $ref: '#/parameters/resourceGroupName'
+      - description: The name of the schedule.
+        in: path
+        name: name
+        required: true
+        type: string
+        example: example-value
+      - description: A schedule.
+        in: body
+        name: schedule
+        required: true
+        schema:
+          $ref: '#/definitions/Schedule'
+        example: example-value
+      - $ref: '#/parameters/api-version'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Schedule'
+        '201':
+          description: Created
+          schema:
+            $ref: '#/definitions/Schedule'
+        default:
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/CloudError'
+      tags:
+      - GlobalSchedules
+      summary: Azure DevTest Labs Global Schedules_ Create or Update
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/schedules/{name}/execute:
+    post:
+      description: Execute a schedule. This operation can take a while to complete.
+      operationId: GlobalSchedules_Execute
+      parameters:
+      - $ref: '#/parameters/subscriptionId'
+      - $ref: '#/parameters/resourceGroupName'
+      - description: The name of the schedule.
+        in: path
+        name: name
+        required: true
+        type: string
+        example: example-value
+      - $ref: '#/parameters/api-version'
+      responses:
+        '200':
+          description: OK
+        '202':
+          description: Accepted
+        default:
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/CloudError'
+      tags:
+      - GlobalSchedules
+      x-ms-long-running-operation: true
+      summary: Azure DevTest Labs Global Schedules_ Execute
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/schedules/{name}/retarget
+  : post:
+      description: Updates a schedule's target resource Id. This operation can take a while to complete.
+      operationId: GlobalSchedules_Retarget
+      parameters:
+      - $ref: '#/parameters/subscriptionId'
+      - $ref: '#/parameters/resourceGroupName'
+      - description: The name of the schedule.
+        in: path
+        name: name
+        required: true
+        type: string
+        example: example-value
+      - description: Properties for retargeting a virtual machine schedule.
+        in: body
+        name: retargetScheduleProperties
+        required: true
+        schema:
+          $ref: '#/definitions/RetargetScheduleProperties'
+        example: example-value
+      - $ref: '#/parameters/api-version'
+      responses:
+        '200':
+          description: OK
+        '202':
+          description: Accepted
+        default:
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/CloudError'
+      tags:
+      - GlobalSchedules
+      x-ms-long-running-operation: true
+      summary: Azure DevTest Labs Global Schedules_ Retarget
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+definitions:
+  SchedulePropertiesFragment:
+    description: Properties of a schedule.
+    properties:
+      dailyRecurrence:
+        $ref: '#/definitions/DayDetailsFragment'
+        description: If the schedule will occur once each day of the week, specify the daily recurrence.
+      hourlyRecurrence:
+        $ref: '#/definitions/HourDetailsFragment'
+        description: If the schedule will occur multiple times a day, specify the hourly recurrence.
+      notificationSettings:
+        $ref: '#/definitions/NotificationSettingsFragment'
+        description: Notification settings.
+      status:
+        description: The status of the schedule (i.e. Enabled, Disabled)
+        enum:
+        - Enabled
+        - Disabled
+        type: string
+        x-ms-enum:
+          modelAsString: true
+          name: EnableStatus
+      targetResourceId:
+        description: The resource ID to which the schedule belongs
+        type: string
+      taskType:
+        description: The task type of the schedule (e.g. LabVmsShutdownTask, LabVmAutoStart).
+        type: string
+      timeZoneId:
+        description: The time zone ID (e.g. Pacific Standard time).
+        type: string
+      weeklyRecurrence:
+        $ref: '#/definitions/WeekDetailsFragment'
+        description: If the schedule will occur only some days of the week, specify the weekly recurrence.
+    type: object
+  ScheduleProperties:
+    description: Properties of a schedule.
+    properties:
+      createdDate:
+        description: The creation date of the schedule.
+        format: date-time
+        readOnly: true
+        type: string
+      dailyRecurrence:
+        $ref: '#/definitions/DayDetails'
+        description: If the schedule will occur once each day of the week, specify the daily recurrence.
+      hourlyRecurrence:
+        $ref: '#/definitions/HourDetails'
+        description: If the schedule will occur multiple times a day, specify the hourly recurrence.
+      notificationSettings:
+        $ref: '#/definitions/NotificationSettings'
+        description: Notification settings.
+      provisioningState:
+        description: The provisioning status of the resource.
+        readOnly: true
+        type: string
+      status:
+        description: The status of the schedule (i.e. Enabled, Disabled)
+        enum:
+        - Enabled
+        - Disabled
+        type: string
+        x-ms-enum:
+          modelAsString: true
+          name: EnableStatus
+      targetResourceId:
+        description: The resource ID to which the schedule belongs
+        type: string
+      taskType:
+        description: The task type of the schedule (e.g. LabVmsShutdownTask, LabVmAutoStart).
+        type: string
+      timeZoneId:
+        description: The time zone ID (e.g. Pacific Standard time).
+        type: string
+      uniqueIdentifier:
+        description: The unique immutable identifier of a resource (Guid).
+        readOnly: true
+        type: string
+      weeklyRecurrence:
+        $ref: '#/definitions/WeekDetails'
+        description: If the schedule will occur only some days of the week, specify the weekly recurrence.
+    type: object
+  WeekDetails:
+    description: Properties of a weekly schedule.
+    properties:
+      time:
+        description: The time of the day the schedule will occur.
+        type: string
+      weekdays:
+        description: The days of the week for which the schedule is set (e.g. Sunday, Monday, Tuesday, etc.).
+        items:
+          type: string
+        type: array
+    type: object
+  NotificationSettings:
+    description: Notification settings for a schedule.
+    properties:
+      emailRecipient:
+        description: The email recipient to send notifications to (can be a list of semi-colon separated email addresses).
+        type: string
+      notificationLocale:
+        description: The locale to use when sending a notification (fallback for unsupported languages is EN).
+        type: string
+      status:
+        description: If notifications are enabled for this schedule (i.e. Enabled, Disabled).
+        enum:
+        - Enabled
+        - Disabled
+        type: string
+        x-ms-enum:
+          modelAsString: true
+          name: EnableStatus
+      timeInMinutes:
+        description: Time in minutes before event at which notification will be sent.
+        format: int32
+        type: integer
+      webhookUrl:
+        description: The webhook URL to which the notification will be sent.
+        type: string
+    type: object
+  CloudErrorBody:
+    description: Body of an error from a REST request.
+    properties:
+      code:
+        description: The error code.
+        type: string
+      details:
+        description: Inner errors.
+        items:
+          $ref: '#/definitions/CloudErrorBody'
+        type: array
+      message:
+        description: The error message.
+        type: string
+      target:
+        description: The error target.
+        type: string
+    type: object
+    x-ms-external: true
+  DayDetails:
+    description: Properties of a daily schedule.
+    properties:
+      time:
+        description: The time of day the schedule will occur.
+        type: string
+    type: object
+  HourDetails:
+    description: Properties of an hourly schedule.
+    properties:
+      minute:
+        description: Minutes of the hour the schedule will run.
+        format: int32
+        type: integer
+    type: object
+  WeekDetailsFragment:
+    description: Properties of a weekly schedule.
+    properties:
+      time:
+        description: The time of the day the schedule will occur.
+        type: string
+      weekdays:
+        description: The days of the week for which the schedule is set (e.g. Sunday, Monday, Tuesday, etc.).
+        items:
+          type: string
+        type: array
+    type: object
+  Resource:
+    description: An Azure resource.
+    properties:
+      id:
+        description: The identifier of the resource.
+        readOnly: true
+        type: string
+      location:
+        description: The location of the resource.
+        type: string
+      name:
+        description: The name of the resource.
+        readOnly: true
+        type: string
+      tags:
+        additionalProperties:
+          type: string
+        description: The tags of the resource.
+        type: object
+      type:
+        description: The type of the resource.
+        readOnly: true
+        type: string
+    type: object
+    x-ms-azure-resource: true
+  DayDetailsFragment:
+    description: Properties of a daily schedule.
+    properties:
+      time:
+        description: The time of day the schedule will occur.
+        type: string
+    type: object
+  NotificationSettingsFragment:
+    description: Notification settings for a schedule.
+    properties:
+      emailRecipient:
+        description: The email recipient to send notifications to (can be a list of semi-colon separated email addresses).
+        type: string
+      notificationLocale:
+        description: The locale to use when sending a notification (fallback for unsupported languages is EN).
+        type: string
+      status:
+        description: If notifications are enabled for this schedule (i.e. Enabled, Disabled).
+        enum:
+        - Enabled
+        - Disabled
+        type: string
+        x-ms-enum:
+          modelAsString: true
+          name: EnableStatus
+      timeInMinutes:
+        description: Time in minutes before event at which notification will be sent.
+        format: int32
+        type: integer
+      webhookUrl:
+        description: The webhook URL to which the notification will be sent.
+        type: string
+    type: object
+  HourDetailsFragment:
+    description: Properties of an hourly schedule.
+    properties:
+      minute:
+        description: Minutes of the hour the schedule will run.
+        format: int32
+        type: integer
+    type: object
+  RetargetScheduleProperties:
+    description: Properties for retargeting a virtual machine schedule.
+    properties:
+      currentResourceId:
+        description: The resource Id of the virtual machine on which the schedule operates
+        type: string
+      targetResourceId:
+        description: The resource Id of the virtual machine that the schedule should be retargeted to
+        type: string
+    type: object
+  ScheduleFragment:
+    allOf:
+    - $ref: '#/definitions/UpdateResource'
+    description: A schedule.
+    properties:
+      properties:
+        $ref: '#/definitions/SchedulePropertiesFragment'
+        description: The properties of the resource.
+        x-ms-client-flatten: true
+    type: object
+  CloudError:
+    description: Error from a REST request.
+    properties:
+      error:
+        $ref: '#/definitions/CloudErrorBody'
+        description: The cloud error that occurred
+    type: object
+    x-ms-external: true
+  ScheduleList:
+    description: The response of a list operation.
+    properties:
+      nextLink:
+        description: Link for next set of results.
+        type: string
+      value:
+        description: Results of the list operation.
+        items:
+          $ref: '#/definitions/Schedule'
+        type: array
+    type: object
+  UpdateResource:
+    description: Represents an update resource
+    properties:
+      tags:
+        additionalProperties:
+          type: string
+        description: The tags of the resource.
+        type: object
+    type: object
+  Schedule:
+    allOf:
+    - $ref: '#/definitions/Resource'
+    description: A schedule.
+    properties:
+      properties:
+        $ref: '#/definitions/ScheduleProperties'
+        description: The properties of the resource.
+        x-ms-client-flatten: true
+    required:
+    - properties
+    type: object
+parameters:
+  resourceGroupName:
+    description: The name of the resource group.
+    in: path
+    name: resourceGroupName
+    required: true
+    type: string
+    x-ms-parameter-location: method
+  api-version:
+    default: '2018-09-15'
+    description: Client API version.
+    in: query
+    name: api-version
+    required: true
+    type: string
+  subscriptionId:
+    description: The subscription ID.
+    in: path
+    name: subscriptionId
+    required: true
+    type: string
+securityDefinitions:
+  azure_auth:
+    authorizationUrl: https://login.microsoftonline.com/common/oauth2/authorize
+    description: OAuth2 Implicit Grant
+    flow: implicit
+    scopes:
+      user_impersonation: Access Microsoft Azure
+    type: oauth2

@@ -1,0 +1,2188 @@
+swagger: '2.0'
+info:
+  description: The DevTest Labs Client.
+  title: DevTestLabsClient ArmTemplates VirtualMachines API
+  version: '2018-09-15'
+  x-apisguru-categories:
+  - cloud
+  x-logo:
+    url: https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png
+  x-origin:
+  - format: swagger
+    url: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/devtestlabs/resource-manager/Microsoft.DevTestLab/stable/2018-09-15/DTL.json
+    version: '2.0'
+  x-preferred: true
+  x-providerName: azure.com
+  x-serviceName: devtestlabs-DTL
+  x-tags:
+  - Azure
+  - Microsoft
+host: management.azure.com
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+security:
+- azure_auth:
+  - user_impersonation
+tags:
+- name: VirtualMachines
+paths:
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/virtualmachines
+  : get:
+      description: List virtual machines in a given lab.
+      operationId: VirtualMachines_List
+      parameters:
+      - $ref: '#/parameters/subscriptionId'
+      - $ref: '#/parameters/resourceGroupName'
+      - description: The name of the lab.
+        in: path
+        name: labName
+        required: true
+        type: string
+        example: example-value
+      - description: 'Specify the $expand query. Example: ''properties($expand=artifacts,computeVm,networkInterface,applicableSchedule)'''
+        in: query
+        name: $expand
+        type: string
+        example: example-value
+      - description: 'The filter to apply to the operation. Example: ''$filter=contains(name,''myName'')'
+        in: query
+        name: $filter
+        type: string
+        example: example-value
+      - description: 'The maximum number of resources to return from the operation. Example: ''$top=10'''
+        format: int32
+        in: query
+        name: $top
+        type: integer
+        example: example-value
+      - description: 'The ordering expression for the results, using OData notation. Example: ''$orderby=name desc'''
+        in: query
+        name: $orderby
+        type: string
+        example: example-value
+      - $ref: '#/parameters/api-version'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/LabVirtualMachineList'
+        default:
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/CloudError'
+      tags:
+      - VirtualMachines
+      x-ms-examples:
+        VirtualMachines_List:
+          parameters:
+            api-version: '2018-09-15'
+            labName: '{devtestlab-name}'
+            resourceGroupName: myResourceGroup
+            subscriptionId: '{subscription-id}'
+          responses:
+            '200':
+              body:
+                value:
+                - id: /subscriptions/{subscription-id}/resourcegroups/myResourceGroup/providers/microsoft.devtestlab/labs/{devtestlab-name}/virtualmachines/{virtualmachine-name}
+                  location: '{azure-location}'
+                  name: '{virtualmachine-name}'
+                  properties:
+                    allowClaim: true
+                    artifactDeploymentStatus:
+                      artifactsApplied: 0
+                      totalArtifacts: 0
+                    computeId: /subscriptions/{subscription-id}/resourceGroups/{devtestlab-name}-{virtualmachine-name}-{random-suffix}/providers/Microsoft.Compute/virtualMachines/{virtualmachine-name}
+                    createdByUser: ''
+                    createdByUserId: ''
+                    createdDate: '2018-10-01T16:53:02.4830866-07:00'
+                    dataDiskParameters: []
+                    disallowPublicIpAddress: true
+                    galleryImageReference:
+                      offer: UbuntuServer
+                      osType: Linux
+                      publisher: Canonical
+                      sku: 16.04-LTS
+                      version: Latest
+                    labSubnetName: '{virtualnetwork-name}Subnet'
+                    labVirtualNetworkId: /subscriptions/{subscription-id}/resourcegroups/myResourceGroup/providers/microsoft.devtestlab/labs/{devtestlab-name}/virtualnetworks/{virtualnetwork-name}
+                    networkInterface: {}
+                    osType: Linux
+                    ownerObjectId: ''
+                    ownerUserPrincipalName: ''
+                    provisioningState: Succeeded
+                    size: Standard_A2_v2
+                    storageType: Standard
+                    uniqueIdentifier: '{unique-identifier}'
+                    userName: '{user-name}'
+                    virtualMachineCreationSource: FromGalleryImage
+                  tags:
+                    MyTag: MyValue
+                  type: Microsoft.DevTestLab/labs/virtualMachines
+      x-ms-odata: '#/definitions/LabVirtualMachine'
+      x-ms-pageable:
+        nextLinkName: nextLink
+      summary: Azure DevTest Labs Virtual Machines_ List
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/virtualmachines/{name}
+  : delete:
+      description: Delete virtual machine. This operation can take a while to complete.
+      operationId: VirtualMachines_Delete
+      parameters:
+      - $ref: '#/parameters/subscriptionId'
+      - $ref: '#/parameters/resourceGroupName'
+      - description: The name of the lab.
+        in: path
+        name: labName
+        required: true
+        type: string
+        example: example-value
+      - description: The name of the virtual machine.
+        in: path
+        name: name
+        required: true
+        type: string
+        example: example-value
+      - $ref: '#/parameters/api-version'
+      responses:
+        '200':
+          description: OK
+        '202':
+          description: Accepted
+        '204':
+          description: No Content
+        default:
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/CloudError'
+      tags:
+      - VirtualMachines
+      x-ms-examples:
+        VirtualMachines_Delete:
+          parameters:
+            api-version: '2018-09-15'
+            labName: '{devtestlab-name}'
+            name: '{virtualmachine-name}'
+            resourceGroupName: myResourceGroup
+            subscriptionId: '{subscription-id}'
+          responses:
+            '200': {}
+            '202': {}
+            '204': {}
+      x-ms-long-running-operation: true
+      summary: Azure DevTest Labs Virtual Machines_ Delete
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    get:
+      description: Get virtual machine.
+      operationId: VirtualMachines_Get
+      parameters:
+      - $ref: '#/parameters/subscriptionId'
+      - $ref: '#/parameters/resourceGroupName'
+      - description: The name of the lab.
+        in: path
+        name: labName
+        required: true
+        type: string
+        example: example-value
+      - description: The name of the virtual machine.
+        in: path
+        name: name
+        required: true
+        type: string
+        example: example-value
+      - description: 'Specify the $expand query. Example: ''properties($expand=artifacts,computeVm,networkInterface,applicableSchedule)'''
+        in: query
+        name: $expand
+        type: string
+        example: example-value
+      - $ref: '#/parameters/api-version'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/LabVirtualMachine'
+        default:
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/CloudError'
+      tags:
+      - VirtualMachines
+      x-ms-examples:
+        VirtualMachines_Get:
+          parameters:
+            api-version: '2018-09-15'
+            labName: '{devtestlab-name}'
+            name: '{virtualmachine-name}'
+            resourceGroupName: myResourceGroup
+            subscriptionId: '{subscription-id}'
+          responses:
+            '200':
+              body:
+                id: /subscriptions/{subscription-id}/resourcegroups/myResourceGroup/providers/microsoft.devtestlab/labs/{devtestlab-name}/virtualmachines/{virtualmachine-name}
+                location: '{azure-location}'
+                name: '{virtualmachine-name}'
+                properties:
+                  allowClaim: true
+                  artifactDeploymentStatus:
+                    artifactsApplied: 0
+                    totalArtifacts: 0
+                  computeId: /subscriptions/{subscription-id}/resourceGroups/{devtestlab-name}-{virtualmachine-name}-{random-suffix}/providers/Microsoft.Compute/virtualMachines/{virtualmachine-name}
+                  createdByUser: ''
+                  createdByUserId: ''
+                  createdDate: '2018-10-01T16:53:02.4830866-07:00'
+                  dataDiskParameters: []
+                  disallowPublicIpAddress: true
+                  galleryImageReference:
+                    offer: UbuntuServer
+                    osType: Linux
+                    publisher: Canonical
+                    sku: 16.04-LTS
+                    version: Latest
+                  labSubnetName: '{virtualnetwork-name}Subnet'
+                  labVirtualNetworkId: /subscriptions/{subscription-id}/resourcegroups/myResourceGroup/providers/microsoft.devtestlab/labs/{devtestlab-name}/virtualnetworks/{virtualnetwork-name}
+                  networkInterface: {}
+                  osType: Linux
+                  ownerObjectId: ''
+                  ownerUserPrincipalName: ''
+                  provisioningState: Succeeded
+                  size: Standard_A2_v2
+                  storageType: Standard
+                  uniqueIdentifier: '{unique-identifier}'
+                  userName: '{user-name}'
+                  virtualMachineCreationSource: FromGalleryImage
+                tags:
+                  MyTag: MyValue
+                type: Microsoft.DevTestLab/labs/virtualMachines
+      summary: Azure DevTest Labs Virtual Machines_ Get
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    patch:
+      description: Allows modifying tags of virtual machines. All other properties will be ignored.
+      operationId: VirtualMachines_Update
+      parameters:
+      - $ref: '#/parameters/subscriptionId'
+      - $ref: '#/parameters/resourceGroupName'
+      - description: The name of the lab.
+        in: path
+        name: labName
+        required: true
+        type: string
+        example: example-value
+      - description: The name of the virtual machine.
+        in: path
+        name: name
+        required: true
+        type: string
+        example: example-value
+      - description: A virtual machine.
+        in: body
+        name: labVirtualMachine
+        required: true
+        schema:
+          $ref: '#/definitions/LabVirtualMachineFragment'
+        example: example-value
+      - $ref: '#/parameters/api-version'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/LabVirtualMachine'
+        default:
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/CloudError'
+      tags:
+      - VirtualMachines
+      x-ms-examples:
+        VirtualMachines_Update:
+          parameters:
+            api-version: '2018-09-15'
+            labName: '{devtestlab-name}'
+            labVirtualMachine:
+              properties:
+                notes: Updated notes
+            name: '{virtualmachine-name}'
+            resourceGroupName: myResourceGroup
+            subscriptionId: '{subscription-id}'
+          responses:
+            '200':
+              body:
+                id: /subscriptions/{subscription-id}/resourcegroups/myResourceGroup/providers/microsoft.devtestlab/labs/{devtestlab-name}/virtualmachines/{virtualmachine-name}
+                location: '{azure-location}'
+                name: '{virtualmachine-name}'
+                properties:
+                  allowClaim: true
+                  artifactDeploymentStatus:
+                    artifactsApplied: 0
+                    totalArtifacts: 0
+                  computeId: /subscriptions/{subscription-id}/resourceGroups/{devtestlab-name}-{virtualmachine-name}-{random-suffix}/providers/Microsoft.Compute/virtualMachines/{virtualmachine-name}
+                  createdByUser: ''
+                  createdByUserId: ''
+                  createdDate: '2018-10-01T16:53:02.4830866-07:00'
+                  dataDiskParameters: []
+                  disallowPublicIpAddress: true
+                  galleryImageReference:
+                    offer: UbuntuServer
+                    osType: Linux
+                    publisher: Canonical
+                    sku: 16.04-LTS
+                    version: Latest
+                  labSubnetName: '{virtualnetwork-name}Subnet'
+                  labVirtualNetworkId: /subscriptions/{subscription-id}/resourcegroups/myResourceGroup/providers/microsoft.devtestlab/labs/{devtestlab-name}/virtualnetworks/{virtualnetwork-name}
+                  networkInterface: {}
+                  osType: Linux
+                  ownerObjectId: ''
+                  ownerUserPrincipalName: ''
+                  provisioningState: Succeeded
+                  size: Standard_A2_v2
+                  storageType: Standard
+                  uniqueIdentifier: '{unique-identifier}'
+                  userName: '{user-name}'
+                  virtualMachineCreationSource: FromGalleryImage
+                tags:
+                  MyTag: MyValue
+                type: Microsoft.DevTestLab/labs/virtualMachines
+      summary: Azure DevTest Labs Virtual Machines_ Update
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    put:
+      description: Create or replace an existing virtual machine. This operation can take a while to complete.
+      operationId: VirtualMachines_CreateOrUpdate
+      parameters:
+      - $ref: '#/parameters/subscriptionId'
+      - $ref: '#/parameters/resourceGroupName'
+      - description: The name of the lab.
+        in: path
+        name: labName
+        required: true
+        type: string
+        example: example-value
+      - description: The name of the virtual machine.
+        in: path
+        name: name
+        required: true
+        type: string
+        example: example-value
+      - description: A virtual machine.
+        in: body
+        name: labVirtualMachine
+        required: true
+        schema:
+          $ref: '#/definitions/LabVirtualMachine'
+        example: example-value
+      - $ref: '#/parameters/api-version'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/LabVirtualMachine'
+        '201':
+          description: Created
+          schema:
+            $ref: '#/definitions/LabVirtualMachine'
+        default:
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/CloudError'
+      tags:
+      - VirtualMachines
+      x-ms-examples:
+        VirtualMachines_CreateOrUpdate:
+          parameters:
+            api-version: '2018-09-15'
+            labName: '{devtestlab-name}'
+            labVirtualMachine:
+              location: '{azure-location}'
+              properties:
+                allowClaim: true
+                disallowPublicIpAddress: true
+                galleryImageReference:
+                  offer: UbuntuServer
+                  osType: Linux
+                  publisher: Canonical
+                  sku: 16.04-LTS
+                  version: Latest
+                labSubnetName: '{virtualnetwork-name}Subnet'
+                labVirtualNetworkId: /subscriptions/{subscription-id}/resourcegroups/myResourceGroup/providers/microsoft.devtestlab/labs/{devtestlab-name}/virtualnetworks/{virtualnetwork-name}
+                osType: Linux
+                password: '{user-password}'
+                size: Standard_A2_v2
+                storageType: Standard
+                userName: '{user-name}'
+              tags:
+                MyTag: MyValue
+            name: '{virtualmachine-name}'
+            resourceGroupName: myResourceGroup
+            subscriptionId: '{subscription-id}'
+          responses:
+            '200':
+              body:
+                id: /subscriptions/{subscription-id}/resourcegroups/myResourceGroup/providers/microsoft.devtestlab/labs/{devtestlab-name}/virtualmachines/{virtualmachine-name}
+                location: '{azure-location}'
+                name: '{virtualmachine-name}'
+                properties:
+                  allowClaim: true
+                  artifactDeploymentStatus:
+                    artifactsApplied: 0
+                    totalArtifacts: 0
+                  createdByUser: ''
+                  createdByUserId: ''
+                  createdDate: '2018-10-01T16:53:02.4830866-07:00'
+                  dataDiskParameters: []
+                  disallowPublicIpAddress: true
+                  galleryImageReference:
+                    offer: UbuntuServer
+                    osType: Linux
+                    publisher: Canonical
+                    sku: 16.04-LTS
+                    version: Latest
+                  labSubnetName: '{virtualnetwork-name}Subnet'
+                  labVirtualNetworkId: /subscriptions/{subscription-id}/resourcegroups/myResourceGroup/providers/microsoft.devtestlab/labs/{devtestlab-name}/virtualnetworks/{virtualnetwork-name}
+                  networkInterface: {}
+                  ownerObjectId: ''
+                  ownerUserPrincipalName: ''
+                  provisioningState: Creating
+                  size: Standard_A2_v2
+                  storageType: Standard
+                  uniqueIdentifier: '{unique-identifier}'
+                  userName: '{user-name}'
+                  virtualMachineCreationSource: FromGalleryImage
+                tags:
+                  MyTag: MyValue
+                type: Microsoft.DevTestLab/labs/virtualMachines
+            '201':
+              body:
+                id: /subscriptions/{subscription-id}/resourcegroups/myResourceGroup/providers/microsoft.devtestlab/labs/{devtestlab-name}/virtualmachines/{virtualmachine-name}
+                location: '{azure-location}'
+                name: '{virtualmachine-name}'
+                properties:
+                  allowClaim: true
+                  artifactDeploymentStatus:
+                    artifactsApplied: 0
+                    totalArtifacts: 0
+                  createdByUser: ''
+                  createdByUserId: ''
+                  createdDate: '2018-10-01T16:53:02.4830866-07:00'
+                  dataDiskParameters: []
+                  disallowPublicIpAddress: true
+                  galleryImageReference:
+                    offer: UbuntuServer
+                    osType: Linux
+                    publisher: Canonical
+                    sku: 16.04-LTS
+                    version: Latest
+                  labSubnetName: '{virtualnetwork-name}Subnet'
+                  labVirtualNetworkId: /subscriptions/{subscription-id}/resourcegroups/myResourceGroup/providers/microsoft.devtestlab/labs/{devtestlab-name}/virtualnetworks/{virtualnetwork-name}
+                  networkInterface: {}
+                  ownerObjectId: ''
+                  ownerUserPrincipalName: ''
+                  provisioningState: Creating
+                  size: Standard_A2_v2
+                  storageType: Standard
+                  uniqueIdentifier: '{unique-identifier}'
+                  userName: '{user-name}'
+                  virtualMachineCreationSource: FromGalleryImage
+                tags:
+                  MyTag: MyValue
+                type: Microsoft.DevTestLab/labs/virtualMachines
+      x-ms-long-running-operation: true
+      summary: Azure DevTest Labs Virtual Machines_ Create or Update
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/virtualmachines/{name}/addDataDisk
+  : post:
+      description: Attach a new or existing data disk to virtual machine. This operation can take a while to complete.
+      operationId: VirtualMachines_AddDataDisk
+      parameters:
+      - $ref: '#/parameters/subscriptionId'
+      - $ref: '#/parameters/resourceGroupName'
+      - description: The name of the lab.
+        in: path
+        name: labName
+        required: true
+        type: string
+        example: example-value
+      - description: The name of the virtual machine.
+        in: path
+        name: name
+        required: true
+        type: string
+        example: example-value
+      - description: Request body for adding a new or existing data disk to a virtual machine.
+        in: body
+        name: dataDiskProperties
+        required: true
+        schema:
+          $ref: '#/definitions/DataDiskProperties'
+        example: example-value
+      - $ref: '#/parameters/api-version'
+      responses:
+        '200':
+          description: OK
+        '202':
+          description: Accepted
+        default:
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/CloudError'
+      tags:
+      - VirtualMachines
+      x-ms-long-running-operation: true
+      summary: Azure DevTest Labs Virtual Machines_ Add Data Disk
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/virtualmachines/{name}/applyArtifacts
+  : post:
+      description: Apply artifacts to virtual machine. This operation can take a while to complete.
+      operationId: VirtualMachines_ApplyArtifacts
+      parameters:
+      - $ref: '#/parameters/subscriptionId'
+      - $ref: '#/parameters/resourceGroupName'
+      - description: The name of the lab.
+        in: path
+        name: labName
+        required: true
+        type: string
+        example: example-value
+      - description: The name of the virtual machine.
+        in: path
+        name: name
+        required: true
+        type: string
+        example: example-value
+      - description: Request body for applying artifacts to a virtual machine.
+        in: body
+        name: applyArtifactsRequest
+        required: true
+        schema:
+          $ref: '#/definitions/ApplyArtifactsRequest'
+        example: example-value
+      - $ref: '#/parameters/api-version'
+      responses:
+        '200':
+          description: OK
+        '202':
+          description: Accepted
+        default:
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/CloudError'
+      tags:
+      - VirtualMachines
+      x-ms-long-running-operation: true
+      summary: Azure DevTest Labs Virtual Machines_ Apply Artifacts
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/virtualmachines/{name}/claim
+  : post:
+      description: Take ownership of an existing virtual machine This operation can take a while to complete.
+      operationId: VirtualMachines_Claim
+      parameters:
+      - $ref: '#/parameters/subscriptionId'
+      - $ref: '#/parameters/resourceGroupName'
+      - description: The name of the lab.
+        in: path
+        name: labName
+        required: true
+        type: string
+        example: example-value
+      - description: The name of the virtual machine.
+        in: path
+        name: name
+        required: true
+        type: string
+        example: example-value
+      - $ref: '#/parameters/api-version'
+      responses:
+        '200':
+          description: OK
+        '202':
+          description: Accepted
+        default:
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/CloudError'
+      tags:
+      - VirtualMachines
+      x-ms-examples:
+        VirtualMachines_Claim:
+          parameters:
+            api-version: '2018-09-15'
+            labName: '{devtestlab-name}'
+            name: '{virtualmachine-name}'
+            resourceGroupName: myResourceGroup
+            subscriptionId: '{subscription-id}'
+          responses:
+            '200': {}
+            '202': {}
+      x-ms-long-running-operation: true
+      summary: Azure DevTest Labs Virtual Machines_ Claim
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/virtualmachines/{name}/detachDataDisk
+  : post:
+      description: Detach the specified disk from the virtual machine. This operation can take a while to complete.
+      operationId: VirtualMachines_DetachDataDisk
+      parameters:
+      - $ref: '#/parameters/subscriptionId'
+      - $ref: '#/parameters/resourceGroupName'
+      - description: The name of the lab.
+        in: path
+        name: labName
+        required: true
+        type: string
+        example: example-value
+      - description: The name of the virtual machine.
+        in: path
+        name: name
+        required: true
+        type: string
+        example: example-value
+      - description: Request body for detaching data disk from a virtual machine.
+        in: body
+        name: detachDataDiskProperties
+        required: true
+        schema:
+          $ref: '#/definitions/DetachDataDiskProperties'
+        example: example-value
+      - $ref: '#/parameters/api-version'
+      responses:
+        '200':
+          description: OK
+        '202':
+          description: Accepted
+        default:
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/CloudError'
+      tags:
+      - VirtualMachines
+      x-ms-long-running-operation: true
+      summary: Azure DevTest Labs Virtual Machines_ Detach Data Disk
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/virtualmachines/{name}/getRdpFileContents
+  : post:
+      description: Gets a string that represents the contents of the RDP file for the virtual machine
+      operationId: VirtualMachines_GetRdpFileContents
+      parameters:
+      - $ref: '#/parameters/subscriptionId'
+      - $ref: '#/parameters/resourceGroupName'
+      - description: The name of the lab.
+        in: path
+        name: labName
+        required: true
+        type: string
+        example: example-value
+      - description: The name of the virtual machine.
+        in: path
+        name: name
+        required: true
+        type: string
+        example: example-value
+      - $ref: '#/parameters/api-version'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/RdpConnection'
+        default:
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/CloudError'
+      tags:
+      - VirtualMachines
+      x-ms-examples:
+        VirtualMachines_GetRdpFileContents:
+          parameters:
+            api-version: '2018-09-15'
+            labName: '{devtestlab-name}'
+            name: '{virtualmachine-name}'
+            resourceGroupName: myResourceGroup
+            subscriptionId: '{subscription-id}'
+          responses:
+            '200':
+              body:
+                contents: "full address:s:10.0.0.4\r\nprompt for credentials:i:1\r\nusername:s:{virtualmachine-name}\\{user-name}\r\n"
+      summary: Azure DevTest Labs Virtual Machines_ Get Rdp File Contents
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/virtualmachines/{name}/listApplicableSchedules
+  : post:
+      description: Lists the applicable start/stop schedules, if any.
+      operationId: VirtualMachines_ListApplicableSchedules
+      parameters:
+      - $ref: '#/parameters/subscriptionId'
+      - $ref: '#/parameters/resourceGroupName'
+      - description: The name of the lab.
+        in: path
+        name: labName
+        required: true
+        type: string
+        example: example-value
+      - description: The name of the virtual machine.
+        in: path
+        name: name
+        required: true
+        type: string
+        example: example-value
+      - $ref: '#/parameters/api-version'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/ApplicableSchedule'
+        default:
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/CloudError'
+      tags:
+      - VirtualMachines
+      summary: Azure DevTest Labs Virtual Machines_ List Applicable Schedules
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/virtualmachines/{name}/redeploy
+  : post:
+      description: Redeploy a virtual machine This operation can take a while to complete.
+      operationId: VirtualMachines_Redeploy
+      parameters:
+      - $ref: '#/parameters/subscriptionId'
+      - $ref: '#/parameters/resourceGroupName'
+      - description: The name of the lab.
+        in: path
+        name: labName
+        required: true
+        type: string
+        example: example-value
+      - description: The name of the virtual machine.
+        in: path
+        name: name
+        required: true
+        type: string
+        example: example-value
+      - $ref: '#/parameters/api-version'
+      responses:
+        '200':
+          description: OK
+        '202':
+          description: Accepted
+        default:
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/CloudError'
+      tags:
+      - VirtualMachines
+      x-ms-examples:
+        VirtualMachines_Redeploy:
+          parameters:
+            api-version: '2018-09-15'
+            labName: '{devtestlab-name}'
+            monitor: 'true'
+            name: '{virtualmachine-name}'
+            resourceGroupName: myResourceGroup
+            subscriptionId: '{subscription-id}'
+          responses:
+            '200': {}
+            '202': {}
+      x-ms-long-running-operation: true
+      summary: Azure DevTest Labs Virtual Machines_ Redeploy
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/virtualmachines/{name}/resize
+  : post:
+      description: Resize Virtual Machine. This operation can take a while to complete.
+      operationId: VirtualMachines_Resize
+      parameters:
+      - $ref: '#/parameters/subscriptionId'
+      - $ref: '#/parameters/resourceGroupName'
+      - description: The name of the lab.
+        in: path
+        name: labName
+        required: true
+        type: string
+        example: example-value
+      - description: The name of the virtual machine.
+        in: path
+        name: name
+        required: true
+        type: string
+        example: example-value
+      - description: Request body for resizing a virtual machine.
+        in: body
+        name: resizeLabVirtualMachineProperties
+        required: true
+        schema:
+          $ref: '#/definitions/ResizeLabVirtualMachineProperties'
+        example: example-value
+      - $ref: '#/parameters/api-version'
+      responses:
+        '200':
+          description: OK
+        '202':
+          description: Accepted
+        default:
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/CloudError'
+      tags:
+      - VirtualMachines
+      x-ms-examples:
+        VirtualMachines_Resize:
+          parameters:
+            api-version: '2018-09-15'
+            labName: '{devtestlab-name}'
+            monitor: 'true'
+            name: '{virtualmachine-name}'
+            resizeLabVirtualMachineProperties:
+              size: Standard_A4_v2
+            resourceGroupName: myResourceGroup
+            subscriptionId: '{subscription-id}'
+          responses:
+            '200': {}
+            '202': {}
+      x-ms-long-running-operation: true
+      summary: Azure DevTest Labs Virtual Machines_ Resize
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/virtualmachines/{name}/restart
+  : post:
+      description: Restart a virtual machine. This operation can take a while to complete.
+      operationId: VirtualMachines_Restart
+      parameters:
+      - $ref: '#/parameters/subscriptionId'
+      - $ref: '#/parameters/resourceGroupName'
+      - description: The name of the lab.
+        in: path
+        name: labName
+        required: true
+        type: string
+        example: example-value
+      - description: The name of the virtual machine.
+        in: path
+        name: name
+        required: true
+        type: string
+        example: example-value
+      - $ref: '#/parameters/api-version'
+      responses:
+        '200':
+          description: OK
+        '202':
+          description: Accepted
+        default:
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/CloudError'
+      tags:
+      - VirtualMachines
+      x-ms-examples:
+        VirtualMachines_Restart:
+          parameters:
+            api-version: '2018-09-15'
+            labName: '{devtestlab-name}'
+            monitor: 'true'
+            name: '{virtualmachine-name}'
+            resourceGroupName: myResourceGroup
+            subscriptionId: '{subscription-id}'
+          responses:
+            '200': {}
+            '202': {}
+      x-ms-long-running-operation: true
+      summary: Azure DevTest Labs Virtual Machines_ Restart
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/virtualmachines/{name}/start
+  : post:
+      description: Start a virtual machine. This operation can take a while to complete.
+      operationId: VirtualMachines_Start
+      parameters:
+      - $ref: '#/parameters/subscriptionId'
+      - $ref: '#/parameters/resourceGroupName'
+      - description: The name of the lab.
+        in: path
+        name: labName
+        required: true
+        type: string
+        example: example-value
+      - description: The name of the virtual machine.
+        in: path
+        name: name
+        required: true
+        type: string
+        example: example-value
+      - $ref: '#/parameters/api-version'
+      responses:
+        '200':
+          description: OK
+        '202':
+          description: Accepted
+        default:
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/CloudError'
+      tags:
+      - VirtualMachines
+      x-ms-examples:
+        VirtualMachines_Start:
+          parameters:
+            api-version: '2018-09-15'
+            labName: '{devtestlab-name}'
+            monitor: 'true'
+            name: '{virtualmachine-name}'
+            resourceGroupName: myResourceGroup
+            subscriptionId: '{subscription-id}'
+          responses:
+            '200': {}
+            '202': {}
+      x-ms-long-running-operation: true
+      summary: Azure DevTest Labs Virtual Machines_ Start
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/virtualmachines/{name}/stop
+  : post:
+      description: Stop a virtual machine This operation can take a while to complete.
+      operationId: VirtualMachines_Stop
+      parameters:
+      - $ref: '#/parameters/subscriptionId'
+      - $ref: '#/parameters/resourceGroupName'
+      - description: The name of the lab.
+        in: path
+        name: labName
+        required: true
+        type: string
+        example: example-value
+      - description: The name of the virtual machine.
+        in: path
+        name: name
+        required: true
+        type: string
+        example: example-value
+      - $ref: '#/parameters/api-version'
+      responses:
+        '200':
+          description: OK
+        '202':
+          description: Accepted
+        default:
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/CloudError'
+      tags:
+      - VirtualMachines
+      x-ms-examples:
+        VirtualMachines_Stop:
+          parameters:
+            api-version: '2018-09-15'
+            labName: '{devtestlab-name}'
+            name: '{virtualmachine-name}'
+            resourceGroupName: myResourceGroup
+            subscriptionId: '{subscription-id}'
+          responses:
+            '200': {}
+            '202': {}
+      x-ms-long-running-operation: true
+      summary: Azure DevTest Labs Virtual Machines_ Stop
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/virtualmachines/{name}/transferDisks
+  : post:
+      description: Transfers all data disks attached to the virtual machine to be owned by the current user. This operation can take a while to complete.
+      operationId: VirtualMachines_TransferDisks
+      parameters:
+      - $ref: '#/parameters/subscriptionId'
+      - $ref: '#/parameters/resourceGroupName'
+      - description: The name of the lab.
+        in: path
+        name: labName
+        required: true
+        type: string
+        example: example-value
+      - description: The name of the virtual machine.
+        in: path
+        name: name
+        required: true
+        type: string
+        example: example-value
+      - $ref: '#/parameters/api-version'
+      responses:
+        '200':
+          description: OK
+        '202':
+          description: Accepted
+        default:
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/CloudError'
+      tags:
+      - VirtualMachines
+      x-ms-long-running-operation: true
+      summary: Azure DevTest Labs Virtual Machines_ Transfer Disks
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/virtualmachines/{name}/unClaim
+  : post:
+      description: Release ownership of an existing virtual machine This operation can take a while to complete.
+      operationId: VirtualMachines_UnClaim
+      parameters:
+      - $ref: '#/parameters/subscriptionId'
+      - $ref: '#/parameters/resourceGroupName'
+      - description: The name of the lab.
+        in: path
+        name: labName
+        required: true
+        type: string
+        example: example-value
+      - description: The name of the virtual machine.
+        in: path
+        name: name
+        required: true
+        type: string
+        example: example-value
+      - $ref: '#/parameters/api-version'
+      responses:
+        '200':
+          description: OK
+        '202':
+          description: Accepted
+        default:
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/CloudError'
+      tags:
+      - VirtualMachines
+      x-ms-examples:
+        VirtualMachines_UnClaim:
+          parameters:
+            api-version: '2018-09-15'
+            labName: '{devtestlab-name}'
+            monitor: 'true'
+            name: '{virtualmachine-name}'
+            resourceGroupName: myResourceGroup
+            subscriptionId: '{subscription-id}'
+          responses:
+            '200': {}
+            '202': {}
+      x-ms-long-running-operation: true
+      summary: Azure DevTest Labs Virtual Machines_ Un Claim
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+definitions:
+  ScheduleCreationParameterPropertiesFragment:
+    description: Properties for schedule creation.
+    properties:
+      dailyRecurrence:
+        $ref: '#/definitions/DayDetailsFragment'
+        description: If the schedule will occur once each day of the week, specify the daily recurrence.
+      hourlyRecurrence:
+        $ref: '#/definitions/HourDetailsFragment'
+        description: If the schedule will occur multiple times a day, specify the hourly recurrence.
+      notificationSettings:
+        $ref: '#/definitions/NotificationSettingsFragment'
+        description: Notification settings.
+      status:
+        description: The status of the schedule (i.e. Enabled, Disabled)
+        enum:
+        - Enabled
+        - Disabled
+        type: string
+        x-ms-enum:
+          modelAsString: true
+          name: EnableStatus
+      targetResourceId:
+        description: The resource ID to which the schedule belongs
+        type: string
+      taskType:
+        description: The task type of the schedule (e.g. LabVmsShutdownTask, LabVmAutoStart).
+        type: string
+      timeZoneId:
+        description: The time zone ID (e.g. Pacific Standard time).
+        type: string
+      weeklyRecurrence:
+        $ref: '#/definitions/WeekDetailsFragment'
+        description: If the schedule will occur only some days of the week, specify the weekly recurrence.
+    type: object
+  ScheduleProperties:
+    description: Properties of a schedule.
+    properties:
+      createdDate:
+        description: The creation date of the schedule.
+        format: date-time
+        readOnly: true
+        type: string
+      dailyRecurrence:
+        $ref: '#/definitions/DayDetails'
+        description: If the schedule will occur once each day of the week, specify the daily recurrence.
+      hourlyRecurrence:
+        $ref: '#/definitions/HourDetails'
+        description: If the schedule will occur multiple times a day, specify the hourly recurrence.
+      notificationSettings:
+        $ref: '#/definitions/NotificationSettings'
+        description: Notification settings.
+      provisioningState:
+        description: The provisioning status of the resource.
+        readOnly: true
+        type: string
+      status:
+        description: The status of the schedule (i.e. Enabled, Disabled)
+        enum:
+        - Enabled
+        - Disabled
+        type: string
+        x-ms-enum:
+          modelAsString: true
+          name: EnableStatus
+      targetResourceId:
+        description: The resource ID to which the schedule belongs
+        type: string
+      taskType:
+        description: The task type of the schedule (e.g. LabVmsShutdownTask, LabVmAutoStart).
+        type: string
+      timeZoneId:
+        description: The time zone ID (e.g. Pacific Standard time).
+        type: string
+      uniqueIdentifier:
+        description: The unique immutable identifier of a resource (Guid).
+        readOnly: true
+        type: string
+      weeklyRecurrence:
+        $ref: '#/definitions/WeekDetails'
+        description: If the schedule will occur only some days of the week, specify the weekly recurrence.
+    type: object
+  DataDiskPropertiesFragment:
+    description: Request body for adding a new or existing data disk to a virtual machine.
+    properties:
+      attachNewDataDiskOptions:
+        $ref: '#/definitions/AttachNewDataDiskOptionsFragment'
+        description: Specifies options to attach a new disk to the virtual machine.
+      existingLabDiskId:
+        description: Specifies the existing lab disk id to attach to virtual machine.
+        type: string
+      hostCaching:
+        description: Caching option for a data disk (i.e. None, ReadOnly, ReadWrite).
+        enum:
+        - None
+        - ReadOnly
+        - ReadWrite
+        type: string
+        x-ms-enum:
+          modelAsString: true
+          name: HostCachingOptions
+    type: object
+  ApplicableScheduleProperties:
+    description: Properties of a schedules applicable to a virtual machine.
+    properties:
+      labVmsShutdown:
+        $ref: '#/definitions/Schedule'
+        description: The auto-shutdown schedule, if one has been set at the lab or lab resource level.
+      labVmsStartup:
+        $ref: '#/definitions/Schedule'
+        description: The auto-startup schedule, if one has been set at the lab or lab resource level.
+    type: object
+  ScheduleCreationParameter:
+    description: Properties for creating a schedule.
+    properties:
+      location:
+        description: The location of the new virtual machine or environment
+        type: string
+      name:
+        description: The name of the virtual machine or environment
+        type: string
+      properties:
+        $ref: '#/definitions/ScheduleCreationParameterProperties'
+        description: The properties of the schedule.
+        x-ms-client-flatten: true
+      tags:
+        additionalProperties:
+          type: string
+        description: The tags of the resource.
+        type: object
+    type: object
+  ApplyArtifactsRequest:
+    description: Request body for applying artifacts to a virtual machine.
+    properties:
+      artifacts:
+        description: The list of artifacts to apply.
+        items:
+          $ref: '#/definitions/ArtifactInstallProperties'
+        type: array
+    type: object
+  WeekDetails:
+    description: Properties of a weekly schedule.
+    properties:
+      time:
+        description: The time of the day the schedule will occur.
+        type: string
+      weekdays:
+        description: The days of the week for which the schedule is set (e.g. Sunday, Monday, Tuesday, etc.).
+        items:
+          type: string
+        type: array
+    type: object
+  UpdateResource:
+    description: Represents an update resource
+    properties:
+      tags:
+        additionalProperties:
+          type: string
+        description: The tags of the resource.
+        type: object
+    type: object
+  LabVirtualMachinePropertiesFragment:
+    description: Properties of a virtual machine.
+    properties:
+      allowClaim:
+        description: Indicates whether another user can take ownership of the virtual machine
+        type: boolean
+      artifactDeploymentStatus:
+        $ref: '#/definitions/ArtifactDeploymentStatusPropertiesFragment'
+        description: The artifact deployment status for the virtual machine.
+      artifacts:
+        description: The artifacts to be installed on the virtual machine.
+        items:
+          $ref: '#/definitions/ArtifactInstallPropertiesFragment'
+        type: array
+      computeId:
+        description: The resource identifier (Microsoft.Compute) of the virtual machine.
+        type: string
+      createdByUser:
+        description: The email address of creator of the virtual machine.
+        type: string
+      createdByUserId:
+        description: The object identifier of the creator of the virtual machine.
+        type: string
+      createdDate:
+        description: The creation date of the virtual machine.
+        format: date-time
+        type: string
+      customImageId:
+        description: The custom image identifier of the virtual machine.
+        type: string
+      dataDiskParameters:
+        description: New or existing data disks to attach to the virtual machine after creation
+        items:
+          $ref: '#/definitions/DataDiskPropertiesFragment'
+        type: array
+      disallowPublicIpAddress:
+        description: Indicates whether the virtual machine is to be created without a public IP address.
+        type: boolean
+      environmentId:
+        description: The resource ID of the environment that contains this virtual machine, if any.
+        type: string
+      expirationDate:
+        description: The expiration date for VM.
+        format: date-time
+        type: string
+      fqdn:
+        description: The fully-qualified domain name of the virtual machine.
+        type: string
+      galleryImageReference:
+        $ref: '#/definitions/GalleryImageReferenceFragment'
+        description: The Microsoft Azure Marketplace image reference of the virtual machine.
+      isAuthenticationWithSshKey:
+        description: Indicates whether this virtual machine uses an SSH key for authentication.
+        type: boolean
+      labSubnetName:
+        description: The lab subnet name of the virtual machine.
+        type: string
+      labVirtualNetworkId:
+        description: The lab virtual network identifier of the virtual machine.
+        type: string
+      lastKnownPowerState:
+        description: Last known compute power state captured in DTL
+        type: string
+      networkInterface:
+        $ref: '#/definitions/NetworkInterfacePropertiesFragment'
+        description: The network interface properties.
+      notes:
+        description: The notes of the virtual machine.
+        type: string
+      osType:
+        description: The OS type of the virtual machine.
+        type: string
+      ownerObjectId:
+        description: The object identifier of the owner of the virtual machine.
+        type: string
+      ownerUserPrincipalName:
+        description: The user principal name of the virtual machine owner.
+        type: string
+      password:
+        description: The password of the virtual machine administrator.
+        type: string
+      planId:
+        description: The id of the plan associated with the virtual machine image
+        type: string
+      scheduleParameters:
+        description: Virtual Machine schedules to be created
+        items:
+          $ref: '#/definitions/ScheduleCreationParameterFragment'
+        type: array
+      size:
+        description: The size of the virtual machine.
+        type: string
+      sshKey:
+        description: The SSH key of the virtual machine administrator.
+        type: string
+      storageType:
+        description: Storage type to use for virtual machine (i.e. Standard, Premium).
+        type: string
+      userName:
+        description: The user name of the virtual machine.
+        type: string
+      virtualMachineCreationSource:
+        description: Tells source of creation of lab virtual machine. Output property only.
+        enum:
+        - FromCustomImage
+        - FromGalleryImage
+        - FromSharedGalleryImage
+        type: string
+        x-ms-enum:
+          modelAsString: true
+          name: VirtualMachineCreationSource
+    type: object
+  NotificationSettings:
+    description: Notification settings for a schedule.
+    properties:
+      emailRecipient:
+        description: The email recipient to send notifications to (can be a list of semi-colon separated email addresses).
+        type: string
+      notificationLocale:
+        description: The locale to use when sending a notification (fallback for unsupported languages is EN).
+        type: string
+      status:
+        description: If notifications are enabled for this schedule (i.e. Enabled, Disabled).
+        enum:
+        - Enabled
+        - Disabled
+        type: string
+        x-ms-enum:
+          modelAsString: true
+          name: EnableStatus
+      timeInMinutes:
+        description: Time in minutes before event at which notification will be sent.
+        format: int32
+        type: integer
+      webhookUrl:
+        description: The webhook URL to which the notification will be sent.
+        type: string
+    type: object
+  ApplicableSchedule:
+    allOf:
+    - $ref: '#/definitions/Resource'
+    description: Schedules applicable to a virtual machine. The schedules may have been defined on a VM or on lab level.
+    properties:
+      properties:
+        $ref: '#/definitions/ApplicableScheduleProperties'
+        description: The properties of the resource.
+        x-ms-client-flatten: true
+    required:
+    - properties
+    type: object
+  CloudErrorBody:
+    description: Body of an error from a REST request.
+    properties:
+      code:
+        description: The error code.
+        type: string
+      details:
+        description: Inner errors.
+        items:
+          $ref: '#/definitions/CloudErrorBody'
+        type: array
+      message:
+        description: The error message.
+        type: string
+      target:
+        description: The error target.
+        type: string
+    type: object
+    x-ms-external: true
+  ArtifactParameterPropertiesFragment:
+    description: Properties of an artifact parameter.
+    properties:
+      name:
+        description: The name of the artifact parameter.
+        type: string
+      value:
+        description: The value of the artifact parameter.
+        type: string
+    type: object
+  DayDetails:
+    description: Properties of a daily schedule.
+    properties:
+      time:
+        description: The time of day the schedule will occur.
+        type: string
+    type: object
+  ArtifactInstallPropertiesFragment:
+    description: Properties of an artifact.
+    properties:
+      artifactId:
+        description: The artifact's identifier.
+        type: string
+      artifactTitle:
+        description: The artifact's title.
+        type: string
+      deploymentStatusMessage:
+        description: The status message from the deployment.
+        type: string
+      installTime:
+        description: The time that the artifact starts to install on the virtual machine.
+        format: date-time
+        type: string
+      parameters:
+        description: The parameters of the artifact.
+        items:
+          $ref: '#/definitions/ArtifactParameterPropertiesFragment'
+        type: array
+      status:
+        description: The status of the artifact.
+        type: string
+      vmExtensionStatusMessage:
+        description: The status message from the virtual machine extension.
+        type: string
+    type: object
+  HourDetails:
+    description: Properties of an hourly schedule.
+    properties:
+      minute:
+        description: Minutes of the hour the schedule will run.
+        format: int32
+        type: integer
+    type: object
+  RdpConnection:
+    description: Represents a .rdp file
+    properties:
+      contents:
+        description: The contents of the .rdp file
+        type: string
+    type: object
+  ArtifactDeploymentStatusProperties:
+    description: Properties of an artifact deployment.
+    properties:
+      artifactsApplied:
+        description: The total count of the artifacts that were successfully applied.
+        format: int32
+        type: integer
+      deploymentStatus:
+        description: The deployment status of the artifact.
+        type: string
+      totalArtifacts:
+        description: The total count of the artifacts that were tentatively applied.
+        format: int32
+        type: integer
+    type: object
+  LabVirtualMachineFragment:
+    allOf:
+    - $ref: '#/definitions/UpdateResource'
+    description: A virtual machine.
+    properties:
+      properties:
+        $ref: '#/definitions/LabVirtualMachinePropertiesFragment'
+        description: The properties of the resource.
+        x-ms-client-flatten: true
+    type: object
+  WeekDetailsFragment:
+    description: Properties of a weekly schedule.
+    properties:
+      time:
+        description: The time of the day the schedule will occur.
+        type: string
+      weekdays:
+        description: The days of the week for which the schedule is set (e.g. Sunday, Monday, Tuesday, etc.).
+        items:
+          type: string
+        type: array
+    type: object
+  ScheduleCreationParameterProperties:
+    description: Properties for schedule creation.
+    properties:
+      dailyRecurrence:
+        $ref: '#/definitions/DayDetails'
+        description: If the schedule will occur once each day of the week, specify the daily recurrence.
+      hourlyRecurrence:
+        $ref: '#/definitions/HourDetails'
+        description: If the schedule will occur multiple times a day, specify the hourly recurrence.
+      notificationSettings:
+        $ref: '#/definitions/NotificationSettings'
+        description: Notification settings.
+      status:
+        description: The status of the schedule (i.e. Enabled, Disabled)
+        enum:
+        - Enabled
+        - Disabled
+        type: string
+        x-ms-enum:
+          modelAsString: true
+          name: EnableStatus
+      targetResourceId:
+        description: The resource ID to which the schedule belongs
+        type: string
+      taskType:
+        description: The task type of the schedule (e.g. LabVmsShutdownTask, LabVmAutoStart).
+        type: string
+      timeZoneId:
+        description: The time zone ID (e.g. Pacific Standard time).
+        type: string
+      weeklyRecurrence:
+        $ref: '#/definitions/WeekDetails'
+        description: If the schedule will occur only some days of the week, specify the weekly recurrence.
+    type: object
+  Resource:
+    description: An Azure resource.
+    properties:
+      id:
+        description: The identifier of the resource.
+        readOnly: true
+        type: string
+      location:
+        description: The location of the resource.
+        type: string
+      name:
+        description: The name of the resource.
+        readOnly: true
+        type: string
+      tags:
+        additionalProperties:
+          type: string
+        description: The tags of the resource.
+        type: object
+      type:
+        description: The type of the resource.
+        readOnly: true
+        type: string
+    type: object
+    x-ms-azure-resource: true
+  ComputeVmInstanceViewStatus:
+    description: Status information about a virtual machine.
+    properties:
+      code:
+        description: Gets the status Code.
+        type: string
+      displayStatus:
+        description: Gets the short localizable label for the status.
+        type: string
+      message:
+        description: Gets the message associated with the status.
+        type: string
+    type: object
+  ArtifactDeploymentStatusPropertiesFragment:
+    description: Properties of an artifact deployment.
+    properties:
+      artifactsApplied:
+        description: The total count of the artifacts that were successfully applied.
+        format: int32
+        type: integer
+      deploymentStatus:
+        description: The deployment status of the artifact.
+        type: string
+      totalArtifacts:
+        description: The total count of the artifacts that were tentatively applied.
+        format: int32
+        type: integer
+    type: object
+  InboundNatRule:
+    description: A rule for NAT - exposing a VM's port (backendPort) on the public IP address using a load balancer.
+    properties:
+      backendPort:
+        description: The port to which the external traffic will be redirected.
+        format: int32
+        type: integer
+      frontendPort:
+        description: The external endpoint port of the inbound connection. Possible values range between 1 and 65535, inclusive. If unspecified, a value will be allocated automatically.
+        format: int32
+        type: integer
+      transportProtocol:
+        description: The transport protocol for the endpoint.
+        enum:
+        - Tcp
+        - Udp
+        type: string
+        x-ms-enum:
+          modelAsString: true
+          name: TransportProtocol
+    type: object
+  SharedPublicIpAddressConfiguration:
+    description: Properties of a virtual machine that determine how it is connected to a load balancer.
+    properties:
+      inboundNatRules:
+        description: The incoming NAT rules
+        items:
+          $ref: '#/definitions/InboundNatRule'
+        type: array
+    type: object
+  LabVirtualMachineProperties:
+    description: Properties of a virtual machine.
+    properties:
+      allowClaim:
+        description: Indicates whether another user can take ownership of the virtual machine
+        type: boolean
+      applicableSchedule:
+        $ref: '#/definitions/ApplicableSchedule'
+        description: The applicable schedule for the virtual machine.
+        readOnly: true
+      artifactDeploymentStatus:
+        $ref: '#/definitions/ArtifactDeploymentStatusProperties'
+        description: The artifact deployment status for the virtual machine.
+      artifacts:
+        description: The artifacts to be installed on the virtual machine.
+        items:
+          $ref: '#/definitions/ArtifactInstallProperties'
+        type: array
+      computeId:
+        description: The resource identifier (Microsoft.Compute) of the virtual machine.
+        type: string
+      computeVm:
+        $ref: '#/definitions/ComputeVmProperties'
+        description: The compute virtual machine properties.
+        readOnly: true
+      createdByUser:
+        description: The email address of creator of the virtual machine.
+        type: string
+      createdByUserId:
+        description: The object identifier of the creator of the virtual machine.
+        type: string
+      createdDate:
+        description: The creation date of the virtual machine.
+        format: date-time
+        type: string
+      customImageId:
+        description: The custom image identifier of the virtual machine.
+        type: string
+      dataDiskParameters:
+        description: New or existing data disks to attach to the virtual machine after creation
+        items:
+          $ref: '#/definitions/DataDiskProperties'
+        type: array
+      disallowPublicIpAddress:
+        description: Indicates whether the virtual machine is to be created without a public IP address.
+        type: boolean
+      environmentId:
+        description: The resource ID of the environment that contains this virtual machine, if any.
+        type: string
+      expirationDate:
+        description: The expiration date for VM.
+        format: date-time
+        type: string
+      fqdn:
+        description: The fully-qualified domain name of the virtual machine.
+        type: string
+      galleryImageReference:
+        $ref: '#/definitions/GalleryImageReference'
+        description: The Microsoft Azure Marketplace image reference of the virtual machine.
+      isAuthenticationWithSshKey:
+        description: Indicates whether this virtual machine uses an SSH key for authentication.
+        type: boolean
+      labSubnetName:
+        description: The lab subnet name of the virtual machine.
+        type: string
+      labVirtualNetworkId:
+        description: The lab virtual network identifier of the virtual machine.
+        type: string
+      lastKnownPowerState:
+        description: Last known compute power state captured in DTL
+        type: string
+      networkInterface:
+        $ref: '#/definitions/NetworkInterfaceProperties'
+        description: The network interface properties.
+      notes:
+        description: The notes of the virtual machine.
+        type: string
+      osType:
+        description: The OS type of the virtual machine.
+        type: string
+      ownerObjectId:
+        description: The object identifier of the owner of the virtual machine.
+        type: string
+      ownerUserPrincipalName:
+        description: The user principal name of the virtual machine owner.
+        type: string
+      password:
+        description: The password of the virtual machine administrator.
+        type: string
+      planId:
+        description: The id of the plan associated with the virtual machine image
+        type: string
+      provisioningState:
+        description: The provisioning status of the resource.
+        readOnly: true
+        type: string
+      scheduleParameters:
+        description: Virtual Machine schedules to be created
+        items:
+          $ref: '#/definitions/ScheduleCreationParameter'
+        type: array
+      size:
+        description: The size of the virtual machine.
+        type: string
+      sshKey:
+        description: The SSH key of the virtual machine administrator.
+        type: string
+      storageType:
+        description: Storage type to use for virtual machine (i.e. Standard, Premium).
+        type: string
+      uniqueIdentifier:
+        description: The unique immutable identifier of a resource (Guid).
+        readOnly: true
+        type: string
+      userName:
+        description: The user name of the virtual machine.
+        type: string
+      virtualMachineCreationSource:
+        description: Tells source of creation of lab virtual machine. Output property only.
+        enum:
+        - FromCustomImage
+        - FromGalleryImage
+        - FromSharedGalleryImage
+        type: string
+        x-ms-enum:
+          modelAsString: true
+          name: VirtualMachineCreationSource
+    type: object
+  NetworkInterfacePropertiesFragment:
+    description: Properties of a network interface.
+    properties:
+      dnsName:
+        description: The DNS name.
+        type: string
+      privateIpAddress:
+        description: The private IP address.
+        type: string
+      publicIpAddress:
+        description: The public IP address.
+        type: string
+      publicIpAddressId:
+        description: The resource ID of the public IP address.
+        type: string
+      rdpAuthority:
+        description: The RdpAuthority property is a server DNS host name or IP address followed by the service port number for RDP (Remote Desktop Protocol).
+        type: string
+      sharedPublicIpAddressConfiguration:
+        $ref: '#/definitions/SharedPublicIpAddressConfigurationFragment'
+        description: The configuration for sharing a public IP address across multiple virtual machines.
+      sshAuthority:
+        description: The SshAuthority property is a server DNS host name or IP address followed by the service port number for SSH.
+        type: string
+      subnetId:
+        description: The resource ID of the sub net.
+        type: string
+      virtualNetworkId:
+        description: The resource ID of the virtual network.
+        type: string
+    type: object
+  AttachNewDataDiskOptionsFragment:
+    description: Properties to attach new disk to the Virtual Machine.
+    properties:
+      diskName:
+        description: The name of the disk to be attached.
+        type: string
+      diskSizeGiB:
+        description: Size of the disk to be attached in GibiBytes.
+        format: int32
+        type: integer
+      diskType:
+        description: The storage type for the disk (i.e. Standard, Premium).
+        enum:
+        - Standard
+        - Premium
+        - StandardSSD
+        type: string
+        x-ms-enum:
+          modelAsString: true
+          name: StorageType
+    type: object
+  ArtifactParameterProperties:
+    description: Properties of an artifact parameter.
+    properties:
+      name:
+        description: The name of the artifact parameter.
+        type: string
+      value:
+        description: The value of the artifact parameter.
+        type: string
+    type: object
+  ArtifactInstallProperties:
+    description: Properties of an artifact.
+    properties:
+      artifactId:
+        description: The artifact's identifier.
+        type: string
+      artifactTitle:
+        description: The artifact's title.
+        type: string
+      deploymentStatusMessage:
+        description: The status message from the deployment.
+        type: string
+      installTime:
+        description: The time that the artifact starts to install on the virtual machine.
+        format: date-time
+        type: string
+      parameters:
+        description: The parameters of the artifact.
+        items:
+          $ref: '#/definitions/ArtifactParameterProperties'
+        type: array
+      status:
+        description: The status of the artifact.
+        type: string
+      vmExtensionStatusMessage:
+        description: The status message from the virtual machine extension.
+        type: string
+    type: object
+  LabVirtualMachineList:
+    description: The response of a list operation.
+    properties:
+      nextLink:
+        description: Link for next set of results.
+        type: string
+      value:
+        description: Results of the list operation.
+        items:
+          $ref: '#/definitions/LabVirtualMachine'
+        type: array
+    type: object
+  DayDetailsFragment:
+    description: Properties of a daily schedule.
+    properties:
+      time:
+        description: The time of day the schedule will occur.
+        type: string
+    type: object
+  GalleryImageReferenceFragment:
+    description: The reference information for an Azure Marketplace image.
+    properties:
+      offer:
+        description: The offer of the gallery image.
+        type: string
+      osType:
+        description: The OS type of the gallery image.
+        type: string
+      publisher:
+        description: The publisher of the gallery image.
+        type: string
+      sku:
+        description: The SKU of the gallery image.
+        type: string
+      version:
+        description: The version of the gallery image.
+        type: string
+    type: object
+  GalleryImageReference:
+    description: The reference information for an Azure Marketplace image.
+    properties:
+      offer:
+        description: The offer of the gallery image.
+        type: string
+      osType:
+        description: The OS type of the gallery image.
+        type: string
+      publisher:
+        description: The publisher of the gallery image.
+        type: string
+      sku:
+        description: The SKU of the gallery image.
+        type: string
+      version:
+        description: The version of the gallery image.
+        type: string
+    type: object
+  ScheduleCreationParameterFragment:
+    description: Properties for creating a schedule.
+    properties:
+      location:
+        description: The location of the new virtual machine or environment
+        type: string
+      name:
+        description: The name of the virtual machine or environment
+        type: string
+      properties:
+        $ref: '#/definitions/ScheduleCreationParameterPropertiesFragment'
+        description: The properties of the schedule.
+        x-ms-client-flatten: true
+      tags:
+        additionalProperties:
+          type: string
+        description: The tags of the resource.
+        type: object
+    type: object
+  ResizeLabVirtualMachineProperties:
+    description: Request body for resizing a virtual machine.
+    properties:
+      size:
+        description: Specifies the size of the virtual machine.
+        type: string
+    type: object
+  ComputeVmProperties:
+    description: Properties of a virtual machine returned by the Microsoft.Compute API.
+    properties:
+      dataDiskIds:
+        description: Gets data disks blob uri for the virtual machine.
+        items:
+          type: string
+        type: array
+      dataDisks:
+        description: Gets all data disks attached to the virtual machine.
+        items:
+          $ref: '#/definitions/ComputeDataDisk'
+        type: array
+      networkInterfaceId:
+        description: Gets the network interface ID of the virtual machine.
+        type: string
+      osDiskId:
+        description: Gets OS disk blob uri for the virtual machine.
+        type: string
+      osType:
+        description: Gets the OS type of the virtual machine.
+        type: string
+      statuses:
+        description: Gets the statuses of the virtual machine.
+        items:
+          $ref: '#/definitions/ComputeVmInstanceViewStatus'
+        type: array
+      vmSize:
+        description: Gets the size of the virtual machine.
+        type: string
+    type: object
+  NotificationSettingsFragment:
+    description: Notification settings for a schedule.
+    properties:
+      emailRecipient:
+        description: The email recipient to send notifications to (can be a list of semi-colon separated email addresses).
+        type: string
+      notificationLocale:
+        description: The locale to use when sending a notification (fallback for unsupported languages is EN).
+        type: string
+      status:
+        description: If notifications are enabled for this schedule (i.e. Enabled, Disabled).
+        enum:
+        - Enabled
+        - Disabled
+        type: string
+        x-ms-enum:
+          modelAsString: true
+          name: EnableStatus
+      timeInMinutes:
+        description: Time in minutes before event at which notification will be sent.
+        format: int32
+        type: integer
+      webhookUrl:
+        description: The webhook URL to which the notification will be sent.
+        type: string
+    type: object
+  DetachDataDiskProperties:
+    description: Request body for detaching data disk from a virtual machine.
+    properties:
+      existingLabDiskId:
+        description: Specifies the disk resource ID to detach from virtual machine.
+        type: string
+    type: object
+  SharedPublicIpAddressConfigurationFragment:
+    description: Properties of a virtual machine that determine how it is connected to a load balancer.
+    properties:
+      inboundNatRules:
+        description: The incoming NAT rules
+        items:
+          $ref: '#/definitions/InboundNatRuleFragment'
+        type: array
+    type: object
+  HourDetailsFragment:
+    description: Properties of an hourly schedule.
+    properties:
+      minute:
+        description: Minutes of the hour the schedule will run.
+        format: int32
+        type: integer
+    type: object
+  AttachNewDataDiskOptions:
+    description: Properties to attach new disk to the Virtual Machine.
+    properties:
+      diskName:
+        description: The name of the disk to be attached.
+        type: string
+      diskSizeGiB:
+        description: Size of the disk to be attached in GibiBytes.
+        format: int32
+        type: integer
+      diskType:
+        description: The storage type for the disk (i.e. Standard, Premium).
+        enum:
+        - Standard
+        - Premium
+        - StandardSSD
+        type: string
+        x-ms-enum:
+          modelAsString: true
+          name: StorageType
+    type: object
+  CloudError:
+    description: Error from a REST request.
+    properties:
+      error:
+        $ref: '#/definitions/CloudErrorBody'
+        description: The cloud error that occurred
+    type: object
+    x-ms-external: true
+  ComputeDataDisk:
+    description: A data disks attached to a virtual machine.
+    properties:
+      diskSizeGiB:
+        description: Gets data disk size in GiB.
+        format: int32
+        type: integer
+      diskUri:
+        description: When backed by a blob, the URI of underlying blob.
+        type: string
+      managedDiskId:
+        description: When backed by managed disk, this is the ID of the compute disk resource.
+        type: string
+      name:
+        description: Gets data disk name.
+        type: string
+    type: object
+  InboundNatRuleFragment:
+    description: A rule for NAT - exposing a VM's port (backendPort) on the public IP address using a load balancer.
+    properties:
+      backendPort:
+        description: The port to which the external traffic will be redirected.
+        format: int32
+        type: integer
+      frontendPort:
+        description: The external endpoint port of the inbound connection. Possible values range between 1 and 65535, inclusive. If unspecified, a value will be allocated automatically.
+        format: int32
+        type: integer
+      transportProtocol:
+        description: The transport protocol for the endpoint.
+        enum:
+        - Tcp
+        - Udp
+        type: string
+        x-ms-enum:
+          modelAsString: true
+          name: TransportProtocol
+    type: object
+  LabVirtualMachine:
+    allOf:
+    - $ref: '#/definitions/Resource'
+    description: A virtual machine.
+    properties:
+      properties:
+        $ref: '#/definitions/LabVirtualMachineProperties'
+        description: The properties of the resource.
+        x-ms-client-flatten: true
+    required:
+    - properties
+    type: object
+  NetworkInterfaceProperties:
+    description: Properties of a network interface.
+    properties:
+      dnsName:
+        description: The DNS name.
+        type: string
+      privateIpAddress:
+        description: The private IP address.
+        type: string
+      publicIpAddress:
+        description: The public IP address.
+        type: string
+      publicIpAddressId:
+        description: The resource ID of the public IP address.
+        type: string
+      rdpAuthority:
+        description: The RdpAuthority property is a server DNS host name or IP address followed by the service port number for RDP (Remote Desktop Protocol).
+        type: string
+      sharedPublicIpAddressConfiguration:
+        $ref: '#/definitions/SharedPublicIpAddressConfiguration'
+        description: The configuration for sharing a public IP address across multiple virtual machines.
+      sshAuthority:
+        description: The SshAuthority property is a server DNS host name or IP address followed by the service port number for SSH.
+        type: string
+      subnetId:
+        description: The resource ID of the sub net.
+        type: string
+      virtualNetworkId:
+        description: The resource ID of the virtual network.
+        type: string
+    type: object
+  Schedule:
+    allOf:
+    - $ref: '#/definitions/Resource'
+    description: A schedule.
+    properties:
+      properties:
+        $ref: '#/definitions/ScheduleProperties'
+        description: The properties of the resource.
+        x-ms-client-flatten: true
+    required:
+    - properties
+    type: object
+  DataDiskProperties:
+    description: Request body for adding a new or existing data disk to a virtual machine.
+    properties:
+      attachNewDataDiskOptions:
+        $ref: '#/definitions/AttachNewDataDiskOptions'
+        description: Specifies options to attach a new disk to the virtual machine.
+      existingLabDiskId:
+        description: Specifies the existing lab disk id to attach to virtual machine.
+        type: string
+      hostCaching:
+        description: Caching option for a data disk (i.e. None, ReadOnly, ReadWrite).
+        enum:
+        - None
+        - ReadOnly
+        - ReadWrite
+        type: string
+        x-ms-enum:
+          modelAsString: true
+          name: HostCachingOptions
+    type: object
+parameters:
+  resourceGroupName:
+    description: The name of the resource group.
+    in: path
+    name: resourceGroupName
+    required: true
+    type: string
+    x-ms-parameter-location: method
+  api-version:
+    default: '2018-09-15'
+    description: Client API version.
+    in: query
+    name: api-version
+    required: true
+    type: string
+  subscriptionId:
+    description: The subscription ID.
+    in: path
+    name: subscriptionId
+    required: true
+    type: string
+securityDefinitions:
+  azure_auth:
+    authorizationUrl: https://login.microsoftonline.com/common/oauth2/authorize
+    description: OAuth2 Implicit Grant
+    flow: implicit
+    scopes:
+      user_impersonation: Access Microsoft Azure
+    type: oauth2

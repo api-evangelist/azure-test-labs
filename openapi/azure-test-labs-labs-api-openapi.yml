@@ -1,0 +1,1621 @@
+swagger: '2.0'
+info:
+  description: The DevTest Labs Client.
+  title: DevTestLabsClient ArmTemplates Labs API
+  version: '2018-09-15'
+  x-apisguru-categories:
+  - cloud
+  x-logo:
+    url: https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png
+  x-origin:
+  - format: swagger
+    url: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/devtestlabs/resource-manager/Microsoft.DevTestLab/stable/2018-09-15/DTL.json
+    version: '2.0'
+  x-preferred: true
+  x-providerName: azure.com
+  x-serviceName: devtestlabs-DTL
+  x-tags:
+  - Azure
+  - Microsoft
+host: management.azure.com
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+security:
+- azure_auth:
+  - user_impersonation
+tags:
+- name: Labs
+paths:
+  /subscriptions/{subscriptionId}/providers/Microsoft.DevTestLab/labs:
+    get:
+      description: List labs in a subscription.
+      operationId: Labs_ListBySubscription
+      parameters:
+      - $ref: '#/parameters/subscriptionId'
+      - description: 'Specify the $expand query. Example: ''properties($select=defaultStorageAccount)'''
+        in: query
+        name: $expand
+        type: string
+        example: example-value
+      - description: 'The filter to apply to the operation. Example: ''$filter=contains(name,''myName'')'
+        in: query
+        name: $filter
+        type: string
+        example: example-value
+      - description: 'The maximum number of resources to return from the operation. Example: ''$top=10'''
+        format: int32
+        in: query
+        name: $top
+        type: integer
+        example: example-value
+      - description: 'The ordering expression for the results, using OData notation. Example: ''$orderby=name desc'''
+        in: query
+        name: $orderby
+        type: string
+        example: example-value
+      - $ref: '#/parameters/api-version'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/LabList'
+        default:
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/CloudError'
+      tags:
+      - Labs
+      x-ms-examples:
+        Labs_ListBySubscription:
+          parameters:
+            api-version: '2018-09-15'
+            subscriptionId: '{subscription-id}'
+          responses:
+            '200':
+              body:
+                value:
+                - id: /subscriptions/{subscription-id}/resourcegroups/{resourcegroup-name-1}/providers/microsoft.devtestlab/labs/{lab-name-1}
+                  location: westcentralus
+                  name: '{lab-name-1}'
+                  properties:
+                    announcement:
+                      enabled: Disabled
+                      expired: false
+                      markdown: ''
+                      title: ''
+                    artifactsStorageAccount: /subscriptions/{subscription-id}/resourceGroups/{resourcegroup-name-1}/providers/Microsoft.Storage/storageAccounts/{storageaccount-name-1}
+                    createdDate: '2018-09-30T08:38:13.1973609-07:00'
+                    defaultPremiumStorageAccount: /subscriptions/{subscription-id}/resourceGroups/{resourcegroup-name-1}/providers/Microsoft.Storage/storageAccounts/{storageaccount-name-1}
+                    defaultStorageAccount: /subscriptions/{subscription-id}/resourceGroups/{resourcegroup-name-1}/providers/Microsoft.Storage/storageAccounts/{storageaccount-name-1}
+                    environmentPermission: Reader
+                    labStorageType: Premium
+                    mandatoryArtifactsResourceIdsLinux: []
+                    mandatoryArtifactsResourceIdsWindows: []
+                    premiumDataDiskStorageAccount: /subscriptions/{subscription-id}/resourceGroups/{resourcegroup-name-1}/providers/Microsoft.Storage/storageAccounts/{storageaccount-name-1}
+                    premiumDataDisks: Disabled
+                    provisioningState: Succeeded
+                    support:
+                      enabled: Disabled
+                      markdown: ''
+                    uniqueIdentifier: '{unique-identifier}'
+                    vaultName: /subscriptions/{subscription-id}/resourceGroups/{resourcegroup-name-1}/providers/Microsoft.KeyVault/vaults/{keyvault-name-1}
+                  tags: {}
+                  type: Microsoft.DevTestLab/labs
+                - id: /subscriptions/{subscription-id}/resourcegroups/{resourcegroup-name-2}/providers/microsoft.devtestlab/labs/{lab-name-2}
+                  location: japaneast
+                  name: '{lab-name-2}'
+                  properties:
+                    announcement:
+                      enabled: Disabled
+                      expired: false
+                      markdown: ''
+                      title: ''
+                    artifactsStorageAccount: /subscriptions/{subscription-id}/resourceGroups/{resourcegroup-name-2}/providers/Microsoft.Storage/storageAccounts/{storageaccount-name-2}
+                    createdDate: '2018-09-30T09:37:52.9675083-07:00'
+                    defaultPremiumStorageAccount: /subscriptions/{subscription-id}/resourceGroups/{resourcegroup-name-2}/providers/Microsoft.Storage/storageAccounts/{storageaccount-name-2}
+                    defaultStorageAccount: /subscriptions/{subscription-id}/resourceGroups/{resourcegroup-name-2}/providers/Microsoft.Storage/storageAccounts/{storageaccount-name-2}
+                    environmentPermission: Reader
+                    labStorageType: Premium
+                    mandatoryArtifactsResourceIdsLinux: []
+                    mandatoryArtifactsResourceIdsWindows: []
+                    premiumDataDiskStorageAccount: /subscriptions/{subscription-id}/resourceGroups/{resourcegroup-name-2}/providers/Microsoft.Storage/storageAccounts/{storageaccount-name-2}
+                    premiumDataDisks: Disabled
+                    provisioningState: Succeeded
+                    support:
+                      enabled: Disabled
+                      markdown: ''
+                    uniqueIdentifier: '{unique-identifier}'
+                    vaultName: /subscriptions/{subscription-id}/resourceGroups/{resourcegroup-name-2}/providers/Microsoft.KeyVault/vaults/{keyvault-name-2}
+                  tags: {}
+                  type: Microsoft.DevTestLab/labs
+      x-ms-odata: '#/definitions/Lab'
+      x-ms-pageable:
+        nextLinkName: nextLink
+      summary: Azure DevTest Labs Labs_ List by Subscription
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs:
+    get:
+      description: List labs in a resource group.
+      operationId: Labs_ListByResourceGroup
+      parameters:
+      - $ref: '#/parameters/subscriptionId'
+      - $ref: '#/parameters/resourceGroupName'
+      - description: 'Specify the $expand query. Example: ''properties($select=defaultStorageAccount)'''
+        in: query
+        name: $expand
+        type: string
+        example: example-value
+      - description: 'The filter to apply to the operation. Example: ''$filter=contains(name,''myName'')'
+        in: query
+        name: $filter
+        type: string
+        example: example-value
+      - description: 'The maximum number of resources to return from the operation. Example: ''$top=10'''
+        format: int32
+        in: query
+        name: $top
+        type: integer
+        example: example-value
+      - description: 'The ordering expression for the results, using OData notation. Example: ''$orderby=name desc'''
+        in: query
+        name: $orderby
+        type: string
+        example: example-value
+      - $ref: '#/parameters/api-version'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/LabList'
+        default:
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/CloudError'
+      tags:
+      - Labs
+      x-ms-examples:
+        Labs_ListByResourceGroup:
+          parameters:
+            api-version: '2018-09-15'
+            resourceGroupName: myResourceGroup
+            subscriptionId: '{subscription-id}'
+          responses:
+            '200':
+              body:
+                value:
+                - id: /subscriptions/{subscription-id}/resourcegroups/myResourceGroup/providers/microsoft.devtestlab/labs/{devtestlab-name}
+                  location: '{azure-location}'
+                  name: '{devtestlab-name}'
+                  properties:
+                    announcement:
+                      enabled: Disabled
+                      expired: false
+                      markdown: ''
+                      title: ''
+                    createdDate: '2018-10-02T10:23:20.9573599-07:00'
+                    environmentPermission: Reader
+                    labStorageType: Standard
+                    mandatoryArtifactsResourceIdsLinux: []
+                    mandatoryArtifactsResourceIdsWindows: []
+                    premiumDataDisks: Disabled
+                    provisioningState: Succeeded
+                    support:
+                      enabled: Disabled
+                      markdown: ''
+                    uniqueIdentifier: '{unique-identifier}'
+                    vaultName: /subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.KeyVault/vaults/{keyvault-name}
+                  tags:
+                    MyTag: MyValue
+                  type: Microsoft.DevTestLab/labs
+      x-ms-odata: '#/definitions/Lab'
+      x-ms-pageable:
+        nextLinkName: nextLink
+      summary: Azure DevTest Labs Labs_ List by Resource Group
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{name}:
+    delete:
+      description: Delete lab. This operation can take a while to complete.
+      operationId: Labs_Delete
+      parameters:
+      - $ref: '#/parameters/subscriptionId'
+      - $ref: '#/parameters/resourceGroupName'
+      - description: The name of the lab.
+        in: path
+        name: name
+        required: true
+        type: string
+        example: example-value
+      - $ref: '#/parameters/api-version'
+      responses:
+        '200':
+          description: OK
+        '202':
+          description: Accepted
+        '204':
+          description: No Content
+        default:
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/CloudError'
+      tags:
+      - Labs
+      x-ms-examples:
+        Labs_Delete:
+          parameters:
+            api-version: '2018-09-15'
+            name: '{devtestlab-name}'
+            resourceGroupName: myResourceGroup
+            subscriptionId: '{subscription-id}'
+          responses:
+            '200': {}
+            '202': {}
+            '204': {}
+      x-ms-long-running-operation: true
+      summary: Azure DevTest Labs Labs_ Delete
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    get:
+      description: Get lab.
+      operationId: Labs_Get
+      parameters:
+      - $ref: '#/parameters/subscriptionId'
+      - $ref: '#/parameters/resourceGroupName'
+      - description: The name of the lab.
+        in: path
+        name: name
+        required: true
+        type: string
+        example: example-value
+      - description: 'Specify the $expand query. Example: ''properties($select=defaultStorageAccount)'''
+        in: query
+        name: $expand
+        type: string
+        example: example-value
+      - $ref: '#/parameters/api-version'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Lab'
+        default:
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/CloudError'
+      tags:
+      - Labs
+      x-ms-examples:
+        Labs_Get:
+          parameters:
+            api-version: '2018-09-15'
+            name: '{devtestlab-name}'
+            resourceGroupName: myResourceGroup
+            subscriptionId: '{subscription-id}'
+          responses:
+            '200':
+              body:
+                id: /subscriptions/{subscription-id}/resourcegroups/myResourceGroup/providers/microsoft.devtestlab/labs/{devtestlab-name}
+                location: '{azure-location}'
+                name: '{devtestlab-name}'
+                properties:
+                  announcement:
+                    enabled: Disabled
+                    expired: false
+                    markdown: ''
+                    title: ''
+                  artifactsStorageAccount: /subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/{storageaccount-name}
+                  createdDate: '2018-10-01T18:40:48.1739018-07:00'
+                  defaultPremiumStorageAccount: /subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/{storageaccount-name}
+                  defaultStorageAccount: /subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/{storageaccount-name}
+                  environmentPermission: Reader
+                  labStorageType: Standard
+                  mandatoryArtifactsResourceIdsLinux: []
+                  mandatoryArtifactsResourceIdsWindows: []
+                  premiumDataDiskStorageAccount: /subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/{storageaccount-name}
+                  premiumDataDisks: Disabled
+                  provisioningState: Succeeded
+                  support:
+                    enabled: Disabled
+                    markdown: ''
+                  uniqueIdentifier: '{unique-identifier}'
+                  vaultName: /subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.KeyVault/vaults/{keyvault-name}
+                tags:
+                  MyTag: MyValue
+                type: Microsoft.DevTestLab/labs
+      summary: Azure DevTest Labs Labs_ Get
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    patch:
+      description: Allows modifying tags of labs. All other properties will be ignored.
+      operationId: Labs_Update
+      parameters:
+      - $ref: '#/parameters/subscriptionId'
+      - $ref: '#/parameters/resourceGroupName'
+      - description: The name of the lab.
+        in: path
+        name: name
+        required: true
+        type: string
+        example: example-value
+      - description: A lab.
+        in: body
+        name: lab
+        required: true
+        schema:
+          $ref: '#/definitions/LabFragment'
+        example: example-value
+      - $ref: '#/parameters/api-version'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Lab'
+        default:
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/CloudError'
+      tags:
+      - Labs
+      x-ms-examples:
+        Labs_Update:
+          parameters:
+            api-version: '2018-09-15'
+            lab:
+              properties:
+                labStorageType: Premium
+            name: '{devtestlab-name}'
+            resourceGroupName: myResourceGroup
+            subscriptionId: '{subscription-id}'
+          responses:
+            '200':
+              body:
+                id: /subscriptions/{subscription-id}/resourcegroups/myResourceGroup/providers/microsoft.devtestlab/labs/{devtestlab-name}
+                location: '{azure-location}'
+                name: '{devtestlab-name}'
+                properties:
+                  announcement:
+                    enabled: Disabled
+                    expired: false
+                    markdown: ''
+                    title: ''
+                  createdDate: '2018-10-01T18:40:48.1739018-07:00'
+                  environmentPermission: Reader
+                  labStorageType: Standard
+                  mandatoryArtifactsResourceIdsLinux: []
+                  mandatoryArtifactsResourceIdsWindows: []
+                  premiumDataDisks: Disabled
+                  provisioningState: Succeeded
+                  support:
+                    enabled: Disabled
+                    markdown: ''
+                  uniqueIdentifier: '{unique-identifier}'
+                  vaultName: /subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.KeyVault/vaults/{keyvault-name}
+                tags:
+                  MyTag: MyValue
+                type: Microsoft.DevTestLab/labs
+      summary: Azure DevTest Labs Labs_ Update
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    put:
+      description: Create or replace an existing lab. This operation can take a while to complete.
+      operationId: Labs_CreateOrUpdate
+      parameters:
+      - $ref: '#/parameters/subscriptionId'
+      - $ref: '#/parameters/resourceGroupName'
+      - description: The name of the lab.
+        in: path
+        name: name
+        required: true
+        type: string
+        example: example-value
+      - description: A lab.
+        in: body
+        name: lab
+        required: true
+        schema:
+          $ref: '#/definitions/Lab'
+        example: example-value
+      - $ref: '#/parameters/api-version'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Lab'
+        '201':
+          description: Created
+          schema:
+            $ref: '#/definitions/Lab'
+        default:
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/CloudError'
+      tags:
+      - Labs
+      x-ms-examples:
+        Labs_CreateOrUpdate:
+          parameters:
+            api-version: '2018-09-15'
+            lab:
+              location: '{azure-location}'
+              properties:
+                labStorageType: '{Standard|Premium}'
+              tags:
+                MyTag: MyValue
+            name: '{devtestlab-name}'
+            resourceGroupName: myResourceGroup
+            subscriptionId: '{subscription-id}'
+          responses:
+            '200':
+              body:
+                id: /subscriptions/{subscription-id}/resourcegroups/myResourceGroup/providers/microsoft.devtestlab/labs/{devtestlab-name}
+                location: '{azure-location}'
+                name: '{devtestlab-name}'
+                properties:
+                  announcement:
+                    enabled: Disabled
+                    expired: false
+                    markdown: ''
+                    title: ''
+                  createdDate: '2018-10-01T18:40:48.1739018-07:00'
+                  environmentPermission: Reader
+                  labStorageType: Standard
+                  mandatoryArtifactsResourceIdsLinux: []
+                  mandatoryArtifactsResourceIdsWindows: []
+                  premiumDataDisks: Disabled
+                  provisioningState: Creating
+                  support:
+                    enabled: Disabled
+                    markdown: ''
+                  uniqueIdentifier: '{unique-identifier}'
+                tags:
+                  MyTag: MyValue
+                type: Microsoft.DevTestLab/labs
+            '201':
+              body:
+                id: /subscriptions/{subscription-id}/resourcegroups/myResourceGroup/providers/microsoft.devtestlab/labs/{devtestlab-name}
+                location: '{azure-location}'
+                name: '{devtestlab-name}'
+                properties:
+                  announcement:
+                    enabled: Disabled
+                    expired: false
+                    markdown: ''
+                    title: ''
+                  createdDate: '2018-10-01T18:40:48.1739018-07:00'
+                  environmentPermission: Reader
+                  labStorageType: Standard
+                  mandatoryArtifactsResourceIdsLinux: []
+                  mandatoryArtifactsResourceIdsWindows: []
+                  premiumDataDisks: Disabled
+                  provisioningState: Creating
+                  support:
+                    enabled: Disabled
+                    markdown: ''
+                  uniqueIdentifier: '{unique-identifier}'
+                tags:
+                  MyTag: MyValue
+                type: Microsoft.DevTestLab/labs
+      x-ms-long-running-operation: true
+      summary: Azure DevTest Labs Labs_ Create or Update
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{name}/claimAnyVm:
+    post:
+      description: Claim a random claimable virtual machine in the lab. This operation can take a while to complete.
+      operationId: Labs_ClaimAnyVm
+      parameters:
+      - $ref: '#/parameters/subscriptionId'
+      - $ref: '#/parameters/resourceGroupName'
+      - description: The name of the lab.
+        in: path
+        name: name
+        required: true
+        type: string
+        example: example-value
+      - $ref: '#/parameters/api-version'
+      responses:
+        '200':
+          description: OK
+        '202':
+          description: Accepted
+        default:
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/CloudError'
+      tags:
+      - Labs
+      x-ms-examples:
+        Labs_ClaimAnyVm:
+          parameters:
+            api-version: '2018-09-15'
+            monitor: 'true'
+            name: '{devtestlab-name}'
+            resourceGroupName: myResourceGroup
+            subscriptionId: '{subscription-id}'
+          responses:
+            '200': {}
+            '202': {}
+      x-ms-long-running-operation: true
+      summary: Azure DevTest Labs Labs_ Claim Any Vm
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{name}/createEnvironment
+  : post:
+      description: Create virtual machines in a lab. This operation can take a while to complete.
+      operationId: Labs_CreateEnvironment
+      parameters:
+      - $ref: '#/parameters/subscriptionId'
+      - $ref: '#/parameters/resourceGroupName'
+      - description: The name of the lab.
+        in: path
+        name: name
+        required: true
+        type: string
+        example: example-value
+      - description: Properties for creating a virtual machine.
+        in: body
+        name: labVirtualMachineCreationParameter
+        required: true
+        schema:
+          $ref: '#/definitions/LabVirtualMachineCreationParameter'
+        example: example-value
+      - $ref: '#/parameters/api-version'
+      responses:
+        '200':
+          description: OK
+        '202':
+          description: Accepted
+        default:
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/CloudError'
+      tags:
+      - Labs
+      x-ms-examples:
+        Labs_CreateEnvironment:
+          parameters:
+            api-version: '2018-09-15'
+            labVirtualMachineCreationParameter:
+              location: '{azure-location}'
+              name: '{virtualmachine-name}'
+              properties:
+                allowClaim: true
+                disallowPublicIpAddress: true
+                galleryImageReference:
+                  offer: UbuntuServer
+                  osType: Linux
+                  publisher: Canonical
+                  sku: 16.04-LTS
+                  version: Latest
+                labSubnetName: '{virtualnetwork-subnet-name}'
+                labVirtualNetworkId: /subscriptions/{subscription-id}/resourcegroups/myResourceGroup/providers/microsoft.devtestlab/labs/{devtestlab-name}/virtualnetworks/{virtualnetwork-name}
+                osType: Linux
+                password: '{user-password}'
+                size: Standard_A2_v2
+                storageType: Standard
+                userName: '{user-name}'
+              tags:
+                MyTag: MyValue
+            name: '{devtestlab-name}'
+            resourceGroupName: myResourceGroup
+            subscriptionId: '{subscription-id}'
+          responses:
+            '200': {}
+            '202': {}
+      x-ms-long-running-operation: true
+      summary: Azure DevTest Labs Labs_ Create Environment
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{name}/exportResourceUsage
+  : post:
+      description: Exports the lab resource usage into a storage account This operation can take a while to complete.
+      operationId: Labs_ExportResourceUsage
+      parameters:
+      - $ref: '#/parameters/subscriptionId'
+      - $ref: '#/parameters/resourceGroupName'
+      - description: The name of the lab.
+        in: path
+        name: name
+        required: true
+        type: string
+        example: example-value
+      - description: The parameters of the export operation.
+        in: body
+        name: exportResourceUsageParameters
+        required: true
+        schema:
+          $ref: '#/definitions/ExportResourceUsageParameters'
+        example: example-value
+      - $ref: '#/parameters/api-version'
+      responses:
+        '200':
+          description: OK
+        '202':
+          description: Accepted
+        default:
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/CloudError'
+      tags:
+      - Labs
+      x-ms-long-running-operation: true
+      summary: Azure DevTest Labs Labs_ Export Resource Usage
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{name}/generateUploadUri
+  : post:
+      description: Generate a URI for uploading custom disk images to a Lab.
+      operationId: Labs_GenerateUploadUri
+      parameters:
+      - $ref: '#/parameters/subscriptionId'
+      - $ref: '#/parameters/resourceGroupName'
+      - description: The name of the lab.
+        in: path
+        name: name
+        required: true
+        type: string
+        example: example-value
+      - description: Properties for generating an upload URI.
+        in: body
+        name: generateUploadUriParameter
+        required: true
+        schema:
+          $ref: '#/definitions/GenerateUploadUriParameter'
+        example: example-value
+      - $ref: '#/parameters/api-version'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/GenerateUploadUriResponse'
+        default:
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/CloudError'
+      tags:
+      - Labs
+      x-ms-examples:
+        Labs_GenerateUploadUri:
+          parameters:
+            api-version: '2018-09-15'
+            generateUploadUriParameter:
+              blobName: '{blob-name}'
+            name: '{devtestlab-name}'
+            resourceGroupName: myResourceGroup
+            subscriptionId: '{subscription-id}'
+          responses:
+            '200':
+              body:
+                uploadUri: https://{storage-name}.blob.core.windows.net/uploads/{blob-name}?sv=2017-04-17&sr=b&sig={signature}&st=2018-10-02T01:55:24Z&se=2018-10-03T02:10:23Z&sp=rcw
+      summary: Azure DevTest Labs Labs_ Generate Upload Uri
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{name}/importVirtualMachine
+  : post:
+      description: Import a virtual machine into a different lab. This operation can take a while to complete.
+      operationId: Labs_ImportVirtualMachine
+      parameters:
+      - $ref: '#/parameters/subscriptionId'
+      - $ref: '#/parameters/resourceGroupName'
+      - description: The name of the lab.
+        in: path
+        name: name
+        required: true
+        type: string
+        example: example-value
+      - description: This represents the payload required to import a virtual machine from a different lab into the current one
+        in: body
+        name: importLabVirtualMachineRequest
+        required: true
+        schema:
+          $ref: '#/definitions/ImportLabVirtualMachineRequest'
+        example: example-value
+      - $ref: '#/parameters/api-version'
+      responses:
+        '200':
+          description: OK
+        '202':
+          description: Accepted
+        default:
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/CloudError'
+      tags:
+      - Labs
+      x-ms-long-running-operation: true
+      summary: Azure DevTest Labs Labs_ Import Virtual Machine
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{name}/listVhds:
+    post:
+      description: List disk images available for custom image creation.
+      operationId: Labs_ListVhds
+      parameters:
+      - $ref: '#/parameters/subscriptionId'
+      - $ref: '#/parameters/resourceGroupName'
+      - description: The name of the lab.
+        in: path
+        name: name
+        required: true
+        type: string
+        example: example-value
+      - $ref: '#/parameters/api-version'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/LabVhdList'
+        default:
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/CloudError'
+      tags:
+      - Labs
+      x-ms-pageable:
+        nextLinkName: nextLink
+      summary: Azure DevTest Labs Labs_ List Vhds
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+definitions:
+  LabProperties:
+    description: Properties of a lab.
+    properties:
+      announcement:
+        $ref: '#/definitions/LabAnnouncementProperties'
+        description: The properties of any lab announcement associated with this lab
+      artifactsStorageAccount:
+        description: The lab's artifact storage account.
+        readOnly: true
+        type: string
+      createdDate:
+        description: The creation date of the lab.
+        format: date-time
+        readOnly: true
+        type: string
+      defaultPremiumStorageAccount:
+        description: The lab's default premium storage account.
+        readOnly: true
+        type: string
+      defaultStorageAccount:
+        description: The lab's default storage account.
+        readOnly: true
+        type: string
+      environmentPermission:
+        description: The access rights to be granted to the user when provisioning an environment
+        enum:
+        - Reader
+        - Contributor
+        type: string
+        x-ms-enum:
+          modelAsString: true
+          name: EnvironmentPermission
+      extendedProperties:
+        additionalProperties:
+          type: string
+        description: Extended properties of the lab used for experimental features
+        type: object
+      labStorageType:
+        description: Type of storage used by the lab. It can be either Premium or Standard. Default is Premium.
+        enum:
+        - Standard
+        - Premium
+        - StandardSSD
+        type: string
+        x-ms-enum:
+          modelAsString: true
+          name: StorageType
+      loadBalancerId:
+        description: The load balancer used to for lab VMs that use shared IP address.
+        readOnly: true
+        type: string
+      mandatoryArtifactsResourceIdsLinux:
+        description: The ordered list of artifact resource IDs that should be applied on all Linux VM creations by default, prior to the artifacts specified by the user.
+        items:
+          type: string
+        type: array
+      mandatoryArtifactsResourceIdsWindows:
+        description: The ordered list of artifact resource IDs that should be applied on all Windows VM creations by default, prior to the artifacts specified by the user.
+        items:
+          type: string
+        type: array
+      networkSecurityGroupId:
+        description: The Network Security Group attached to the lab VMs Network interfaces to restrict open ports.
+        readOnly: true
+        type: string
+      premiumDataDiskStorageAccount:
+        description: The lab's premium data disk storage account.
+        readOnly: true
+        type: string
+      premiumDataDisks:
+        description: "The setting to enable usage of premium data disks.\r\nWhen its value is 'Enabled', creation of standard or premium data disks is allowed.\r\nWhen its value is 'Disabled', only creation of standard data disks is allowed."
+        enum:
+        - Disabled
+        - Enabled
+        type: string
+        x-ms-enum:
+          modelAsString: true
+          name: PremiumDataDisk
+      provisioningState:
+        description: The provisioning status of the resource.
+        readOnly: true
+        type: string
+      publicIpId:
+        description: The public IP address for the lab's load balancer.
+        readOnly: true
+        type: string
+      support:
+        $ref: '#/definitions/LabSupportProperties'
+        description: The properties of any lab support message associated with this lab
+      uniqueIdentifier:
+        description: The unique immutable identifier of a resource (Guid).
+        readOnly: true
+        type: string
+      vaultName:
+        description: The lab's Key vault.
+        readOnly: true
+        type: string
+      vmCreationResourceGroup:
+        description: The resource group in which all new lab virtual machines will be created. To let DevTest Labs manage resource group creation, set this value to null.
+        readOnly: true
+        type: string
+    type: object
+  ScheduleCreationParameter:
+    description: Properties for creating a schedule.
+    properties:
+      location:
+        description: The location of the new virtual machine or environment
+        type: string
+      name:
+        description: The name of the virtual machine or environment
+        type: string
+      properties:
+        $ref: '#/definitions/ScheduleCreationParameterProperties'
+        description: The properties of the schedule.
+        x-ms-client-flatten: true
+      tags:
+        additionalProperties:
+          type: string
+        description: The tags of the resource.
+        type: object
+    type: object
+  LabPropertiesFragment:
+    description: Properties of a lab.
+    properties:
+      announcement:
+        $ref: '#/definitions/LabAnnouncementPropertiesFragment'
+        description: The properties of any lab announcement associated with this lab
+      environmentPermission:
+        description: The access rights to be granted to the user when provisioning an environment
+        enum:
+        - Reader
+        - Contributor
+        type: string
+        x-ms-enum:
+          modelAsString: true
+          name: EnvironmentPermission
+      extendedProperties:
+        additionalProperties:
+          type: string
+        description: Extended properties of the lab used for experimental features
+        type: object
+      labStorageType:
+        description: Type of storage used by the lab. It can be either Premium or Standard. Default is Premium.
+        enum:
+        - Standard
+        - Premium
+        - StandardSSD
+        type: string
+        x-ms-enum:
+          modelAsString: true
+          name: StorageType
+      mandatoryArtifactsResourceIdsLinux:
+        description: The ordered list of artifact resource IDs that should be applied on all Linux VM creations by default, prior to the artifacts specified by the user.
+        items:
+          type: string
+        type: array
+      mandatoryArtifactsResourceIdsWindows:
+        description: The ordered list of artifact resource IDs that should be applied on all Windows VM creations by default, prior to the artifacts specified by the user.
+        items:
+          type: string
+        type: array
+      premiumDataDisks:
+        description: "The setting to enable usage of premium data disks.\r\nWhen its value is 'Enabled', creation of standard or premium data disks is allowed.\r\nWhen its value is 'Disabled', only creation of standard data disks is allowed."
+        enum:
+        - Disabled
+        - Enabled
+        type: string
+        x-ms-enum:
+          modelAsString: true
+          name: PremiumDataDisk
+      support:
+        $ref: '#/definitions/LabSupportPropertiesFragment'
+        description: The properties of any lab support message associated with this lab
+    type: object
+  WeekDetails:
+    description: Properties of a weekly schedule.
+    properties:
+      time:
+        description: The time of the day the schedule will occur.
+        type: string
+      weekdays:
+        description: The days of the week for which the schedule is set (e.g. Sunday, Monday, Tuesday, etc.).
+        items:
+          type: string
+        type: array
+    type: object
+  LabFragment:
+    allOf:
+    - $ref: '#/definitions/UpdateResource'
+    description: A lab.
+    properties:
+      properties:
+        $ref: '#/definitions/LabPropertiesFragment'
+        description: The properties of the resource.
+        x-ms-client-flatten: true
+    type: object
+  LabVirtualMachineCreationParameterProperties:
+    description: Properties for virtual machine creation.
+    properties:
+      allowClaim:
+        description: Indicates whether another user can take ownership of the virtual machine
+        type: boolean
+      artifactDeploymentStatus:
+        $ref: '#/definitions/ArtifactDeploymentStatusProperties'
+        description: The artifact deployment status for the virtual machine.
+      artifacts:
+        description: The artifacts to be installed on the virtual machine.
+        items:
+          $ref: '#/definitions/ArtifactInstallProperties'
+        type: array
+      bulkCreationParameters:
+        $ref: '#/definitions/BulkCreationParameters'
+        description: The number of virtual machine instances to create.
+      computeId:
+        description: The resource identifier (Microsoft.Compute) of the virtual machine.
+        type: string
+      createdByUser:
+        description: The email address of creator of the virtual machine.
+        type: string
+      createdByUserId:
+        description: The object identifier of the creator of the virtual machine.
+        type: string
+      createdDate:
+        description: The creation date of the virtual machine.
+        format: date-time
+        type: string
+      customImageId:
+        description: The custom image identifier of the virtual machine.
+        type: string
+      dataDiskParameters:
+        description: New or existing data disks to attach to the virtual machine after creation
+        items:
+          $ref: '#/definitions/DataDiskProperties'
+        type: array
+      disallowPublicIpAddress:
+        description: Indicates whether the virtual machine is to be created without a public IP address.
+        type: boolean
+      environmentId:
+        description: The resource ID of the environment that contains this virtual machine, if any.
+        type: string
+      expirationDate:
+        description: The expiration date for VM.
+        format: date-time
+        type: string
+      fqdn:
+        description: The fully-qualified domain name of the virtual machine.
+        type: string
+      galleryImageReference:
+        $ref: '#/definitions/GalleryImageReference'
+        description: The Microsoft Azure Marketplace image reference of the virtual machine.
+      isAuthenticationWithSshKey:
+        description: Indicates whether this virtual machine uses an SSH key for authentication.
+        type: boolean
+      labSubnetName:
+        description: The lab subnet name of the virtual machine.
+        type: string
+      labVirtualNetworkId:
+        description: The lab virtual network identifier of the virtual machine.
+        type: string
+      lastKnownPowerState:
+        description: Last known compute power state captured in DTL
+        type: string
+      networkInterface:
+        $ref: '#/definitions/NetworkInterfaceProperties'
+        description: The network interface properties.
+      notes:
+        description: The notes of the virtual machine.
+        type: string
+      osType:
+        description: The OS type of the virtual machine.
+        type: string
+      ownerObjectId:
+        description: The object identifier of the owner of the virtual machine.
+        type: string
+      ownerUserPrincipalName:
+        description: The user principal name of the virtual machine owner.
+        type: string
+      password:
+        description: The password of the virtual machine administrator.
+        type: string
+      planId:
+        description: The id of the plan associated with the virtual machine image
+        type: string
+      scheduleParameters:
+        description: Virtual Machine schedules to be created
+        items:
+          $ref: '#/definitions/ScheduleCreationParameter'
+        type: array
+      size:
+        description: The size of the virtual machine.
+        type: string
+      sshKey:
+        description: The SSH key of the virtual machine administrator.
+        type: string
+      storageType:
+        description: Storage type to use for virtual machine (i.e. Standard, Premium).
+        type: string
+      userName:
+        description: The user name of the virtual machine.
+        type: string
+      virtualMachineCreationSource:
+        description: Tells source of creation of lab virtual machine. Output property only.
+        enum:
+        - FromCustomImage
+        - FromGalleryImage
+        - FromSharedGalleryImage
+        type: string
+        x-ms-enum:
+          modelAsString: true
+          name: VirtualMachineCreationSource
+    type: object
+  NotificationSettings:
+    description: Notification settings for a schedule.
+    properties:
+      emailRecipient:
+        description: The email recipient to send notifications to (can be a list of semi-colon separated email addresses).
+        type: string
+      notificationLocale:
+        description: The locale to use when sending a notification (fallback for unsupported languages is EN).
+        type: string
+      status:
+        description: If notifications are enabled for this schedule (i.e. Enabled, Disabled).
+        enum:
+        - Enabled
+        - Disabled
+        type: string
+        x-ms-enum:
+          modelAsString: true
+          name: EnableStatus
+      timeInMinutes:
+        description: Time in minutes before event at which notification will be sent.
+        format: int32
+        type: integer
+      webhookUrl:
+        description: The webhook URL to which the notification will be sent.
+        type: string
+    type: object
+  CloudErrorBody:
+    description: Body of an error from a REST request.
+    properties:
+      code:
+        description: The error code.
+        type: string
+      details:
+        description: Inner errors.
+        items:
+          $ref: '#/definitions/CloudErrorBody'
+        type: array
+      message:
+        description: The error message.
+        type: string
+      target:
+        description: The error target.
+        type: string
+    type: object
+    x-ms-external: true
+  DayDetails:
+    description: Properties of a daily schedule.
+    properties:
+      time:
+        description: The time of day the schedule will occur.
+        type: string
+    type: object
+  LabAnnouncementPropertiesFragment:
+    description: Properties of a lab's announcement banner
+    properties:
+      enabled:
+        description: Is the lab announcement active/enabled at this time?
+        enum:
+        - Enabled
+        - Disabled
+        type: string
+        x-ms-enum:
+          modelAsString: true
+          name: EnableStatus
+      expirationDate:
+        description: The time at which the announcement expires (null for never)
+        format: date-time
+        type: string
+      expired:
+        description: Has this announcement expired?
+        type: boolean
+      markdown:
+        description: The markdown text (if any) that this lab displays in the UI. If left empty/null, nothing will be shown.
+        type: string
+      title:
+        description: The plain text title for the lab announcement
+        type: string
+    type: object
+  NetworkInterfaceProperties:
+    description: Properties of a network interface.
+    properties:
+      dnsName:
+        description: The DNS name.
+        type: string
+      privateIpAddress:
+        description: The private IP address.
+        type: string
+      publicIpAddress:
+        description: The public IP address.
+        type: string
+      publicIpAddressId:
+        description: The resource ID of the public IP address.
+        type: string
+      rdpAuthority:
+        description: The RdpAuthority property is a server DNS host name or IP address followed by the service port number for RDP (Remote Desktop Protocol).
+        type: string
+      sharedPublicIpAddressConfiguration:
+        $ref: '#/definitions/SharedPublicIpAddressConfiguration'
+        description: The configuration for sharing a public IP address across multiple virtual machines.
+      sshAuthority:
+        description: The SshAuthority property is a server DNS host name or IP address followed by the service port number for SSH.
+        type: string
+      subnetId:
+        description: The resource ID of the sub net.
+        type: string
+      virtualNetworkId:
+        description: The resource ID of the virtual network.
+        type: string
+    type: object
+  HourDetails:
+    description: Properties of an hourly schedule.
+    properties:
+      minute:
+        description: Minutes of the hour the schedule will run.
+        format: int32
+        type: integer
+    type: object
+  ArtifactDeploymentStatusProperties:
+    description: Properties of an artifact deployment.
+    properties:
+      artifactsApplied:
+        description: The total count of the artifacts that were successfully applied.
+        format: int32
+        type: integer
+      deploymentStatus:
+        description: The deployment status of the artifact.
+        type: string
+      totalArtifacts:
+        description: The total count of the artifacts that were tentatively applied.
+        format: int32
+        type: integer
+    type: object
+  LabAnnouncementProperties:
+    description: Properties of a lab's announcement banner
+    properties:
+      enabled:
+        description: Is the lab announcement active/enabled at this time?
+        enum:
+        - Enabled
+        - Disabled
+        type: string
+        x-ms-enum:
+          modelAsString: true
+          name: EnableStatus
+      expirationDate:
+        description: The time at which the announcement expires (null for never)
+        format: date-time
+        type: string
+      expired:
+        description: Has this announcement expired?
+        type: boolean
+      markdown:
+        description: The markdown text (if any) that this lab displays in the UI. If left empty/null, nothing will be shown.
+        type: string
+      provisioningState:
+        description: The provisioning status of the resource.
+        readOnly: true
+        type: string
+      title:
+        description: The plain text title for the lab announcement
+        type: string
+      uniqueIdentifier:
+        description: The unique immutable identifier of a resource (Guid).
+        readOnly: true
+        type: string
+    type: object
+  ScheduleCreationParameterProperties:
+    description: Properties for schedule creation.
+    properties:
+      dailyRecurrence:
+        $ref: '#/definitions/DayDetails'
+        description: If the schedule will occur once each day of the week, specify the daily recurrence.
+      hourlyRecurrence:
+        $ref: '#/definitions/HourDetails'
+        description: If the schedule will occur multiple times a day, specify the hourly recurrence.
+      notificationSettings:
+        $ref: '#/definitions/NotificationSettings'
+        description: Notification settings.
+      status:
+        description: The status of the schedule (i.e. Enabled, Disabled)
+        enum:
+        - Enabled
+        - Disabled
+        type: string
+        x-ms-enum:
+          modelAsString: true
+          name: EnableStatus
+      targetResourceId:
+        description: The resource ID to which the schedule belongs
+        type: string
+      taskType:
+        description: The task type of the schedule (e.g. LabVmsShutdownTask, LabVmAutoStart).
+        type: string
+      timeZoneId:
+        description: The time zone ID (e.g. Pacific Standard time).
+        type: string
+      weeklyRecurrence:
+        $ref: '#/definitions/WeekDetails'
+        description: If the schedule will occur only some days of the week, specify the weekly recurrence.
+    type: object
+  Resource:
+    description: An Azure resource.
+    properties:
+      id:
+        description: The identifier of the resource.
+        readOnly: true
+        type: string
+      location:
+        description: The location of the resource.
+        type: string
+      name:
+        description: The name of the resource.
+        readOnly: true
+        type: string
+      tags:
+        additionalProperties:
+          type: string
+        description: The tags of the resource.
+        type: object
+      type:
+        description: The type of the resource.
+        readOnly: true
+        type: string
+    type: object
+    x-ms-azure-resource: true
+  ImportLabVirtualMachineRequest:
+    description: This represents the payload required to import a virtual machine from a different lab into the current one
+    properties:
+      destinationVirtualMachineName:
+        description: The name of the virtual machine in the destination lab
+        type: string
+      sourceVirtualMachineResourceId:
+        description: The full resource ID of the virtual machine to be imported.
+        type: string
+    type: object
+  LabList:
+    description: The response of a list operation.
+    properties:
+      nextLink:
+        description: Link for next set of results.
+        type: string
+      value:
+        description: Results of the list operation.
+        items:
+          $ref: '#/definitions/Lab'
+        type: array
+    type: object
+  InboundNatRule:
+    description: A rule for NAT - exposing a VM's port (backendPort) on the public IP address using a load balancer.
+    properties:
+      backendPort:
+        description: The port to which the external traffic will be redirected.
+        format: int32
+        type: integer
+      frontendPort:
+        description: The external endpoint port of the inbound connection. Possible values range between 1 and 65535, inclusive. If unspecified, a value will be allocated automatically.
+        format: int32
+        type: integer
+      transportProtocol:
+        description: The transport protocol for the endpoint.
+        enum:
+        - Tcp
+        - Udp
+        type: string
+        x-ms-enum:
+          modelAsString: true
+          name: TransportProtocol
+    type: object
+  SharedPublicIpAddressConfiguration:
+    description: Properties of a virtual machine that determine how it is connected to a load balancer.
+    properties:
+      inboundNatRules:
+        description: The incoming NAT rules
+        items:
+          $ref: '#/definitions/InboundNatRule'
+        type: array
+    type: object
+  LabSupportPropertiesFragment:
+    description: Properties of a lab's support banner
+    properties:
+      enabled:
+        description: Is the lab support banner active/enabled at this time?
+        enum:
+        - Enabled
+        - Disabled
+        type: string
+        x-ms-enum:
+          modelAsString: true
+          name: EnableStatus
+      markdown:
+        description: The markdown text (if any) that this lab displays in the UI. If left empty/null, nothing will be shown.
+        type: string
+    type: object
+  ArtifactParameterProperties:
+    description: Properties of an artifact parameter.
+    properties:
+      name:
+        description: The name of the artifact parameter.
+        type: string
+      value:
+        description: The value of the artifact parameter.
+        type: string
+    type: object
+  ArtifactInstallProperties:
+    description: Properties of an artifact.
+    properties:
+      artifactId:
+        description: The artifact's identifier.
+        type: string
+      artifactTitle:
+        description: The artifact's title.
+        type: string
+      deploymentStatusMessage:
+        description: The status message from the deployment.
+        type: string
+      installTime:
+        description: The time that the artifact starts to install on the virtual machine.
+        format: date-time
+        type: string
+      parameters:
+        description: The parameters of the artifact.
+        items:
+          $ref: '#/definitions/ArtifactParameterProperties'
+        type: array
+      status:
+        description: The status of the artifact.
+        type: string
+      vmExtensionStatusMessage:
+        description: The status message from the virtual machine extension.
+        type: string
+    type: object
+  Lab:
+    allOf:
+    - $ref: '#/definitions/Resource'
+    description: A lab.
+    properties:
+      properties:
+        $ref: '#/definitions/LabProperties'
+        description: The properties of the resource.
+        x-ms-client-flatten: true
+    type: object
+  GalleryImageReference:
+    description: The reference information for an Azure Marketplace image.
+    properties:
+      offer:
+        description: The offer of the gallery image.
+        type: string
+      osType:
+        description: The OS type of the gallery image.
+        type: string
+      publisher:
+        description: The publisher of the gallery image.
+        type: string
+      sku:
+        description: The SKU of the gallery image.
+        type: string
+      version:
+        description: The version of the gallery image.
+        type: string
+    type: object
+  LabVirtualMachineCreationParameter:
+    description: Properties for creating a virtual machine.
+    properties:
+      location:
+        description: The location of the new virtual machine or environment
+        type: string
+      name:
+        description: The name of the virtual machine or environment
+        type: string
+      properties:
+        $ref: '#/definitions/LabVirtualMachineCreationParameterProperties'
+        description: The properties of the resource.
+        x-ms-client-flatten: true
+      tags:
+        additionalProperties:
+          type: string
+        description: The tags of the resource.
+        type: object
+    type: object
+  LabSupportProperties:
+    description: Properties of a lab's support banner
+    properties:
+      enabled:
+        description: Is the lab support banner active/enabled at this time?
+        enum:
+        - Enabled
+        - Disabled
+        type: string
+        x-ms-enum:
+          modelAsString: true
+          name: EnableStatus
+      markdown:
+        description: The markdown text (if any) that this lab displays in the UI. If left empty/null, nothing will be shown.
+        type: string
+    type: object
+  BulkCreationParameters:
+    description: Parameters for creating multiple virtual machines as a single action.
+    properties:
+      instanceCount:
+        description: The number of virtual machine instances to create.
+        format: int32
+        type: integer
+    type: object
+  AttachNewDataDiskOptions:
+    description: Properties to attach new disk to the Virtual Machine.
+    properties:
+      diskName:
+        description: The name of the disk to be attached.
+        type: string
+      diskSizeGiB:
+        description: Size of the disk to be attached in GibiBytes.
+        format: int32
+        type: integer
+      diskType:
+        description: The storage type for the disk (i.e. Standard, Premium).
+        enum:
+        - Standard
+        - Premium
+        - StandardSSD
+        type: string
+        x-ms-enum:
+          modelAsString: true
+          name: StorageType
+    type: object
+  ExportResourceUsageParameters:
+    description: The parameters of the export operation.
+    properties:
+      blobStorageAbsoluteSasUri:
+        description: The blob storage absolute sas uri with write permission to the container which the usage data needs to be uploaded to.
+        type: string
+      usageStartDate:
+        description: The start time of the usage. If not provided, usage will be reported since the beginning of data collection.
+        format: date-time
+        type: string
+    type: object
+  CloudError:
+    description: Error from a REST request.
+    properties:
+      error:
+        $ref: '#/definitions/CloudErrorBody'
+        description: The cloud error that occurred
+    type: object
+    x-ms-external: true
+  LabVhd:
+    description: Properties of a VHD in the lab.
+    properties:
+      id:
+        description: The URI to the VHD.
+        type: string
+    type: object
+  UpdateResource:
+    description: Represents an update resource
+    properties:
+      tags:
+        additionalProperties:
+          type: string
+        description: The tags of the resource.
+        type: object
+    type: object
+  LabVhdList:
+    description: The response of a list operation.
+    properties:
+      nextLink:
+        description: Link for next set of results.
+        type: string
+      value:
+        description: Results of the list operation.
+        items:
+          $ref: '#/definitions/LabVhd'
+        type: array
+    type: object
+  GenerateUploadUriParameter:
+    description: Properties for generating an upload URI.
+    properties:
+      blobName:
+        description: The blob name of the upload URI.
+        type: string
+    type: object
+  DataDiskProperties:
+    description: Request body for adding a new or existing data disk to a virtual machine.
+    properties:
+      attachNewDataDiskOptions:
+        $ref: '#/definitions/AttachNewDataDiskOptions'
+        description: Specifies options to attach a new disk to the virtual machine.
+      existingLabDiskId:
+        description: Specifies the existing lab disk id to attach to virtual machine.
+        type: string
+      hostCaching:
+        description: Caching option for a data disk (i.e. None, ReadOnly, ReadWrite).
+        enum:
+        - None
+        - ReadOnly
+        - ReadWrite
+        type: string
+        x-ms-enum:
+          modelAsString: true
+          name: HostCachingOptions
+    type: object
+  GenerateUploadUriResponse:
+    description: Response body for generating an upload URI.
+    properties:
+      uploadUri:
+        description: The upload URI for the VHD.
+        type: string
+    type: object
+parameters:
+  resourceGroupName:
+    description: The name of the resource group.
+    in: path
+    name: resourceGroupName
+    required: true
+    type: string
+    x-ms-parameter-location: method
+  api-version:
+    default: '2018-09-15'
+    description: Client API version.
+    in: query
+    name: api-version
+    required: true
+    type: string
+  subscriptionId:
+    description: The subscription ID.
+    in: path
+    name: subscriptionId
+    required: true
+    type: string
+securityDefinitions:
+  azure_auth:
+    authorizationUrl: https://login.microsoftonline.com/common/oauth2/authorize
+    description: OAuth2 Implicit Grant
+    flow: implicit
+    scopes:
+      user_impersonation: Access Microsoft Azure
+    type: oauth2

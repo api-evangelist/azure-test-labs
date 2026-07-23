@@ -1,0 +1,187 @@
+swagger: '2.0'
+info:
+  description: The DevTest Labs Client.
+  title: DevTestLabsClient ArmTemplates PolicySets API
+  version: '2018-09-15'
+  x-apisguru-categories:
+  - cloud
+  x-logo:
+    url: https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png
+  x-origin:
+  - format: swagger
+    url: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/devtestlabs/resource-manager/Microsoft.DevTestLab/stable/2018-09-15/DTL.json
+    version: '2.0'
+  x-preferred: true
+  x-providerName: azure.com
+  x-serviceName: devtestlabs-DTL
+  x-tags:
+  - Azure
+  - Microsoft
+host: management.azure.com
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+security:
+- azure_auth:
+  - user_impersonation
+tags:
+- name: PolicySets
+paths:
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/policysets/{name}/evaluatePolicies
+  : post:
+      description: Evaluates lab policy.
+      operationId: PolicySets_EvaluatePolicies
+      parameters:
+      - $ref: '#/parameters/subscriptionId'
+      - $ref: '#/parameters/resourceGroupName'
+      - description: The name of the lab.
+        in: path
+        name: labName
+        required: true
+        type: string
+        example: example-value
+      - description: The name of the policy set.
+        in: path
+        name: name
+        required: true
+        type: string
+        example: example-value
+      - description: Request body for evaluating a policy set.
+        in: body
+        name: evaluatePoliciesRequest
+        required: true
+        schema:
+          $ref: '#/definitions/EvaluatePoliciesRequest'
+        example: example-value
+      - $ref: '#/parameters/api-version'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/EvaluatePoliciesResponse'
+        default:
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/CloudError'
+      tags:
+      - PolicySets
+      summary: Azure DevTest Labs Policy Sets_ Evaluate Policies
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+definitions:
+  EvaluatePoliciesRequest:
+    description: Request body for evaluating a policy set.
+    properties:
+      policies:
+        description: Policies to evaluate.
+        items:
+          $ref: '#/definitions/EvaluatePoliciesProperties'
+        type: array
+    type: object
+  PolicySetResult:
+    description: Result of a policy set evaluation.
+    properties:
+      hasError:
+        description: A value indicating whether this policy set evaluation has discovered violations.
+        type: boolean
+      policyViolations:
+        description: The list of policy violations.
+        items:
+          $ref: '#/definitions/PolicyViolation'
+        type: array
+    type: object
+  PolicyViolation:
+    description: Policy violation.
+    properties:
+      code:
+        description: The code of the policy violation.
+        type: string
+      message:
+        description: The message of the policy violation.
+        type: string
+    type: object
+  CloudError:
+    description: Error from a REST request.
+    properties:
+      error:
+        $ref: '#/definitions/CloudErrorBody'
+        description: The cloud error that occurred
+    type: object
+    x-ms-external: true
+  EvaluatePoliciesResponse:
+    description: Response body for evaluating a policy set.
+    properties:
+      results:
+        description: Results of evaluating a policy set.
+        items:
+          $ref: '#/definitions/PolicySetResult'
+        type: array
+    type: object
+  CloudErrorBody:
+    description: Body of an error from a REST request.
+    properties:
+      code:
+        description: The error code.
+        type: string
+      details:
+        description: Inner errors.
+        items:
+          $ref: '#/definitions/CloudErrorBody'
+        type: array
+      message:
+        description: The error message.
+        type: string
+      target:
+        description: The error target.
+        type: string
+    type: object
+    x-ms-external: true
+  EvaluatePoliciesProperties:
+    description: Properties for evaluating a policy set.
+    properties:
+      factData:
+        description: The fact data.
+        type: string
+      factName:
+        description: The fact name.
+        type: string
+      userObjectId:
+        description: The user for which policies will be evaluated
+        type: string
+      valueOffset:
+        description: The value offset.
+        type: string
+    type: object
+parameters:
+  resourceGroupName:
+    description: The name of the resource group.
+    in: path
+    name: resourceGroupName
+    required: true
+    type: string
+    x-ms-parameter-location: method
+  subscriptionId:
+    description: The subscription ID.
+    in: path
+    name: subscriptionId
+    required: true
+    type: string
+  api-version:
+    default: '2018-09-15'
+    description: Client API version.
+    in: query
+    name: api-version
+    required: true
+    type: string
+securityDefinitions:
+  azure_auth:
+    authorizationUrl: https://login.microsoftonline.com/common/oauth2/authorize
+    description: OAuth2 Implicit Grant
+    flow: implicit
+    scopes:
+      user_impersonation: Access Microsoft Azure
+    type: oauth2

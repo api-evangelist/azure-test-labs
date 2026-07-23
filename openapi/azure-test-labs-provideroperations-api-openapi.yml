@@ -1,0 +1,679 @@
+swagger: '2.0'
+info:
+  description: The DevTest Labs Client.
+  title: DevTestLabsClient ArmTemplates ProviderOperations API
+  version: '2018-09-15'
+  x-apisguru-categories:
+  - cloud
+  x-logo:
+    url: https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png
+  x-origin:
+  - format: swagger
+    url: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/devtestlabs/resource-manager/Microsoft.DevTestLab/stable/2018-09-15/DTL.json
+    version: '2.0'
+  x-preferred: true
+  x-providerName: azure.com
+  x-serviceName: devtestlabs-DTL
+  x-tags:
+  - Azure
+  - Microsoft
+host: management.azure.com
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+security:
+- azure_auth:
+  - user_impersonation
+tags:
+- name: ProviderOperations
+paths:
+  /providers/Microsoft.DevTestLab/operations:
+    get:
+      description: Result of the request to list REST API operations
+      operationId: ProviderOperations_List
+      parameters:
+      - $ref: '#/parameters/api-version'
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/ProviderOperationResult'
+      tags:
+      - ProviderOperations
+      x-ms-examples:
+        ProviderOperations_List:
+          parameters:
+            api-version: '2018-09-15'
+          responses:
+            '200':
+              body:
+                value:
+                - display:
+                    description: Registers the subscription
+                    operation: Register Subscription
+                    provider: Microsoft DevTest Labs
+                    resource: register
+                  name: Microsoft.DevTestLab/register/action
+                - display:
+                    description: Evaluates lab policy.
+                    operation: Evaluate policy
+                    provider: Microsoft DevTest Labs
+                    resource: policy sets
+                  name: Microsoft.DevTestLab/labs/policySets/EvaluatePolicies/action
+                - display:
+                    description: Delete labs.
+                    operation: Delete labs.
+                    provider: Microsoft DevTest Labs
+                    resource: Labs
+                  name: Microsoft.DevTestLab/labs/delete
+                - display:
+                    description: Read labs.
+                    operation: Read labs.
+                    provider: Microsoft DevTest Labs
+                    resource: Labs
+                  name: Microsoft.DevTestLab/labs/read
+                - display:
+                    description: Add or modify labs.
+                    operation: Add or modify labs.
+                    provider: Microsoft DevTest Labs
+                    resource: Labs
+                  name: Microsoft.DevTestLab/labs/write
+                - display:
+                    description: List disk images available for custom image creation.
+                    operation: List VHDs
+                    provider: Microsoft DevTest Labs
+                    resource: Labs
+                  name: Microsoft.DevTestLab/labs/ListVhds/action
+                - display:
+                    description: Generate a URI for uploading custom disk images to a Lab.
+                    operation: Generate image upload URI
+                    provider: Microsoft DevTest Labs
+                    resource: Labs
+                  name: Microsoft.DevTestLab/labs/GenerateUploadUri/action
+                - display:
+                    description: Create virtual machines in a lab.
+                    operation: Create a virtual machine
+                    provider: Microsoft DevTest Labs
+                    resource: Labs
+                  name: Microsoft.DevTestLab/labs/CreateEnvironment/action
+                - display:
+                    description: Claim a random claimable virtual machine in the lab.
+                    operation: Claim Any Virtual Machine
+                    provider: Microsoft DevTest Labs
+                    resource: Labs
+                  name: Microsoft.DevTestLab/labs/ClaimAnyVm/action
+                - display:
+                    description: Exports the lab resource usage into a storage account
+                    operation: Exports the lab resource usage into a storage account
+                    provider: Microsoft DevTest Labs
+                    resource: Labs
+                  name: Microsoft.DevTestLab/labs/ExportResourceUsage/action
+                - display:
+                    description: Import a virtual machine into a different lab.
+                    operation: Import a virtual machine
+                    provider: Microsoft DevTest Labs
+                    resource: Labs
+                  name: Microsoft.DevTestLab/labs/ImportVirtualMachine/action
+                - display:
+                    description: Delete policies.
+                    operation: Delete policies.
+                    provider: Microsoft DevTest Labs
+                    resource: policies
+                  name: Microsoft.DevTestLab/labs/policySets/policies/delete
+                - display:
+                    description: Read policies.
+                    operation: Read policies.
+                    provider: Microsoft DevTest Labs
+                    resource: policies
+                  name: Microsoft.DevTestLab/labs/policySets/policies/read
+                - display:
+                    description: Add or modify policies.
+                    operation: Add or modify policies.
+                    provider: Microsoft DevTest Labs
+                    resource: policies
+                  name: Microsoft.DevTestLab/labs/policySets/policies/write
+                - display:
+                    description: Delete schedules.
+                    operation: Delete schedules.
+                    provider: Microsoft DevTest Labs
+                    resource: schedules
+                  name: Microsoft.DevTestLab/labs/schedules/delete
+                - display:
+                    description: Read schedules.
+                    operation: Read schedules.
+                    provider: Microsoft DevTest Labs
+                    resource: schedules
+                  name: Microsoft.DevTestLab/labs/schedules/read
+                - display:
+                    description: Add or modify schedules.
+                    operation: Add or modify schedules.
+                    provider: Microsoft DevTest Labs
+                    resource: schedules
+                  name: Microsoft.DevTestLab/labs/schedules/write
+                - display:
+                    description: Execute a schedule.
+                    operation: Execute schedule
+                    provider: Microsoft DevTest Labs
+                    resource: schedules
+                  name: Microsoft.DevTestLab/labs/schedules/Execute/action
+                - display:
+                    description: Lists all applicable schedules
+                    operation: List all applicable schedules
+                    provider: Microsoft DevTest Labs
+                    resource: schedules
+                  name: Microsoft.DevTestLab/labs/schedules/ListApplicable/action
+                - display:
+                    description: Delete schedules.
+                    operation: Delete schedules.
+                    provider: Microsoft DevTest Labs
+                    resource: schedules
+                  name: Microsoft.DevTestLab/schedules/delete
+                - display:
+                    description: Read schedules.
+                    operation: Read schedules.
+                    provider: Microsoft DevTest Labs
+                    resource: schedules
+                  name: Microsoft.DevTestLab/schedules/read
+                - display:
+                    description: Add or modify schedules.
+                    operation: Add or modify schedules.
+                    provider: Microsoft DevTest Labs
+                    resource: schedules
+                  name: Microsoft.DevTestLab/schedules/write
+                - display:
+                    description: Execute a schedule.
+                    operation: Execute schedule
+                    provider: Microsoft DevTest Labs
+                    resource: schedules
+                  name: Microsoft.DevTestLab/schedules/Execute/action
+                - display:
+                    description: Updates a schedule's target resource Id.
+                    operation: Retarget schedule.
+                    provider: Microsoft DevTest Labs
+                    resource: schedules
+                  name: Microsoft.DevTestLab/schedules/Retarget/action
+                - display:
+                    description: Delete schedules.
+                    operation: Delete schedules.
+                    provider: Microsoft DevTest Labs
+                    resource: schedules
+                  name: Microsoft.DevTestLab/labs/virtualMachines/schedules/delete
+                - display:
+                    description: Read schedules.
+                    operation: Read schedules.
+                    provider: Microsoft DevTest Labs
+                    resource: schedules
+                  name: Microsoft.DevTestLab/labs/virtualMachines/schedules/read
+                - display:
+                    description: Add or modify schedules.
+                    operation: Add or modify schedules.
+                    provider: Microsoft DevTest Labs
+                    resource: schedules
+                  name: Microsoft.DevTestLab/labs/virtualMachines/schedules/write
+                - display:
+                    description: Execute a schedule.
+                    operation: Execute schedule
+                    provider: Microsoft DevTest Labs
+                    resource: schedules
+                  name: Microsoft.DevTestLab/labs/virtualMachines/schedules/Execute/action
+                - display:
+                    description: Delete schedules.
+                    operation: Delete schedules.
+                    provider: Microsoft DevTest Labs
+                    resource: schedules
+                  name: Microsoft.DevTestLab/labs/users/serviceFabrics/schedules/delete
+                - display:
+                    description: Read schedules.
+                    operation: Read schedules.
+                    provider: Microsoft DevTest Labs
+                    resource: schedules
+                  name: Microsoft.DevTestLab/labs/users/serviceFabrics/schedules/read
+                - display:
+                    description: Add or modify schedules.
+                    operation: Add or modify schedules.
+                    provider: Microsoft DevTest Labs
+                    resource: schedules
+                  name: Microsoft.DevTestLab/labs/users/serviceFabrics/schedules/write
+                - display:
+                    description: Execute a schedule.
+                    operation: Execute schedule
+                    provider: Microsoft DevTest Labs
+                    resource: schedules
+                  name: Microsoft.DevTestLab/labs/users/serviceFabrics/schedules/Execute/action
+                - display:
+                    description: Delete artifact sources.
+                    operation: Delete artifact sources.
+                    provider: Microsoft DevTest Labs
+                    resource: Artifact sources
+                  name: Microsoft.DevTestLab/labs/artifactSources/delete
+                - display:
+                    description: Read artifact sources.
+                    operation: Read artifact sources.
+                    provider: Microsoft DevTest Labs
+                    resource: Artifact sources
+                  name: Microsoft.DevTestLab/labs/artifactSources/read
+                - display:
+                    description: Add or modify artifact sources.
+                    operation: Add or modify artifact sources.
+                    provider: Microsoft DevTest Labs
+                    resource: Artifact sources
+                  name: Microsoft.DevTestLab/labs/artifactSources/write
+                - display:
+                    description: Read artifacts.
+                    operation: Read artifacts.
+                    provider: Microsoft DevTest Labs
+                    resource: Artifacts
+                  name: Microsoft.DevTestLab/labs/artifactSources/artifacts/read
+                - display:
+                    description: Generates an ARM template for the given artifact, uploads the required files to a storage account, and validates the generated artifact.
+                    operation: Generates an ARM template for the given artifact
+                    provider: Microsoft DevTest Labs
+                    resource: Artifacts
+                  name: Microsoft.DevTestLab/labs/artifactSources/artifacts/GenerateArmTemplate/action
+                - display:
+                    description: Read gallery images.
+                    operation: Read gallery images.
+                    provider: Microsoft DevTest Labs
+                    resource: gallery images
+                  name: Microsoft.DevTestLab/labs/galleryImages/read
+                - display:
+                    description: Delete custom images.
+                    operation: Delete custom images.
+                    provider: Microsoft DevTest Labs
+                    resource: custom images
+                  name: Microsoft.DevTestLab/labs/customImages/delete
+                - display:
+                    description: Read custom images.
+                    operation: Read custom images.
+                    provider: Microsoft DevTest Labs
+                    resource: custom images
+                  name: Microsoft.DevTestLab/labs/customImages/read
+                - display:
+                    description: Add or modify custom images.
+                    operation: Add or modify custom images.
+                    provider: Microsoft DevTest Labs
+                    resource: custom images
+                  name: Microsoft.DevTestLab/labs/customImages/write
+                - display:
+                    description: Delete virtual networks.
+                    operation: Delete virtual networks.
+                    provider: Microsoft DevTest Labs
+                    resource: virtual networks
+                  name: Microsoft.DevTestLab/labs/virtualNetworks/delete
+                - display:
+                    description: Read virtual networks.
+                    operation: Read virtual networks.
+                    provider: Microsoft DevTest Labs
+                    resource: virtual networks
+                  name: Microsoft.DevTestLab/labs/virtualNetworks/read
+                - display:
+                    description: Add or modify virtual networks.
+                    operation: Add or modify virtual networks.
+                    provider: Microsoft DevTest Labs
+                    resource: virtual networks
+                  name: Microsoft.DevTestLab/labs/virtualNetworks/write
+                - display:
+                    description: Delete virtual machines.
+                    operation: Delete virtual machines.
+                    provider: Microsoft DevTest Labs
+                    resource: Virtual machines
+                  name: Microsoft.DevTestLab/labs/virtualMachines/delete
+                - display:
+                    description: Read virtual machines.
+                    operation: Read virtual machines.
+                    provider: Microsoft DevTest Labs
+                    resource: Virtual machines
+                  name: Microsoft.DevTestLab/labs/virtualMachines/read
+                - display:
+                    description: Add or modify virtual machines.
+                    operation: Add or modify virtual machines.
+                    provider: Microsoft DevTest Labs
+                    resource: Virtual machines
+                  name: Microsoft.DevTestLab/labs/virtualMachines/write
+                - display:
+                    description: Start a virtual machine.
+                    operation: Start virtual machine
+                    provider: Microsoft DevTest Labs
+                    resource: Virtual machines
+                  name: Microsoft.DevTestLab/labs/virtualMachines/Start/action
+                - display:
+                    description: Stop a virtual machine
+                    operation: Stop virtual machine
+                    provider: Microsoft DevTest Labs
+                    resource: Virtual machines
+                  name: Microsoft.DevTestLab/labs/virtualMachines/Stop/action
+                - display:
+                    description: Restart a virtual machine.
+                    operation: Restart virtual machine
+                    provider: Microsoft DevTest Labs
+                    resource: Virtual machines
+                  name: Microsoft.DevTestLab/labs/virtualMachines/Restart/action
+                - display:
+                    description: Redeploy a virtual machine
+                    operation: Redeploy a virtual machine
+                    provider: Microsoft DevTest Labs
+                    resource: Virtual machines
+                  name: Microsoft.DevTestLab/labs/virtualMachines/Redeploy/action
+                - display:
+                    description: Resize Virtual Machine.
+                    operation: Resize Virtual Machine.
+                    provider: Microsoft DevTest Labs
+                    resource: Virtual machines
+                  name: Microsoft.DevTestLab/labs/virtualMachines/Resize/action
+                - display:
+                    description: Apply artifacts to virtual machine.
+                    operation: Apply artifacts to virtual machine
+                    provider: Microsoft DevTest Labs
+                    resource: Virtual machines
+                  name: Microsoft.DevTestLab/labs/virtualMachines/ApplyArtifacts/action
+                - display:
+                    description: Attach a new or existing data disk to virtual machine.
+                    operation: Add or attach a data disk
+                    provider: Microsoft DevTest Labs
+                    resource: Virtual machines
+                  name: Microsoft.DevTestLab/labs/virtualMachines/AddDataDisk/action
+                - display:
+                    description: Detach the specified disk from the virtual machine.
+                    operation: Detach the specified disk from the virtual machine
+                    provider: Microsoft DevTest Labs
+                    resource: Virtual machines
+                  name: Microsoft.DevTestLab/labs/virtualMachines/DetachDataDisk/action
+                - display:
+                    description: Take ownership of an existing virtual machine
+                    operation: Claim a virtual machine
+                    provider: Microsoft DevTest Labs
+                    resource: Virtual machines
+                  name: Microsoft.DevTestLab/labs/virtualMachines/Claim/action
+                - display:
+                    description: Release ownership of an existing virtual machine
+                    operation: Unclaim a virtual machine
+                    provider: Microsoft DevTest Labs
+                    resource: Virtual machines
+                  name: Microsoft.DevTestLab/labs/virtualMachines/UnClaim/action
+                - display:
+                    description: Transfer ownership of virtual machine data disks to yourself
+                    operation: Transfer data disks to yourself
+                    provider: Microsoft DevTest Labs
+                    resource: Virtual machines
+                  name: Microsoft.DevTestLab/labs/virtualMachines/TransferDisks/action
+                - display:
+                    description: Lists all applicable schedules
+                    operation: List all applicable schedules
+                    provider: Microsoft DevTest Labs
+                    resource: Virtual machines
+                  name: Microsoft.DevTestLab/labs/virtualMachines/ListApplicableSchedules/action
+                - display:
+                    description: Gets a string that represents the contents of the RDP file for the virtual machine
+                    operation: Get RDP file contents
+                    provider: Microsoft DevTest Labs
+                    resource: Virtual machines
+                  name: Microsoft.DevTestLab/labs/virtualMachines/GetRdpFileContents/action
+                - display:
+                    description: Delete formulas.
+                    operation: Delete formulas.
+                    provider: Microsoft DevTest Labs
+                    resource: Formulas
+                  name: Microsoft.DevTestLab/labs/formulas/delete
+                - display:
+                    description: Read formulas.
+                    operation: Read formulas.
+                    provider: Microsoft DevTest Labs
+                    resource: Formulas
+                  name: Microsoft.DevTestLab/labs/formulas/read
+                - display:
+                    description: Add or modify formulas.
+                    operation: Add or modify formulas.
+                    provider: Microsoft DevTest Labs
+                    resource: Formulas
+                  name: Microsoft.DevTestLab/labs/formulas/write
+                - display:
+                    description: Read costs.
+                    operation: Read costs.
+                    provider: Microsoft DevTest Labs
+                    resource: costs
+                  name: Microsoft.DevTestLab/labs/costs/read
+                - display:
+                    description: Add or modify costs.
+                    operation: Add or modify costs.
+                    provider: Microsoft DevTest Labs
+                    resource: costs
+                  name: Microsoft.DevTestLab/labs/costs/write
+                - display:
+                    description: Delete disks.
+                    operation: Delete disks.
+                    provider: Microsoft DevTest Labs
+                    resource: disks
+                  name: Microsoft.DevTestLab/labs/users/disks/delete
+                - display:
+                    description: Read disks.
+                    operation: Read disks.
+                    provider: Microsoft DevTest Labs
+                    resource: disks
+                  name: Microsoft.DevTestLab/labs/users/disks/read
+                - display:
+                    description: Add or modify disks.
+                    operation: Add or modify disks.
+                    provider: Microsoft DevTest Labs
+                    resource: disks
+                  name: Microsoft.DevTestLab/labs/users/disks/write
+                - display:
+                    description: Attach and create the lease of the disk to the virtual machine.
+                    operation: Attach disk
+                    provider: Microsoft DevTest Labs
+                    resource: disks
+                  name: Microsoft.DevTestLab/labs/users/disks/Attach/action
+                - display:
+                    description: Detach and break the lease of the disk attached to the virtual machine.
+                    operation: Detach and break the lease of the disk attached to the virtual machine
+                    provider: Microsoft DevTest Labs
+                    resource: disks
+                  name: Microsoft.DevTestLab/labs/users/disks/Detach/action
+                - display:
+                    description: Delete user profiles.
+                    operation: Delete user profiles.
+                    provider: Microsoft DevTest Labs
+                    resource: user profiles
+                  name: Microsoft.DevTestLab/labs/users/delete
+                - display:
+                    description: Read user profiles.
+                    operation: Read user profiles.
+                    provider: Microsoft DevTest Labs
+                    resource: user profiles
+                  name: Microsoft.DevTestLab/labs/users/read
+                - display:
+                    description: Add or modify user profiles.
+                    operation: Add or modify user profiles.
+                    provider: Microsoft DevTest Labs
+                    resource: user profiles
+                  name: Microsoft.DevTestLab/labs/users/write
+                - display:
+                    description: Delete notification channels.
+                    operation: Delete notification channels.
+                    provider: Microsoft DevTest Labs
+                    resource: notificationChannels
+                  name: Microsoft.DevTestLab/labs/notificationChannels/delete
+                - display:
+                    description: Read notification channels.
+                    operation: Read notification channels.
+                    provider: Microsoft DevTest Labs
+                    resource: notificationChannels
+                  name: Microsoft.DevTestLab/labs/notificationChannels/read
+                - display:
+                    description: Add or modify notification channels.
+                    operation: Add or modify notification channels.
+                    provider: Microsoft DevTest Labs
+                    resource: notificationChannels
+                  name: Microsoft.DevTestLab/labs/notificationChannels/write
+                - display:
+                    description: Send notification to provided channel.
+                    operation: Notify
+                    provider: Microsoft DevTest Labs
+                    resource: notificationChannels
+                  name: Microsoft.DevTestLab/labs/notificationChannels/Notify/action
+                - display:
+                    description: Delete secrets.
+                    operation: Delete secrets.
+                    provider: Microsoft DevTest Labs
+                    resource: secrets
+                  name: Microsoft.DevTestLab/labs/users/secrets/delete
+                - display:
+                    description: Read secrets.
+                    operation: Read secrets.
+                    provider: Microsoft DevTest Labs
+                    resource: secrets
+                  name: Microsoft.DevTestLab/labs/users/secrets/read
+                - display:
+                    description: Add or modify secrets.
+                    operation: Add or modify secrets.
+                    provider: Microsoft DevTest Labs
+                    resource: secrets
+                  name: Microsoft.DevTestLab/labs/users/secrets/write
+                - display:
+                    description: Read operations.
+                    operation: Read operations.
+                    provider: Microsoft DevTest Labs
+                    resource: operations
+                  name: Microsoft.DevTestLab/locations/operations/read
+                - display:
+                    description: Read azure resource manager templates.
+                    operation: Read azure resource manager templates.
+                    provider: Microsoft DevTest Labs
+                    resource: Azure Resource Manager templates
+                  name: Microsoft.DevTestLab/labs/artifactSources/armTemplates/read
+                - display:
+                    description: Delete environments.
+                    operation: Delete environments.
+                    provider: Microsoft DevTest Labs
+                    resource: environments
+                  name: Microsoft.DevTestLab/labs/users/environments/delete
+                - display:
+                    description: Read environments.
+                    operation: Read environments.
+                    provider: Microsoft DevTest Labs
+                    resource: environments
+                  name: Microsoft.DevTestLab/labs/users/environments/read
+                - display:
+                    description: Add or modify environments.
+                    operation: Add or modify environments.
+                    provider: Microsoft DevTest Labs
+                    resource: environments
+                  name: Microsoft.DevTestLab/labs/users/environments/write
+                - display:
+                    description: Delete service runners.
+                    operation: Delete service runners.
+                    provider: Microsoft DevTest Labs
+                    resource: Service runners
+                  name: Microsoft.DevTestLab/labs/serviceRunners/delete
+                - display:
+                    description: Read service runners.
+                    operation: Read service runners.
+                    provider: Microsoft DevTest Labs
+                    resource: Service runners
+                  name: Microsoft.DevTestLab/labs/serviceRunners/read
+                - display:
+                    description: Add or modify service runners.
+                    operation: Add or modify service runners.
+                    provider: Microsoft DevTest Labs
+                    resource: Service runners
+                  name: Microsoft.DevTestLab/labs/serviceRunners/write
+                - display:
+                    description: Delete service fabrics.
+                    operation: Delete service fabrics.
+                    provider: Microsoft DevTest Labs
+                    resource: Service Fabrics
+                  name: Microsoft.DevTestLab/labs/users/serviceFabrics/delete
+                - display:
+                    description: Read service fabrics.
+                    operation: Read service fabrics.
+                    provider: Microsoft DevTest Labs
+                    resource: Service Fabrics
+                  name: Microsoft.DevTestLab/labs/users/serviceFabrics/read
+                - display:
+                    description: Add or modify service fabrics.
+                    operation: Add or modify service fabrics.
+                    provider: Microsoft DevTest Labs
+                    resource: Service Fabrics
+                  name: Microsoft.DevTestLab/labs/users/serviceFabrics/write
+                - display:
+                    description: Start a service fabric.
+                    operation: Start service fabric
+                    provider: Microsoft DevTest Labs
+                    resource: Service Fabrics
+                  name: Microsoft.DevTestLab/labs/users/serviceFabrics/Start/action
+                - display:
+                    description: Stop a service fabric
+                    operation: Stop service fabric
+                    provider: Microsoft DevTest Labs
+                    resource: Service Fabrics
+                  name: Microsoft.DevTestLab/labs/users/serviceFabrics/Stop/action
+                - display:
+                    description: Lists all applicable schedules
+                    operation: List all applicable schedules
+                    provider: Microsoft DevTest Labs
+                    resource: Service Fabrics
+                  name: Microsoft.DevTestLab/labs/users/serviceFabrics/ListApplicableSchedules/action
+      x-ms-pageable:
+        nextLinkName: nextLink
+      summary: Azure DevTest Labs Provider Operations_ List
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+definitions:
+  ProviderOperationResult:
+    description: Result of the request to list REST API operations
+    properties:
+      nextLink:
+        description: URL to get the next set of operation list results if there are any.
+        readOnly: true
+        type: string
+      value:
+        description: List of operations supported by the resource provider.
+        items:
+          $ref: '#/definitions/OperationMetadata'
+        type: array
+    type: object
+  OperationMetadataDisplay:
+    description: The object that describes the operations
+    properties:
+      description:
+        description: Friendly name of the operation
+        type: string
+      operation:
+        description: 'Operation type: read, write, delete, listKeys/action, etc.'
+        type: string
+      provider:
+        description: Friendly name of the resource provider
+        type: string
+      resource:
+        description: Resource type on which the operation is performed.
+        type: string
+    type: object
+  OperationMetadata:
+    description: The REST API operation supported by DevTestLab ResourceProvider.
+    properties:
+      display:
+        $ref: '#/definitions/OperationMetadataDisplay'
+        description: The object that describes the operations
+      name:
+        description: 'Operation name: {provider}/{resource}/{operation}'
+        type: string
+    type: object
+parameters:
+  api-version:
+    default: '2018-09-15'
+    description: Client API version.
+    in: query
+    name: api-version
+    required: true
+    type: string
+securityDefinitions:
+  azure_auth:
+    authorizationUrl: https://login.microsoftonline.com/common/oauth2/authorize
+    description: OAuth2 Implicit Grant
+    flow: implicit
+    scopes:
+      user_impersonation: Access Microsoft Azure
+    type: oauth2
