@@ -1,0 +1,311 @@
+{
+  "info": {
+    "_postman_id": "64fddc1f-6925-456e-8fd3-ccb1e1553dde",
+    "name": "DevTestLabsClient ArmTemplates Operations API",
+    "description": "The DevTest Labs Client.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T10:55:37.000Z",
+    "updatedAt": "2026-07-28T10:55:37.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-64fddc1f-6925-456e-8fd3-ccb1e1553dde"
+  },
+  "item": [
+    {
+      "name": "subscriptions",
+      "item": [
+        {
+          "name": "{subscriptionId}",
+          "item": [
+            {
+              "name": "providers",
+              "item": [
+                {
+                  "name": "Microsoft.DevTestLab",
+                  "item": [
+                    {
+                      "name": "locations",
+                      "item": [
+                        {
+                          "name": "{locationName}",
+                          "item": [
+                            {
+                              "name": "operations",
+                              "item": [
+                                {
+                                  "name": "{name}",
+                                  "item": [
+                                    {
+                                      "name": "Azure DevTest Labs Operations_ Get",
+                                      "id": "524f1c58-8735-4db0-9e77-e6e0ad813af7",
+                                      "protocolProfileBehavior": {
+                                        "disableBodyPruning": true
+                                      },
+                                      "request": {
+                                        "method": "GET",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/subscriptions/:subscriptionId/providers/Microsoft.DevTestLab/locations/:locationName/operations/:name?api-version=2018-09-15",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "subscriptions",
+                                            ":subscriptionId",
+                                            "providers",
+                                            "Microsoft.DevTestLab",
+                                            "locations",
+                                            ":locationName",
+                                            "operations",
+                                            ":name"
+                                          ],
+                                          "query": [
+                                            {
+                                              "description": "(Required) Client API version.",
+                                              "key": "api-version",
+                                              "value": "2018-09-15"
+                                            }
+                                          ],
+                                          "variable": [
+                                            {
+                                              "id": "bd78a5c8-7e6e-479f-a9bf-2173a65db503",
+                                              "key": "subscriptionId",
+                                              "value": "<string>",
+                                              "description": "(Required) The subscription ID."
+                                            },
+                                            {
+                                              "id": "8499c157-88da-4167-827c-ad0927b7cfb2",
+                                              "key": "locationName",
+                                              "value": "<string>",
+                                              "description": "(Required) The name of the location."
+                                            },
+                                            {
+                                              "id": "46f8aaad-bcab-42c9-9ab9-2557687910c1",
+                                              "key": "name",
+                                              "value": "<string>",
+                                              "description": "(Required) The name of the operation."
+                                            }
+                                          ]
+                                        },
+                                        "description": "Get operation."
+                                      },
+                                      "response": [
+                                        {
+                                          "id": "fb185f46-eb96-4986-9579-7209d334a8ee",
+                                          "name": "OK",
+                                          "originalRequest": {
+                                            "method": "GET",
+                                            "header": [
+                                              {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                              },
+                                              {
+                                                "description": "Added as a part of security scheme: oauth2",
+                                                "key": "Authorization",
+                                                "value": "<token>"
+                                              }
+                                            ],
+                                            "url": {
+                                              "raw": "{{baseUrl}}/subscriptions/:subscriptionId/providers/Microsoft.DevTestLab/locations/:locationName/operations/:name?api-version=2018-09-15",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "subscriptions",
+                                                ":subscriptionId",
+                                                "providers",
+                                                "Microsoft.DevTestLab",
+                                                "locations",
+                                                ":locationName",
+                                                "operations",
+                                                ":name"
+                                              ],
+                                              "query": [
+                                                {
+                                                  "description": "(Required) Client API version.",
+                                                  "key": "api-version",
+                                                  "value": "2018-09-15"
+                                                }
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "key": "subscriptionId"
+                                                },
+                                                {
+                                                  "key": "locationName"
+                                                },
+                                                {
+                                                  "key": "name"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "status": "OK",
+                                          "code": 200,
+                                          "_postman_previewlanguage": "json",
+                                          "header": [
+                                            {
+                                              "key": "Content-Type",
+                                              "value": "application/json"
+                                            }
+                                          ],
+                                          "cookie": [],
+                                          "responseTime": null,
+                                          "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\"\n  },\n  \"status\": \"<string>\",\n  \"statusCode\": \"NotImplemented\"\n}",
+                                          "createdAt": "2026-07-28T10:55:37.000Z",
+                                          "updatedAt": "2026-07-28T10:55:37.000Z",
+                                          "uid": "35240-fb185f46-eb96-4986-9579-7209d334a8ee"
+                                        },
+                                        {
+                                          "id": "79dd4efc-89cf-4e83-af5d-3d678b19aec4",
+                                          "name": "BadRequest",
+                                          "originalRequest": {
+                                            "method": "GET",
+                                            "header": [
+                                              {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                              },
+                                              {
+                                                "description": "Added as a part of security scheme: oauth2",
+                                                "key": "Authorization",
+                                                "value": "<token>"
+                                              }
+                                            ],
+                                            "url": {
+                                              "raw": "{{baseUrl}}/subscriptions/:subscriptionId/providers/Microsoft.DevTestLab/locations/:locationName/operations/:name?api-version=2018-09-15",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "subscriptions",
+                                                ":subscriptionId",
+                                                "providers",
+                                                "Microsoft.DevTestLab",
+                                                "locations",
+                                                ":locationName",
+                                                "operations",
+                                                ":name"
+                                              ],
+                                              "query": [
+                                                {
+                                                  "description": "(Required) Client API version.",
+                                                  "key": "api-version",
+                                                  "value": "2018-09-15"
+                                                }
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "key": "subscriptionId"
+                                                },
+                                                {
+                                                  "key": "locationName"
+                                                },
+                                                {
+                                                  "key": "name"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "status": "Internal Server Error",
+                                          "code": 500,
+                                          "_postman_previewlanguage": "json",
+                                          "header": [
+                                            {
+                                              "key": "Content-Type",
+                                              "value": "application/json"
+                                            }
+                                          ],
+                                          "cookie": [],
+                                          "responseTime": null,
+                                          "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"details\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/CloudErrorBody detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/CloudErrorBody detected>\"\n      }\n    ],\n    \"message\": \"<string>\",\n    \"target\": \"<string>\"\n  }\n}",
+                                          "createdAt": "2026-07-28T10:55:37.000Z",
+                                          "updatedAt": "2026-07-28T10:55:37.000Z",
+                                          "uid": "35240-79dd4efc-89cf-4e83-af5d-3d678b19aec4"
+                                        }
+                                      ],
+                                      "createdAt": "2026-07-28T10:55:37.000Z",
+                                      "updatedAt": "2026-07-28T10:55:37.000Z",
+                                      "uid": "35240-524f1c58-8735-4db0-9e77-e6e0ad813af7"
+                                    }
+                                  ],
+                                  "id": "11a21704-7e43-44db-865c-4963d57598e8",
+                                  "createdAt": "2026-07-28T10:55:37.000Z",
+                                  "updatedAt": "2026-07-28T10:55:37.000Z",
+                                  "uid": "35240-11a21704-7e43-44db-865c-4963d57598e8"
+                                }
+                              ],
+                              "id": "1f3bb9c8-1748-4392-a3e0-68abfbd7d577",
+                              "createdAt": "2026-07-28T10:55:37.000Z",
+                              "updatedAt": "2026-07-28T10:55:37.000Z",
+                              "uid": "35240-1f3bb9c8-1748-4392-a3e0-68abfbd7d577"
+                            }
+                          ],
+                          "id": "ef95cc39-8f56-4c55-9dd0-623eda8ae777",
+                          "createdAt": "2026-07-28T10:55:37.000Z",
+                          "updatedAt": "2026-07-28T10:55:37.000Z",
+                          "uid": "35240-ef95cc39-8f56-4c55-9dd0-623eda8ae777"
+                        }
+                      ],
+                      "id": "89dc33b2-2ec2-4693-b10c-ff0800d0388a",
+                      "createdAt": "2026-07-28T10:55:37.000Z",
+                      "updatedAt": "2026-07-28T10:55:37.000Z",
+                      "uid": "35240-89dc33b2-2ec2-4693-b10c-ff0800d0388a"
+                    }
+                  ],
+                  "id": "3bf14ce2-ed6e-4721-b36e-afdb0dc86d9c",
+                  "createdAt": "2026-07-28T10:55:37.000Z",
+                  "updatedAt": "2026-07-28T10:55:37.000Z",
+                  "uid": "35240-3bf14ce2-ed6e-4721-b36e-afdb0dc86d9c"
+                }
+              ],
+              "id": "da1a3d59-e477-4ee2-9e6c-9c569a1ea8a5",
+              "createdAt": "2026-07-28T10:55:37.000Z",
+              "updatedAt": "2026-07-28T10:55:37.000Z",
+              "uid": "35240-da1a3d59-e477-4ee2-9e6c-9c569a1ea8a5"
+            }
+          ],
+          "id": "935e3b4b-39c4-4498-9839-54544634da4c",
+          "createdAt": "2026-07-28T10:55:37.000Z",
+          "updatedAt": "2026-07-28T10:55:37.000Z",
+          "uid": "35240-935e3b4b-39c4-4498-9839-54544634da4c"
+        }
+      ],
+      "id": "a30729e5-7d3a-432a-b76b-82127d351ad8",
+      "createdAt": "2026-07-28T10:55:37.000Z",
+      "updatedAt": "2026-07-28T10:55:37.000Z",
+      "uid": "35240-a30729e5-7d3a-432a-b76b-82127d351ad8"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "user_impersonation",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "implicit",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://management.azure.com"
+    }
+  ]
+}

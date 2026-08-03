@@ -1,0 +1,678 @@
+{
+  "info": {
+    "_postman_id": "228b0fe4-5f7c-4d39-bbca-8cebb743c0df",
+    "name": "DevTestLabsClient ArmTemplates API",
+    "description": "The DevTest Labs Client.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T10:54:32.000Z",
+    "updatedAt": "2026-07-28T10:54:33.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-228b0fe4-5f7c-4d39-bbca-8cebb743c0df"
+  },
+  "item": [
+    {
+      "name": "subscriptions",
+      "item": [
+        {
+          "name": "{subscriptionId}",
+          "item": [
+            {
+              "name": "resourceGroups",
+              "item": [
+                {
+                  "name": "{resourceGroupName}",
+                  "item": [
+                    {
+                      "name": "providers",
+                      "item": [
+                        {
+                          "name": "Microsoft.DevTestLab",
+                          "item": [
+                            {
+                              "name": "labs",
+                              "item": [
+                                {
+                                  "name": "{labName}",
+                                  "item": [
+                                    {
+                                      "name": "artifactsources",
+                                      "item": [
+                                        {
+                                          "name": "{artifactSourceName}",
+                                          "item": [
+                                            {
+                                              "name": "armtemplates",
+                                              "item": [
+                                                {
+                                                  "name": "{name}",
+                                                  "item": [
+                                                    {
+                                                      "name": "Azure DevTest Labs Arm Templates_ Get",
+                                                      "id": "87cb617d-985b-4eea-b772-f5e573c673cc",
+                                                      "protocolProfileBehavior": {
+                                                        "disableBodyPruning": true
+                                                      },
+                                                      "request": {
+                                                        "method": "GET",
+                                                        "header": [
+                                                          {
+                                                            "key": "Accept",
+                                                            "value": "application/json"
+                                                          }
+                                                        ],
+                                                        "url": {
+                                                          "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/labs/:labName/artifactsources/:artifactSourceName/armtemplates/:name?$expand=<string>&api-version=2018-09-15",
+                                                          "host": [
+                                                            "{{baseUrl}}"
+                                                          ],
+                                                          "path": [
+                                                            "subscriptions",
+                                                            ":subscriptionId",
+                                                            "resourceGroups",
+                                                            ":resourceGroupName",
+                                                            "providers",
+                                                            "Microsoft.DevTestLab",
+                                                            "labs",
+                                                            ":labName",
+                                                            "artifactsources",
+                                                            ":artifactSourceName",
+                                                            "armtemplates",
+                                                            ":name"
+                                                          ],
+                                                          "query": [
+                                                            {
+                                                              "description": "Specify the $expand query. Example: 'properties($select=displayName)'",
+                                                              "key": "$expand",
+                                                              "value": "<string>"
+                                                            },
+                                                            {
+                                                              "description": "(Required) Client API version.",
+                                                              "key": "api-version",
+                                                              "value": "2018-09-15"
+                                                            }
+                                                          ],
+                                                          "variable": [
+                                                            {
+                                                              "id": "f46ca247-bac4-4a3b-b20e-c5cd5905c2b8",
+                                                              "key": "subscriptionId",
+                                                              "value": "<string>",
+                                                              "description": "(Required) The subscription ID."
+                                                            },
+                                                            {
+                                                              "id": "9a2e2c00-899e-4392-b88e-f4bacb921899",
+                                                              "key": "resourceGroupName",
+                                                              "value": "<string>",
+                                                              "description": "(Required) The name of the resource group."
+                                                            },
+                                                            {
+                                                              "id": "05d5c10e-8cc6-4fe4-95f7-5f5ceb1fb1dc",
+                                                              "key": "labName",
+                                                              "value": "<string>",
+                                                              "description": "(Required) The name of the lab."
+                                                            },
+                                                            {
+                                                              "id": "ce71757e-ac7f-4aca-949c-29680b93e3f5",
+                                                              "key": "artifactSourceName",
+                                                              "value": "<string>",
+                                                              "description": "(Required) The name of the artifact source."
+                                                            },
+                                                            {
+                                                              "id": "f4d4e606-8278-4564-84a1-eeaecfa73b47",
+                                                              "key": "name",
+                                                              "value": "<string>",
+                                                              "description": "(Required) The name of the azure resource manager template."
+                                                            }
+                                                          ]
+                                                        },
+                                                        "description": "Get azure resource manager template."
+                                                      },
+                                                      "response": [
+                                                        {
+                                                          "id": "46832c43-d498-40fc-855e-67a9942dfe89",
+                                                          "name": "OK",
+                                                          "originalRequest": {
+                                                            "method": "GET",
+                                                            "header": [
+                                                              {
+                                                                "key": "Accept",
+                                                                "value": "application/json"
+                                                              },
+                                                              {
+                                                                "description": "Added as a part of security scheme: oauth2",
+                                                                "key": "Authorization",
+                                                                "value": "<token>"
+                                                              }
+                                                            ],
+                                                            "url": {
+                                                              "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/labs/:labName/artifactsources/:artifactSourceName/armtemplates/:name?$expand=<string>&api-version=2018-09-15",
+                                                              "host": [
+                                                                "{{baseUrl}}"
+                                                              ],
+                                                              "path": [
+                                                                "subscriptions",
+                                                                ":subscriptionId",
+                                                                "resourceGroups",
+                                                                ":resourceGroupName",
+                                                                "providers",
+                                                                "Microsoft.DevTestLab",
+                                                                "labs",
+                                                                ":labName",
+                                                                "artifactsources",
+                                                                ":artifactSourceName",
+                                                                "armtemplates",
+                                                                ":name"
+                                                              ],
+                                                              "query": [
+                                                                {
+                                                                  "description": "Specify the $expand query. Example: 'properties($select=displayName)'",
+                                                                  "key": "$expand",
+                                                                  "value": "<string>"
+                                                                },
+                                                                {
+                                                                  "description": "(Required) Client API version.",
+                                                                  "key": "api-version",
+                                                                  "value": "2018-09-15"
+                                                                }
+                                                              ],
+                                                              "variable": [
+                                                                {
+                                                                  "key": "subscriptionId"
+                                                                },
+                                                                {
+                                                                  "key": "resourceGroupName"
+                                                                },
+                                                                {
+                                                                  "key": "labName"
+                                                                },
+                                                                {
+                                                                  "key": "artifactSourceName"
+                                                                },
+                                                                {
+                                                                  "key": "name"
+                                                                }
+                                                              ]
+                                                            }
+                                                          },
+                                                          "status": "OK",
+                                                          "code": 200,
+                                                          "_postman_previewlanguage": "json",
+                                                          "header": [
+                                                            {
+                                                              "key": "Content-Type",
+                                                              "value": "application/json"
+                                                            }
+                                                          ],
+                                                          "cookie": [],
+                                                          "responseTime": null,
+                                                          "body": "{\n  \"properties\": {},\n  \"id\": \"<string>\",\n  \"location\": \"<string>\",\n  \"name\": \"<string>\",\n  \"tags\": {\n    \"est31\": \"<string>\"\n  },\n  \"type\": \"<string>\"\n}",
+                                                          "createdAt": "2026-07-28T10:54:33.000Z",
+                                                          "updatedAt": "2026-07-28T10:54:33.000Z",
+                                                          "uid": "35240-46832c43-d498-40fc-855e-67a9942dfe89"
+                                                        },
+                                                        {
+                                                          "id": "adaacc9c-3120-4787-bcbc-5f1b3e60f8d3",
+                                                          "name": "BadRequest",
+                                                          "originalRequest": {
+                                                            "method": "GET",
+                                                            "header": [
+                                                              {
+                                                                "key": "Accept",
+                                                                "value": "application/json"
+                                                              },
+                                                              {
+                                                                "description": "Added as a part of security scheme: oauth2",
+                                                                "key": "Authorization",
+                                                                "value": "<token>"
+                                                              }
+                                                            ],
+                                                            "url": {
+                                                              "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/labs/:labName/artifactsources/:artifactSourceName/armtemplates/:name?$expand=<string>&api-version=2018-09-15",
+                                                              "host": [
+                                                                "{{baseUrl}}"
+                                                              ],
+                                                              "path": [
+                                                                "subscriptions",
+                                                                ":subscriptionId",
+                                                                "resourceGroups",
+                                                                ":resourceGroupName",
+                                                                "providers",
+                                                                "Microsoft.DevTestLab",
+                                                                "labs",
+                                                                ":labName",
+                                                                "artifactsources",
+                                                                ":artifactSourceName",
+                                                                "armtemplates",
+                                                                ":name"
+                                                              ],
+                                                              "query": [
+                                                                {
+                                                                  "description": "Specify the $expand query. Example: 'properties($select=displayName)'",
+                                                                  "key": "$expand",
+                                                                  "value": "<string>"
+                                                                },
+                                                                {
+                                                                  "description": "(Required) Client API version.",
+                                                                  "key": "api-version",
+                                                                  "value": "2018-09-15"
+                                                                }
+                                                              ],
+                                                              "variable": [
+                                                                {
+                                                                  "key": "subscriptionId"
+                                                                },
+                                                                {
+                                                                  "key": "resourceGroupName"
+                                                                },
+                                                                {
+                                                                  "key": "labName"
+                                                                },
+                                                                {
+                                                                  "key": "artifactSourceName"
+                                                                },
+                                                                {
+                                                                  "key": "name"
+                                                                }
+                                                              ]
+                                                            }
+                                                          },
+                                                          "status": "Internal Server Error",
+                                                          "code": 500,
+                                                          "_postman_previewlanguage": "json",
+                                                          "header": [
+                                                            {
+                                                              "key": "Content-Type",
+                                                              "value": "application/json"
+                                                            }
+                                                          ],
+                                                          "cookie": [],
+                                                          "responseTime": null,
+                                                          "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"details\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/CloudErrorBody detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/CloudErrorBody detected>\"\n      }\n    ],\n    \"message\": \"<string>\",\n    \"target\": \"<string>\"\n  }\n}",
+                                                          "createdAt": "2026-07-28T10:54:33.000Z",
+                                                          "updatedAt": "2026-07-28T10:54:33.000Z",
+                                                          "uid": "35240-adaacc9c-3120-4787-bcbc-5f1b3e60f8d3"
+                                                        }
+                                                      ],
+                                                      "createdAt": "2026-07-28T10:54:33.000Z",
+                                                      "updatedAt": "2026-07-28T10:54:33.000Z",
+                                                      "uid": "35240-87cb617d-985b-4eea-b772-f5e573c673cc"
+                                                    }
+                                                  ],
+                                                  "id": "f6f5d830-69a1-4955-84c6-9cb9b26861c0",
+                                                  "createdAt": "2026-07-28T10:54:33.000Z",
+                                                  "updatedAt": "2026-07-28T10:54:33.000Z",
+                                                  "uid": "35240-f6f5d830-69a1-4955-84c6-9cb9b26861c0"
+                                                },
+                                                {
+                                                  "name": "Azure DevTest Labs Arm Templates_ List",
+                                                  "id": "55b578f1-1d75-4cd2-8203-6335873ee058",
+                                                  "protocolProfileBehavior": {
+                                                    "disableBodyPruning": true
+                                                  },
+                                                  "request": {
+                                                    "method": "GET",
+                                                    "header": [
+                                                      {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                      }
+                                                    ],
+                                                    "url": {
+                                                      "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/labs/:labName/artifactsources/:artifactSourceName/armtemplates?$expand=<string>&$filter=<string>&$top=<integer>&$orderby=<string>&api-version=2018-09-15",
+                                                      "host": [
+                                                        "{{baseUrl}}"
+                                                      ],
+                                                      "path": [
+                                                        "subscriptions",
+                                                        ":subscriptionId",
+                                                        "resourceGroups",
+                                                        ":resourceGroupName",
+                                                        "providers",
+                                                        "Microsoft.DevTestLab",
+                                                        "labs",
+                                                        ":labName",
+                                                        "artifactsources",
+                                                        ":artifactSourceName",
+                                                        "armtemplates"
+                                                      ],
+                                                      "query": [
+                                                        {
+                                                          "description": "Specify the $expand query. Example: 'properties($select=displayName)'",
+                                                          "key": "$expand",
+                                                          "value": "<string>"
+                                                        },
+                                                        {
+                                                          "description": "The filter to apply to the operation. Example: '$filter=contains(name,'myName')",
+                                                          "key": "$filter",
+                                                          "value": "<string>"
+                                                        },
+                                                        {
+                                                          "description": "The maximum number of resources to return from the operation. Example: '$top=10'",
+                                                          "key": "$top",
+                                                          "value": "<integer>"
+                                                        },
+                                                        {
+                                                          "description": "The ordering expression for the results, using OData notation. Example: '$orderby=name desc'",
+                                                          "key": "$orderby",
+                                                          "value": "<string>"
+                                                        },
+                                                        {
+                                                          "description": "(Required) Client API version.",
+                                                          "key": "api-version",
+                                                          "value": "2018-09-15"
+                                                        }
+                                                      ],
+                                                      "variable": [
+                                                        {
+                                                          "id": "fb40a266-1c3f-4a17-8607-3e2f88f31898",
+                                                          "key": "subscriptionId",
+                                                          "value": "<string>",
+                                                          "description": "(Required) The subscription ID."
+                                                        },
+                                                        {
+                                                          "id": "87de5455-87d7-4bde-a324-600cb2491e5a",
+                                                          "key": "resourceGroupName",
+                                                          "value": "<string>",
+                                                          "description": "(Required) The name of the resource group."
+                                                        },
+                                                        {
+                                                          "id": "1ea6fa60-da54-4c61-a604-909d0fa3e6c8",
+                                                          "key": "labName",
+                                                          "value": "<string>",
+                                                          "description": "(Required) The name of the lab."
+                                                        },
+                                                        {
+                                                          "id": "b5d43533-55b9-450c-8663-856201acff28",
+                                                          "key": "artifactSourceName",
+                                                          "value": "<string>",
+                                                          "description": "(Required) The name of the artifact source."
+                                                        }
+                                                      ]
+                                                    },
+                                                    "description": "List azure resource manager templates in a given artifact source."
+                                                  },
+                                                  "response": [
+                                                    {
+                                                      "id": "d498d463-b289-4105-b7ab-2aa80525ab32",
+                                                      "name": "OK",
+                                                      "originalRequest": {
+                                                        "method": "GET",
+                                                        "header": [
+                                                          {
+                                                            "key": "Accept",
+                                                            "value": "application/json"
+                                                          },
+                                                          {
+                                                            "description": "Added as a part of security scheme: oauth2",
+                                                            "key": "Authorization",
+                                                            "value": "<token>"
+                                                          }
+                                                        ],
+                                                        "url": {
+                                                          "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/labs/:labName/artifactsources/:artifactSourceName/armtemplates?$expand=<string>&$filter=<string>&$top=<integer>&$orderby=<string>&api-version=2018-09-15",
+                                                          "host": [
+                                                            "{{baseUrl}}"
+                                                          ],
+                                                          "path": [
+                                                            "subscriptions",
+                                                            ":subscriptionId",
+                                                            "resourceGroups",
+                                                            ":resourceGroupName",
+                                                            "providers",
+                                                            "Microsoft.DevTestLab",
+                                                            "labs",
+                                                            ":labName",
+                                                            "artifactsources",
+                                                            ":artifactSourceName",
+                                                            "armtemplates"
+                                                          ],
+                                                          "query": [
+                                                            {
+                                                              "description": "Specify the $expand query. Example: 'properties($select=displayName)'",
+                                                              "key": "$expand",
+                                                              "value": "<string>"
+                                                            },
+                                                            {
+                                                              "description": "The filter to apply to the operation. Example: '$filter=contains(name,'myName')",
+                                                              "key": "$filter",
+                                                              "value": "<string>"
+                                                            },
+                                                            {
+                                                              "description": "The maximum number of resources to return from the operation. Example: '$top=10'",
+                                                              "key": "$top",
+                                                              "value": "<integer>"
+                                                            },
+                                                            {
+                                                              "description": "The ordering expression for the results, using OData notation. Example: '$orderby=name desc'",
+                                                              "key": "$orderby",
+                                                              "value": "<string>"
+                                                            },
+                                                            {
+                                                              "description": "(Required) Client API version.",
+                                                              "key": "api-version",
+                                                              "value": "2018-09-15"
+                                                            }
+                                                          ],
+                                                          "variable": [
+                                                            {
+                                                              "key": "subscriptionId"
+                                                            },
+                                                            {
+                                                              "key": "resourceGroupName"
+                                                            },
+                                                            {
+                                                              "key": "labName"
+                                                            },
+                                                            {
+                                                              "key": "artifactSourceName"
+                                                            }
+                                                          ]
+                                                        }
+                                                      },
+                                                      "status": "OK",
+                                                      "code": 200,
+                                                      "_postman_previewlanguage": "json",
+                                                      "header": [
+                                                        {
+                                                          "key": "Content-Type",
+                                                          "value": "application/json"
+                                                        }
+                                                      ],
+                                                      "cookie": [],
+                                                      "responseTime": null,
+                                                      "body": "{\n  \"nextLink\": \"<string>\",\n  \"value\": [\n    {\n      \"properties\": {},\n      \"id\": \"<string>\",\n      \"location\": \"<string>\",\n      \"name\": \"<string>\",\n      \"tags\": {\n        \"incididunt01c\": \"<string>\",\n        \"quis0d\": \"<string>\"\n      },\n      \"type\": \"<string>\"\n    },\n    {\n      \"properties\": {},\n      \"id\": \"<string>\",\n      \"location\": \"<string>\",\n      \"name\": \"<string>\",\n      \"tags\": {\n        \"in_6c\": \"<string>\"\n      },\n      \"type\": \"<string>\"\n    }\n  ]\n}",
+                                                      "createdAt": "2026-07-28T10:54:33.000Z",
+                                                      "updatedAt": "2026-07-28T10:54:33.000Z",
+                                                      "uid": "35240-d498d463-b289-4105-b7ab-2aa80525ab32"
+                                                    },
+                                                    {
+                                                      "id": "41448acc-cf04-4cd7-ba0b-0bfdf3eb27e4",
+                                                      "name": "BadRequest",
+                                                      "originalRequest": {
+                                                        "method": "GET",
+                                                        "header": [
+                                                          {
+                                                            "key": "Accept",
+                                                            "value": "application/json"
+                                                          },
+                                                          {
+                                                            "description": "Added as a part of security scheme: oauth2",
+                                                            "key": "Authorization",
+                                                            "value": "<token>"
+                                                          }
+                                                        ],
+                                                        "url": {
+                                                          "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/labs/:labName/artifactsources/:artifactSourceName/armtemplates?$expand=<string>&$filter=<string>&$top=<integer>&$orderby=<string>&api-version=2018-09-15",
+                                                          "host": [
+                                                            "{{baseUrl}}"
+                                                          ],
+                                                          "path": [
+                                                            "subscriptions",
+                                                            ":subscriptionId",
+                                                            "resourceGroups",
+                                                            ":resourceGroupName",
+                                                            "providers",
+                                                            "Microsoft.DevTestLab",
+                                                            "labs",
+                                                            ":labName",
+                                                            "artifactsources",
+                                                            ":artifactSourceName",
+                                                            "armtemplates"
+                                                          ],
+                                                          "query": [
+                                                            {
+                                                              "description": "Specify the $expand query. Example: 'properties($select=displayName)'",
+                                                              "key": "$expand",
+                                                              "value": "<string>"
+                                                            },
+                                                            {
+                                                              "description": "The filter to apply to the operation. Example: '$filter=contains(name,'myName')",
+                                                              "key": "$filter",
+                                                              "value": "<string>"
+                                                            },
+                                                            {
+                                                              "description": "The maximum number of resources to return from the operation. Example: '$top=10'",
+                                                              "key": "$top",
+                                                              "value": "<integer>"
+                                                            },
+                                                            {
+                                                              "description": "The ordering expression for the results, using OData notation. Example: '$orderby=name desc'",
+                                                              "key": "$orderby",
+                                                              "value": "<string>"
+                                                            },
+                                                            {
+                                                              "description": "(Required) Client API version.",
+                                                              "key": "api-version",
+                                                              "value": "2018-09-15"
+                                                            }
+                                                          ],
+                                                          "variable": [
+                                                            {
+                                                              "key": "subscriptionId"
+                                                            },
+                                                            {
+                                                              "key": "resourceGroupName"
+                                                            },
+                                                            {
+                                                              "key": "labName"
+                                                            },
+                                                            {
+                                                              "key": "artifactSourceName"
+                                                            }
+                                                          ]
+                                                        }
+                                                      },
+                                                      "status": "Internal Server Error",
+                                                      "code": 500,
+                                                      "_postman_previewlanguage": "json",
+                                                      "header": [
+                                                        {
+                                                          "key": "Content-Type",
+                                                          "value": "application/json"
+                                                        }
+                                                      ],
+                                                      "cookie": [],
+                                                      "responseTime": null,
+                                                      "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"details\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/CloudErrorBody detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/CloudErrorBody detected>\"\n      }\n    ],\n    \"message\": \"<string>\",\n    \"target\": \"<string>\"\n  }\n}",
+                                                      "createdAt": "2026-07-28T10:54:33.000Z",
+                                                      "updatedAt": "2026-07-28T10:54:33.000Z",
+                                                      "uid": "35240-41448acc-cf04-4cd7-ba0b-0bfdf3eb27e4"
+                                                    }
+                                                  ],
+                                                  "createdAt": "2026-07-28T10:54:33.000Z",
+                                                  "updatedAt": "2026-07-28T10:54:33.000Z",
+                                                  "uid": "35240-55b578f1-1d75-4cd2-8203-6335873ee058"
+                                                }
+                                              ],
+                                              "id": "59796ca9-a4ee-45e2-b228-03decb8f5bad",
+                                              "createdAt": "2026-07-28T10:54:33.000Z",
+                                              "updatedAt": "2026-07-28T10:54:33.000Z",
+                                              "uid": "35240-59796ca9-a4ee-45e2-b228-03decb8f5bad"
+                                            }
+                                          ],
+                                          "id": "105c080c-62ea-42c8-b6f7-4af99b645818",
+                                          "createdAt": "2026-07-28T10:54:33.000Z",
+                                          "updatedAt": "2026-07-28T10:54:33.000Z",
+                                          "uid": "35240-105c080c-62ea-42c8-b6f7-4af99b645818"
+                                        }
+                                      ],
+                                      "id": "533e9bd1-4965-4fd9-9861-63cd760bed29",
+                                      "createdAt": "2026-07-28T10:54:33.000Z",
+                                      "updatedAt": "2026-07-28T10:54:33.000Z",
+                                      "uid": "35240-533e9bd1-4965-4fd9-9861-63cd760bed29"
+                                    }
+                                  ],
+                                  "id": "724b441f-0b3c-4207-8a96-e3f35ec3add9",
+                                  "createdAt": "2026-07-28T10:54:33.000Z",
+                                  "updatedAt": "2026-07-28T10:54:33.000Z",
+                                  "uid": "35240-724b441f-0b3c-4207-8a96-e3f35ec3add9"
+                                }
+                              ],
+                              "id": "f9fdb929-cddf-40fa-9a30-7bf320f470fd",
+                              "createdAt": "2026-07-28T10:54:33.000Z",
+                              "updatedAt": "2026-07-28T10:54:33.000Z",
+                              "uid": "35240-f9fdb929-cddf-40fa-9a30-7bf320f470fd"
+                            }
+                          ],
+                          "id": "723014c7-ee6e-474f-ab68-d880a2ff7114",
+                          "createdAt": "2026-07-28T10:54:33.000Z",
+                          "updatedAt": "2026-07-28T10:54:33.000Z",
+                          "uid": "35240-723014c7-ee6e-474f-ab68-d880a2ff7114"
+                        }
+                      ],
+                      "id": "4faa9f09-f797-4e18-8c31-255bf250fdbd",
+                      "createdAt": "2026-07-28T10:54:33.000Z",
+                      "updatedAt": "2026-07-28T10:54:33.000Z",
+                      "uid": "35240-4faa9f09-f797-4e18-8c31-255bf250fdbd"
+                    }
+                  ],
+                  "id": "69e6e3e3-cd84-4095-849e-2912c2de04d6",
+                  "createdAt": "2026-07-28T10:54:33.000Z",
+                  "updatedAt": "2026-07-28T10:54:33.000Z",
+                  "uid": "35240-69e6e3e3-cd84-4095-849e-2912c2de04d6"
+                }
+              ],
+              "id": "104dac96-9ecb-4218-acf9-e7293f9f313d",
+              "createdAt": "2026-07-28T10:54:33.000Z",
+              "updatedAt": "2026-07-28T10:54:33.000Z",
+              "uid": "35240-104dac96-9ecb-4218-acf9-e7293f9f313d"
+            }
+          ],
+          "id": "71c4ae32-d6ab-459b-b9f5-0b7a528db771",
+          "createdAt": "2026-07-28T10:54:33.000Z",
+          "updatedAt": "2026-07-28T10:54:33.000Z",
+          "uid": "35240-71c4ae32-d6ab-459b-b9f5-0b7a528db771"
+        }
+      ],
+      "id": "73f2bd56-40f3-4e92-955d-67e60707cecd",
+      "createdAt": "2026-07-28T10:54:33.000Z",
+      "updatedAt": "2026-07-28T10:54:33.000Z",
+      "uid": "35240-73f2bd56-40f3-4e92-955d-67e60707cecd"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "user_impersonation",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "implicit",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://management.azure.com"
+    }
+  ]
+}

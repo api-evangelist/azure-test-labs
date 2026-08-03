@@ -1,0 +1,158 @@
+{
+  "info": {
+    "_postman_id": "7771c011-a92e-4948-9e5b-18d9117fb0bf",
+    "name": "DevTestLabsClient ArmTemplates ProviderOperations API",
+    "description": "The DevTest Labs Client.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T10:55:40.000Z",
+    "updatedAt": "2026-07-28T10:55:40.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-7771c011-a92e-4948-9e5b-18d9117fb0bf"
+  },
+  "item": [
+    {
+      "name": "providers",
+      "item": [
+        {
+          "name": "Microsoft.DevTestLab",
+          "item": [
+            {
+              "name": "operations",
+              "item": [
+                {
+                  "name": "Azure DevTest Labs Provider Operations_ List",
+                  "id": "4ac5e56a-fa1a-49bc-a4ea-fe618fd7569d",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/providers/Microsoft.DevTestLab/operations?api-version=2018-09-15",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "providers",
+                        "Microsoft.DevTestLab",
+                        "operations"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Client API version.",
+                          "key": "api-version",
+                          "value": "2018-09-15"
+                        }
+                      ]
+                    },
+                    "description": "Result of the request to list REST API operations"
+                  },
+                  "response": [
+                    {
+                      "id": "e5a7d36c-d2aa-43a8-a6c8-a9e94697e30d",
+                      "name": "Success",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/providers/Microsoft.DevTestLab/operations?api-version=2018-09-15",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "providers",
+                            "Microsoft.DevTestLab",
+                            "operations"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Client API version.",
+                              "key": "api-version",
+                              "value": "2018-09-15"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"nextLink\": \"<string>\",\n  \"value\": [\n    {\n      \"display\": {\n        \"description\": \"<string>\",\n        \"operation\": \"<string>\",\n        \"provider\": \"<string>\",\n        \"resource\": \"<string>\"\n      },\n      \"name\": \"<string>\"\n    },\n    {\n      \"display\": {\n        \"description\": \"<string>\",\n        \"operation\": \"<string>\",\n        \"provider\": \"<string>\",\n        \"resource\": \"<string>\"\n      },\n      \"name\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T10:55:40.000Z",
+                      "updatedAt": "2026-07-28T10:55:40.000Z",
+                      "uid": "35240-e5a7d36c-d2aa-43a8-a6c8-a9e94697e30d"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T10:55:40.000Z",
+                  "updatedAt": "2026-07-28T10:55:40.000Z",
+                  "uid": "35240-4ac5e56a-fa1a-49bc-a4ea-fe618fd7569d"
+                }
+              ],
+              "id": "0eaa6793-43d5-4b8b-abbe-cd3136a88873",
+              "createdAt": "2026-07-28T10:55:40.000Z",
+              "updatedAt": "2026-07-28T10:55:40.000Z",
+              "uid": "35240-0eaa6793-43d5-4b8b-abbe-cd3136a88873"
+            }
+          ],
+          "id": "5ae43997-ab77-481a-945c-080f88405006",
+          "createdAt": "2026-07-28T10:55:40.000Z",
+          "updatedAt": "2026-07-28T10:55:40.000Z",
+          "uid": "35240-5ae43997-ab77-481a-945c-080f88405006"
+        }
+      ],
+      "id": "68a42bb5-fd67-47fa-8937-d7e7a73247f2",
+      "createdAt": "2026-07-28T10:55:40.000Z",
+      "updatedAt": "2026-07-28T10:55:40.000Z",
+      "uid": "35240-68a42bb5-fd67-47fa-8937-d7e7a73247f2"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "user_impersonation",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "implicit",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://management.azure.com"
+    }
+  ]
+}

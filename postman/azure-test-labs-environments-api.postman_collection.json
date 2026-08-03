@@ -1,0 +1,1685 @@
+{
+  "info": {
+    "_postman_id": "37b0d755-2692-405b-9a44-99b4aba034cf",
+    "name": "DevTestLabsClient ArmTemplates Environments API",
+    "description": "The DevTest Labs Client.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T10:55:02.000Z",
+    "updatedAt": "2026-07-28T10:55:03.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-37b0d755-2692-405b-9a44-99b4aba034cf"
+  },
+  "item": [
+    {
+      "name": "subscriptions",
+      "item": [
+        {
+          "name": "{subscriptionId}",
+          "item": [
+            {
+              "name": "resourceGroups",
+              "item": [
+                {
+                  "name": "{resourceGroupName}",
+                  "item": [
+                    {
+                      "name": "providers",
+                      "item": [
+                        {
+                          "name": "Microsoft.DevTestLab",
+                          "item": [
+                            {
+                              "name": "labs",
+                              "item": [
+                                {
+                                  "name": "{labName}",
+                                  "item": [
+                                    {
+                                      "name": "users",
+                                      "item": [
+                                        {
+                                          "name": "{userName}",
+                                          "item": [
+                                            {
+                                              "name": "environments",
+                                              "item": [
+                                                {
+                                                  "name": "{name}",
+                                                  "item": [
+                                                    {
+                                                      "name": "Azure DevTest Labs Environments_ Delete",
+                                                      "id": "556418c4-089a-44e7-bbf1-a96e585ab218",
+                                                      "protocolProfileBehavior": {
+                                                        "disableBodyPruning": true
+                                                      },
+                                                      "request": {
+                                                        "method": "DELETE",
+                                                        "header": [
+                                                          {
+                                                            "key": "Accept",
+                                                            "value": "application/json"
+                                                          }
+                                                        ],
+                                                        "url": {
+                                                          "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/labs/:labName/users/:userName/environments/:name?api-version=2018-09-15",
+                                                          "host": [
+                                                            "{{baseUrl}}"
+                                                          ],
+                                                          "path": [
+                                                            "subscriptions",
+                                                            ":subscriptionId",
+                                                            "resourceGroups",
+                                                            ":resourceGroupName",
+                                                            "providers",
+                                                            "Microsoft.DevTestLab",
+                                                            "labs",
+                                                            ":labName",
+                                                            "users",
+                                                            ":userName",
+                                                            "environments",
+                                                            ":name"
+                                                          ],
+                                                          "query": [
+                                                            {
+                                                              "description": "(Required) Client API version.",
+                                                              "key": "api-version",
+                                                              "value": "2018-09-15"
+                                                            }
+                                                          ],
+                                                          "variable": [
+                                                            {
+                                                              "id": "0bd094fb-77a0-41cb-8455-15b18404fa59",
+                                                              "key": "subscriptionId",
+                                                              "value": "<string>",
+                                                              "description": "(Required) The subscription ID."
+                                                            },
+                                                            {
+                                                              "id": "5fa24129-cdc3-480a-b333-3a862fa0ff8f",
+                                                              "key": "resourceGroupName",
+                                                              "value": "<string>",
+                                                              "description": "(Required) The name of the resource group."
+                                                            },
+                                                            {
+                                                              "id": "eac30046-3cad-4b36-ab2b-7ba22f6a9cf9",
+                                                              "key": "labName",
+                                                              "value": "<string>",
+                                                              "description": "(Required) The name of the lab."
+                                                            },
+                                                            {
+                                                              "id": "0c436055-1fff-4699-a8d8-5d2126d7b0cc",
+                                                              "key": "userName",
+                                                              "value": "<string>",
+                                                              "description": "(Required) The name of the user profile."
+                                                            },
+                                                            {
+                                                              "id": "6b60c392-8c61-40f9-93ab-d25900eeb3c4",
+                                                              "key": "name",
+                                                              "value": "<string>",
+                                                              "description": "(Required) The name of the environment."
+                                                            }
+                                                          ]
+                                                        },
+                                                        "description": "Delete environment. This operation can take a while to complete."
+                                                      },
+                                                      "response": [
+                                                        {
+                                                          "id": "6ce22156-26aa-423b-aac1-f2a4b26842e2",
+                                                          "name": "OK",
+                                                          "originalRequest": {
+                                                            "method": "DELETE",
+                                                            "header": [
+                                                              {
+                                                                "description": "Added as a part of security scheme: oauth2",
+                                                                "key": "Authorization",
+                                                                "value": "<token>"
+                                                              }
+                                                            ],
+                                                            "url": {
+                                                              "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/labs/:labName/users/:userName/environments/:name?api-version=2018-09-15",
+                                                              "host": [
+                                                                "{{baseUrl}}"
+                                                              ],
+                                                              "path": [
+                                                                "subscriptions",
+                                                                ":subscriptionId",
+                                                                "resourceGroups",
+                                                                ":resourceGroupName",
+                                                                "providers",
+                                                                "Microsoft.DevTestLab",
+                                                                "labs",
+                                                                ":labName",
+                                                                "users",
+                                                                ":userName",
+                                                                "environments",
+                                                                ":name"
+                                                              ],
+                                                              "query": [
+                                                                {
+                                                                  "description": "(Required) Client API version.",
+                                                                  "key": "api-version",
+                                                                  "value": "2018-09-15"
+                                                                }
+                                                              ],
+                                                              "variable": [
+                                                                {
+                                                                  "key": "subscriptionId"
+                                                                },
+                                                                {
+                                                                  "key": "resourceGroupName"
+                                                                },
+                                                                {
+                                                                  "key": "labName"
+                                                                },
+                                                                {
+                                                                  "key": "userName"
+                                                                },
+                                                                {
+                                                                  "key": "name"
+                                                                }
+                                                              ]
+                                                            }
+                                                          },
+                                                          "status": "OK",
+                                                          "code": 200,
+                                                          "_postman_previewlanguage": "text",
+                                                          "header": [],
+                                                          "cookie": [],
+                                                          "responseTime": null,
+                                                          "body": null,
+                                                          "createdAt": "2026-07-28T10:55:03.000Z",
+                                                          "updatedAt": "2026-07-28T10:55:03.000Z",
+                                                          "uid": "35240-6ce22156-26aa-423b-aac1-f2a4b26842e2"
+                                                        },
+                                                        {
+                                                          "id": "a821b6a7-1ef0-4ab0-bcb3-4ee87c8d01f0",
+                                                          "name": "Accepted",
+                                                          "originalRequest": {
+                                                            "method": "DELETE",
+                                                            "header": [
+                                                              {
+                                                                "description": "Added as a part of security scheme: oauth2",
+                                                                "key": "Authorization",
+                                                                "value": "<token>"
+                                                              }
+                                                            ],
+                                                            "url": {
+                                                              "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/labs/:labName/users/:userName/environments/:name?api-version=2018-09-15",
+                                                              "host": [
+                                                                "{{baseUrl}}"
+                                                              ],
+                                                              "path": [
+                                                                "subscriptions",
+                                                                ":subscriptionId",
+                                                                "resourceGroups",
+                                                                ":resourceGroupName",
+                                                                "providers",
+                                                                "Microsoft.DevTestLab",
+                                                                "labs",
+                                                                ":labName",
+                                                                "users",
+                                                                ":userName",
+                                                                "environments",
+                                                                ":name"
+                                                              ],
+                                                              "query": [
+                                                                {
+                                                                  "description": "(Required) Client API version.",
+                                                                  "key": "api-version",
+                                                                  "value": "2018-09-15"
+                                                                }
+                                                              ],
+                                                              "variable": [
+                                                                {
+                                                                  "key": "subscriptionId"
+                                                                },
+                                                                {
+                                                                  "key": "resourceGroupName"
+                                                                },
+                                                                {
+                                                                  "key": "labName"
+                                                                },
+                                                                {
+                                                                  "key": "userName"
+                                                                },
+                                                                {
+                                                                  "key": "name"
+                                                                }
+                                                              ]
+                                                            }
+                                                          },
+                                                          "status": "Accepted",
+                                                          "code": 202,
+                                                          "_postman_previewlanguage": "text",
+                                                          "header": [],
+                                                          "cookie": [],
+                                                          "responseTime": null,
+                                                          "body": null,
+                                                          "createdAt": "2026-07-28T10:55:03.000Z",
+                                                          "updatedAt": "2026-07-28T10:55:03.000Z",
+                                                          "uid": "35240-a821b6a7-1ef0-4ab0-bcb3-4ee87c8d01f0"
+                                                        },
+                                                        {
+                                                          "id": "35bffd58-5801-4fcc-af17-83e1405b75f1",
+                                                          "name": "No Content",
+                                                          "originalRequest": {
+                                                            "method": "DELETE",
+                                                            "header": [
+                                                              {
+                                                                "description": "Added as a part of security scheme: oauth2",
+                                                                "key": "Authorization",
+                                                                "value": "<token>"
+                                                              }
+                                                            ],
+                                                            "url": {
+                                                              "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/labs/:labName/users/:userName/environments/:name?api-version=2018-09-15",
+                                                              "host": [
+                                                                "{{baseUrl}}"
+                                                              ],
+                                                              "path": [
+                                                                "subscriptions",
+                                                                ":subscriptionId",
+                                                                "resourceGroups",
+                                                                ":resourceGroupName",
+                                                                "providers",
+                                                                "Microsoft.DevTestLab",
+                                                                "labs",
+                                                                ":labName",
+                                                                "users",
+                                                                ":userName",
+                                                                "environments",
+                                                                ":name"
+                                                              ],
+                                                              "query": [
+                                                                {
+                                                                  "description": "(Required) Client API version.",
+                                                                  "key": "api-version",
+                                                                  "value": "2018-09-15"
+                                                                }
+                                                              ],
+                                                              "variable": [
+                                                                {
+                                                                  "key": "subscriptionId"
+                                                                },
+                                                                {
+                                                                  "key": "resourceGroupName"
+                                                                },
+                                                                {
+                                                                  "key": "labName"
+                                                                },
+                                                                {
+                                                                  "key": "userName"
+                                                                },
+                                                                {
+                                                                  "key": "name"
+                                                                }
+                                                              ]
+                                                            }
+                                                          },
+                                                          "status": "No Content",
+                                                          "code": 204,
+                                                          "_postman_previewlanguage": "text",
+                                                          "header": [],
+                                                          "cookie": [],
+                                                          "responseTime": null,
+                                                          "body": null,
+                                                          "createdAt": "2026-07-28T10:55:03.000Z",
+                                                          "updatedAt": "2026-07-28T10:55:03.000Z",
+                                                          "uid": "35240-35bffd58-5801-4fcc-af17-83e1405b75f1"
+                                                        },
+                                                        {
+                                                          "id": "19f68366-35f9-4130-9fdc-c9be63917cea",
+                                                          "name": "BadRequest",
+                                                          "originalRequest": {
+                                                            "method": "DELETE",
+                                                            "header": [
+                                                              {
+                                                                "key": "Accept",
+                                                                "value": "application/json"
+                                                              },
+                                                              {
+                                                                "description": "Added as a part of security scheme: oauth2",
+                                                                "key": "Authorization",
+                                                                "value": "<token>"
+                                                              }
+                                                            ],
+                                                            "url": {
+                                                              "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/labs/:labName/users/:userName/environments/:name?api-version=2018-09-15",
+                                                              "host": [
+                                                                "{{baseUrl}}"
+                                                              ],
+                                                              "path": [
+                                                                "subscriptions",
+                                                                ":subscriptionId",
+                                                                "resourceGroups",
+                                                                ":resourceGroupName",
+                                                                "providers",
+                                                                "Microsoft.DevTestLab",
+                                                                "labs",
+                                                                ":labName",
+                                                                "users",
+                                                                ":userName",
+                                                                "environments",
+                                                                ":name"
+                                                              ],
+                                                              "query": [
+                                                                {
+                                                                  "description": "(Required) Client API version.",
+                                                                  "key": "api-version",
+                                                                  "value": "2018-09-15"
+                                                                }
+                                                              ],
+                                                              "variable": [
+                                                                {
+                                                                  "key": "subscriptionId"
+                                                                },
+                                                                {
+                                                                  "key": "resourceGroupName"
+                                                                },
+                                                                {
+                                                                  "key": "labName"
+                                                                },
+                                                                {
+                                                                  "key": "userName"
+                                                                },
+                                                                {
+                                                                  "key": "name"
+                                                                }
+                                                              ]
+                                                            }
+                                                          },
+                                                          "status": "Internal Server Error",
+                                                          "code": 500,
+                                                          "_postman_previewlanguage": "json",
+                                                          "header": [
+                                                            {
+                                                              "key": "Content-Type",
+                                                              "value": "application/json"
+                                                            }
+                                                          ],
+                                                          "cookie": [],
+                                                          "responseTime": null,
+                                                          "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"details\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/CloudErrorBody detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/CloudErrorBody detected>\"\n      }\n    ],\n    \"message\": \"<string>\",\n    \"target\": \"<string>\"\n  }\n}",
+                                                          "createdAt": "2026-07-28T10:55:03.000Z",
+                                                          "updatedAt": "2026-07-28T10:55:03.000Z",
+                                                          "uid": "35240-19f68366-35f9-4130-9fdc-c9be63917cea"
+                                                        }
+                                                      ],
+                                                      "createdAt": "2026-07-28T10:55:03.000Z",
+                                                      "updatedAt": "2026-07-28T10:55:03.000Z",
+                                                      "uid": "35240-556418c4-089a-44e7-bbf1-a96e585ab218"
+                                                    },
+                                                    {
+                                                      "name": "Azure DevTest Labs Environments_ Get",
+                                                      "id": "4944a056-b428-4bfc-a113-0a719df9b069",
+                                                      "protocolProfileBehavior": {
+                                                        "disableBodyPruning": true
+                                                      },
+                                                      "request": {
+                                                        "method": "GET",
+                                                        "header": [
+                                                          {
+                                                            "key": "Accept",
+                                                            "value": "application/json"
+                                                          }
+                                                        ],
+                                                        "url": {
+                                                          "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/labs/:labName/users/:userName/environments/:name?$expand=<string>&api-version=2018-09-15",
+                                                          "host": [
+                                                            "{{baseUrl}}"
+                                                          ],
+                                                          "path": [
+                                                            "subscriptions",
+                                                            ":subscriptionId",
+                                                            "resourceGroups",
+                                                            ":resourceGroupName",
+                                                            "providers",
+                                                            "Microsoft.DevTestLab",
+                                                            "labs",
+                                                            ":labName",
+                                                            "users",
+                                                            ":userName",
+                                                            "environments",
+                                                            ":name"
+                                                          ],
+                                                          "query": [
+                                                            {
+                                                              "description": "Specify the $expand query. Example: 'properties($select=deploymentProperties)'",
+                                                              "key": "$expand",
+                                                              "value": "<string>"
+                                                            },
+                                                            {
+                                                              "description": "(Required) Client API version.",
+                                                              "key": "api-version",
+                                                              "value": "2018-09-15"
+                                                            }
+                                                          ],
+                                                          "variable": [
+                                                            {
+                                                              "id": "f2b4f40e-3df2-4b46-acbe-be63a91022ab",
+                                                              "key": "subscriptionId",
+                                                              "value": "<string>",
+                                                              "description": "(Required) The subscription ID."
+                                                            },
+                                                            {
+                                                              "id": "9cf8816a-c517-4f14-8607-77fbbcfc920b",
+                                                              "key": "resourceGroupName",
+                                                              "value": "<string>",
+                                                              "description": "(Required) The name of the resource group."
+                                                            },
+                                                            {
+                                                              "id": "9b013b5d-f365-4292-9ab5-c90fe7b056fe",
+                                                              "key": "labName",
+                                                              "value": "<string>",
+                                                              "description": "(Required) The name of the lab."
+                                                            },
+                                                            {
+                                                              "id": "181e2188-59da-4307-8a03-108ecdff4219",
+                                                              "key": "userName",
+                                                              "value": "<string>",
+                                                              "description": "(Required) The name of the user profile."
+                                                            },
+                                                            {
+                                                              "id": "8247475a-7b9c-4b06-9e47-593d8a0add71",
+                                                              "key": "name",
+                                                              "value": "<string>",
+                                                              "description": "(Required) The name of the environment."
+                                                            }
+                                                          ]
+                                                        },
+                                                        "description": "Get environment."
+                                                      },
+                                                      "response": [
+                                                        {
+                                                          "id": "de271e2c-ff02-4e0b-a934-6daf4b234e6f",
+                                                          "name": "OK",
+                                                          "originalRequest": {
+                                                            "method": "GET",
+                                                            "header": [
+                                                              {
+                                                                "key": "Accept",
+                                                                "value": "application/json"
+                                                              },
+                                                              {
+                                                                "description": "Added as a part of security scheme: oauth2",
+                                                                "key": "Authorization",
+                                                                "value": "<token>"
+                                                              }
+                                                            ],
+                                                            "url": {
+                                                              "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/labs/:labName/users/:userName/environments/:name?$expand=<string>&api-version=2018-09-15",
+                                                              "host": [
+                                                                "{{baseUrl}}"
+                                                              ],
+                                                              "path": [
+                                                                "subscriptions",
+                                                                ":subscriptionId",
+                                                                "resourceGroups",
+                                                                ":resourceGroupName",
+                                                                "providers",
+                                                                "Microsoft.DevTestLab",
+                                                                "labs",
+                                                                ":labName",
+                                                                "users",
+                                                                ":userName",
+                                                                "environments",
+                                                                ":name"
+                                                              ],
+                                                              "query": [
+                                                                {
+                                                                  "description": "Specify the $expand query. Example: 'properties($select=deploymentProperties)'",
+                                                                  "key": "$expand",
+                                                                  "value": "<string>"
+                                                                },
+                                                                {
+                                                                  "description": "(Required) Client API version.",
+                                                                  "key": "api-version",
+                                                                  "value": "2018-09-15"
+                                                                }
+                                                              ],
+                                                              "variable": [
+                                                                {
+                                                                  "key": "subscriptionId"
+                                                                },
+                                                                {
+                                                                  "key": "resourceGroupName"
+                                                                },
+                                                                {
+                                                                  "key": "labName"
+                                                                },
+                                                                {
+                                                                  "key": "userName"
+                                                                },
+                                                                {
+                                                                  "key": "name"
+                                                                }
+                                                              ]
+                                                            }
+                                                          },
+                                                          "status": "OK",
+                                                          "code": 200,
+                                                          "_postman_previewlanguage": "json",
+                                                          "header": [
+                                                            {
+                                                              "key": "Content-Type",
+                                                              "value": "application/json"
+                                                            }
+                                                          ],
+                                                          "cookie": [],
+                                                          "responseTime": null,
+                                                          "body": "{\n  \"properties\": {},\n  \"id\": \"<string>\",\n  \"location\": \"<string>\",\n  \"name\": \"<string>\",\n  \"tags\": {\n    \"eiusmod_6a1\": \"<string>\"\n  },\n  \"type\": \"<string>\"\n}",
+                                                          "createdAt": "2026-07-28T10:55:03.000Z",
+                                                          "updatedAt": "2026-07-28T10:55:03.000Z",
+                                                          "uid": "35240-de271e2c-ff02-4e0b-a934-6daf4b234e6f"
+                                                        },
+                                                        {
+                                                          "id": "8ec5298e-31a7-4e02-9ebb-5f9e3b8d616c",
+                                                          "name": "BadRequest",
+                                                          "originalRequest": {
+                                                            "method": "GET",
+                                                            "header": [
+                                                              {
+                                                                "key": "Accept",
+                                                                "value": "application/json"
+                                                              },
+                                                              {
+                                                                "description": "Added as a part of security scheme: oauth2",
+                                                                "key": "Authorization",
+                                                                "value": "<token>"
+                                                              }
+                                                            ],
+                                                            "url": {
+                                                              "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/labs/:labName/users/:userName/environments/:name?$expand=<string>&api-version=2018-09-15",
+                                                              "host": [
+                                                                "{{baseUrl}}"
+                                                              ],
+                                                              "path": [
+                                                                "subscriptions",
+                                                                ":subscriptionId",
+                                                                "resourceGroups",
+                                                                ":resourceGroupName",
+                                                                "providers",
+                                                                "Microsoft.DevTestLab",
+                                                                "labs",
+                                                                ":labName",
+                                                                "users",
+                                                                ":userName",
+                                                                "environments",
+                                                                ":name"
+                                                              ],
+                                                              "query": [
+                                                                {
+                                                                  "description": "Specify the $expand query. Example: 'properties($select=deploymentProperties)'",
+                                                                  "key": "$expand",
+                                                                  "value": "<string>"
+                                                                },
+                                                                {
+                                                                  "description": "(Required) Client API version.",
+                                                                  "key": "api-version",
+                                                                  "value": "2018-09-15"
+                                                                }
+                                                              ],
+                                                              "variable": [
+                                                                {
+                                                                  "key": "subscriptionId"
+                                                                },
+                                                                {
+                                                                  "key": "resourceGroupName"
+                                                                },
+                                                                {
+                                                                  "key": "labName"
+                                                                },
+                                                                {
+                                                                  "key": "userName"
+                                                                },
+                                                                {
+                                                                  "key": "name"
+                                                                }
+                                                              ]
+                                                            }
+                                                          },
+                                                          "status": "Internal Server Error",
+                                                          "code": 500,
+                                                          "_postman_previewlanguage": "json",
+                                                          "header": [
+                                                            {
+                                                              "key": "Content-Type",
+                                                              "value": "application/json"
+                                                            }
+                                                          ],
+                                                          "cookie": [],
+                                                          "responseTime": null,
+                                                          "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"details\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/CloudErrorBody detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/CloudErrorBody detected>\"\n      }\n    ],\n    \"message\": \"<string>\",\n    \"target\": \"<string>\"\n  }\n}",
+                                                          "createdAt": "2026-07-28T10:55:03.000Z",
+                                                          "updatedAt": "2026-07-28T10:55:03.000Z",
+                                                          "uid": "35240-8ec5298e-31a7-4e02-9ebb-5f9e3b8d616c"
+                                                        }
+                                                      ],
+                                                      "createdAt": "2026-07-28T10:55:03.000Z",
+                                                      "updatedAt": "2026-07-28T10:55:03.000Z",
+                                                      "uid": "35240-4944a056-b428-4bfc-a113-0a719df9b069"
+                                                    },
+                                                    {
+                                                      "name": "Azure DevTest Labs Environments_ Update",
+                                                      "id": "57128caf-49a5-4e04-8a86-e2501f29e283",
+                                                      "protocolProfileBehavior": {
+                                                        "disableBodyPruning": true
+                                                      },
+                                                      "request": {
+                                                        "method": "PATCH",
+                                                        "header": [
+                                                          {
+                                                            "key": "Content-Type",
+                                                            "value": "application/json"
+                                                          },
+                                                          {
+                                                            "key": "Accept",
+                                                            "value": "application/json"
+                                                          }
+                                                        ],
+                                                        "body": {
+                                                          "mode": "raw",
+                                                          "raw": "{\n  \"properties\": {},\n  \"tags\": {\n    \"consectetur9_\": \"<string>\",\n    \"proident_1\": \"<string>\",\n    \"sedfa\": \"<string>\",\n    \"occaecat_ef\": \"<string>\"\n  }\n}",
+                                                          "options": {
+                                                            "raw": {
+                                                              "headerFamily": "json",
+                                                              "language": "json"
+                                                            }
+                                                          }
+                                                        },
+                                                        "url": {
+                                                          "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/labs/:labName/users/:userName/environments/:name?api-version=2018-09-15",
+                                                          "host": [
+                                                            "{{baseUrl}}"
+                                                          ],
+                                                          "path": [
+                                                            "subscriptions",
+                                                            ":subscriptionId",
+                                                            "resourceGroups",
+                                                            ":resourceGroupName",
+                                                            "providers",
+                                                            "Microsoft.DevTestLab",
+                                                            "labs",
+                                                            ":labName",
+                                                            "users",
+                                                            ":userName",
+                                                            "environments",
+                                                            ":name"
+                                                          ],
+                                                          "query": [
+                                                            {
+                                                              "description": "(Required) Client API version.",
+                                                              "key": "api-version",
+                                                              "value": "2018-09-15"
+                                                            }
+                                                          ],
+                                                          "variable": [
+                                                            {
+                                                              "id": "8611071e-2465-4890-8f5d-5ad68f17416c",
+                                                              "key": "subscriptionId",
+                                                              "value": "<string>",
+                                                              "description": "(Required) The subscription ID."
+                                                            },
+                                                            {
+                                                              "id": "265d506b-665d-40ae-8c85-81bf69d91777",
+                                                              "key": "resourceGroupName",
+                                                              "value": "<string>",
+                                                              "description": "(Required) The name of the resource group."
+                                                            },
+                                                            {
+                                                              "id": "35e0b74d-73b7-426c-b2bb-4fa0ba4580ac",
+                                                              "key": "labName",
+                                                              "value": "<string>",
+                                                              "description": "(Required) The name of the lab."
+                                                            },
+                                                            {
+                                                              "id": "61c9505a-12fb-46ce-9a66-33087ea44090",
+                                                              "key": "userName",
+                                                              "value": "<string>",
+                                                              "description": "(Required) The name of the user profile."
+                                                            },
+                                                            {
+                                                              "id": "324075cc-6e9a-409e-bafa-2ac2ff2c4e38",
+                                                              "key": "name",
+                                                              "value": "<string>",
+                                                              "description": "(Required) The name of the environment."
+                                                            }
+                                                          ]
+                                                        },
+                                                        "description": "Allows modifying tags of environments. All other properties will be ignored."
+                                                      },
+                                                      "response": [
+                                                        {
+                                                          "id": "4feff3d3-bea9-49f5-89a4-4f403410106f",
+                                                          "name": "OK",
+                                                          "originalRequest": {
+                                                            "method": "PATCH",
+                                                            "header": [
+                                                              {
+                                                                "key": "Content-Type",
+                                                                "value": "application/json"
+                                                              },
+                                                              {
+                                                                "key": "Accept",
+                                                                "value": "application/json"
+                                                              },
+                                                              {
+                                                                "description": "Added as a part of security scheme: oauth2",
+                                                                "key": "Authorization",
+                                                                "value": "<token>"
+                                                              }
+                                                            ],
+                                                            "body": {
+                                                              "mode": "raw",
+                                                              "raw": "{\n  \"properties\": {},\n  \"tags\": {\n    \"consectetur9_\": \"<string>\",\n    \"proident_1\": \"<string>\",\n    \"sedfa\": \"<string>\",\n    \"occaecat_ef\": \"<string>\"\n  }\n}",
+                                                              "options": {
+                                                                "raw": {
+                                                                  "headerFamily": "json",
+                                                                  "language": "json"
+                                                                }
+                                                              }
+                                                            },
+                                                            "url": {
+                                                              "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/labs/:labName/users/:userName/environments/:name?api-version=2018-09-15",
+                                                              "host": [
+                                                                "{{baseUrl}}"
+                                                              ],
+                                                              "path": [
+                                                                "subscriptions",
+                                                                ":subscriptionId",
+                                                                "resourceGroups",
+                                                                ":resourceGroupName",
+                                                                "providers",
+                                                                "Microsoft.DevTestLab",
+                                                                "labs",
+                                                                ":labName",
+                                                                "users",
+                                                                ":userName",
+                                                                "environments",
+                                                                ":name"
+                                                              ],
+                                                              "query": [
+                                                                {
+                                                                  "description": "(Required) Client API version.",
+                                                                  "key": "api-version",
+                                                                  "value": "2018-09-15"
+                                                                }
+                                                              ],
+                                                              "variable": [
+                                                                {
+                                                                  "key": "subscriptionId"
+                                                                },
+                                                                {
+                                                                  "key": "resourceGroupName"
+                                                                },
+                                                                {
+                                                                  "key": "labName"
+                                                                },
+                                                                {
+                                                                  "key": "userName"
+                                                                },
+                                                                {
+                                                                  "key": "name"
+                                                                }
+                                                              ]
+                                                            }
+                                                          },
+                                                          "status": "OK",
+                                                          "code": 200,
+                                                          "_postman_previewlanguage": "json",
+                                                          "header": [
+                                                            {
+                                                              "key": "Content-Type",
+                                                              "value": "application/json"
+                                                            }
+                                                          ],
+                                                          "cookie": [],
+                                                          "responseTime": null,
+                                                          "body": "{\n  \"properties\": {},\n  \"id\": \"<string>\",\n  \"location\": \"<string>\",\n  \"name\": \"<string>\",\n  \"tags\": {\n    \"eiusmod_6a1\": \"<string>\"\n  },\n  \"type\": \"<string>\"\n}",
+                                                          "createdAt": "2026-07-28T10:55:03.000Z",
+                                                          "updatedAt": "2026-07-28T10:55:03.000Z",
+                                                          "uid": "35240-4feff3d3-bea9-49f5-89a4-4f403410106f"
+                                                        },
+                                                        {
+                                                          "id": "c2a75f30-9b69-438d-96ad-1df8cfbdcf2a",
+                                                          "name": "BadRequest",
+                                                          "originalRequest": {
+                                                            "method": "PATCH",
+                                                            "header": [
+                                                              {
+                                                                "key": "Content-Type",
+                                                                "value": "application/json"
+                                                              },
+                                                              {
+                                                                "key": "Accept",
+                                                                "value": "application/json"
+                                                              },
+                                                              {
+                                                                "description": "Added as a part of security scheme: oauth2",
+                                                                "key": "Authorization",
+                                                                "value": "<token>"
+                                                              }
+                                                            ],
+                                                            "body": {
+                                                              "mode": "raw",
+                                                              "raw": "{\n  \"properties\": {},\n  \"tags\": {\n    \"consectetur9_\": \"<string>\",\n    \"proident_1\": \"<string>\",\n    \"sedfa\": \"<string>\",\n    \"occaecat_ef\": \"<string>\"\n  }\n}",
+                                                              "options": {
+                                                                "raw": {
+                                                                  "headerFamily": "json",
+                                                                  "language": "json"
+                                                                }
+                                                              }
+                                                            },
+                                                            "url": {
+                                                              "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/labs/:labName/users/:userName/environments/:name?api-version=2018-09-15",
+                                                              "host": [
+                                                                "{{baseUrl}}"
+                                                              ],
+                                                              "path": [
+                                                                "subscriptions",
+                                                                ":subscriptionId",
+                                                                "resourceGroups",
+                                                                ":resourceGroupName",
+                                                                "providers",
+                                                                "Microsoft.DevTestLab",
+                                                                "labs",
+                                                                ":labName",
+                                                                "users",
+                                                                ":userName",
+                                                                "environments",
+                                                                ":name"
+                                                              ],
+                                                              "query": [
+                                                                {
+                                                                  "description": "(Required) Client API version.",
+                                                                  "key": "api-version",
+                                                                  "value": "2018-09-15"
+                                                                }
+                                                              ],
+                                                              "variable": [
+                                                                {
+                                                                  "key": "subscriptionId"
+                                                                },
+                                                                {
+                                                                  "key": "resourceGroupName"
+                                                                },
+                                                                {
+                                                                  "key": "labName"
+                                                                },
+                                                                {
+                                                                  "key": "userName"
+                                                                },
+                                                                {
+                                                                  "key": "name"
+                                                                }
+                                                              ]
+                                                            }
+                                                          },
+                                                          "status": "Internal Server Error",
+                                                          "code": 500,
+                                                          "_postman_previewlanguage": "json",
+                                                          "header": [
+                                                            {
+                                                              "key": "Content-Type",
+                                                              "value": "application/json"
+                                                            }
+                                                          ],
+                                                          "cookie": [],
+                                                          "responseTime": null,
+                                                          "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"details\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/CloudErrorBody detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/CloudErrorBody detected>\"\n      }\n    ],\n    \"message\": \"<string>\",\n    \"target\": \"<string>\"\n  }\n}",
+                                                          "createdAt": "2026-07-28T10:55:03.000Z",
+                                                          "updatedAt": "2026-07-28T10:55:03.000Z",
+                                                          "uid": "35240-c2a75f30-9b69-438d-96ad-1df8cfbdcf2a"
+                                                        }
+                                                      ],
+                                                      "createdAt": "2026-07-28T10:55:03.000Z",
+                                                      "updatedAt": "2026-07-28T10:55:03.000Z",
+                                                      "uid": "35240-57128caf-49a5-4e04-8a86-e2501f29e283"
+                                                    },
+                                                    {
+                                                      "name": "Azure DevTest Labs Environments_ Create or Update",
+                                                      "id": "f0cfeaa9-8d79-49aa-a81f-2e4af94bdb4c",
+                                                      "protocolProfileBehavior": {
+                                                        "disableBodyPruning": true
+                                                      },
+                                                      "request": {
+                                                        "method": "PUT",
+                                                        "header": [
+                                                          {
+                                                            "key": "Content-Type",
+                                                            "value": "application/json"
+                                                          },
+                                                          {
+                                                            "key": "Accept",
+                                                            "value": "application/json"
+                                                          }
+                                                        ],
+                                                        "body": {
+                                                          "mode": "raw",
+                                                          "raw": "{\n  \"properties\": {},\n  \"id\": \"<string>\",\n  \"location\": \"<string>\",\n  \"name\": \"<string>\",\n  \"tags\": {\n    \"eiusmod_6a1\": \"<string>\"\n  },\n  \"type\": \"<string>\"\n}",
+                                                          "options": {
+                                                            "raw": {
+                                                              "headerFamily": "json",
+                                                              "language": "json"
+                                                            }
+                                                          }
+                                                        },
+                                                        "url": {
+                                                          "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/labs/:labName/users/:userName/environments/:name?api-version=2018-09-15",
+                                                          "host": [
+                                                            "{{baseUrl}}"
+                                                          ],
+                                                          "path": [
+                                                            "subscriptions",
+                                                            ":subscriptionId",
+                                                            "resourceGroups",
+                                                            ":resourceGroupName",
+                                                            "providers",
+                                                            "Microsoft.DevTestLab",
+                                                            "labs",
+                                                            ":labName",
+                                                            "users",
+                                                            ":userName",
+                                                            "environments",
+                                                            ":name"
+                                                          ],
+                                                          "query": [
+                                                            {
+                                                              "description": "(Required) Client API version.",
+                                                              "key": "api-version",
+                                                              "value": "2018-09-15"
+                                                            }
+                                                          ],
+                                                          "variable": [
+                                                            {
+                                                              "id": "87c66040-3224-41a2-9742-05fd739cfcfe",
+                                                              "key": "subscriptionId",
+                                                              "value": "<string>",
+                                                              "description": "(Required) The subscription ID."
+                                                            },
+                                                            {
+                                                              "id": "5c453c5a-176a-4bf2-b4b3-730e71e30f4e",
+                                                              "key": "resourceGroupName",
+                                                              "value": "<string>",
+                                                              "description": "(Required) The name of the resource group."
+                                                            },
+                                                            {
+                                                              "id": "507670ba-8da7-48ab-85d7-a246ebe93272",
+                                                              "key": "labName",
+                                                              "value": "<string>",
+                                                              "description": "(Required) The name of the lab."
+                                                            },
+                                                            {
+                                                              "id": "cc96eb47-70f5-476f-b41b-8770ca902804",
+                                                              "key": "userName",
+                                                              "value": "<string>",
+                                                              "description": "(Required) The name of the user profile."
+                                                            },
+                                                            {
+                                                              "id": "21801801-430e-4015-b304-fe53b8675308",
+                                                              "key": "name",
+                                                              "value": "<string>",
+                                                              "description": "(Required) The name of the environment."
+                                                            }
+                                                          ]
+                                                        },
+                                                        "description": "Create or replace an existing environment. This operation can take a while to complete."
+                                                      },
+                                                      "response": [
+                                                        {
+                                                          "id": "c6a2d442-c35f-4f92-92d5-8af0c21bd3f0",
+                                                          "name": "OK",
+                                                          "originalRequest": {
+                                                            "method": "PUT",
+                                                            "header": [
+                                                              {
+                                                                "key": "Content-Type",
+                                                                "value": "application/json"
+                                                              },
+                                                              {
+                                                                "key": "Accept",
+                                                                "value": "application/json"
+                                                              },
+                                                              {
+                                                                "description": "Added as a part of security scheme: oauth2",
+                                                                "key": "Authorization",
+                                                                "value": "<token>"
+                                                              }
+                                                            ],
+                                                            "body": {
+                                                              "mode": "raw",
+                                                              "raw": "{\n  \"properties\": {},\n  \"id\": \"<string>\",\n  \"location\": \"<string>\",\n  \"name\": \"<string>\",\n  \"tags\": {\n    \"eiusmod_6a1\": \"<string>\"\n  },\n  \"type\": \"<string>\"\n}",
+                                                              "options": {
+                                                                "raw": {
+                                                                  "headerFamily": "json",
+                                                                  "language": "json"
+                                                                }
+                                                              }
+                                                            },
+                                                            "url": {
+                                                              "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/labs/:labName/users/:userName/environments/:name?api-version=2018-09-15",
+                                                              "host": [
+                                                                "{{baseUrl}}"
+                                                              ],
+                                                              "path": [
+                                                                "subscriptions",
+                                                                ":subscriptionId",
+                                                                "resourceGroups",
+                                                                ":resourceGroupName",
+                                                                "providers",
+                                                                "Microsoft.DevTestLab",
+                                                                "labs",
+                                                                ":labName",
+                                                                "users",
+                                                                ":userName",
+                                                                "environments",
+                                                                ":name"
+                                                              ],
+                                                              "query": [
+                                                                {
+                                                                  "description": "(Required) Client API version.",
+                                                                  "key": "api-version",
+                                                                  "value": "2018-09-15"
+                                                                }
+                                                              ],
+                                                              "variable": [
+                                                                {
+                                                                  "key": "subscriptionId"
+                                                                },
+                                                                {
+                                                                  "key": "resourceGroupName"
+                                                                },
+                                                                {
+                                                                  "key": "labName"
+                                                                },
+                                                                {
+                                                                  "key": "userName"
+                                                                },
+                                                                {
+                                                                  "key": "name"
+                                                                }
+                                                              ]
+                                                            }
+                                                          },
+                                                          "status": "OK",
+                                                          "code": 200,
+                                                          "_postman_previewlanguage": "json",
+                                                          "header": [
+                                                            {
+                                                              "key": "Content-Type",
+                                                              "value": "application/json"
+                                                            }
+                                                          ],
+                                                          "cookie": [],
+                                                          "responseTime": null,
+                                                          "body": "{\n  \"properties\": {},\n  \"id\": \"<string>\",\n  \"location\": \"<string>\",\n  \"name\": \"<string>\",\n  \"tags\": {\n    \"eiusmod_6a1\": \"<string>\"\n  },\n  \"type\": \"<string>\"\n}",
+                                                          "createdAt": "2026-07-28T10:55:03.000Z",
+                                                          "updatedAt": "2026-07-28T10:55:03.000Z",
+                                                          "uid": "35240-c6a2d442-c35f-4f92-92d5-8af0c21bd3f0"
+                                                        },
+                                                        {
+                                                          "id": "2280155a-4bb2-4bb6-9e56-bf3c8b4eddc7",
+                                                          "name": "Created",
+                                                          "originalRequest": {
+                                                            "method": "PUT",
+                                                            "header": [
+                                                              {
+                                                                "key": "Content-Type",
+                                                                "value": "application/json"
+                                                              },
+                                                              {
+                                                                "key": "Accept",
+                                                                "value": "application/json"
+                                                              },
+                                                              {
+                                                                "description": "Added as a part of security scheme: oauth2",
+                                                                "key": "Authorization",
+                                                                "value": "<token>"
+                                                              }
+                                                            ],
+                                                            "body": {
+                                                              "mode": "raw",
+                                                              "raw": "{\n  \"properties\": {},\n  \"id\": \"<string>\",\n  \"location\": \"<string>\",\n  \"name\": \"<string>\",\n  \"tags\": {\n    \"eiusmod_6a1\": \"<string>\"\n  },\n  \"type\": \"<string>\"\n}",
+                                                              "options": {
+                                                                "raw": {
+                                                                  "headerFamily": "json",
+                                                                  "language": "json"
+                                                                }
+                                                              }
+                                                            },
+                                                            "url": {
+                                                              "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/labs/:labName/users/:userName/environments/:name?api-version=2018-09-15",
+                                                              "host": [
+                                                                "{{baseUrl}}"
+                                                              ],
+                                                              "path": [
+                                                                "subscriptions",
+                                                                ":subscriptionId",
+                                                                "resourceGroups",
+                                                                ":resourceGroupName",
+                                                                "providers",
+                                                                "Microsoft.DevTestLab",
+                                                                "labs",
+                                                                ":labName",
+                                                                "users",
+                                                                ":userName",
+                                                                "environments",
+                                                                ":name"
+                                                              ],
+                                                              "query": [
+                                                                {
+                                                                  "description": "(Required) Client API version.",
+                                                                  "key": "api-version",
+                                                                  "value": "2018-09-15"
+                                                                }
+                                                              ],
+                                                              "variable": [
+                                                                {
+                                                                  "key": "subscriptionId"
+                                                                },
+                                                                {
+                                                                  "key": "resourceGroupName"
+                                                                },
+                                                                {
+                                                                  "key": "labName"
+                                                                },
+                                                                {
+                                                                  "key": "userName"
+                                                                },
+                                                                {
+                                                                  "key": "name"
+                                                                }
+                                                              ]
+                                                            }
+                                                          },
+                                                          "status": "Created",
+                                                          "code": 201,
+                                                          "_postman_previewlanguage": "json",
+                                                          "header": [
+                                                            {
+                                                              "key": "Content-Type",
+                                                              "value": "application/json"
+                                                            }
+                                                          ],
+                                                          "cookie": [],
+                                                          "responseTime": null,
+                                                          "body": "{\n  \"properties\": {},\n  \"id\": \"<string>\",\n  \"location\": \"<string>\",\n  \"name\": \"<string>\",\n  \"tags\": {\n    \"eiusmod_6a1\": \"<string>\"\n  },\n  \"type\": \"<string>\"\n}",
+                                                          "createdAt": "2026-07-28T10:55:03.000Z",
+                                                          "updatedAt": "2026-07-28T10:55:03.000Z",
+                                                          "uid": "35240-2280155a-4bb2-4bb6-9e56-bf3c8b4eddc7"
+                                                        },
+                                                        {
+                                                          "id": "cba1f9fa-556c-4e74-bb74-569a9c3fe578",
+                                                          "name": "BadRequest",
+                                                          "originalRequest": {
+                                                            "method": "PUT",
+                                                            "header": [
+                                                              {
+                                                                "key": "Content-Type",
+                                                                "value": "application/json"
+                                                              },
+                                                              {
+                                                                "key": "Accept",
+                                                                "value": "application/json"
+                                                              },
+                                                              {
+                                                                "description": "Added as a part of security scheme: oauth2",
+                                                                "key": "Authorization",
+                                                                "value": "<token>"
+                                                              }
+                                                            ],
+                                                            "body": {
+                                                              "mode": "raw",
+                                                              "raw": "{\n  \"properties\": {},\n  \"id\": \"<string>\",\n  \"location\": \"<string>\",\n  \"name\": \"<string>\",\n  \"tags\": {\n    \"eiusmod_6a1\": \"<string>\"\n  },\n  \"type\": \"<string>\"\n}",
+                                                              "options": {
+                                                                "raw": {
+                                                                  "headerFamily": "json",
+                                                                  "language": "json"
+                                                                }
+                                                              }
+                                                            },
+                                                            "url": {
+                                                              "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/labs/:labName/users/:userName/environments/:name?api-version=2018-09-15",
+                                                              "host": [
+                                                                "{{baseUrl}}"
+                                                              ],
+                                                              "path": [
+                                                                "subscriptions",
+                                                                ":subscriptionId",
+                                                                "resourceGroups",
+                                                                ":resourceGroupName",
+                                                                "providers",
+                                                                "Microsoft.DevTestLab",
+                                                                "labs",
+                                                                ":labName",
+                                                                "users",
+                                                                ":userName",
+                                                                "environments",
+                                                                ":name"
+                                                              ],
+                                                              "query": [
+                                                                {
+                                                                  "description": "(Required) Client API version.",
+                                                                  "key": "api-version",
+                                                                  "value": "2018-09-15"
+                                                                }
+                                                              ],
+                                                              "variable": [
+                                                                {
+                                                                  "key": "subscriptionId"
+                                                                },
+                                                                {
+                                                                  "key": "resourceGroupName"
+                                                                },
+                                                                {
+                                                                  "key": "labName"
+                                                                },
+                                                                {
+                                                                  "key": "userName"
+                                                                },
+                                                                {
+                                                                  "key": "name"
+                                                                }
+                                                              ]
+                                                            }
+                                                          },
+                                                          "status": "Internal Server Error",
+                                                          "code": 500,
+                                                          "_postman_previewlanguage": "json",
+                                                          "header": [
+                                                            {
+                                                              "key": "Content-Type",
+                                                              "value": "application/json"
+                                                            }
+                                                          ],
+                                                          "cookie": [],
+                                                          "responseTime": null,
+                                                          "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"details\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/CloudErrorBody detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/CloudErrorBody detected>\"\n      }\n    ],\n    \"message\": \"<string>\",\n    \"target\": \"<string>\"\n  }\n}",
+                                                          "createdAt": "2026-07-28T10:55:03.000Z",
+                                                          "updatedAt": "2026-07-28T10:55:03.000Z",
+                                                          "uid": "35240-cba1f9fa-556c-4e74-bb74-569a9c3fe578"
+                                                        }
+                                                      ],
+                                                      "createdAt": "2026-07-28T10:55:03.000Z",
+                                                      "updatedAt": "2026-07-28T10:55:03.000Z",
+                                                      "uid": "35240-f0cfeaa9-8d79-49aa-a81f-2e4af94bdb4c"
+                                                    }
+                                                  ],
+                                                  "id": "f47f1f82-cfec-4663-825d-f15282774229",
+                                                  "createdAt": "2026-07-28T10:55:03.000Z",
+                                                  "updatedAt": "2026-07-28T10:55:03.000Z",
+                                                  "uid": "35240-f47f1f82-cfec-4663-825d-f15282774229"
+                                                },
+                                                {
+                                                  "name": "Azure DevTest Labs Environments_ List",
+                                                  "id": "58992405-db74-4755-b183-a9c970deed07",
+                                                  "protocolProfileBehavior": {
+                                                    "disableBodyPruning": true
+                                                  },
+                                                  "request": {
+                                                    "method": "GET",
+                                                    "header": [
+                                                      {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                      }
+                                                    ],
+                                                    "url": {
+                                                      "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/labs/:labName/users/:userName/environments?$expand=<string>&$filter=<string>&$top=<integer>&$orderby=<string>&api-version=2018-09-15",
+                                                      "host": [
+                                                        "{{baseUrl}}"
+                                                      ],
+                                                      "path": [
+                                                        "subscriptions",
+                                                        ":subscriptionId",
+                                                        "resourceGroups",
+                                                        ":resourceGroupName",
+                                                        "providers",
+                                                        "Microsoft.DevTestLab",
+                                                        "labs",
+                                                        ":labName",
+                                                        "users",
+                                                        ":userName",
+                                                        "environments"
+                                                      ],
+                                                      "query": [
+                                                        {
+                                                          "description": "Specify the $expand query. Example: 'properties($select=deploymentProperties)'",
+                                                          "key": "$expand",
+                                                          "value": "<string>"
+                                                        },
+                                                        {
+                                                          "description": "The filter to apply to the operation. Example: '$filter=contains(name,'myName')",
+                                                          "key": "$filter",
+                                                          "value": "<string>"
+                                                        },
+                                                        {
+                                                          "description": "The maximum number of resources to return from the operation. Example: '$top=10'",
+                                                          "key": "$top",
+                                                          "value": "<integer>"
+                                                        },
+                                                        {
+                                                          "description": "The ordering expression for the results, using OData notation. Example: '$orderby=name desc'",
+                                                          "key": "$orderby",
+                                                          "value": "<string>"
+                                                        },
+                                                        {
+                                                          "description": "(Required) Client API version.",
+                                                          "key": "api-version",
+                                                          "value": "2018-09-15"
+                                                        }
+                                                      ],
+                                                      "variable": [
+                                                        {
+                                                          "id": "80a90938-7f05-4b75-a798-a29f04ddc535",
+                                                          "key": "subscriptionId",
+                                                          "value": "<string>",
+                                                          "description": "(Required) The subscription ID."
+                                                        },
+                                                        {
+                                                          "id": "f4e8f389-0354-428f-a3d4-b0e425292ae5",
+                                                          "key": "resourceGroupName",
+                                                          "value": "<string>",
+                                                          "description": "(Required) The name of the resource group."
+                                                        },
+                                                        {
+                                                          "id": "df8f1276-ffcb-46dd-998a-d4e40ba14f94",
+                                                          "key": "labName",
+                                                          "value": "<string>",
+                                                          "description": "(Required) The name of the lab."
+                                                        },
+                                                        {
+                                                          "id": "91333df7-1f1a-40ab-aa1c-73312433ffb9",
+                                                          "key": "userName",
+                                                          "value": "<string>",
+                                                          "description": "(Required) The name of the user profile."
+                                                        }
+                                                      ]
+                                                    },
+                                                    "description": "List environments in a given user profile."
+                                                  },
+                                                  "response": [
+                                                    {
+                                                      "id": "44c5f66c-4582-4db5-a51f-246608f36e94",
+                                                      "name": "OK",
+                                                      "originalRequest": {
+                                                        "method": "GET",
+                                                        "header": [
+                                                          {
+                                                            "key": "Accept",
+                                                            "value": "application/json"
+                                                          },
+                                                          {
+                                                            "description": "Added as a part of security scheme: oauth2",
+                                                            "key": "Authorization",
+                                                            "value": "<token>"
+                                                          }
+                                                        ],
+                                                        "url": {
+                                                          "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/labs/:labName/users/:userName/environments?$expand=<string>&$filter=<string>&$top=<integer>&$orderby=<string>&api-version=2018-09-15",
+                                                          "host": [
+                                                            "{{baseUrl}}"
+                                                          ],
+                                                          "path": [
+                                                            "subscriptions",
+                                                            ":subscriptionId",
+                                                            "resourceGroups",
+                                                            ":resourceGroupName",
+                                                            "providers",
+                                                            "Microsoft.DevTestLab",
+                                                            "labs",
+                                                            ":labName",
+                                                            "users",
+                                                            ":userName",
+                                                            "environments"
+                                                          ],
+                                                          "query": [
+                                                            {
+                                                              "description": "Specify the $expand query. Example: 'properties($select=deploymentProperties)'",
+                                                              "key": "$expand",
+                                                              "value": "<string>"
+                                                            },
+                                                            {
+                                                              "description": "The filter to apply to the operation. Example: '$filter=contains(name,'myName')",
+                                                              "key": "$filter",
+                                                              "value": "<string>"
+                                                            },
+                                                            {
+                                                              "description": "The maximum number of resources to return from the operation. Example: '$top=10'",
+                                                              "key": "$top",
+                                                              "value": "<integer>"
+                                                            },
+                                                            {
+                                                              "description": "The ordering expression for the results, using OData notation. Example: '$orderby=name desc'",
+                                                              "key": "$orderby",
+                                                              "value": "<string>"
+                                                            },
+                                                            {
+                                                              "description": "(Required) Client API version.",
+                                                              "key": "api-version",
+                                                              "value": "2018-09-15"
+                                                            }
+                                                          ],
+                                                          "variable": [
+                                                            {
+                                                              "key": "subscriptionId"
+                                                            },
+                                                            {
+                                                              "key": "resourceGroupName"
+                                                            },
+                                                            {
+                                                              "key": "labName"
+                                                            },
+                                                            {
+                                                              "key": "userName"
+                                                            }
+                                                          ]
+                                                        }
+                                                      },
+                                                      "status": "OK",
+                                                      "code": 200,
+                                                      "_postman_previewlanguage": "json",
+                                                      "header": [
+                                                        {
+                                                          "key": "Content-Type",
+                                                          "value": "application/json"
+                                                        }
+                                                      ],
+                                                      "cookie": [],
+                                                      "responseTime": null,
+                                                      "body": "{\n  \"nextLink\": \"<string>\",\n  \"value\": [\n    {\n      \"properties\": {},\n      \"id\": \"<string>\",\n      \"location\": \"<string>\",\n      \"name\": \"<string>\",\n      \"tags\": {\n        \"cillum_32\": \"<string>\"\n      },\n      \"type\": \"<string>\"\n    },\n    {\n      \"properties\": {},\n      \"id\": \"<string>\",\n      \"location\": \"<string>\",\n      \"name\": \"<string>\",\n      \"tags\": {\n        \"eiusmod_57e\": \"<string>\",\n        \"Ut22\": \"<string>\"\n      },\n      \"type\": \"<string>\"\n    }\n  ]\n}",
+                                                      "createdAt": "2026-07-28T10:55:03.000Z",
+                                                      "updatedAt": "2026-07-28T10:55:03.000Z",
+                                                      "uid": "35240-44c5f66c-4582-4db5-a51f-246608f36e94"
+                                                    },
+                                                    {
+                                                      "id": "3d2d0bde-afb9-48de-9fe0-732cda1f78d2",
+                                                      "name": "BadRequest",
+                                                      "originalRequest": {
+                                                        "method": "GET",
+                                                        "header": [
+                                                          {
+                                                            "key": "Accept",
+                                                            "value": "application/json"
+                                                          },
+                                                          {
+                                                            "description": "Added as a part of security scheme: oauth2",
+                                                            "key": "Authorization",
+                                                            "value": "<token>"
+                                                          }
+                                                        ],
+                                                        "url": {
+                                                          "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/labs/:labName/users/:userName/environments?$expand=<string>&$filter=<string>&$top=<integer>&$orderby=<string>&api-version=2018-09-15",
+                                                          "host": [
+                                                            "{{baseUrl}}"
+                                                          ],
+                                                          "path": [
+                                                            "subscriptions",
+                                                            ":subscriptionId",
+                                                            "resourceGroups",
+                                                            ":resourceGroupName",
+                                                            "providers",
+                                                            "Microsoft.DevTestLab",
+                                                            "labs",
+                                                            ":labName",
+                                                            "users",
+                                                            ":userName",
+                                                            "environments"
+                                                          ],
+                                                          "query": [
+                                                            {
+                                                              "description": "Specify the $expand query. Example: 'properties($select=deploymentProperties)'",
+                                                              "key": "$expand",
+                                                              "value": "<string>"
+                                                            },
+                                                            {
+                                                              "description": "The filter to apply to the operation. Example: '$filter=contains(name,'myName')",
+                                                              "key": "$filter",
+                                                              "value": "<string>"
+                                                            },
+                                                            {
+                                                              "description": "The maximum number of resources to return from the operation. Example: '$top=10'",
+                                                              "key": "$top",
+                                                              "value": "<integer>"
+                                                            },
+                                                            {
+                                                              "description": "The ordering expression for the results, using OData notation. Example: '$orderby=name desc'",
+                                                              "key": "$orderby",
+                                                              "value": "<string>"
+                                                            },
+                                                            {
+                                                              "description": "(Required) Client API version.",
+                                                              "key": "api-version",
+                                                              "value": "2018-09-15"
+                                                            }
+                                                          ],
+                                                          "variable": [
+                                                            {
+                                                              "key": "subscriptionId"
+                                                            },
+                                                            {
+                                                              "key": "resourceGroupName"
+                                                            },
+                                                            {
+                                                              "key": "labName"
+                                                            },
+                                                            {
+                                                              "key": "userName"
+                                                            }
+                                                          ]
+                                                        }
+                                                      },
+                                                      "status": "Internal Server Error",
+                                                      "code": 500,
+                                                      "_postman_previewlanguage": "json",
+                                                      "header": [
+                                                        {
+                                                          "key": "Content-Type",
+                                                          "value": "application/json"
+                                                        }
+                                                      ],
+                                                      "cookie": [],
+                                                      "responseTime": null,
+                                                      "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"details\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/CloudErrorBody detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/CloudErrorBody detected>\"\n      }\n    ],\n    \"message\": \"<string>\",\n    \"target\": \"<string>\"\n  }\n}",
+                                                      "createdAt": "2026-07-28T10:55:03.000Z",
+                                                      "updatedAt": "2026-07-28T10:55:03.000Z",
+                                                      "uid": "35240-3d2d0bde-afb9-48de-9fe0-732cda1f78d2"
+                                                    }
+                                                  ],
+                                                  "createdAt": "2026-07-28T10:55:03.000Z",
+                                                  "updatedAt": "2026-07-28T10:55:03.000Z",
+                                                  "uid": "35240-58992405-db74-4755-b183-a9c970deed07"
+                                                }
+                                              ],
+                                              "id": "608bb438-be01-4849-906a-e94700bea35c",
+                                              "createdAt": "2026-07-28T10:55:03.000Z",
+                                              "updatedAt": "2026-07-28T10:55:03.000Z",
+                                              "uid": "35240-608bb438-be01-4849-906a-e94700bea35c"
+                                            }
+                                          ],
+                                          "id": "f2ef8cb2-c6a2-48d3-963d-056d9c12e72d",
+                                          "createdAt": "2026-07-28T10:55:03.000Z",
+                                          "updatedAt": "2026-07-28T10:55:03.000Z",
+                                          "uid": "35240-f2ef8cb2-c6a2-48d3-963d-056d9c12e72d"
+                                        }
+                                      ],
+                                      "id": "ff41c7e8-f6c6-461d-8a6e-1df448e110ef",
+                                      "createdAt": "2026-07-28T10:55:03.000Z",
+                                      "updatedAt": "2026-07-28T10:55:03.000Z",
+                                      "uid": "35240-ff41c7e8-f6c6-461d-8a6e-1df448e110ef"
+                                    }
+                                  ],
+                                  "id": "71dedbdc-a85a-4f7a-abbf-69d9e76a8c32",
+                                  "createdAt": "2026-07-28T10:55:03.000Z",
+                                  "updatedAt": "2026-07-28T10:55:03.000Z",
+                                  "uid": "35240-71dedbdc-a85a-4f7a-abbf-69d9e76a8c32"
+                                }
+                              ],
+                              "id": "b798ff52-486b-4596-ae77-df21d8b91c24",
+                              "createdAt": "2026-07-28T10:55:03.000Z",
+                              "updatedAt": "2026-07-28T10:55:03.000Z",
+                              "uid": "35240-b798ff52-486b-4596-ae77-df21d8b91c24"
+                            }
+                          ],
+                          "id": "aa3d5d84-fbb5-420a-b920-aa858ee9e686",
+                          "createdAt": "2026-07-28T10:55:03.000Z",
+                          "updatedAt": "2026-07-28T10:55:03.000Z",
+                          "uid": "35240-aa3d5d84-fbb5-420a-b920-aa858ee9e686"
+                        }
+                      ],
+                      "id": "a63614af-b2f3-42c2-b581-838a610b0e92",
+                      "createdAt": "2026-07-28T10:55:03.000Z",
+                      "updatedAt": "2026-07-28T10:55:03.000Z",
+                      "uid": "35240-a63614af-b2f3-42c2-b581-838a610b0e92"
+                    }
+                  ],
+                  "id": "c7ad4fed-0623-409e-b82c-327df6e3d137",
+                  "createdAt": "2026-07-28T10:55:03.000Z",
+                  "updatedAt": "2026-07-28T10:55:03.000Z",
+                  "uid": "35240-c7ad4fed-0623-409e-b82c-327df6e3d137"
+                }
+              ],
+              "id": "50243b91-3dc6-41be-bc1b-7723d13daa3d",
+              "createdAt": "2026-07-28T10:55:03.000Z",
+              "updatedAt": "2026-07-28T10:55:03.000Z",
+              "uid": "35240-50243b91-3dc6-41be-bc1b-7723d13daa3d"
+            }
+          ],
+          "id": "57f05f02-73c7-49e2-9a62-55692a6cf38d",
+          "createdAt": "2026-07-28T10:55:03.000Z",
+          "updatedAt": "2026-07-28T10:55:03.000Z",
+          "uid": "35240-57f05f02-73c7-49e2-9a62-55692a6cf38d"
+        }
+      ],
+      "id": "5ef56e54-ad75-4faa-9c92-49beece219f0",
+      "createdAt": "2026-07-28T10:55:03.000Z",
+      "updatedAt": "2026-07-28T10:55:03.000Z",
+      "uid": "35240-5ef56e54-ad75-4faa-9c92-49beece219f0"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "user_impersonation",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "implicit",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://management.azure.com"
+    }
+  ]
+}

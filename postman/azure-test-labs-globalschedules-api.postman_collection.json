@@ -1,0 +1,2212 @@
+{
+  "info": {
+    "_postman_id": "ee97aa3f-79f4-458b-9ff2-c5c7ebb02756",
+    "name": "DevTestLabsClient ArmTemplates GlobalSchedules API",
+    "description": "The DevTest Labs Client.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T10:55:22.000Z",
+    "updatedAt": "2026-07-28T10:55:23.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-ee97aa3f-79f4-458b-9ff2-c5c7ebb02756"
+  },
+  "item": [
+    {
+      "name": "subscriptions",
+      "item": [
+        {
+          "name": "{subscriptionId}",
+          "item": [
+            {
+              "name": "providers",
+              "item": [
+                {
+                  "name": "Microsoft.DevTestLab",
+                  "item": [
+                    {
+                      "name": "schedules",
+                      "item": [
+                        {
+                          "name": "Azure DevTest Labs Global Schedules_ List by Subscription",
+                          "id": "167a72ef-3f64-4882-ba3e-68fdb14d5f11",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/subscriptions/:subscriptionId/providers/Microsoft.DevTestLab/schedules?$expand=<string>&$filter=<string>&$top=<integer>&$orderby=<string>&api-version=2018-09-15",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "subscriptions",
+                                ":subscriptionId",
+                                "providers",
+                                "Microsoft.DevTestLab",
+                                "schedules"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Specify the $expand query. Example: 'properties($select=status)'",
+                                  "key": "$expand",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "The filter to apply to the operation. Example: '$filter=contains(name,'myName')",
+                                  "key": "$filter",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "The maximum number of resources to return from the operation. Example: '$top=10'",
+                                  "key": "$top",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "description": "The ordering expression for the results, using OData notation. Example: '$orderby=name desc'",
+                                  "key": "$orderby",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Client API version.",
+                                  "key": "api-version",
+                                  "value": "2018-09-15"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "id": "cee1dce4-a0c0-4fcf-9b8b-57eaf08faf60",
+                                  "key": "subscriptionId",
+                                  "value": "<string>",
+                                  "description": "(Required) The subscription ID."
+                                }
+                              ]
+                            },
+                            "description": "List schedules in a subscription."
+                          },
+                          "response": [
+                            {
+                              "id": "c432929c-b5c2-4db6-960e-cd3b9891505f",
+                              "name": "OK",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/subscriptions/:subscriptionId/providers/Microsoft.DevTestLab/schedules?$expand=<string>&$filter=<string>&$top=<integer>&$orderby=<string>&api-version=2018-09-15",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "subscriptions",
+                                    ":subscriptionId",
+                                    "providers",
+                                    "Microsoft.DevTestLab",
+                                    "schedules"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "Specify the $expand query. Example: 'properties($select=status)'",
+                                      "key": "$expand",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "The filter to apply to the operation. Example: '$filter=contains(name,'myName')",
+                                      "key": "$filter",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "The maximum number of resources to return from the operation. Example: '$top=10'",
+                                      "key": "$top",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "description": "The ordering expression for the results, using OData notation. Example: '$orderby=name desc'",
+                                      "key": "$orderby",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "(Required) Client API version.",
+                                      "key": "api-version",
+                                      "value": "2018-09-15"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "subscriptionId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"nextLink\": \"<string>\",\n  \"value\": [\n    {\n      \"properties\": {},\n      \"id\": \"<string>\",\n      \"location\": \"<string>\",\n      \"name\": \"<string>\",\n      \"tags\": {\n        \"adipisicing8\": \"<string>\",\n        \"quiab7\": \"<string>\",\n        \"consecteturc3\": \"<string>\",\n        \"proident_b24\": \"<string>\"\n      },\n      \"type\": \"<string>\"\n    },\n    {\n      \"properties\": {},\n      \"id\": \"<string>\",\n      \"location\": \"<string>\",\n      \"name\": \"<string>\",\n      \"tags\": {\n        \"dolorb\": \"<string>\",\n        \"eiusmod5\": \"<string>\"\n      },\n      \"type\": \"<string>\"\n    }\n  ]\n}",
+                              "createdAt": "2026-07-28T10:55:23.000Z",
+                              "updatedAt": "2026-07-28T10:55:23.000Z",
+                              "uid": "35240-c432929c-b5c2-4db6-960e-cd3b9891505f"
+                            },
+                            {
+                              "id": "14995f27-cd6a-4f33-ade3-853915ca9f6b",
+                              "name": "BadRequest",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/subscriptions/:subscriptionId/providers/Microsoft.DevTestLab/schedules?$expand=<string>&$filter=<string>&$top=<integer>&$orderby=<string>&api-version=2018-09-15",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "subscriptions",
+                                    ":subscriptionId",
+                                    "providers",
+                                    "Microsoft.DevTestLab",
+                                    "schedules"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "Specify the $expand query. Example: 'properties($select=status)'",
+                                      "key": "$expand",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "The filter to apply to the operation. Example: '$filter=contains(name,'myName')",
+                                      "key": "$filter",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "The maximum number of resources to return from the operation. Example: '$top=10'",
+                                      "key": "$top",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "description": "The ordering expression for the results, using OData notation. Example: '$orderby=name desc'",
+                                      "key": "$orderby",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "(Required) Client API version.",
+                                      "key": "api-version",
+                                      "value": "2018-09-15"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "subscriptionId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"details\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/CloudErrorBody detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/CloudErrorBody detected>\"\n      }\n    ],\n    \"message\": \"<string>\",\n    \"target\": \"<string>\"\n  }\n}",
+                              "createdAt": "2026-07-28T10:55:23.000Z",
+                              "updatedAt": "2026-07-28T10:55:23.000Z",
+                              "uid": "35240-14995f27-cd6a-4f33-ade3-853915ca9f6b"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T10:55:23.000Z",
+                          "updatedAt": "2026-07-28T10:55:23.000Z",
+                          "uid": "35240-167a72ef-3f64-4882-ba3e-68fdb14d5f11"
+                        }
+                      ],
+                      "id": "c1ce47c7-e13e-418d-9a59-8675471dd3e7",
+                      "createdAt": "2026-07-28T10:55:23.000Z",
+                      "updatedAt": "2026-07-28T10:55:23.000Z",
+                      "uid": "35240-c1ce47c7-e13e-418d-9a59-8675471dd3e7"
+                    }
+                  ],
+                  "id": "2611cac5-c0be-4dab-905b-6b45d3708ba4",
+                  "createdAt": "2026-07-28T10:55:23.000Z",
+                  "updatedAt": "2026-07-28T10:55:23.000Z",
+                  "uid": "35240-2611cac5-c0be-4dab-905b-6b45d3708ba4"
+                }
+              ],
+              "id": "dd23a620-e068-4ff5-886f-5b011adb09d9",
+              "createdAt": "2026-07-28T10:55:23.000Z",
+              "updatedAt": "2026-07-28T10:55:23.000Z",
+              "uid": "35240-dd23a620-e068-4ff5-886f-5b011adb09d9"
+            },
+            {
+              "name": "resourceGroups",
+              "item": [
+                {
+                  "name": "{resourceGroupName}",
+                  "item": [
+                    {
+                      "name": "providers",
+                      "item": [
+                        {
+                          "name": "Microsoft.DevTestLab",
+                          "item": [
+                            {
+                              "name": "schedules",
+                              "item": [
+                                {
+                                  "name": "{name}",
+                                  "item": [
+                                    {
+                                      "name": "execute",
+                                      "item": [
+                                        {
+                                          "name": "Azure DevTest Labs Global Schedules_ Execute",
+                                          "id": "455ab941-384a-474c-b6e1-c458aa7fec64",
+                                          "protocolProfileBehavior": {
+                                            "disableBodyPruning": true
+                                          },
+                                          "request": {
+                                            "method": "POST",
+                                            "header": [
+                                              {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                              }
+                                            ],
+                                            "url": {
+                                              "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/schedules/:name/execute?api-version=2018-09-15",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "subscriptions",
+                                                ":subscriptionId",
+                                                "resourceGroups",
+                                                ":resourceGroupName",
+                                                "providers",
+                                                "Microsoft.DevTestLab",
+                                                "schedules",
+                                                ":name",
+                                                "execute"
+                                              ],
+                                              "query": [
+                                                {
+                                                  "description": "(Required) Client API version.",
+                                                  "key": "api-version",
+                                                  "value": "2018-09-15"
+                                                }
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "id": "41306041-8fb2-4ad5-887d-6ab8f924d859",
+                                                  "key": "subscriptionId",
+                                                  "value": "<string>",
+                                                  "description": "(Required) The subscription ID."
+                                                },
+                                                {
+                                                  "id": "cbde9844-6ae9-4257-993d-71789a854353",
+                                                  "key": "resourceGroupName",
+                                                  "value": "<string>",
+                                                  "description": "(Required) The name of the resource group."
+                                                },
+                                                {
+                                                  "id": "f9935f86-ab08-4cd7-9d3d-d737ded610b7",
+                                                  "key": "name",
+                                                  "value": "<string>",
+                                                  "description": "(Required) The name of the schedule."
+                                                }
+                                              ]
+                                            },
+                                            "description": "Execute a schedule. This operation can take a while to complete."
+                                          },
+                                          "response": [
+                                            {
+                                              "id": "777bc1fa-f12d-4adb-985c-83786271e66c",
+                                              "name": "OK",
+                                              "originalRequest": {
+                                                "method": "POST",
+                                                "header": [
+                                                  {
+                                                    "description": "Added as a part of security scheme: oauth2",
+                                                    "key": "Authorization",
+                                                    "value": "<token>"
+                                                  }
+                                                ],
+                                                "url": {
+                                                  "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/schedules/:name/execute?api-version=2018-09-15",
+                                                  "host": [
+                                                    "{{baseUrl}}"
+                                                  ],
+                                                  "path": [
+                                                    "subscriptions",
+                                                    ":subscriptionId",
+                                                    "resourceGroups",
+                                                    ":resourceGroupName",
+                                                    "providers",
+                                                    "Microsoft.DevTestLab",
+                                                    "schedules",
+                                                    ":name",
+                                                    "execute"
+                                                  ],
+                                                  "query": [
+                                                    {
+                                                      "description": "(Required) Client API version.",
+                                                      "key": "api-version",
+                                                      "value": "2018-09-15"
+                                                    }
+                                                  ],
+                                                  "variable": [
+                                                    {
+                                                      "key": "subscriptionId"
+                                                    },
+                                                    {
+                                                      "key": "resourceGroupName"
+                                                    },
+                                                    {
+                                                      "key": "name"
+                                                    }
+                                                  ]
+                                                }
+                                              },
+                                              "status": "OK",
+                                              "code": 200,
+                                              "_postman_previewlanguage": "text",
+                                              "header": [],
+                                              "cookie": [],
+                                              "responseTime": null,
+                                              "body": null,
+                                              "createdAt": "2026-07-28T10:55:23.000Z",
+                                              "updatedAt": "2026-07-28T10:55:23.000Z",
+                                              "uid": "35240-777bc1fa-f12d-4adb-985c-83786271e66c"
+                                            },
+                                            {
+                                              "id": "9bb71ca9-f5f8-4524-9140-3e4c0b56255b",
+                                              "name": "Accepted",
+                                              "originalRequest": {
+                                                "method": "POST",
+                                                "header": [
+                                                  {
+                                                    "description": "Added as a part of security scheme: oauth2",
+                                                    "key": "Authorization",
+                                                    "value": "<token>"
+                                                  }
+                                                ],
+                                                "url": {
+                                                  "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/schedules/:name/execute?api-version=2018-09-15",
+                                                  "host": [
+                                                    "{{baseUrl}}"
+                                                  ],
+                                                  "path": [
+                                                    "subscriptions",
+                                                    ":subscriptionId",
+                                                    "resourceGroups",
+                                                    ":resourceGroupName",
+                                                    "providers",
+                                                    "Microsoft.DevTestLab",
+                                                    "schedules",
+                                                    ":name",
+                                                    "execute"
+                                                  ],
+                                                  "query": [
+                                                    {
+                                                      "description": "(Required) Client API version.",
+                                                      "key": "api-version",
+                                                      "value": "2018-09-15"
+                                                    }
+                                                  ],
+                                                  "variable": [
+                                                    {
+                                                      "key": "subscriptionId"
+                                                    },
+                                                    {
+                                                      "key": "resourceGroupName"
+                                                    },
+                                                    {
+                                                      "key": "name"
+                                                    }
+                                                  ]
+                                                }
+                                              },
+                                              "status": "Accepted",
+                                              "code": 202,
+                                              "_postman_previewlanguage": "text",
+                                              "header": [],
+                                              "cookie": [],
+                                              "responseTime": null,
+                                              "body": null,
+                                              "createdAt": "2026-07-28T10:55:23.000Z",
+                                              "updatedAt": "2026-07-28T10:55:23.000Z",
+                                              "uid": "35240-9bb71ca9-f5f8-4524-9140-3e4c0b56255b"
+                                            },
+                                            {
+                                              "id": "708def71-5c61-4243-a55f-71515ee47dc3",
+                                              "name": "BadRequest",
+                                              "originalRequest": {
+                                                "method": "POST",
+                                                "header": [
+                                                  {
+                                                    "key": "Accept",
+                                                    "value": "application/json"
+                                                  },
+                                                  {
+                                                    "description": "Added as a part of security scheme: oauth2",
+                                                    "key": "Authorization",
+                                                    "value": "<token>"
+                                                  }
+                                                ],
+                                                "url": {
+                                                  "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/schedules/:name/execute?api-version=2018-09-15",
+                                                  "host": [
+                                                    "{{baseUrl}}"
+                                                  ],
+                                                  "path": [
+                                                    "subscriptions",
+                                                    ":subscriptionId",
+                                                    "resourceGroups",
+                                                    ":resourceGroupName",
+                                                    "providers",
+                                                    "Microsoft.DevTestLab",
+                                                    "schedules",
+                                                    ":name",
+                                                    "execute"
+                                                  ],
+                                                  "query": [
+                                                    {
+                                                      "description": "(Required) Client API version.",
+                                                      "key": "api-version",
+                                                      "value": "2018-09-15"
+                                                    }
+                                                  ],
+                                                  "variable": [
+                                                    {
+                                                      "key": "subscriptionId"
+                                                    },
+                                                    {
+                                                      "key": "resourceGroupName"
+                                                    },
+                                                    {
+                                                      "key": "name"
+                                                    }
+                                                  ]
+                                                }
+                                              },
+                                              "status": "Internal Server Error",
+                                              "code": 500,
+                                              "_postman_previewlanguage": "json",
+                                              "header": [
+                                                {
+                                                  "key": "Content-Type",
+                                                  "value": "application/json"
+                                                }
+                                              ],
+                                              "cookie": [],
+                                              "responseTime": null,
+                                              "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"details\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/CloudErrorBody detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/CloudErrorBody detected>\"\n      }\n    ],\n    \"message\": \"<string>\",\n    \"target\": \"<string>\"\n  }\n}",
+                                              "createdAt": "2026-07-28T10:55:23.000Z",
+                                              "updatedAt": "2026-07-28T10:55:23.000Z",
+                                              "uid": "35240-708def71-5c61-4243-a55f-71515ee47dc3"
+                                            }
+                                          ],
+                                          "createdAt": "2026-07-28T10:55:23.000Z",
+                                          "updatedAt": "2026-07-28T10:55:23.000Z",
+                                          "uid": "35240-455ab941-384a-474c-b6e1-c458aa7fec64"
+                                        }
+                                      ],
+                                      "id": "b7c604a1-875c-4899-b858-59ac163f70cd",
+                                      "createdAt": "2026-07-28T10:55:23.000Z",
+                                      "updatedAt": "2026-07-28T10:55:23.000Z",
+                                      "uid": "35240-b7c604a1-875c-4899-b858-59ac163f70cd"
+                                    },
+                                    {
+                                      "name": "retarget",
+                                      "item": [
+                                        {
+                                          "name": "Azure DevTest Labs Global Schedules_ Retarget",
+                                          "id": "f4db5165-bdb6-4d9e-bb6f-261a58cc4a53",
+                                          "protocolProfileBehavior": {
+                                            "disableBodyPruning": true
+                                          },
+                                          "request": {
+                                            "method": "POST",
+                                            "header": [
+                                              {
+                                                "key": "Content-Type",
+                                                "value": "application/json"
+                                              },
+                                              {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                              }
+                                            ],
+                                            "body": {
+                                              "mode": "raw",
+                                              "raw": "{\n  \"currentResourceId\": \"<string>\",\n  \"targetResourceId\": \"<string>\"\n}",
+                                              "options": {
+                                                "raw": {
+                                                  "headerFamily": "json",
+                                                  "language": "json"
+                                                }
+                                              }
+                                            },
+                                            "url": {
+                                              "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/schedules/:name/retarget?api-version=2018-09-15",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "subscriptions",
+                                                ":subscriptionId",
+                                                "resourceGroups",
+                                                ":resourceGroupName",
+                                                "providers",
+                                                "Microsoft.DevTestLab",
+                                                "schedules",
+                                                ":name",
+                                                "retarget"
+                                              ],
+                                              "query": [
+                                                {
+                                                  "description": "(Required) Client API version.",
+                                                  "key": "api-version",
+                                                  "value": "2018-09-15"
+                                                }
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "id": "c6a1a59d-013d-4e85-a860-ca4b4fb124fa",
+                                                  "key": "subscriptionId",
+                                                  "value": "<string>",
+                                                  "description": "(Required) The subscription ID."
+                                                },
+                                                {
+                                                  "id": "4a7b0d81-c63d-47c5-add9-13b63f68e4d7",
+                                                  "key": "resourceGroupName",
+                                                  "value": "<string>",
+                                                  "description": "(Required) The name of the resource group."
+                                                },
+                                                {
+                                                  "id": "4dc08230-e3b0-4b99-a5f9-eb2f39be0403",
+                                                  "key": "name",
+                                                  "value": "<string>",
+                                                  "description": "(Required) The name of the schedule."
+                                                }
+                                              ]
+                                            },
+                                            "description": "Updates a schedule's target resource Id. This operation can take a while to complete."
+                                          },
+                                          "response": [
+                                            {
+                                              "id": "0fea9f58-eaac-4d9e-b102-fcfe3cf2e0d0",
+                                              "name": "OK",
+                                              "originalRequest": {
+                                                "method": "POST",
+                                                "header": [
+                                                  {
+                                                    "key": "Content-Type",
+                                                    "value": "application/json"
+                                                  },
+                                                  {
+                                                    "description": "Added as a part of security scheme: oauth2",
+                                                    "key": "Authorization",
+                                                    "value": "<token>"
+                                                  }
+                                                ],
+                                                "body": {
+                                                  "mode": "raw",
+                                                  "raw": "{\n  \"currentResourceId\": \"<string>\",\n  \"targetResourceId\": \"<string>\"\n}",
+                                                  "options": {
+                                                    "raw": {
+                                                      "headerFamily": "json",
+                                                      "language": "json"
+                                                    }
+                                                  }
+                                                },
+                                                "url": {
+                                                  "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/schedules/:name/retarget?api-version=2018-09-15",
+                                                  "host": [
+                                                    "{{baseUrl}}"
+                                                  ],
+                                                  "path": [
+                                                    "subscriptions",
+                                                    ":subscriptionId",
+                                                    "resourceGroups",
+                                                    ":resourceGroupName",
+                                                    "providers",
+                                                    "Microsoft.DevTestLab",
+                                                    "schedules",
+                                                    ":name",
+                                                    "retarget"
+                                                  ],
+                                                  "query": [
+                                                    {
+                                                      "description": "(Required) Client API version.",
+                                                      "key": "api-version",
+                                                      "value": "2018-09-15"
+                                                    }
+                                                  ],
+                                                  "variable": [
+                                                    {
+                                                      "key": "subscriptionId"
+                                                    },
+                                                    {
+                                                      "key": "resourceGroupName"
+                                                    },
+                                                    {
+                                                      "key": "name"
+                                                    }
+                                                  ]
+                                                }
+                                              },
+                                              "status": "OK",
+                                              "code": 200,
+                                              "_postman_previewlanguage": "text",
+                                              "header": [],
+                                              "cookie": [],
+                                              "responseTime": null,
+                                              "body": null,
+                                              "createdAt": "2026-07-28T10:55:23.000Z",
+                                              "updatedAt": "2026-07-28T10:55:23.000Z",
+                                              "uid": "35240-0fea9f58-eaac-4d9e-b102-fcfe3cf2e0d0"
+                                            },
+                                            {
+                                              "id": "28e1d253-0e93-4c18-a9cb-06c4b747cfed",
+                                              "name": "Accepted",
+                                              "originalRequest": {
+                                                "method": "POST",
+                                                "header": [
+                                                  {
+                                                    "key": "Content-Type",
+                                                    "value": "application/json"
+                                                  },
+                                                  {
+                                                    "description": "Added as a part of security scheme: oauth2",
+                                                    "key": "Authorization",
+                                                    "value": "<token>"
+                                                  }
+                                                ],
+                                                "body": {
+                                                  "mode": "raw",
+                                                  "raw": "{\n  \"currentResourceId\": \"<string>\",\n  \"targetResourceId\": \"<string>\"\n}",
+                                                  "options": {
+                                                    "raw": {
+                                                      "headerFamily": "json",
+                                                      "language": "json"
+                                                    }
+                                                  }
+                                                },
+                                                "url": {
+                                                  "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/schedules/:name/retarget?api-version=2018-09-15",
+                                                  "host": [
+                                                    "{{baseUrl}}"
+                                                  ],
+                                                  "path": [
+                                                    "subscriptions",
+                                                    ":subscriptionId",
+                                                    "resourceGroups",
+                                                    ":resourceGroupName",
+                                                    "providers",
+                                                    "Microsoft.DevTestLab",
+                                                    "schedules",
+                                                    ":name",
+                                                    "retarget"
+                                                  ],
+                                                  "query": [
+                                                    {
+                                                      "description": "(Required) Client API version.",
+                                                      "key": "api-version",
+                                                      "value": "2018-09-15"
+                                                    }
+                                                  ],
+                                                  "variable": [
+                                                    {
+                                                      "key": "subscriptionId"
+                                                    },
+                                                    {
+                                                      "key": "resourceGroupName"
+                                                    },
+                                                    {
+                                                      "key": "name"
+                                                    }
+                                                  ]
+                                                }
+                                              },
+                                              "status": "Accepted",
+                                              "code": 202,
+                                              "_postman_previewlanguage": "text",
+                                              "header": [],
+                                              "cookie": [],
+                                              "responseTime": null,
+                                              "body": null,
+                                              "createdAt": "2026-07-28T10:55:23.000Z",
+                                              "updatedAt": "2026-07-28T10:55:23.000Z",
+                                              "uid": "35240-28e1d253-0e93-4c18-a9cb-06c4b747cfed"
+                                            },
+                                            {
+                                              "id": "e64200f1-b94d-42eb-bf06-4041ae190039",
+                                              "name": "BadRequest",
+                                              "originalRequest": {
+                                                "method": "POST",
+                                                "header": [
+                                                  {
+                                                    "key": "Content-Type",
+                                                    "value": "application/json"
+                                                  },
+                                                  {
+                                                    "key": "Accept",
+                                                    "value": "application/json"
+                                                  },
+                                                  {
+                                                    "description": "Added as a part of security scheme: oauth2",
+                                                    "key": "Authorization",
+                                                    "value": "<token>"
+                                                  }
+                                                ],
+                                                "body": {
+                                                  "mode": "raw",
+                                                  "raw": "{\n  \"currentResourceId\": \"<string>\",\n  \"targetResourceId\": \"<string>\"\n}",
+                                                  "options": {
+                                                    "raw": {
+                                                      "headerFamily": "json",
+                                                      "language": "json"
+                                                    }
+                                                  }
+                                                },
+                                                "url": {
+                                                  "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/schedules/:name/retarget?api-version=2018-09-15",
+                                                  "host": [
+                                                    "{{baseUrl}}"
+                                                  ],
+                                                  "path": [
+                                                    "subscriptions",
+                                                    ":subscriptionId",
+                                                    "resourceGroups",
+                                                    ":resourceGroupName",
+                                                    "providers",
+                                                    "Microsoft.DevTestLab",
+                                                    "schedules",
+                                                    ":name",
+                                                    "retarget"
+                                                  ],
+                                                  "query": [
+                                                    {
+                                                      "description": "(Required) Client API version.",
+                                                      "key": "api-version",
+                                                      "value": "2018-09-15"
+                                                    }
+                                                  ],
+                                                  "variable": [
+                                                    {
+                                                      "key": "subscriptionId"
+                                                    },
+                                                    {
+                                                      "key": "resourceGroupName"
+                                                    },
+                                                    {
+                                                      "key": "name"
+                                                    }
+                                                  ]
+                                                }
+                                              },
+                                              "status": "Internal Server Error",
+                                              "code": 500,
+                                              "_postman_previewlanguage": "json",
+                                              "header": [
+                                                {
+                                                  "key": "Content-Type",
+                                                  "value": "application/json"
+                                                }
+                                              ],
+                                              "cookie": [],
+                                              "responseTime": null,
+                                              "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"details\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/CloudErrorBody detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/CloudErrorBody detected>\"\n      }\n    ],\n    \"message\": \"<string>\",\n    \"target\": \"<string>\"\n  }\n}",
+                                              "createdAt": "2026-07-28T10:55:23.000Z",
+                                              "updatedAt": "2026-07-28T10:55:23.000Z",
+                                              "uid": "35240-e64200f1-b94d-42eb-bf06-4041ae190039"
+                                            }
+                                          ],
+                                          "createdAt": "2026-07-28T10:55:23.000Z",
+                                          "updatedAt": "2026-07-28T10:55:23.000Z",
+                                          "uid": "35240-f4db5165-bdb6-4d9e-bb6f-261a58cc4a53"
+                                        }
+                                      ],
+                                      "id": "edd9c4f2-078b-481f-a5bc-348e63a9c607",
+                                      "createdAt": "2026-07-28T10:55:23.000Z",
+                                      "updatedAt": "2026-07-28T10:55:23.000Z",
+                                      "uid": "35240-edd9c4f2-078b-481f-a5bc-348e63a9c607"
+                                    },
+                                    {
+                                      "name": "Azure DevTest Labs Global Schedules_ Delete",
+                                      "id": "d172b6fb-d28a-4ede-84f2-68a32650952e",
+                                      "protocolProfileBehavior": {
+                                        "disableBodyPruning": true
+                                      },
+                                      "request": {
+                                        "method": "DELETE",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/schedules/:name?api-version=2018-09-15",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "subscriptions",
+                                            ":subscriptionId",
+                                            "resourceGroups",
+                                            ":resourceGroupName",
+                                            "providers",
+                                            "Microsoft.DevTestLab",
+                                            "schedules",
+                                            ":name"
+                                          ],
+                                          "query": [
+                                            {
+                                              "description": "(Required) Client API version.",
+                                              "key": "api-version",
+                                              "value": "2018-09-15"
+                                            }
+                                          ],
+                                          "variable": [
+                                            {
+                                              "id": "6aafb1e5-2640-4151-a7df-2886d7546fc1",
+                                              "key": "subscriptionId",
+                                              "value": "<string>",
+                                              "description": "(Required) The subscription ID."
+                                            },
+                                            {
+                                              "id": "e9deecd7-4853-454e-94ec-aa63aa5ee5c4",
+                                              "key": "resourceGroupName",
+                                              "value": "<string>",
+                                              "description": "(Required) The name of the resource group."
+                                            },
+                                            {
+                                              "id": "4c45fe70-9414-47bf-b7d4-ac5fcc3feee8",
+                                              "key": "name",
+                                              "value": "<string>",
+                                              "description": "(Required) The name of the schedule."
+                                            }
+                                          ]
+                                        },
+                                        "description": "Delete schedule."
+                                      },
+                                      "response": [
+                                        {
+                                          "id": "a9bbde9a-4bca-4edf-a654-dbf3af174966",
+                                          "name": "OK",
+                                          "originalRequest": {
+                                            "method": "DELETE",
+                                            "header": [
+                                              {
+                                                "description": "Added as a part of security scheme: oauth2",
+                                                "key": "Authorization",
+                                                "value": "<token>"
+                                              }
+                                            ],
+                                            "url": {
+                                              "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/schedules/:name?api-version=2018-09-15",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "subscriptions",
+                                                ":subscriptionId",
+                                                "resourceGroups",
+                                                ":resourceGroupName",
+                                                "providers",
+                                                "Microsoft.DevTestLab",
+                                                "schedules",
+                                                ":name"
+                                              ],
+                                              "query": [
+                                                {
+                                                  "description": "(Required) Client API version.",
+                                                  "key": "api-version",
+                                                  "value": "2018-09-15"
+                                                }
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "key": "subscriptionId"
+                                                },
+                                                {
+                                                  "key": "resourceGroupName"
+                                                },
+                                                {
+                                                  "key": "name"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "status": "OK",
+                                          "code": 200,
+                                          "_postman_previewlanguage": "text",
+                                          "header": [],
+                                          "cookie": [],
+                                          "responseTime": null,
+                                          "body": null,
+                                          "createdAt": "2026-07-28T10:55:23.000Z",
+                                          "updatedAt": "2026-07-28T10:55:23.000Z",
+                                          "uid": "35240-a9bbde9a-4bca-4edf-a654-dbf3af174966"
+                                        },
+                                        {
+                                          "id": "0f94a8cf-7857-4349-b7f2-a84e1fd03842",
+                                          "name": "No Content",
+                                          "originalRequest": {
+                                            "method": "DELETE",
+                                            "header": [
+                                              {
+                                                "description": "Added as a part of security scheme: oauth2",
+                                                "key": "Authorization",
+                                                "value": "<token>"
+                                              }
+                                            ],
+                                            "url": {
+                                              "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/schedules/:name?api-version=2018-09-15",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "subscriptions",
+                                                ":subscriptionId",
+                                                "resourceGroups",
+                                                ":resourceGroupName",
+                                                "providers",
+                                                "Microsoft.DevTestLab",
+                                                "schedules",
+                                                ":name"
+                                              ],
+                                              "query": [
+                                                {
+                                                  "description": "(Required) Client API version.",
+                                                  "key": "api-version",
+                                                  "value": "2018-09-15"
+                                                }
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "key": "subscriptionId"
+                                                },
+                                                {
+                                                  "key": "resourceGroupName"
+                                                },
+                                                {
+                                                  "key": "name"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "status": "No Content",
+                                          "code": 204,
+                                          "_postman_previewlanguage": "text",
+                                          "header": [],
+                                          "cookie": [],
+                                          "responseTime": null,
+                                          "body": null,
+                                          "createdAt": "2026-07-28T10:55:23.000Z",
+                                          "updatedAt": "2026-07-28T10:55:23.000Z",
+                                          "uid": "35240-0f94a8cf-7857-4349-b7f2-a84e1fd03842"
+                                        },
+                                        {
+                                          "id": "a49615b7-a3fc-4c33-8fd0-9d7f33658a53",
+                                          "name": "BadRequest",
+                                          "originalRequest": {
+                                            "method": "DELETE",
+                                            "header": [
+                                              {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                              },
+                                              {
+                                                "description": "Added as a part of security scheme: oauth2",
+                                                "key": "Authorization",
+                                                "value": "<token>"
+                                              }
+                                            ],
+                                            "url": {
+                                              "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/schedules/:name?api-version=2018-09-15",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "subscriptions",
+                                                ":subscriptionId",
+                                                "resourceGroups",
+                                                ":resourceGroupName",
+                                                "providers",
+                                                "Microsoft.DevTestLab",
+                                                "schedules",
+                                                ":name"
+                                              ],
+                                              "query": [
+                                                {
+                                                  "description": "(Required) Client API version.",
+                                                  "key": "api-version",
+                                                  "value": "2018-09-15"
+                                                }
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "key": "subscriptionId"
+                                                },
+                                                {
+                                                  "key": "resourceGroupName"
+                                                },
+                                                {
+                                                  "key": "name"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "status": "Internal Server Error",
+                                          "code": 500,
+                                          "_postman_previewlanguage": "json",
+                                          "header": [
+                                            {
+                                              "key": "Content-Type",
+                                              "value": "application/json"
+                                            }
+                                          ],
+                                          "cookie": [],
+                                          "responseTime": null,
+                                          "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"details\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/CloudErrorBody detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/CloudErrorBody detected>\"\n      }\n    ],\n    \"message\": \"<string>\",\n    \"target\": \"<string>\"\n  }\n}",
+                                          "createdAt": "2026-07-28T10:55:23.000Z",
+                                          "updatedAt": "2026-07-28T10:55:23.000Z",
+                                          "uid": "35240-a49615b7-a3fc-4c33-8fd0-9d7f33658a53"
+                                        }
+                                      ],
+                                      "createdAt": "2026-07-28T10:55:23.000Z",
+                                      "updatedAt": "2026-07-28T10:55:23.000Z",
+                                      "uid": "35240-d172b6fb-d28a-4ede-84f2-68a32650952e"
+                                    },
+                                    {
+                                      "name": "Azure DevTest Labs Global Schedules_ Get",
+                                      "id": "b925c3ea-3078-49c3-a5b0-16bc2f50ea01",
+                                      "protocolProfileBehavior": {
+                                        "disableBodyPruning": true
+                                      },
+                                      "request": {
+                                        "method": "GET",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/schedules/:name?$expand=<string>&api-version=2018-09-15",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "subscriptions",
+                                            ":subscriptionId",
+                                            "resourceGroups",
+                                            ":resourceGroupName",
+                                            "providers",
+                                            "Microsoft.DevTestLab",
+                                            "schedules",
+                                            ":name"
+                                          ],
+                                          "query": [
+                                            {
+                                              "description": "Specify the $expand query. Example: 'properties($select=status)'",
+                                              "key": "$expand",
+                                              "value": "<string>"
+                                            },
+                                            {
+                                              "description": "(Required) Client API version.",
+                                              "key": "api-version",
+                                              "value": "2018-09-15"
+                                            }
+                                          ],
+                                          "variable": [
+                                            {
+                                              "id": "1b9315da-c42c-4110-925d-200c79ffd803",
+                                              "key": "subscriptionId",
+                                              "value": "<string>",
+                                              "description": "(Required) The subscription ID."
+                                            },
+                                            {
+                                              "id": "75a75823-6e14-45b8-887f-f2f9fdb093f8",
+                                              "key": "resourceGroupName",
+                                              "value": "<string>",
+                                              "description": "(Required) The name of the resource group."
+                                            },
+                                            {
+                                              "id": "7ba278ed-673c-4937-86ca-cb16024aec76",
+                                              "key": "name",
+                                              "value": "<string>",
+                                              "description": "(Required) The name of the schedule."
+                                            }
+                                          ]
+                                        },
+                                        "description": "Get schedule."
+                                      },
+                                      "response": [
+                                        {
+                                          "id": "4de552f7-2937-401a-852f-0eebf522ae49",
+                                          "name": "OK",
+                                          "originalRequest": {
+                                            "method": "GET",
+                                            "header": [
+                                              {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                              },
+                                              {
+                                                "description": "Added as a part of security scheme: oauth2",
+                                                "key": "Authorization",
+                                                "value": "<token>"
+                                              }
+                                            ],
+                                            "url": {
+                                              "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/schedules/:name?$expand=<string>&api-version=2018-09-15",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "subscriptions",
+                                                ":subscriptionId",
+                                                "resourceGroups",
+                                                ":resourceGroupName",
+                                                "providers",
+                                                "Microsoft.DevTestLab",
+                                                "schedules",
+                                                ":name"
+                                              ],
+                                              "query": [
+                                                {
+                                                  "description": "Specify the $expand query. Example: 'properties($select=status)'",
+                                                  "key": "$expand",
+                                                  "value": "<string>"
+                                                },
+                                                {
+                                                  "description": "(Required) Client API version.",
+                                                  "key": "api-version",
+                                                  "value": "2018-09-15"
+                                                }
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "key": "subscriptionId"
+                                                },
+                                                {
+                                                  "key": "resourceGroupName"
+                                                },
+                                                {
+                                                  "key": "name"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "status": "OK",
+                                          "code": 200,
+                                          "_postman_previewlanguage": "json",
+                                          "header": [
+                                            {
+                                              "key": "Content-Type",
+                                              "value": "application/json"
+                                            }
+                                          ],
+                                          "cookie": [],
+                                          "responseTime": null,
+                                          "body": "{\n  \"properties\": {},\n  \"id\": \"<string>\",\n  \"location\": \"<string>\",\n  \"name\": \"<string>\",\n  \"tags\": {\n    \"commodo__f\": \"<string>\"\n  },\n  \"type\": \"<string>\"\n}",
+                                          "createdAt": "2026-07-28T10:55:23.000Z",
+                                          "updatedAt": "2026-07-28T10:55:23.000Z",
+                                          "uid": "35240-4de552f7-2937-401a-852f-0eebf522ae49"
+                                        },
+                                        {
+                                          "id": "1454b141-4e65-41c9-9569-c84129c5100c",
+                                          "name": "BadRequest",
+                                          "originalRequest": {
+                                            "method": "GET",
+                                            "header": [
+                                              {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                              },
+                                              {
+                                                "description": "Added as a part of security scheme: oauth2",
+                                                "key": "Authorization",
+                                                "value": "<token>"
+                                              }
+                                            ],
+                                            "url": {
+                                              "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/schedules/:name?$expand=<string>&api-version=2018-09-15",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "subscriptions",
+                                                ":subscriptionId",
+                                                "resourceGroups",
+                                                ":resourceGroupName",
+                                                "providers",
+                                                "Microsoft.DevTestLab",
+                                                "schedules",
+                                                ":name"
+                                              ],
+                                              "query": [
+                                                {
+                                                  "description": "Specify the $expand query. Example: 'properties($select=status)'",
+                                                  "key": "$expand",
+                                                  "value": "<string>"
+                                                },
+                                                {
+                                                  "description": "(Required) Client API version.",
+                                                  "key": "api-version",
+                                                  "value": "2018-09-15"
+                                                }
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "key": "subscriptionId"
+                                                },
+                                                {
+                                                  "key": "resourceGroupName"
+                                                },
+                                                {
+                                                  "key": "name"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "status": "Internal Server Error",
+                                          "code": 500,
+                                          "_postman_previewlanguage": "json",
+                                          "header": [
+                                            {
+                                              "key": "Content-Type",
+                                              "value": "application/json"
+                                            }
+                                          ],
+                                          "cookie": [],
+                                          "responseTime": null,
+                                          "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"details\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/CloudErrorBody detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/CloudErrorBody detected>\"\n      }\n    ],\n    \"message\": \"<string>\",\n    \"target\": \"<string>\"\n  }\n}",
+                                          "createdAt": "2026-07-28T10:55:23.000Z",
+                                          "updatedAt": "2026-07-28T10:55:23.000Z",
+                                          "uid": "35240-1454b141-4e65-41c9-9569-c84129c5100c"
+                                        }
+                                      ],
+                                      "createdAt": "2026-07-28T10:55:23.000Z",
+                                      "updatedAt": "2026-07-28T10:55:23.000Z",
+                                      "uid": "35240-b925c3ea-3078-49c3-a5b0-16bc2f50ea01"
+                                    },
+                                    {
+                                      "name": "Azure DevTest Labs Global Schedules_ Update",
+                                      "id": "e4023ed6-aaa3-4362-aee1-bdd3d872c022",
+                                      "protocolProfileBehavior": {
+                                        "disableBodyPruning": true
+                                      },
+                                      "request": {
+                                        "method": "PATCH",
+                                        "header": [
+                                          {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          }
+                                        ],
+                                        "body": {
+                                          "mode": "raw",
+                                          "raw": "{\n  \"properties\": {},\n  \"tags\": {\n    \"dolor_a\": \"<string>\"\n  }\n}",
+                                          "options": {
+                                            "raw": {
+                                              "headerFamily": "json",
+                                              "language": "json"
+                                            }
+                                          }
+                                        },
+                                        "url": {
+                                          "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/schedules/:name?api-version=2018-09-15",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "subscriptions",
+                                            ":subscriptionId",
+                                            "resourceGroups",
+                                            ":resourceGroupName",
+                                            "providers",
+                                            "Microsoft.DevTestLab",
+                                            "schedules",
+                                            ":name"
+                                          ],
+                                          "query": [
+                                            {
+                                              "description": "(Required) Client API version.",
+                                              "key": "api-version",
+                                              "value": "2018-09-15"
+                                            }
+                                          ],
+                                          "variable": [
+                                            {
+                                              "id": "0570a2ff-eaae-4c5c-a740-8c169b730a1f",
+                                              "key": "subscriptionId",
+                                              "value": "<string>",
+                                              "description": "(Required) The subscription ID."
+                                            },
+                                            {
+                                              "id": "a017a3fe-3c7b-431b-a504-18cbf13a2482",
+                                              "key": "resourceGroupName",
+                                              "value": "<string>",
+                                              "description": "(Required) The name of the resource group."
+                                            },
+                                            {
+                                              "id": "99f107f0-f266-41ab-8930-3bfdce24f4c9",
+                                              "key": "name",
+                                              "value": "<string>",
+                                              "description": "(Required) The name of the schedule."
+                                            }
+                                          ]
+                                        },
+                                        "description": "Allows modifying tags of schedules. All other properties will be ignored."
+                                      },
+                                      "response": [
+                                        {
+                                          "id": "098ff198-4b9e-4c90-9941-31ef3ca54649",
+                                          "name": "OK",
+                                          "originalRequest": {
+                                            "method": "PATCH",
+                                            "header": [
+                                              {
+                                                "key": "Content-Type",
+                                                "value": "application/json"
+                                              },
+                                              {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                              },
+                                              {
+                                                "description": "Added as a part of security scheme: oauth2",
+                                                "key": "Authorization",
+                                                "value": "<token>"
+                                              }
+                                            ],
+                                            "body": {
+                                              "mode": "raw",
+                                              "raw": "{\n  \"properties\": {},\n  \"tags\": {\n    \"dolor_a\": \"<string>\"\n  }\n}",
+                                              "options": {
+                                                "raw": {
+                                                  "headerFamily": "json",
+                                                  "language": "json"
+                                                }
+                                              }
+                                            },
+                                            "url": {
+                                              "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/schedules/:name?api-version=2018-09-15",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "subscriptions",
+                                                ":subscriptionId",
+                                                "resourceGroups",
+                                                ":resourceGroupName",
+                                                "providers",
+                                                "Microsoft.DevTestLab",
+                                                "schedules",
+                                                ":name"
+                                              ],
+                                              "query": [
+                                                {
+                                                  "description": "(Required) Client API version.",
+                                                  "key": "api-version",
+                                                  "value": "2018-09-15"
+                                                }
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "key": "subscriptionId"
+                                                },
+                                                {
+                                                  "key": "resourceGroupName"
+                                                },
+                                                {
+                                                  "key": "name"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "status": "OK",
+                                          "code": 200,
+                                          "_postman_previewlanguage": "json",
+                                          "header": [
+                                            {
+                                              "key": "Content-Type",
+                                              "value": "application/json"
+                                            }
+                                          ],
+                                          "cookie": [],
+                                          "responseTime": null,
+                                          "body": "{\n  \"properties\": {},\n  \"id\": \"<string>\",\n  \"location\": \"<string>\",\n  \"name\": \"<string>\",\n  \"tags\": {\n    \"commodo__f\": \"<string>\"\n  },\n  \"type\": \"<string>\"\n}",
+                                          "createdAt": "2026-07-28T10:55:23.000Z",
+                                          "updatedAt": "2026-07-28T10:55:23.000Z",
+                                          "uid": "35240-098ff198-4b9e-4c90-9941-31ef3ca54649"
+                                        },
+                                        {
+                                          "id": "2bf946d7-9757-4155-9854-681f14eee573",
+                                          "name": "BadRequest",
+                                          "originalRequest": {
+                                            "method": "PATCH",
+                                            "header": [
+                                              {
+                                                "key": "Content-Type",
+                                                "value": "application/json"
+                                              },
+                                              {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                              },
+                                              {
+                                                "description": "Added as a part of security scheme: oauth2",
+                                                "key": "Authorization",
+                                                "value": "<token>"
+                                              }
+                                            ],
+                                            "body": {
+                                              "mode": "raw",
+                                              "raw": "{\n  \"properties\": {},\n  \"tags\": {\n    \"dolor_a\": \"<string>\"\n  }\n}",
+                                              "options": {
+                                                "raw": {
+                                                  "headerFamily": "json",
+                                                  "language": "json"
+                                                }
+                                              }
+                                            },
+                                            "url": {
+                                              "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/schedules/:name?api-version=2018-09-15",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "subscriptions",
+                                                ":subscriptionId",
+                                                "resourceGroups",
+                                                ":resourceGroupName",
+                                                "providers",
+                                                "Microsoft.DevTestLab",
+                                                "schedules",
+                                                ":name"
+                                              ],
+                                              "query": [
+                                                {
+                                                  "description": "(Required) Client API version.",
+                                                  "key": "api-version",
+                                                  "value": "2018-09-15"
+                                                }
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "key": "subscriptionId"
+                                                },
+                                                {
+                                                  "key": "resourceGroupName"
+                                                },
+                                                {
+                                                  "key": "name"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "status": "Internal Server Error",
+                                          "code": 500,
+                                          "_postman_previewlanguage": "json",
+                                          "header": [
+                                            {
+                                              "key": "Content-Type",
+                                              "value": "application/json"
+                                            }
+                                          ],
+                                          "cookie": [],
+                                          "responseTime": null,
+                                          "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"details\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/CloudErrorBody detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/CloudErrorBody detected>\"\n      }\n    ],\n    \"message\": \"<string>\",\n    \"target\": \"<string>\"\n  }\n}",
+                                          "createdAt": "2026-07-28T10:55:23.000Z",
+                                          "updatedAt": "2026-07-28T10:55:23.000Z",
+                                          "uid": "35240-2bf946d7-9757-4155-9854-681f14eee573"
+                                        }
+                                      ],
+                                      "createdAt": "2026-07-28T10:55:23.000Z",
+                                      "updatedAt": "2026-07-28T10:55:23.000Z",
+                                      "uid": "35240-e4023ed6-aaa3-4362-aee1-bdd3d872c022"
+                                    },
+                                    {
+                                      "name": "Azure DevTest Labs Global Schedules_ Create or Update",
+                                      "id": "028b3b6e-0088-4529-a751-8e84e94869c9",
+                                      "protocolProfileBehavior": {
+                                        "disableBodyPruning": true
+                                      },
+                                      "request": {
+                                        "method": "PUT",
+                                        "header": [
+                                          {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          }
+                                        ],
+                                        "body": {
+                                          "mode": "raw",
+                                          "raw": "{\n  \"properties\": {},\n  \"id\": \"<string>\",\n  \"location\": \"<string>\",\n  \"name\": \"<string>\",\n  \"tags\": {\n    \"commodo__f\": \"<string>\"\n  },\n  \"type\": \"<string>\"\n}",
+                                          "options": {
+                                            "raw": {
+                                              "headerFamily": "json",
+                                              "language": "json"
+                                            }
+                                          }
+                                        },
+                                        "url": {
+                                          "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/schedules/:name?api-version=2018-09-15",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "subscriptions",
+                                            ":subscriptionId",
+                                            "resourceGroups",
+                                            ":resourceGroupName",
+                                            "providers",
+                                            "Microsoft.DevTestLab",
+                                            "schedules",
+                                            ":name"
+                                          ],
+                                          "query": [
+                                            {
+                                              "description": "(Required) Client API version.",
+                                              "key": "api-version",
+                                              "value": "2018-09-15"
+                                            }
+                                          ],
+                                          "variable": [
+                                            {
+                                              "id": "1065eb8a-7f26-4b08-97e3-becf15c8a641",
+                                              "key": "subscriptionId",
+                                              "value": "<string>",
+                                              "description": "(Required) The subscription ID."
+                                            },
+                                            {
+                                              "id": "fe17a369-0f95-4176-8bd3-b724d33ac844",
+                                              "key": "resourceGroupName",
+                                              "value": "<string>",
+                                              "description": "(Required) The name of the resource group."
+                                            },
+                                            {
+                                              "id": "2a29bfd2-e4f2-4e00-afbf-b4724582e0fe",
+                                              "key": "name",
+                                              "value": "<string>",
+                                              "description": "(Required) The name of the schedule."
+                                            }
+                                          ]
+                                        },
+                                        "description": "Create or replace an existing schedule."
+                                      },
+                                      "response": [
+                                        {
+                                          "id": "a1cac03f-3187-4552-a90e-61115f4c9c4c",
+                                          "name": "OK",
+                                          "originalRequest": {
+                                            "method": "PUT",
+                                            "header": [
+                                              {
+                                                "key": "Content-Type",
+                                                "value": "application/json"
+                                              },
+                                              {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                              },
+                                              {
+                                                "description": "Added as a part of security scheme: oauth2",
+                                                "key": "Authorization",
+                                                "value": "<token>"
+                                              }
+                                            ],
+                                            "body": {
+                                              "mode": "raw",
+                                              "raw": "{\n  \"properties\": {},\n  \"id\": \"<string>\",\n  \"location\": \"<string>\",\n  \"name\": \"<string>\",\n  \"tags\": {\n    \"commodo__f\": \"<string>\"\n  },\n  \"type\": \"<string>\"\n}",
+                                              "options": {
+                                                "raw": {
+                                                  "headerFamily": "json",
+                                                  "language": "json"
+                                                }
+                                              }
+                                            },
+                                            "url": {
+                                              "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/schedules/:name?api-version=2018-09-15",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "subscriptions",
+                                                ":subscriptionId",
+                                                "resourceGroups",
+                                                ":resourceGroupName",
+                                                "providers",
+                                                "Microsoft.DevTestLab",
+                                                "schedules",
+                                                ":name"
+                                              ],
+                                              "query": [
+                                                {
+                                                  "description": "(Required) Client API version.",
+                                                  "key": "api-version",
+                                                  "value": "2018-09-15"
+                                                }
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "key": "subscriptionId"
+                                                },
+                                                {
+                                                  "key": "resourceGroupName"
+                                                },
+                                                {
+                                                  "key": "name"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "status": "OK",
+                                          "code": 200,
+                                          "_postman_previewlanguage": "json",
+                                          "header": [
+                                            {
+                                              "key": "Content-Type",
+                                              "value": "application/json"
+                                            }
+                                          ],
+                                          "cookie": [],
+                                          "responseTime": null,
+                                          "body": "{\n  \"properties\": {},\n  \"id\": \"<string>\",\n  \"location\": \"<string>\",\n  \"name\": \"<string>\",\n  \"tags\": {\n    \"commodo__f\": \"<string>\"\n  },\n  \"type\": \"<string>\"\n}",
+                                          "createdAt": "2026-07-28T10:55:23.000Z",
+                                          "updatedAt": "2026-07-28T10:55:23.000Z",
+                                          "uid": "35240-a1cac03f-3187-4552-a90e-61115f4c9c4c"
+                                        },
+                                        {
+                                          "id": "b9c6c6db-5bde-4a6c-8029-e835f987af00",
+                                          "name": "Created",
+                                          "originalRequest": {
+                                            "method": "PUT",
+                                            "header": [
+                                              {
+                                                "key": "Content-Type",
+                                                "value": "application/json"
+                                              },
+                                              {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                              },
+                                              {
+                                                "description": "Added as a part of security scheme: oauth2",
+                                                "key": "Authorization",
+                                                "value": "<token>"
+                                              }
+                                            ],
+                                            "body": {
+                                              "mode": "raw",
+                                              "raw": "{\n  \"properties\": {},\n  \"id\": \"<string>\",\n  \"location\": \"<string>\",\n  \"name\": \"<string>\",\n  \"tags\": {\n    \"commodo__f\": \"<string>\"\n  },\n  \"type\": \"<string>\"\n}",
+                                              "options": {
+                                                "raw": {
+                                                  "headerFamily": "json",
+                                                  "language": "json"
+                                                }
+                                              }
+                                            },
+                                            "url": {
+                                              "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/schedules/:name?api-version=2018-09-15",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "subscriptions",
+                                                ":subscriptionId",
+                                                "resourceGroups",
+                                                ":resourceGroupName",
+                                                "providers",
+                                                "Microsoft.DevTestLab",
+                                                "schedules",
+                                                ":name"
+                                              ],
+                                              "query": [
+                                                {
+                                                  "description": "(Required) Client API version.",
+                                                  "key": "api-version",
+                                                  "value": "2018-09-15"
+                                                }
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "key": "subscriptionId"
+                                                },
+                                                {
+                                                  "key": "resourceGroupName"
+                                                },
+                                                {
+                                                  "key": "name"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "status": "Created",
+                                          "code": 201,
+                                          "_postman_previewlanguage": "json",
+                                          "header": [
+                                            {
+                                              "key": "Content-Type",
+                                              "value": "application/json"
+                                            }
+                                          ],
+                                          "cookie": [],
+                                          "responseTime": null,
+                                          "body": "{\n  \"properties\": {},\n  \"id\": \"<string>\",\n  \"location\": \"<string>\",\n  \"name\": \"<string>\",\n  \"tags\": {\n    \"commodo__f\": \"<string>\"\n  },\n  \"type\": \"<string>\"\n}",
+                                          "createdAt": "2026-07-28T10:55:23.000Z",
+                                          "updatedAt": "2026-07-28T10:55:23.000Z",
+                                          "uid": "35240-b9c6c6db-5bde-4a6c-8029-e835f987af00"
+                                        },
+                                        {
+                                          "id": "c7e4e3f3-2a0d-4440-9830-5b9f8c1a19ca",
+                                          "name": "BadRequest",
+                                          "originalRequest": {
+                                            "method": "PUT",
+                                            "header": [
+                                              {
+                                                "key": "Content-Type",
+                                                "value": "application/json"
+                                              },
+                                              {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                              },
+                                              {
+                                                "description": "Added as a part of security scheme: oauth2",
+                                                "key": "Authorization",
+                                                "value": "<token>"
+                                              }
+                                            ],
+                                            "body": {
+                                              "mode": "raw",
+                                              "raw": "{\n  \"properties\": {},\n  \"id\": \"<string>\",\n  \"location\": \"<string>\",\n  \"name\": \"<string>\",\n  \"tags\": {\n    \"commodo__f\": \"<string>\"\n  },\n  \"type\": \"<string>\"\n}",
+                                              "options": {
+                                                "raw": {
+                                                  "headerFamily": "json",
+                                                  "language": "json"
+                                                }
+                                              }
+                                            },
+                                            "url": {
+                                              "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/schedules/:name?api-version=2018-09-15",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "subscriptions",
+                                                ":subscriptionId",
+                                                "resourceGroups",
+                                                ":resourceGroupName",
+                                                "providers",
+                                                "Microsoft.DevTestLab",
+                                                "schedules",
+                                                ":name"
+                                              ],
+                                              "query": [
+                                                {
+                                                  "description": "(Required) Client API version.",
+                                                  "key": "api-version",
+                                                  "value": "2018-09-15"
+                                                }
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "key": "subscriptionId"
+                                                },
+                                                {
+                                                  "key": "resourceGroupName"
+                                                },
+                                                {
+                                                  "key": "name"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "status": "Internal Server Error",
+                                          "code": 500,
+                                          "_postman_previewlanguage": "json",
+                                          "header": [
+                                            {
+                                              "key": "Content-Type",
+                                              "value": "application/json"
+                                            }
+                                          ],
+                                          "cookie": [],
+                                          "responseTime": null,
+                                          "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"details\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/CloudErrorBody detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/CloudErrorBody detected>\"\n      }\n    ],\n    \"message\": \"<string>\",\n    \"target\": \"<string>\"\n  }\n}",
+                                          "createdAt": "2026-07-28T10:55:23.000Z",
+                                          "updatedAt": "2026-07-28T10:55:23.000Z",
+                                          "uid": "35240-c7e4e3f3-2a0d-4440-9830-5b9f8c1a19ca"
+                                        }
+                                      ],
+                                      "createdAt": "2026-07-28T10:55:23.000Z",
+                                      "updatedAt": "2026-07-28T10:55:23.000Z",
+                                      "uid": "35240-028b3b6e-0088-4529-a751-8e84e94869c9"
+                                    }
+                                  ],
+                                  "id": "7ed9d621-11e6-4076-8903-7525af8dd559",
+                                  "createdAt": "2026-07-28T10:55:23.000Z",
+                                  "updatedAt": "2026-07-28T10:55:23.000Z",
+                                  "uid": "35240-7ed9d621-11e6-4076-8903-7525af8dd559"
+                                },
+                                {
+                                  "name": "Azure DevTest Labs Global Schedules_ List by Resource Group",
+                                  "id": "62d3601b-ff5c-4bef-8ea0-9b0778a61673",
+                                  "protocolProfileBehavior": {
+                                    "disableBodyPruning": true
+                                  },
+                                  "request": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/schedules?$expand=<string>&$filter=<string>&$top=<integer>&$orderby=<string>&api-version=2018-09-15",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "subscriptions",
+                                        ":subscriptionId",
+                                        "resourceGroups",
+                                        ":resourceGroupName",
+                                        "providers",
+                                        "Microsoft.DevTestLab",
+                                        "schedules"
+                                      ],
+                                      "query": [
+                                        {
+                                          "description": "Specify the $expand query. Example: 'properties($select=status)'",
+                                          "key": "$expand",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "description": "The filter to apply to the operation. Example: '$filter=contains(name,'myName')",
+                                          "key": "$filter",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "description": "The maximum number of resources to return from the operation. Example: '$top=10'",
+                                          "key": "$top",
+                                          "value": "<integer>"
+                                        },
+                                        {
+                                          "description": "The ordering expression for the results, using OData notation. Example: '$orderby=name desc'",
+                                          "key": "$orderby",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "description": "(Required) Client API version.",
+                                          "key": "api-version",
+                                          "value": "2018-09-15"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "id": "d8ea3aca-05f3-4861-b431-7bd3e3f42397",
+                                          "key": "subscriptionId",
+                                          "value": "<string>",
+                                          "description": "(Required) The subscription ID."
+                                        },
+                                        {
+                                          "id": "0cd7a25c-cd6d-422e-bcf9-4a416f40654e",
+                                          "key": "resourceGroupName",
+                                          "value": "<string>",
+                                          "description": "(Required) The name of the resource group."
+                                        }
+                                      ]
+                                    },
+                                    "description": "List schedules in a resource group."
+                                  },
+                                  "response": [
+                                    {
+                                      "id": "eb4b4d36-ace5-4fca-96cf-90339feb3a7a",
+                                      "name": "OK",
+                                      "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: oauth2",
+                                            "key": "Authorization",
+                                            "value": "<token>"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/schedules?$expand=<string>&$filter=<string>&$top=<integer>&$orderby=<string>&api-version=2018-09-15",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "subscriptions",
+                                            ":subscriptionId",
+                                            "resourceGroups",
+                                            ":resourceGroupName",
+                                            "providers",
+                                            "Microsoft.DevTestLab",
+                                            "schedules"
+                                          ],
+                                          "query": [
+                                            {
+                                              "description": "Specify the $expand query. Example: 'properties($select=status)'",
+                                              "key": "$expand",
+                                              "value": "<string>"
+                                            },
+                                            {
+                                              "description": "The filter to apply to the operation. Example: '$filter=contains(name,'myName')",
+                                              "key": "$filter",
+                                              "value": "<string>"
+                                            },
+                                            {
+                                              "description": "The maximum number of resources to return from the operation. Example: '$top=10'",
+                                              "key": "$top",
+                                              "value": "<integer>"
+                                            },
+                                            {
+                                              "description": "The ordering expression for the results, using OData notation. Example: '$orderby=name desc'",
+                                              "key": "$orderby",
+                                              "value": "<string>"
+                                            },
+                                            {
+                                              "description": "(Required) Client API version.",
+                                              "key": "api-version",
+                                              "value": "2018-09-15"
+                                            }
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "subscriptionId"
+                                            },
+                                            {
+                                              "key": "resourceGroupName"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "OK",
+                                      "code": 200,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"nextLink\": \"<string>\",\n  \"value\": [\n    {\n      \"properties\": {},\n      \"id\": \"<string>\",\n      \"location\": \"<string>\",\n      \"name\": \"<string>\",\n      \"tags\": {\n        \"adipisicing8\": \"<string>\",\n        \"quiab7\": \"<string>\",\n        \"consecteturc3\": \"<string>\",\n        \"proident_b24\": \"<string>\"\n      },\n      \"type\": \"<string>\"\n    },\n    {\n      \"properties\": {},\n      \"id\": \"<string>\",\n      \"location\": \"<string>\",\n      \"name\": \"<string>\",\n      \"tags\": {\n        \"dolorb\": \"<string>\",\n        \"eiusmod5\": \"<string>\"\n      },\n      \"type\": \"<string>\"\n    }\n  ]\n}",
+                                      "createdAt": "2026-07-28T10:55:23.000Z",
+                                      "updatedAt": "2026-07-28T10:55:23.000Z",
+                                      "uid": "35240-eb4b4d36-ace5-4fca-96cf-90339feb3a7a"
+                                    },
+                                    {
+                                      "id": "4044d9f6-2af8-4aaf-a75c-4cbc711db5ed",
+                                      "name": "BadRequest",
+                                      "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: oauth2",
+                                            "key": "Authorization",
+                                            "value": "<token>"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/schedules?$expand=<string>&$filter=<string>&$top=<integer>&$orderby=<string>&api-version=2018-09-15",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "subscriptions",
+                                            ":subscriptionId",
+                                            "resourceGroups",
+                                            ":resourceGroupName",
+                                            "providers",
+                                            "Microsoft.DevTestLab",
+                                            "schedules"
+                                          ],
+                                          "query": [
+                                            {
+                                              "description": "Specify the $expand query. Example: 'properties($select=status)'",
+                                              "key": "$expand",
+                                              "value": "<string>"
+                                            },
+                                            {
+                                              "description": "The filter to apply to the operation. Example: '$filter=contains(name,'myName')",
+                                              "key": "$filter",
+                                              "value": "<string>"
+                                            },
+                                            {
+                                              "description": "The maximum number of resources to return from the operation. Example: '$top=10'",
+                                              "key": "$top",
+                                              "value": "<integer>"
+                                            },
+                                            {
+                                              "description": "The ordering expression for the results, using OData notation. Example: '$orderby=name desc'",
+                                              "key": "$orderby",
+                                              "value": "<string>"
+                                            },
+                                            {
+                                              "description": "(Required) Client API version.",
+                                              "key": "api-version",
+                                              "value": "2018-09-15"
+                                            }
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "subscriptionId"
+                                            },
+                                            {
+                                              "key": "resourceGroupName"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Internal Server Error",
+                                      "code": 500,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"details\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/CloudErrorBody detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/CloudErrorBody detected>\"\n      }\n    ],\n    \"message\": \"<string>\",\n    \"target\": \"<string>\"\n  }\n}",
+                                      "createdAt": "2026-07-28T10:55:23.000Z",
+                                      "updatedAt": "2026-07-28T10:55:23.000Z",
+                                      "uid": "35240-4044d9f6-2af8-4aaf-a75c-4cbc711db5ed"
+                                    }
+                                  ],
+                                  "createdAt": "2026-07-28T10:55:23.000Z",
+                                  "updatedAt": "2026-07-28T10:55:23.000Z",
+                                  "uid": "35240-62d3601b-ff5c-4bef-8ea0-9b0778a61673"
+                                }
+                              ],
+                              "id": "e0a4a971-70c9-435f-89ad-22c9403a2139",
+                              "createdAt": "2026-07-28T10:55:23.000Z",
+                              "updatedAt": "2026-07-28T10:55:23.000Z",
+                              "uid": "35240-e0a4a971-70c9-435f-89ad-22c9403a2139"
+                            }
+                          ],
+                          "id": "5ec3c8d2-f0ef-4eff-91cc-1912a7ff65b2",
+                          "createdAt": "2026-07-28T10:55:23.000Z",
+                          "updatedAt": "2026-07-28T10:55:23.000Z",
+                          "uid": "35240-5ec3c8d2-f0ef-4eff-91cc-1912a7ff65b2"
+                        }
+                      ],
+                      "id": "b07ef745-f135-4149-8722-612baa065803",
+                      "createdAt": "2026-07-28T10:55:23.000Z",
+                      "updatedAt": "2026-07-28T10:55:23.000Z",
+                      "uid": "35240-b07ef745-f135-4149-8722-612baa065803"
+                    }
+                  ],
+                  "id": "58930468-fca9-4133-825c-c97db118e8ab",
+                  "createdAt": "2026-07-28T10:55:23.000Z",
+                  "updatedAt": "2026-07-28T10:55:23.000Z",
+                  "uid": "35240-58930468-fca9-4133-825c-c97db118e8ab"
+                }
+              ],
+              "id": "2cb39347-ca9a-4278-bd55-badb87e7ac97",
+              "createdAt": "2026-07-28T10:55:23.000Z",
+              "updatedAt": "2026-07-28T10:55:23.000Z",
+              "uid": "35240-2cb39347-ca9a-4278-bd55-badb87e7ac97"
+            }
+          ],
+          "id": "da8eb6e0-90cd-4ff1-ae52-d0578286f1f4",
+          "createdAt": "2026-07-28T10:55:23.000Z",
+          "updatedAt": "2026-07-28T10:55:23.000Z",
+          "uid": "35240-da8eb6e0-90cd-4ff1-ae52-d0578286f1f4"
+        }
+      ],
+      "id": "6dc6cb98-79d4-4775-84dc-e442de893a05",
+      "createdAt": "2026-07-28T10:55:23.000Z",
+      "updatedAt": "2026-07-28T10:55:23.000Z",
+      "uid": "35240-6dc6cb98-79d4-4775-84dc-e442de893a05"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "user_impersonation",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "implicit",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://management.azure.com"
+    }
+  ]
+}

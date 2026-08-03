@@ -1,0 +1,1562 @@
+{
+  "info": {
+    "_postman_id": "c3bf523d-5ebe-40e9-85a9-0760b9fa3915",
+    "name": "DevTestLabsClient ArmTemplates VirtualNetworks API",
+    "description": "The DevTest Labs Client.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T10:55:58.000Z",
+    "updatedAt": "2026-07-28T10:55:58.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-c3bf523d-5ebe-40e9-85a9-0760b9fa3915"
+  },
+  "item": [
+    {
+      "name": "subscriptions",
+      "item": [
+        {
+          "name": "{subscriptionId}",
+          "item": [
+            {
+              "name": "resourceGroups",
+              "item": [
+                {
+                  "name": "{resourceGroupName}",
+                  "item": [
+                    {
+                      "name": "providers",
+                      "item": [
+                        {
+                          "name": "Microsoft.DevTestLab",
+                          "item": [
+                            {
+                              "name": "labs",
+                              "item": [
+                                {
+                                  "name": "{labName}",
+                                  "item": [
+                                    {
+                                      "name": "virtualnetworks",
+                                      "item": [
+                                        {
+                                          "name": "{name}",
+                                          "item": [
+                                            {
+                                              "name": "Azure DevTest Labs Virtual Networks_ Delete",
+                                              "id": "0ef1ff9c-5651-4e8b-bcb2-6c34c0317fdb",
+                                              "protocolProfileBehavior": {
+                                                "disableBodyPruning": true
+                                              },
+                                              "request": {
+                                                "method": "DELETE",
+                                                "header": [
+                                                  {
+                                                    "key": "Accept",
+                                                    "value": "application/json"
+                                                  }
+                                                ],
+                                                "url": {
+                                                  "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/labs/:labName/virtualnetworks/:name?api-version=2018-09-15",
+                                                  "host": [
+                                                    "{{baseUrl}}"
+                                                  ],
+                                                  "path": [
+                                                    "subscriptions",
+                                                    ":subscriptionId",
+                                                    "resourceGroups",
+                                                    ":resourceGroupName",
+                                                    "providers",
+                                                    "Microsoft.DevTestLab",
+                                                    "labs",
+                                                    ":labName",
+                                                    "virtualnetworks",
+                                                    ":name"
+                                                  ],
+                                                  "query": [
+                                                    {
+                                                      "description": "(Required) Client API version.",
+                                                      "key": "api-version",
+                                                      "value": "2018-09-15"
+                                                    }
+                                                  ],
+                                                  "variable": [
+                                                    {
+                                                      "id": "cbedd166-9ca6-4b26-942d-68ec56db1938",
+                                                      "key": "subscriptionId",
+                                                      "value": "<string>",
+                                                      "description": "(Required) The subscription ID."
+                                                    },
+                                                    {
+                                                      "id": "29f30a62-893f-41d0-b560-f635b85aa4b1",
+                                                      "key": "resourceGroupName",
+                                                      "value": "<string>",
+                                                      "description": "(Required) The name of the resource group."
+                                                    },
+                                                    {
+                                                      "id": "f766549f-b6c4-4de1-adf0-61847252056a",
+                                                      "key": "labName",
+                                                      "value": "<string>",
+                                                      "description": "(Required) The name of the lab."
+                                                    },
+                                                    {
+                                                      "id": "cc085994-9abd-49a0-9457-4505fa921c4f",
+                                                      "key": "name",
+                                                      "value": "<string>",
+                                                      "description": "(Required) The name of the virtual network."
+                                                    }
+                                                  ]
+                                                },
+                                                "description": "Delete virtual network. This operation can take a while to complete."
+                                              },
+                                              "response": [
+                                                {
+                                                  "id": "4321f80c-2526-4570-9e1c-eabee8820cb2",
+                                                  "name": "OK",
+                                                  "originalRequest": {
+                                                    "method": "DELETE",
+                                                    "header": [
+                                                      {
+                                                        "description": "Added as a part of security scheme: oauth2",
+                                                        "key": "Authorization",
+                                                        "value": "<token>"
+                                                      }
+                                                    ],
+                                                    "url": {
+                                                      "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/labs/:labName/virtualnetworks/:name?api-version=2018-09-15",
+                                                      "host": [
+                                                        "{{baseUrl}}"
+                                                      ],
+                                                      "path": [
+                                                        "subscriptions",
+                                                        ":subscriptionId",
+                                                        "resourceGroups",
+                                                        ":resourceGroupName",
+                                                        "providers",
+                                                        "Microsoft.DevTestLab",
+                                                        "labs",
+                                                        ":labName",
+                                                        "virtualnetworks",
+                                                        ":name"
+                                                      ],
+                                                      "query": [
+                                                        {
+                                                          "description": "(Required) Client API version.",
+                                                          "key": "api-version",
+                                                          "value": "2018-09-15"
+                                                        }
+                                                      ],
+                                                      "variable": [
+                                                        {
+                                                          "key": "subscriptionId"
+                                                        },
+                                                        {
+                                                          "key": "resourceGroupName"
+                                                        },
+                                                        {
+                                                          "key": "labName"
+                                                        },
+                                                        {
+                                                          "key": "name"
+                                                        }
+                                                      ]
+                                                    }
+                                                  },
+                                                  "status": "OK",
+                                                  "code": 200,
+                                                  "_postman_previewlanguage": "text",
+                                                  "header": [],
+                                                  "cookie": [],
+                                                  "responseTime": null,
+                                                  "body": null,
+                                                  "createdAt": "2026-07-28T10:55:58.000Z",
+                                                  "updatedAt": "2026-07-28T10:55:58.000Z",
+                                                  "uid": "35240-4321f80c-2526-4570-9e1c-eabee8820cb2"
+                                                },
+                                                {
+                                                  "id": "ad1ff0c4-0f54-4205-9fa1-b837f0339796",
+                                                  "name": "Accepted",
+                                                  "originalRequest": {
+                                                    "method": "DELETE",
+                                                    "header": [
+                                                      {
+                                                        "description": "Added as a part of security scheme: oauth2",
+                                                        "key": "Authorization",
+                                                        "value": "<token>"
+                                                      }
+                                                    ],
+                                                    "url": {
+                                                      "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/labs/:labName/virtualnetworks/:name?api-version=2018-09-15",
+                                                      "host": [
+                                                        "{{baseUrl}}"
+                                                      ],
+                                                      "path": [
+                                                        "subscriptions",
+                                                        ":subscriptionId",
+                                                        "resourceGroups",
+                                                        ":resourceGroupName",
+                                                        "providers",
+                                                        "Microsoft.DevTestLab",
+                                                        "labs",
+                                                        ":labName",
+                                                        "virtualnetworks",
+                                                        ":name"
+                                                      ],
+                                                      "query": [
+                                                        {
+                                                          "description": "(Required) Client API version.",
+                                                          "key": "api-version",
+                                                          "value": "2018-09-15"
+                                                        }
+                                                      ],
+                                                      "variable": [
+                                                        {
+                                                          "key": "subscriptionId"
+                                                        },
+                                                        {
+                                                          "key": "resourceGroupName"
+                                                        },
+                                                        {
+                                                          "key": "labName"
+                                                        },
+                                                        {
+                                                          "key": "name"
+                                                        }
+                                                      ]
+                                                    }
+                                                  },
+                                                  "status": "Accepted",
+                                                  "code": 202,
+                                                  "_postman_previewlanguage": "text",
+                                                  "header": [],
+                                                  "cookie": [],
+                                                  "responseTime": null,
+                                                  "body": null,
+                                                  "createdAt": "2026-07-28T10:55:58.000Z",
+                                                  "updatedAt": "2026-07-28T10:55:58.000Z",
+                                                  "uid": "35240-ad1ff0c4-0f54-4205-9fa1-b837f0339796"
+                                                },
+                                                {
+                                                  "id": "87dbd4bb-55aa-479a-8414-013f68e8ce95",
+                                                  "name": "No Content",
+                                                  "originalRequest": {
+                                                    "method": "DELETE",
+                                                    "header": [
+                                                      {
+                                                        "description": "Added as a part of security scheme: oauth2",
+                                                        "key": "Authorization",
+                                                        "value": "<token>"
+                                                      }
+                                                    ],
+                                                    "url": {
+                                                      "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/labs/:labName/virtualnetworks/:name?api-version=2018-09-15",
+                                                      "host": [
+                                                        "{{baseUrl}}"
+                                                      ],
+                                                      "path": [
+                                                        "subscriptions",
+                                                        ":subscriptionId",
+                                                        "resourceGroups",
+                                                        ":resourceGroupName",
+                                                        "providers",
+                                                        "Microsoft.DevTestLab",
+                                                        "labs",
+                                                        ":labName",
+                                                        "virtualnetworks",
+                                                        ":name"
+                                                      ],
+                                                      "query": [
+                                                        {
+                                                          "description": "(Required) Client API version.",
+                                                          "key": "api-version",
+                                                          "value": "2018-09-15"
+                                                        }
+                                                      ],
+                                                      "variable": [
+                                                        {
+                                                          "key": "subscriptionId"
+                                                        },
+                                                        {
+                                                          "key": "resourceGroupName"
+                                                        },
+                                                        {
+                                                          "key": "labName"
+                                                        },
+                                                        {
+                                                          "key": "name"
+                                                        }
+                                                      ]
+                                                    }
+                                                  },
+                                                  "status": "No Content",
+                                                  "code": 204,
+                                                  "_postman_previewlanguage": "text",
+                                                  "header": [],
+                                                  "cookie": [],
+                                                  "responseTime": null,
+                                                  "body": null,
+                                                  "createdAt": "2026-07-28T10:55:58.000Z",
+                                                  "updatedAt": "2026-07-28T10:55:58.000Z",
+                                                  "uid": "35240-87dbd4bb-55aa-479a-8414-013f68e8ce95"
+                                                },
+                                                {
+                                                  "id": "df343d63-f404-4cd2-9e1c-9e2d82a836bb",
+                                                  "name": "BadRequest",
+                                                  "originalRequest": {
+                                                    "method": "DELETE",
+                                                    "header": [
+                                                      {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                      },
+                                                      {
+                                                        "description": "Added as a part of security scheme: oauth2",
+                                                        "key": "Authorization",
+                                                        "value": "<token>"
+                                                      }
+                                                    ],
+                                                    "url": {
+                                                      "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/labs/:labName/virtualnetworks/:name?api-version=2018-09-15",
+                                                      "host": [
+                                                        "{{baseUrl}}"
+                                                      ],
+                                                      "path": [
+                                                        "subscriptions",
+                                                        ":subscriptionId",
+                                                        "resourceGroups",
+                                                        ":resourceGroupName",
+                                                        "providers",
+                                                        "Microsoft.DevTestLab",
+                                                        "labs",
+                                                        ":labName",
+                                                        "virtualnetworks",
+                                                        ":name"
+                                                      ],
+                                                      "query": [
+                                                        {
+                                                          "description": "(Required) Client API version.",
+                                                          "key": "api-version",
+                                                          "value": "2018-09-15"
+                                                        }
+                                                      ],
+                                                      "variable": [
+                                                        {
+                                                          "key": "subscriptionId"
+                                                        },
+                                                        {
+                                                          "key": "resourceGroupName"
+                                                        },
+                                                        {
+                                                          "key": "labName"
+                                                        },
+                                                        {
+                                                          "key": "name"
+                                                        }
+                                                      ]
+                                                    }
+                                                  },
+                                                  "status": "Internal Server Error",
+                                                  "code": 500,
+                                                  "_postman_previewlanguage": "json",
+                                                  "header": [
+                                                    {
+                                                      "key": "Content-Type",
+                                                      "value": "application/json"
+                                                    }
+                                                  ],
+                                                  "cookie": [],
+                                                  "responseTime": null,
+                                                  "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"details\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/CloudErrorBody detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/CloudErrorBody detected>\"\n      }\n    ],\n    \"message\": \"<string>\",\n    \"target\": \"<string>\"\n  }\n}",
+                                                  "createdAt": "2026-07-28T10:55:58.000Z",
+                                                  "updatedAt": "2026-07-28T10:55:58.000Z",
+                                                  "uid": "35240-df343d63-f404-4cd2-9e1c-9e2d82a836bb"
+                                                }
+                                              ],
+                                              "createdAt": "2026-07-28T10:55:58.000Z",
+                                              "updatedAt": "2026-07-28T10:55:58.000Z",
+                                              "uid": "35240-0ef1ff9c-5651-4e8b-bcb2-6c34c0317fdb"
+                                            },
+                                            {
+                                              "name": "Azure DevTest Labs Virtual Networks_ Get",
+                                              "id": "b21801cc-de0f-44e7-bb0f-109cb5fd3c4f",
+                                              "protocolProfileBehavior": {
+                                                "disableBodyPruning": true
+                                              },
+                                              "request": {
+                                                "method": "GET",
+                                                "header": [
+                                                  {
+                                                    "key": "Accept",
+                                                    "value": "application/json"
+                                                  }
+                                                ],
+                                                "url": {
+                                                  "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/labs/:labName/virtualnetworks/:name?$expand=<string>&api-version=2018-09-15",
+                                                  "host": [
+                                                    "{{baseUrl}}"
+                                                  ],
+                                                  "path": [
+                                                    "subscriptions",
+                                                    ":subscriptionId",
+                                                    "resourceGroups",
+                                                    ":resourceGroupName",
+                                                    "providers",
+                                                    "Microsoft.DevTestLab",
+                                                    "labs",
+                                                    ":labName",
+                                                    "virtualnetworks",
+                                                    ":name"
+                                                  ],
+                                                  "query": [
+                                                    {
+                                                      "description": "Specify the $expand query. Example: 'properties($expand=externalSubnets)'",
+                                                      "key": "$expand",
+                                                      "value": "<string>"
+                                                    },
+                                                    {
+                                                      "description": "(Required) Client API version.",
+                                                      "key": "api-version",
+                                                      "value": "2018-09-15"
+                                                    }
+                                                  ],
+                                                  "variable": [
+                                                    {
+                                                      "id": "b16adc2a-3784-4c71-80e0-464b4419a721",
+                                                      "key": "subscriptionId",
+                                                      "value": "<string>",
+                                                      "description": "(Required) The subscription ID."
+                                                    },
+                                                    {
+                                                      "id": "9c3daacb-45f6-49d1-b4d8-2422283e0b19",
+                                                      "key": "resourceGroupName",
+                                                      "value": "<string>",
+                                                      "description": "(Required) The name of the resource group."
+                                                    },
+                                                    {
+                                                      "id": "4ed459ab-7384-4c07-a924-e9c3d8a93f54",
+                                                      "key": "labName",
+                                                      "value": "<string>",
+                                                      "description": "(Required) The name of the lab."
+                                                    },
+                                                    {
+                                                      "id": "fecf8582-2424-463f-a6bd-aac1b22f5825",
+                                                      "key": "name",
+                                                      "value": "<string>",
+                                                      "description": "(Required) The name of the virtual network."
+                                                    }
+                                                  ]
+                                                },
+                                                "description": "Get virtual network."
+                                              },
+                                              "response": [
+                                                {
+                                                  "id": "ef26868e-e251-458f-8db4-9425c60eebb2",
+                                                  "name": "OK",
+                                                  "originalRequest": {
+                                                    "method": "GET",
+                                                    "header": [
+                                                      {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                      },
+                                                      {
+                                                        "description": "Added as a part of security scheme: oauth2",
+                                                        "key": "Authorization",
+                                                        "value": "<token>"
+                                                      }
+                                                    ],
+                                                    "url": {
+                                                      "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/labs/:labName/virtualnetworks/:name?$expand=<string>&api-version=2018-09-15",
+                                                      "host": [
+                                                        "{{baseUrl}}"
+                                                      ],
+                                                      "path": [
+                                                        "subscriptions",
+                                                        ":subscriptionId",
+                                                        "resourceGroups",
+                                                        ":resourceGroupName",
+                                                        "providers",
+                                                        "Microsoft.DevTestLab",
+                                                        "labs",
+                                                        ":labName",
+                                                        "virtualnetworks",
+                                                        ":name"
+                                                      ],
+                                                      "query": [
+                                                        {
+                                                          "description": "Specify the $expand query. Example: 'properties($expand=externalSubnets)'",
+                                                          "key": "$expand",
+                                                          "value": "<string>"
+                                                        },
+                                                        {
+                                                          "description": "(Required) Client API version.",
+                                                          "key": "api-version",
+                                                          "value": "2018-09-15"
+                                                        }
+                                                      ],
+                                                      "variable": [
+                                                        {
+                                                          "key": "subscriptionId"
+                                                        },
+                                                        {
+                                                          "key": "resourceGroupName"
+                                                        },
+                                                        {
+                                                          "key": "labName"
+                                                        },
+                                                        {
+                                                          "key": "name"
+                                                        }
+                                                      ]
+                                                    }
+                                                  },
+                                                  "status": "OK",
+                                                  "code": 200,
+                                                  "_postman_previewlanguage": "json",
+                                                  "header": [
+                                                    {
+                                                      "key": "Content-Type",
+                                                      "value": "application/json"
+                                                    }
+                                                  ],
+                                                  "cookie": [],
+                                                  "responseTime": null,
+                                                  "body": "{\n  \"properties\": {},\n  \"id\": \"<string>\",\n  \"location\": \"<string>\",\n  \"name\": \"<string>\",\n  \"tags\": {\n    \"cupidatat_564\": \"<string>\",\n    \"nisi_5_\": \"<string>\"\n  },\n  \"type\": \"<string>\"\n}",
+                                                  "createdAt": "2026-07-28T10:55:58.000Z",
+                                                  "updatedAt": "2026-07-28T10:55:58.000Z",
+                                                  "uid": "35240-ef26868e-e251-458f-8db4-9425c60eebb2"
+                                                },
+                                                {
+                                                  "id": "e1faf230-d5a1-48c5-a880-fc2ee90f2337",
+                                                  "name": "BadRequest",
+                                                  "originalRequest": {
+                                                    "method": "GET",
+                                                    "header": [
+                                                      {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                      },
+                                                      {
+                                                        "description": "Added as a part of security scheme: oauth2",
+                                                        "key": "Authorization",
+                                                        "value": "<token>"
+                                                      }
+                                                    ],
+                                                    "url": {
+                                                      "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/labs/:labName/virtualnetworks/:name?$expand=<string>&api-version=2018-09-15",
+                                                      "host": [
+                                                        "{{baseUrl}}"
+                                                      ],
+                                                      "path": [
+                                                        "subscriptions",
+                                                        ":subscriptionId",
+                                                        "resourceGroups",
+                                                        ":resourceGroupName",
+                                                        "providers",
+                                                        "Microsoft.DevTestLab",
+                                                        "labs",
+                                                        ":labName",
+                                                        "virtualnetworks",
+                                                        ":name"
+                                                      ],
+                                                      "query": [
+                                                        {
+                                                          "description": "Specify the $expand query. Example: 'properties($expand=externalSubnets)'",
+                                                          "key": "$expand",
+                                                          "value": "<string>"
+                                                        },
+                                                        {
+                                                          "description": "(Required) Client API version.",
+                                                          "key": "api-version",
+                                                          "value": "2018-09-15"
+                                                        }
+                                                      ],
+                                                      "variable": [
+                                                        {
+                                                          "key": "subscriptionId"
+                                                        },
+                                                        {
+                                                          "key": "resourceGroupName"
+                                                        },
+                                                        {
+                                                          "key": "labName"
+                                                        },
+                                                        {
+                                                          "key": "name"
+                                                        }
+                                                      ]
+                                                    }
+                                                  },
+                                                  "status": "Internal Server Error",
+                                                  "code": 500,
+                                                  "_postman_previewlanguage": "json",
+                                                  "header": [
+                                                    {
+                                                      "key": "Content-Type",
+                                                      "value": "application/json"
+                                                    }
+                                                  ],
+                                                  "cookie": [],
+                                                  "responseTime": null,
+                                                  "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"details\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/CloudErrorBody detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/CloudErrorBody detected>\"\n      }\n    ],\n    \"message\": \"<string>\",\n    \"target\": \"<string>\"\n  }\n}",
+                                                  "createdAt": "2026-07-28T10:55:58.000Z",
+                                                  "updatedAt": "2026-07-28T10:55:58.000Z",
+                                                  "uid": "35240-e1faf230-d5a1-48c5-a880-fc2ee90f2337"
+                                                }
+                                              ],
+                                              "createdAt": "2026-07-28T10:55:58.000Z",
+                                              "updatedAt": "2026-07-28T10:55:58.000Z",
+                                              "uid": "35240-b21801cc-de0f-44e7-bb0f-109cb5fd3c4f"
+                                            },
+                                            {
+                                              "name": "Azure DevTest Labs Virtual Networks_ Update",
+                                              "id": "1587baaf-0805-4553-ba1b-b9d84bfd23e9",
+                                              "protocolProfileBehavior": {
+                                                "disableBodyPruning": true
+                                              },
+                                              "request": {
+                                                "method": "PATCH",
+                                                "header": [
+                                                  {
+                                                    "key": "Content-Type",
+                                                    "value": "application/json"
+                                                  },
+                                                  {
+                                                    "key": "Accept",
+                                                    "value": "application/json"
+                                                  }
+                                                ],
+                                                "body": {
+                                                  "mode": "raw",
+                                                  "raw": "{\n  \"properties\": {},\n  \"tags\": {\n    \"esse_a\": \"<string>\",\n    \"adipisicing004\": \"<string>\"\n  }\n}",
+                                                  "options": {
+                                                    "raw": {
+                                                      "headerFamily": "json",
+                                                      "language": "json"
+                                                    }
+                                                  }
+                                                },
+                                                "url": {
+                                                  "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/labs/:labName/virtualnetworks/:name?api-version=2018-09-15",
+                                                  "host": [
+                                                    "{{baseUrl}}"
+                                                  ],
+                                                  "path": [
+                                                    "subscriptions",
+                                                    ":subscriptionId",
+                                                    "resourceGroups",
+                                                    ":resourceGroupName",
+                                                    "providers",
+                                                    "Microsoft.DevTestLab",
+                                                    "labs",
+                                                    ":labName",
+                                                    "virtualnetworks",
+                                                    ":name"
+                                                  ],
+                                                  "query": [
+                                                    {
+                                                      "description": "(Required) Client API version.",
+                                                      "key": "api-version",
+                                                      "value": "2018-09-15"
+                                                    }
+                                                  ],
+                                                  "variable": [
+                                                    {
+                                                      "id": "1ec5a10f-daf2-477d-b316-f5dd2c23fccf",
+                                                      "key": "subscriptionId",
+                                                      "value": "<string>",
+                                                      "description": "(Required) The subscription ID."
+                                                    },
+                                                    {
+                                                      "id": "d9a1408d-2f45-44c9-b60f-fd6072ed5997",
+                                                      "key": "resourceGroupName",
+                                                      "value": "<string>",
+                                                      "description": "(Required) The name of the resource group."
+                                                    },
+                                                    {
+                                                      "id": "362c6ecc-ad91-4d7d-a1c4-f04c7e2232e3",
+                                                      "key": "labName",
+                                                      "value": "<string>",
+                                                      "description": "(Required) The name of the lab."
+                                                    },
+                                                    {
+                                                      "id": "69b99d03-e65e-4e8b-9c92-6fa7b53cea9b",
+                                                      "key": "name",
+                                                      "value": "<string>",
+                                                      "description": "(Required) The name of the virtual network."
+                                                    }
+                                                  ]
+                                                },
+                                                "description": "Allows modifying tags of virtual networks. All other properties will be ignored."
+                                              },
+                                              "response": [
+                                                {
+                                                  "id": "9b754847-cfbd-4bb1-b1a5-3a396ff7aa6a",
+                                                  "name": "OK",
+                                                  "originalRequest": {
+                                                    "method": "PATCH",
+                                                    "header": [
+                                                      {
+                                                        "key": "Content-Type",
+                                                        "value": "application/json"
+                                                      },
+                                                      {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                      },
+                                                      {
+                                                        "description": "Added as a part of security scheme: oauth2",
+                                                        "key": "Authorization",
+                                                        "value": "<token>"
+                                                      }
+                                                    ],
+                                                    "body": {
+                                                      "mode": "raw",
+                                                      "raw": "{\n  \"properties\": {},\n  \"tags\": {\n    \"esse_a\": \"<string>\",\n    \"adipisicing004\": \"<string>\"\n  }\n}",
+                                                      "options": {
+                                                        "raw": {
+                                                          "headerFamily": "json",
+                                                          "language": "json"
+                                                        }
+                                                      }
+                                                    },
+                                                    "url": {
+                                                      "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/labs/:labName/virtualnetworks/:name?api-version=2018-09-15",
+                                                      "host": [
+                                                        "{{baseUrl}}"
+                                                      ],
+                                                      "path": [
+                                                        "subscriptions",
+                                                        ":subscriptionId",
+                                                        "resourceGroups",
+                                                        ":resourceGroupName",
+                                                        "providers",
+                                                        "Microsoft.DevTestLab",
+                                                        "labs",
+                                                        ":labName",
+                                                        "virtualnetworks",
+                                                        ":name"
+                                                      ],
+                                                      "query": [
+                                                        {
+                                                          "description": "(Required) Client API version.",
+                                                          "key": "api-version",
+                                                          "value": "2018-09-15"
+                                                        }
+                                                      ],
+                                                      "variable": [
+                                                        {
+                                                          "key": "subscriptionId"
+                                                        },
+                                                        {
+                                                          "key": "resourceGroupName"
+                                                        },
+                                                        {
+                                                          "key": "labName"
+                                                        },
+                                                        {
+                                                          "key": "name"
+                                                        }
+                                                      ]
+                                                    }
+                                                  },
+                                                  "status": "OK",
+                                                  "code": 200,
+                                                  "_postman_previewlanguage": "json",
+                                                  "header": [
+                                                    {
+                                                      "key": "Content-Type",
+                                                      "value": "application/json"
+                                                    }
+                                                  ],
+                                                  "cookie": [],
+                                                  "responseTime": null,
+                                                  "body": "{\n  \"properties\": {},\n  \"id\": \"<string>\",\n  \"location\": \"<string>\",\n  \"name\": \"<string>\",\n  \"tags\": {\n    \"cupidatat_564\": \"<string>\",\n    \"nisi_5_\": \"<string>\"\n  },\n  \"type\": \"<string>\"\n}",
+                                                  "createdAt": "2026-07-28T10:55:58.000Z",
+                                                  "updatedAt": "2026-07-28T10:55:58.000Z",
+                                                  "uid": "35240-9b754847-cfbd-4bb1-b1a5-3a396ff7aa6a"
+                                                },
+                                                {
+                                                  "id": "68188eb3-14f2-4b74-b1e2-c385937170f6",
+                                                  "name": "BadRequest",
+                                                  "originalRequest": {
+                                                    "method": "PATCH",
+                                                    "header": [
+                                                      {
+                                                        "key": "Content-Type",
+                                                        "value": "application/json"
+                                                      },
+                                                      {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                      },
+                                                      {
+                                                        "description": "Added as a part of security scheme: oauth2",
+                                                        "key": "Authorization",
+                                                        "value": "<token>"
+                                                      }
+                                                    ],
+                                                    "body": {
+                                                      "mode": "raw",
+                                                      "raw": "{\n  \"properties\": {},\n  \"tags\": {\n    \"esse_a\": \"<string>\",\n    \"adipisicing004\": \"<string>\"\n  }\n}",
+                                                      "options": {
+                                                        "raw": {
+                                                          "headerFamily": "json",
+                                                          "language": "json"
+                                                        }
+                                                      }
+                                                    },
+                                                    "url": {
+                                                      "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/labs/:labName/virtualnetworks/:name?api-version=2018-09-15",
+                                                      "host": [
+                                                        "{{baseUrl}}"
+                                                      ],
+                                                      "path": [
+                                                        "subscriptions",
+                                                        ":subscriptionId",
+                                                        "resourceGroups",
+                                                        ":resourceGroupName",
+                                                        "providers",
+                                                        "Microsoft.DevTestLab",
+                                                        "labs",
+                                                        ":labName",
+                                                        "virtualnetworks",
+                                                        ":name"
+                                                      ],
+                                                      "query": [
+                                                        {
+                                                          "description": "(Required) Client API version.",
+                                                          "key": "api-version",
+                                                          "value": "2018-09-15"
+                                                        }
+                                                      ],
+                                                      "variable": [
+                                                        {
+                                                          "key": "subscriptionId"
+                                                        },
+                                                        {
+                                                          "key": "resourceGroupName"
+                                                        },
+                                                        {
+                                                          "key": "labName"
+                                                        },
+                                                        {
+                                                          "key": "name"
+                                                        }
+                                                      ]
+                                                    }
+                                                  },
+                                                  "status": "Internal Server Error",
+                                                  "code": 500,
+                                                  "_postman_previewlanguage": "json",
+                                                  "header": [
+                                                    {
+                                                      "key": "Content-Type",
+                                                      "value": "application/json"
+                                                    }
+                                                  ],
+                                                  "cookie": [],
+                                                  "responseTime": null,
+                                                  "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"details\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/CloudErrorBody detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/CloudErrorBody detected>\"\n      }\n    ],\n    \"message\": \"<string>\",\n    \"target\": \"<string>\"\n  }\n}",
+                                                  "createdAt": "2026-07-28T10:55:58.000Z",
+                                                  "updatedAt": "2026-07-28T10:55:58.000Z",
+                                                  "uid": "35240-68188eb3-14f2-4b74-b1e2-c385937170f6"
+                                                }
+                                              ],
+                                              "createdAt": "2026-07-28T10:55:58.000Z",
+                                              "updatedAt": "2026-07-28T10:55:58.000Z",
+                                              "uid": "35240-1587baaf-0805-4553-ba1b-b9d84bfd23e9"
+                                            },
+                                            {
+                                              "name": "Azure DevTest Labs Virtual Networks_ Create or Update",
+                                              "id": "ac27b847-9310-4dbc-853f-397fb0d2dd2f",
+                                              "protocolProfileBehavior": {
+                                                "disableBodyPruning": true
+                                              },
+                                              "request": {
+                                                "method": "PUT",
+                                                "header": [
+                                                  {
+                                                    "key": "Content-Type",
+                                                    "value": "application/json"
+                                                  },
+                                                  {
+                                                    "key": "Accept",
+                                                    "value": "application/json"
+                                                  }
+                                                ],
+                                                "body": {
+                                                  "mode": "raw",
+                                                  "raw": "{\n  \"properties\": {},\n  \"id\": \"<string>\",\n  \"location\": \"<string>\",\n  \"name\": \"<string>\",\n  \"tags\": {\n    \"cupidatat_564\": \"<string>\",\n    \"nisi_5_\": \"<string>\"\n  },\n  \"type\": \"<string>\"\n}",
+                                                  "options": {
+                                                    "raw": {
+                                                      "headerFamily": "json",
+                                                      "language": "json"
+                                                    }
+                                                  }
+                                                },
+                                                "url": {
+                                                  "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/labs/:labName/virtualnetworks/:name?api-version=2018-09-15",
+                                                  "host": [
+                                                    "{{baseUrl}}"
+                                                  ],
+                                                  "path": [
+                                                    "subscriptions",
+                                                    ":subscriptionId",
+                                                    "resourceGroups",
+                                                    ":resourceGroupName",
+                                                    "providers",
+                                                    "Microsoft.DevTestLab",
+                                                    "labs",
+                                                    ":labName",
+                                                    "virtualnetworks",
+                                                    ":name"
+                                                  ],
+                                                  "query": [
+                                                    {
+                                                      "description": "(Required) Client API version.",
+                                                      "key": "api-version",
+                                                      "value": "2018-09-15"
+                                                    }
+                                                  ],
+                                                  "variable": [
+                                                    {
+                                                      "id": "f8b31236-ef53-485b-a948-a25a3fc8fd13",
+                                                      "key": "subscriptionId",
+                                                      "value": "<string>",
+                                                      "description": "(Required) The subscription ID."
+                                                    },
+                                                    {
+                                                      "id": "cfbdf3ae-6d49-448e-b812-22d486a80402",
+                                                      "key": "resourceGroupName",
+                                                      "value": "<string>",
+                                                      "description": "(Required) The name of the resource group."
+                                                    },
+                                                    {
+                                                      "id": "108d4d15-c831-4b23-98e0-10eb6f2fb31e",
+                                                      "key": "labName",
+                                                      "value": "<string>",
+                                                      "description": "(Required) The name of the lab."
+                                                    },
+                                                    {
+                                                      "id": "09240126-66a6-47ca-aec0-c8a180181c9d",
+                                                      "key": "name",
+                                                      "value": "<string>",
+                                                      "description": "(Required) The name of the virtual network."
+                                                    }
+                                                  ]
+                                                },
+                                                "description": "Create or replace an existing virtual network. This operation can take a while to complete."
+                                              },
+                                              "response": [
+                                                {
+                                                  "id": "39a1285b-8d1f-48d8-ab39-2a61c356b673",
+                                                  "name": "OK",
+                                                  "originalRequest": {
+                                                    "method": "PUT",
+                                                    "header": [
+                                                      {
+                                                        "key": "Content-Type",
+                                                        "value": "application/json"
+                                                      },
+                                                      {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                      },
+                                                      {
+                                                        "description": "Added as a part of security scheme: oauth2",
+                                                        "key": "Authorization",
+                                                        "value": "<token>"
+                                                      }
+                                                    ],
+                                                    "body": {
+                                                      "mode": "raw",
+                                                      "raw": "{\n  \"properties\": {},\n  \"id\": \"<string>\",\n  \"location\": \"<string>\",\n  \"name\": \"<string>\",\n  \"tags\": {\n    \"cupidatat_564\": \"<string>\",\n    \"nisi_5_\": \"<string>\"\n  },\n  \"type\": \"<string>\"\n}",
+                                                      "options": {
+                                                        "raw": {
+                                                          "headerFamily": "json",
+                                                          "language": "json"
+                                                        }
+                                                      }
+                                                    },
+                                                    "url": {
+                                                      "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/labs/:labName/virtualnetworks/:name?api-version=2018-09-15",
+                                                      "host": [
+                                                        "{{baseUrl}}"
+                                                      ],
+                                                      "path": [
+                                                        "subscriptions",
+                                                        ":subscriptionId",
+                                                        "resourceGroups",
+                                                        ":resourceGroupName",
+                                                        "providers",
+                                                        "Microsoft.DevTestLab",
+                                                        "labs",
+                                                        ":labName",
+                                                        "virtualnetworks",
+                                                        ":name"
+                                                      ],
+                                                      "query": [
+                                                        {
+                                                          "description": "(Required) Client API version.",
+                                                          "key": "api-version",
+                                                          "value": "2018-09-15"
+                                                        }
+                                                      ],
+                                                      "variable": [
+                                                        {
+                                                          "key": "subscriptionId"
+                                                        },
+                                                        {
+                                                          "key": "resourceGroupName"
+                                                        },
+                                                        {
+                                                          "key": "labName"
+                                                        },
+                                                        {
+                                                          "key": "name"
+                                                        }
+                                                      ]
+                                                    }
+                                                  },
+                                                  "status": "OK",
+                                                  "code": 200,
+                                                  "_postman_previewlanguage": "json",
+                                                  "header": [
+                                                    {
+                                                      "key": "Content-Type",
+                                                      "value": "application/json"
+                                                    }
+                                                  ],
+                                                  "cookie": [],
+                                                  "responseTime": null,
+                                                  "body": "{\n  \"properties\": {},\n  \"id\": \"<string>\",\n  \"location\": \"<string>\",\n  \"name\": \"<string>\",\n  \"tags\": {\n    \"cupidatat_564\": \"<string>\",\n    \"nisi_5_\": \"<string>\"\n  },\n  \"type\": \"<string>\"\n}",
+                                                  "createdAt": "2026-07-28T10:55:58.000Z",
+                                                  "updatedAt": "2026-07-28T10:55:58.000Z",
+                                                  "uid": "35240-39a1285b-8d1f-48d8-ab39-2a61c356b673"
+                                                },
+                                                {
+                                                  "id": "dcca91c7-f29a-420d-af29-9828778bea6c",
+                                                  "name": "Created",
+                                                  "originalRequest": {
+                                                    "method": "PUT",
+                                                    "header": [
+                                                      {
+                                                        "key": "Content-Type",
+                                                        "value": "application/json"
+                                                      },
+                                                      {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                      },
+                                                      {
+                                                        "description": "Added as a part of security scheme: oauth2",
+                                                        "key": "Authorization",
+                                                        "value": "<token>"
+                                                      }
+                                                    ],
+                                                    "body": {
+                                                      "mode": "raw",
+                                                      "raw": "{\n  \"properties\": {},\n  \"id\": \"<string>\",\n  \"location\": \"<string>\",\n  \"name\": \"<string>\",\n  \"tags\": {\n    \"cupidatat_564\": \"<string>\",\n    \"nisi_5_\": \"<string>\"\n  },\n  \"type\": \"<string>\"\n}",
+                                                      "options": {
+                                                        "raw": {
+                                                          "headerFamily": "json",
+                                                          "language": "json"
+                                                        }
+                                                      }
+                                                    },
+                                                    "url": {
+                                                      "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/labs/:labName/virtualnetworks/:name?api-version=2018-09-15",
+                                                      "host": [
+                                                        "{{baseUrl}}"
+                                                      ],
+                                                      "path": [
+                                                        "subscriptions",
+                                                        ":subscriptionId",
+                                                        "resourceGroups",
+                                                        ":resourceGroupName",
+                                                        "providers",
+                                                        "Microsoft.DevTestLab",
+                                                        "labs",
+                                                        ":labName",
+                                                        "virtualnetworks",
+                                                        ":name"
+                                                      ],
+                                                      "query": [
+                                                        {
+                                                          "description": "(Required) Client API version.",
+                                                          "key": "api-version",
+                                                          "value": "2018-09-15"
+                                                        }
+                                                      ],
+                                                      "variable": [
+                                                        {
+                                                          "key": "subscriptionId"
+                                                        },
+                                                        {
+                                                          "key": "resourceGroupName"
+                                                        },
+                                                        {
+                                                          "key": "labName"
+                                                        },
+                                                        {
+                                                          "key": "name"
+                                                        }
+                                                      ]
+                                                    }
+                                                  },
+                                                  "status": "Created",
+                                                  "code": 201,
+                                                  "_postman_previewlanguage": "json",
+                                                  "header": [
+                                                    {
+                                                      "key": "Content-Type",
+                                                      "value": "application/json"
+                                                    }
+                                                  ],
+                                                  "cookie": [],
+                                                  "responseTime": null,
+                                                  "body": "{\n  \"properties\": {},\n  \"id\": \"<string>\",\n  \"location\": \"<string>\",\n  \"name\": \"<string>\",\n  \"tags\": {\n    \"cupidatat_564\": \"<string>\",\n    \"nisi_5_\": \"<string>\"\n  },\n  \"type\": \"<string>\"\n}",
+                                                  "createdAt": "2026-07-28T10:55:58.000Z",
+                                                  "updatedAt": "2026-07-28T10:55:58.000Z",
+                                                  "uid": "35240-dcca91c7-f29a-420d-af29-9828778bea6c"
+                                                },
+                                                {
+                                                  "id": "14a6486c-dcba-4d23-8f4b-2481a7994d5c",
+                                                  "name": "BadRequest",
+                                                  "originalRequest": {
+                                                    "method": "PUT",
+                                                    "header": [
+                                                      {
+                                                        "key": "Content-Type",
+                                                        "value": "application/json"
+                                                      },
+                                                      {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                      },
+                                                      {
+                                                        "description": "Added as a part of security scheme: oauth2",
+                                                        "key": "Authorization",
+                                                        "value": "<token>"
+                                                      }
+                                                    ],
+                                                    "body": {
+                                                      "mode": "raw",
+                                                      "raw": "{\n  \"properties\": {},\n  \"id\": \"<string>\",\n  \"location\": \"<string>\",\n  \"name\": \"<string>\",\n  \"tags\": {\n    \"cupidatat_564\": \"<string>\",\n    \"nisi_5_\": \"<string>\"\n  },\n  \"type\": \"<string>\"\n}",
+                                                      "options": {
+                                                        "raw": {
+                                                          "headerFamily": "json",
+                                                          "language": "json"
+                                                        }
+                                                      }
+                                                    },
+                                                    "url": {
+                                                      "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/labs/:labName/virtualnetworks/:name?api-version=2018-09-15",
+                                                      "host": [
+                                                        "{{baseUrl}}"
+                                                      ],
+                                                      "path": [
+                                                        "subscriptions",
+                                                        ":subscriptionId",
+                                                        "resourceGroups",
+                                                        ":resourceGroupName",
+                                                        "providers",
+                                                        "Microsoft.DevTestLab",
+                                                        "labs",
+                                                        ":labName",
+                                                        "virtualnetworks",
+                                                        ":name"
+                                                      ],
+                                                      "query": [
+                                                        {
+                                                          "description": "(Required) Client API version.",
+                                                          "key": "api-version",
+                                                          "value": "2018-09-15"
+                                                        }
+                                                      ],
+                                                      "variable": [
+                                                        {
+                                                          "key": "subscriptionId"
+                                                        },
+                                                        {
+                                                          "key": "resourceGroupName"
+                                                        },
+                                                        {
+                                                          "key": "labName"
+                                                        },
+                                                        {
+                                                          "key": "name"
+                                                        }
+                                                      ]
+                                                    }
+                                                  },
+                                                  "status": "Internal Server Error",
+                                                  "code": 500,
+                                                  "_postman_previewlanguage": "json",
+                                                  "header": [
+                                                    {
+                                                      "key": "Content-Type",
+                                                      "value": "application/json"
+                                                    }
+                                                  ],
+                                                  "cookie": [],
+                                                  "responseTime": null,
+                                                  "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"details\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/CloudErrorBody detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/CloudErrorBody detected>\"\n      }\n    ],\n    \"message\": \"<string>\",\n    \"target\": \"<string>\"\n  }\n}",
+                                                  "createdAt": "2026-07-28T10:55:58.000Z",
+                                                  "updatedAt": "2026-07-28T10:55:58.000Z",
+                                                  "uid": "35240-14a6486c-dcba-4d23-8f4b-2481a7994d5c"
+                                                }
+                                              ],
+                                              "createdAt": "2026-07-28T10:55:58.000Z",
+                                              "updatedAt": "2026-07-28T10:55:58.000Z",
+                                              "uid": "35240-ac27b847-9310-4dbc-853f-397fb0d2dd2f"
+                                            }
+                                          ],
+                                          "id": "07d2318c-7b67-4118-8839-77b0892744d5",
+                                          "createdAt": "2026-07-28T10:55:58.000Z",
+                                          "updatedAt": "2026-07-28T10:55:58.000Z",
+                                          "uid": "35240-07d2318c-7b67-4118-8839-77b0892744d5"
+                                        },
+                                        {
+                                          "name": "Azure DevTest Labs Virtual Networks_ List",
+                                          "id": "c75398ab-619d-44ab-83ec-b7d946181bff",
+                                          "protocolProfileBehavior": {
+                                            "disableBodyPruning": true
+                                          },
+                                          "request": {
+                                            "method": "GET",
+                                            "header": [
+                                              {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                              }
+                                            ],
+                                            "url": {
+                                              "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/labs/:labName/virtualnetworks?$expand=<string>&$filter=<string>&$top=<integer>&$orderby=<string>&api-version=2018-09-15",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "subscriptions",
+                                                ":subscriptionId",
+                                                "resourceGroups",
+                                                ":resourceGroupName",
+                                                "providers",
+                                                "Microsoft.DevTestLab",
+                                                "labs",
+                                                ":labName",
+                                                "virtualnetworks"
+                                              ],
+                                              "query": [
+                                                {
+                                                  "description": "Specify the $expand query. Example: 'properties($expand=externalSubnets)'",
+                                                  "key": "$expand",
+                                                  "value": "<string>"
+                                                },
+                                                {
+                                                  "description": "The filter to apply to the operation. Example: '$filter=contains(name,'myName')",
+                                                  "key": "$filter",
+                                                  "value": "<string>"
+                                                },
+                                                {
+                                                  "description": "The maximum number of resources to return from the operation. Example: '$top=10'",
+                                                  "key": "$top",
+                                                  "value": "<integer>"
+                                                },
+                                                {
+                                                  "description": "The ordering expression for the results, using OData notation. Example: '$orderby=name desc'",
+                                                  "key": "$orderby",
+                                                  "value": "<string>"
+                                                },
+                                                {
+                                                  "description": "(Required) Client API version.",
+                                                  "key": "api-version",
+                                                  "value": "2018-09-15"
+                                                }
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "id": "39835edf-8e9e-4a31-8d55-653c82c3cbd2",
+                                                  "key": "subscriptionId",
+                                                  "value": "<string>",
+                                                  "description": "(Required) The subscription ID."
+                                                },
+                                                {
+                                                  "id": "1030dfce-d8be-40a4-99f5-0b18528b81fc",
+                                                  "key": "resourceGroupName",
+                                                  "value": "<string>",
+                                                  "description": "(Required) The name of the resource group."
+                                                },
+                                                {
+                                                  "id": "99c607da-fc68-4cc1-82da-fc97ac91b246",
+                                                  "key": "labName",
+                                                  "value": "<string>",
+                                                  "description": "(Required) The name of the lab."
+                                                }
+                                              ]
+                                            },
+                                            "description": "List virtual networks in a given lab."
+                                          },
+                                          "response": [
+                                            {
+                                              "id": "ba285f33-5c1b-4a39-ba2a-edf98aacd7b3",
+                                              "name": "OK",
+                                              "originalRequest": {
+                                                "method": "GET",
+                                                "header": [
+                                                  {
+                                                    "key": "Accept",
+                                                    "value": "application/json"
+                                                  },
+                                                  {
+                                                    "description": "Added as a part of security scheme: oauth2",
+                                                    "key": "Authorization",
+                                                    "value": "<token>"
+                                                  }
+                                                ],
+                                                "url": {
+                                                  "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/labs/:labName/virtualnetworks?$expand=<string>&$filter=<string>&$top=<integer>&$orderby=<string>&api-version=2018-09-15",
+                                                  "host": [
+                                                    "{{baseUrl}}"
+                                                  ],
+                                                  "path": [
+                                                    "subscriptions",
+                                                    ":subscriptionId",
+                                                    "resourceGroups",
+                                                    ":resourceGroupName",
+                                                    "providers",
+                                                    "Microsoft.DevTestLab",
+                                                    "labs",
+                                                    ":labName",
+                                                    "virtualnetworks"
+                                                  ],
+                                                  "query": [
+                                                    {
+                                                      "description": "Specify the $expand query. Example: 'properties($expand=externalSubnets)'",
+                                                      "key": "$expand",
+                                                      "value": "<string>"
+                                                    },
+                                                    {
+                                                      "description": "The filter to apply to the operation. Example: '$filter=contains(name,'myName')",
+                                                      "key": "$filter",
+                                                      "value": "<string>"
+                                                    },
+                                                    {
+                                                      "description": "The maximum number of resources to return from the operation. Example: '$top=10'",
+                                                      "key": "$top",
+                                                      "value": "<integer>"
+                                                    },
+                                                    {
+                                                      "description": "The ordering expression for the results, using OData notation. Example: '$orderby=name desc'",
+                                                      "key": "$orderby",
+                                                      "value": "<string>"
+                                                    },
+                                                    {
+                                                      "description": "(Required) Client API version.",
+                                                      "key": "api-version",
+                                                      "value": "2018-09-15"
+                                                    }
+                                                  ],
+                                                  "variable": [
+                                                    {
+                                                      "key": "subscriptionId"
+                                                    },
+                                                    {
+                                                      "key": "resourceGroupName"
+                                                    },
+                                                    {
+                                                      "key": "labName"
+                                                    }
+                                                  ]
+                                                }
+                                              },
+                                              "status": "OK",
+                                              "code": 200,
+                                              "_postman_previewlanguage": "json",
+                                              "header": [
+                                                {
+                                                  "key": "Content-Type",
+                                                  "value": "application/json"
+                                                }
+                                              ],
+                                              "cookie": [],
+                                              "responseTime": null,
+                                              "body": "{\n  \"nextLink\": \"<string>\",\n  \"value\": [\n    {\n      \"properties\": {},\n      \"id\": \"<string>\",\n      \"location\": \"<string>\",\n      \"name\": \"<string>\",\n      \"tags\": {\n        \"sint__a\": \"<string>\"\n      },\n      \"type\": \"<string>\"\n    },\n    {\n      \"properties\": {},\n      \"id\": \"<string>\",\n      \"location\": \"<string>\",\n      \"name\": \"<string>\",\n      \"tags\": {\n        \"Duis_32a\": \"<string>\",\n        \"sint_e\": \"<string>\"\n      },\n      \"type\": \"<string>\"\n    }\n  ]\n}",
+                                              "createdAt": "2026-07-28T10:55:58.000Z",
+                                              "updatedAt": "2026-07-28T10:55:58.000Z",
+                                              "uid": "35240-ba285f33-5c1b-4a39-ba2a-edf98aacd7b3"
+                                            },
+                                            {
+                                              "id": "4c9eb322-845d-4bdc-88d8-1f2174472b62",
+                                              "name": "BadRequest",
+                                              "originalRequest": {
+                                                "method": "GET",
+                                                "header": [
+                                                  {
+                                                    "key": "Accept",
+                                                    "value": "application/json"
+                                                  },
+                                                  {
+                                                    "description": "Added as a part of security scheme: oauth2",
+                                                    "key": "Authorization",
+                                                    "value": "<token>"
+                                                  }
+                                                ],
+                                                "url": {
+                                                  "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/labs/:labName/virtualnetworks?$expand=<string>&$filter=<string>&$top=<integer>&$orderby=<string>&api-version=2018-09-15",
+                                                  "host": [
+                                                    "{{baseUrl}}"
+                                                  ],
+                                                  "path": [
+                                                    "subscriptions",
+                                                    ":subscriptionId",
+                                                    "resourceGroups",
+                                                    ":resourceGroupName",
+                                                    "providers",
+                                                    "Microsoft.DevTestLab",
+                                                    "labs",
+                                                    ":labName",
+                                                    "virtualnetworks"
+                                                  ],
+                                                  "query": [
+                                                    {
+                                                      "description": "Specify the $expand query. Example: 'properties($expand=externalSubnets)'",
+                                                      "key": "$expand",
+                                                      "value": "<string>"
+                                                    },
+                                                    {
+                                                      "description": "The filter to apply to the operation. Example: '$filter=contains(name,'myName')",
+                                                      "key": "$filter",
+                                                      "value": "<string>"
+                                                    },
+                                                    {
+                                                      "description": "The maximum number of resources to return from the operation. Example: '$top=10'",
+                                                      "key": "$top",
+                                                      "value": "<integer>"
+                                                    },
+                                                    {
+                                                      "description": "The ordering expression for the results, using OData notation. Example: '$orderby=name desc'",
+                                                      "key": "$orderby",
+                                                      "value": "<string>"
+                                                    },
+                                                    {
+                                                      "description": "(Required) Client API version.",
+                                                      "key": "api-version",
+                                                      "value": "2018-09-15"
+                                                    }
+                                                  ],
+                                                  "variable": [
+                                                    {
+                                                      "key": "subscriptionId"
+                                                    },
+                                                    {
+                                                      "key": "resourceGroupName"
+                                                    },
+                                                    {
+                                                      "key": "labName"
+                                                    }
+                                                  ]
+                                                }
+                                              },
+                                              "status": "Internal Server Error",
+                                              "code": 500,
+                                              "_postman_previewlanguage": "json",
+                                              "header": [
+                                                {
+                                                  "key": "Content-Type",
+                                                  "value": "application/json"
+                                                }
+                                              ],
+                                              "cookie": [],
+                                              "responseTime": null,
+                                              "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"details\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/CloudErrorBody detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/CloudErrorBody detected>\"\n      }\n    ],\n    \"message\": \"<string>\",\n    \"target\": \"<string>\"\n  }\n}",
+                                              "createdAt": "2026-07-28T10:55:58.000Z",
+                                              "updatedAt": "2026-07-28T10:55:58.000Z",
+                                              "uid": "35240-4c9eb322-845d-4bdc-88d8-1f2174472b62"
+                                            }
+                                          ],
+                                          "createdAt": "2026-07-28T10:55:58.000Z",
+                                          "updatedAt": "2026-07-28T10:55:58.000Z",
+                                          "uid": "35240-c75398ab-619d-44ab-83ec-b7d946181bff"
+                                        }
+                                      ],
+                                      "id": "fc880464-388e-43fd-91a8-9f1c4c4e3aa8",
+                                      "createdAt": "2026-07-28T10:55:58.000Z",
+                                      "updatedAt": "2026-07-28T10:55:58.000Z",
+                                      "uid": "35240-fc880464-388e-43fd-91a8-9f1c4c4e3aa8"
+                                    }
+                                  ],
+                                  "id": "ca9bb275-f0b6-4a03-bc91-ca203e79d922",
+                                  "createdAt": "2026-07-28T10:55:58.000Z",
+                                  "updatedAt": "2026-07-28T10:55:58.000Z",
+                                  "uid": "35240-ca9bb275-f0b6-4a03-bc91-ca203e79d922"
+                                }
+                              ],
+                              "id": "23ce5be3-37e1-4b40-9bdc-5dbac94f4992",
+                              "createdAt": "2026-07-28T10:55:58.000Z",
+                              "updatedAt": "2026-07-28T10:55:58.000Z",
+                              "uid": "35240-23ce5be3-37e1-4b40-9bdc-5dbac94f4992"
+                            }
+                          ],
+                          "id": "ced4e695-80f3-47f8-9ac1-8e5384491a33",
+                          "createdAt": "2026-07-28T10:55:58.000Z",
+                          "updatedAt": "2026-07-28T10:55:58.000Z",
+                          "uid": "35240-ced4e695-80f3-47f8-9ac1-8e5384491a33"
+                        }
+                      ],
+                      "id": "913e8d6c-0644-4dca-851c-138debead56b",
+                      "createdAt": "2026-07-28T10:55:58.000Z",
+                      "updatedAt": "2026-07-28T10:55:58.000Z",
+                      "uid": "35240-913e8d6c-0644-4dca-851c-138debead56b"
+                    }
+                  ],
+                  "id": "a4b914fa-ad9f-4dc2-8c77-6118ce370dd9",
+                  "createdAt": "2026-07-28T10:55:58.000Z",
+                  "updatedAt": "2026-07-28T10:55:58.000Z",
+                  "uid": "35240-a4b914fa-ad9f-4dc2-8c77-6118ce370dd9"
+                }
+              ],
+              "id": "7f3b6129-29e3-46c2-952d-5fd9ca5260ed",
+              "createdAt": "2026-07-28T10:55:58.000Z",
+              "updatedAt": "2026-07-28T10:55:58.000Z",
+              "uid": "35240-7f3b6129-29e3-46c2-952d-5fd9ca5260ed"
+            }
+          ],
+          "id": "933ffeaf-92de-4ea6-b484-49d9bfca4834",
+          "createdAt": "2026-07-28T10:55:58.000Z",
+          "updatedAt": "2026-07-28T10:55:58.000Z",
+          "uid": "35240-933ffeaf-92de-4ea6-b484-49d9bfca4834"
+        }
+      ],
+      "id": "1e83a182-2a4e-4445-b30b-e1765d7ecd19",
+      "createdAt": "2026-07-28T10:55:58.000Z",
+      "updatedAt": "2026-07-28T10:55:58.000Z",
+      "uid": "35240-1e83a182-2a4e-4445-b30b-e1765d7ecd19"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "user_impersonation",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "implicit",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://management.azure.com"
+    }
+  ]
+}

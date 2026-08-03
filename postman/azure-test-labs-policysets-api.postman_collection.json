@@ -1,0 +1,401 @@
+{
+  "info": {
+    "_postman_id": "5e6c7cf1-d70e-48c9-9e8d-b6b30431ee89",
+    "name": "DevTestLabsClient ArmTemplates PolicySets API",
+    "description": "The DevTest Labs Client.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T10:55:39.000Z",
+    "updatedAt": "2026-07-28T10:55:39.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-5e6c7cf1-d70e-48c9-9e8d-b6b30431ee89"
+  },
+  "item": [
+    {
+      "name": "subscriptions",
+      "item": [
+        {
+          "name": "{subscriptionId}",
+          "item": [
+            {
+              "name": "resourceGroups",
+              "item": [
+                {
+                  "name": "{resourceGroupName}",
+                  "item": [
+                    {
+                      "name": "providers",
+                      "item": [
+                        {
+                          "name": "Microsoft.DevTestLab",
+                          "item": [
+                            {
+                              "name": "labs",
+                              "item": [
+                                {
+                                  "name": "{labName}",
+                                  "item": [
+                                    {
+                                      "name": "policysets",
+                                      "item": [
+                                        {
+                                          "name": "{name}",
+                                          "item": [
+                                            {
+                                              "name": "evaluatePolicies",
+                                              "item": [
+                                                {
+                                                  "name": "Azure DevTest Labs Policy Sets_ Evaluate Policies",
+                                                  "id": "deb65da8-5bd4-4384-9ec7-39b0d2f78efe",
+                                                  "protocolProfileBehavior": {
+                                                    "disableBodyPruning": true
+                                                  },
+                                                  "request": {
+                                                    "method": "POST",
+                                                    "header": [
+                                                      {
+                                                        "key": "Content-Type",
+                                                        "value": "application/json"
+                                                      },
+                                                      {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                      }
+                                                    ],
+                                                    "body": {
+                                                      "mode": "raw",
+                                                      "raw": "{\n  \"policies\": [\n    {\n      \"factData\": \"<string>\",\n      \"factName\": \"<string>\",\n      \"userObjectId\": \"<string>\",\n      \"valueOffset\": \"<string>\"\n    },\n    {\n      \"factData\": \"<string>\",\n      \"factName\": \"<string>\",\n      \"userObjectId\": \"<string>\",\n      \"valueOffset\": \"<string>\"\n    }\n  ]\n}",
+                                                      "options": {
+                                                        "raw": {
+                                                          "headerFamily": "json",
+                                                          "language": "json"
+                                                        }
+                                                      }
+                                                    },
+                                                    "url": {
+                                                      "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/labs/:labName/policysets/:name/evaluatePolicies?api-version=2018-09-15",
+                                                      "host": [
+                                                        "{{baseUrl}}"
+                                                      ],
+                                                      "path": [
+                                                        "subscriptions",
+                                                        ":subscriptionId",
+                                                        "resourceGroups",
+                                                        ":resourceGroupName",
+                                                        "providers",
+                                                        "Microsoft.DevTestLab",
+                                                        "labs",
+                                                        ":labName",
+                                                        "policysets",
+                                                        ":name",
+                                                        "evaluatePolicies"
+                                                      ],
+                                                      "query": [
+                                                        {
+                                                          "description": "(Required) Client API version.",
+                                                          "key": "api-version",
+                                                          "value": "2018-09-15"
+                                                        }
+                                                      ],
+                                                      "variable": [
+                                                        {
+                                                          "id": "d5cd36ce-a366-4a7c-872b-cb5447903498",
+                                                          "key": "subscriptionId",
+                                                          "value": "<string>",
+                                                          "description": "(Required) The subscription ID."
+                                                        },
+                                                        {
+                                                          "id": "25442acb-3a8e-4361-bf6b-b219e012ba10",
+                                                          "key": "resourceGroupName",
+                                                          "value": "<string>",
+                                                          "description": "(Required) The name of the resource group."
+                                                        },
+                                                        {
+                                                          "id": "bbb8df2d-c7d7-4d91-949f-32a78a3ad976",
+                                                          "key": "labName",
+                                                          "value": "<string>",
+                                                          "description": "(Required) The name of the lab."
+                                                        },
+                                                        {
+                                                          "id": "dd8602c9-1154-45a7-8b0f-ef30f447007f",
+                                                          "key": "name",
+                                                          "value": "<string>",
+                                                          "description": "(Required) The name of the policy set."
+                                                        }
+                                                      ]
+                                                    },
+                                                    "description": "Evaluates lab policy."
+                                                  },
+                                                  "response": [
+                                                    {
+                                                      "id": "94bb2249-1f1c-44d9-9fdc-c924eb9a436d",
+                                                      "name": "OK",
+                                                      "originalRequest": {
+                                                        "method": "POST",
+                                                        "header": [
+                                                          {
+                                                            "key": "Content-Type",
+                                                            "value": "application/json"
+                                                          },
+                                                          {
+                                                            "key": "Accept",
+                                                            "value": "application/json"
+                                                          },
+                                                          {
+                                                            "description": "Added as a part of security scheme: oauth2",
+                                                            "key": "Authorization",
+                                                            "value": "<token>"
+                                                          }
+                                                        ],
+                                                        "body": {
+                                                          "mode": "raw",
+                                                          "raw": "{\n  \"policies\": [\n    {\n      \"factData\": \"<string>\",\n      \"factName\": \"<string>\",\n      \"userObjectId\": \"<string>\",\n      \"valueOffset\": \"<string>\"\n    },\n    {\n      \"factData\": \"<string>\",\n      \"factName\": \"<string>\",\n      \"userObjectId\": \"<string>\",\n      \"valueOffset\": \"<string>\"\n    }\n  ]\n}",
+                                                          "options": {
+                                                            "raw": {
+                                                              "headerFamily": "json",
+                                                              "language": "json"
+                                                            }
+                                                          }
+                                                        },
+                                                        "url": {
+                                                          "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/labs/:labName/policysets/:name/evaluatePolicies?api-version=2018-09-15",
+                                                          "host": [
+                                                            "{{baseUrl}}"
+                                                          ],
+                                                          "path": [
+                                                            "subscriptions",
+                                                            ":subscriptionId",
+                                                            "resourceGroups",
+                                                            ":resourceGroupName",
+                                                            "providers",
+                                                            "Microsoft.DevTestLab",
+                                                            "labs",
+                                                            ":labName",
+                                                            "policysets",
+                                                            ":name",
+                                                            "evaluatePolicies"
+                                                          ],
+                                                          "query": [
+                                                            {
+                                                              "description": "(Required) Client API version.",
+                                                              "key": "api-version",
+                                                              "value": "2018-09-15"
+                                                            }
+                                                          ],
+                                                          "variable": [
+                                                            {
+                                                              "key": "subscriptionId"
+                                                            },
+                                                            {
+                                                              "key": "resourceGroupName"
+                                                            },
+                                                            {
+                                                              "key": "labName"
+                                                            },
+                                                            {
+                                                              "key": "name"
+                                                            }
+                                                          ]
+                                                        }
+                                                      },
+                                                      "status": "OK",
+                                                      "code": 200,
+                                                      "_postman_previewlanguage": "json",
+                                                      "header": [
+                                                        {
+                                                          "key": "Content-Type",
+                                                          "value": "application/json"
+                                                        }
+                                                      ],
+                                                      "cookie": [],
+                                                      "responseTime": null,
+                                                      "body": "{\n  \"results\": [\n    {\n      \"hasError\": \"<boolean>\",\n      \"policyViolations\": [\n        {\n          \"code\": \"<string>\",\n          \"message\": \"<string>\"\n        },\n        {\n          \"code\": \"<string>\",\n          \"message\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"hasError\": \"<boolean>\",\n      \"policyViolations\": [\n        {\n          \"code\": \"<string>\",\n          \"message\": \"<string>\"\n        },\n        {\n          \"code\": \"<string>\",\n          \"message\": \"<string>\"\n        }\n      ]\n    }\n  ]\n}",
+                                                      "createdAt": "2026-07-28T10:55:39.000Z",
+                                                      "updatedAt": "2026-07-28T10:55:39.000Z",
+                                                      "uid": "35240-94bb2249-1f1c-44d9-9fdc-c924eb9a436d"
+                                                    },
+                                                    {
+                                                      "id": "06be7b23-ba03-45a0-a924-1627ecde2445",
+                                                      "name": "BadRequest",
+                                                      "originalRequest": {
+                                                        "method": "POST",
+                                                        "header": [
+                                                          {
+                                                            "key": "Content-Type",
+                                                            "value": "application/json"
+                                                          },
+                                                          {
+                                                            "key": "Accept",
+                                                            "value": "application/json"
+                                                          },
+                                                          {
+                                                            "description": "Added as a part of security scheme: oauth2",
+                                                            "key": "Authorization",
+                                                            "value": "<token>"
+                                                          }
+                                                        ],
+                                                        "body": {
+                                                          "mode": "raw",
+                                                          "raw": "{\n  \"policies\": [\n    {\n      \"factData\": \"<string>\",\n      \"factName\": \"<string>\",\n      \"userObjectId\": \"<string>\",\n      \"valueOffset\": \"<string>\"\n    },\n    {\n      \"factData\": \"<string>\",\n      \"factName\": \"<string>\",\n      \"userObjectId\": \"<string>\",\n      \"valueOffset\": \"<string>\"\n    }\n  ]\n}",
+                                                          "options": {
+                                                            "raw": {
+                                                              "headerFamily": "json",
+                                                              "language": "json"
+                                                            }
+                                                          }
+                                                        },
+                                                        "url": {
+                                                          "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/labs/:labName/policysets/:name/evaluatePolicies?api-version=2018-09-15",
+                                                          "host": [
+                                                            "{{baseUrl}}"
+                                                          ],
+                                                          "path": [
+                                                            "subscriptions",
+                                                            ":subscriptionId",
+                                                            "resourceGroups",
+                                                            ":resourceGroupName",
+                                                            "providers",
+                                                            "Microsoft.DevTestLab",
+                                                            "labs",
+                                                            ":labName",
+                                                            "policysets",
+                                                            ":name",
+                                                            "evaluatePolicies"
+                                                          ],
+                                                          "query": [
+                                                            {
+                                                              "description": "(Required) Client API version.",
+                                                              "key": "api-version",
+                                                              "value": "2018-09-15"
+                                                            }
+                                                          ],
+                                                          "variable": [
+                                                            {
+                                                              "key": "subscriptionId"
+                                                            },
+                                                            {
+                                                              "key": "resourceGroupName"
+                                                            },
+                                                            {
+                                                              "key": "labName"
+                                                            },
+                                                            {
+                                                              "key": "name"
+                                                            }
+                                                          ]
+                                                        }
+                                                      },
+                                                      "status": "Internal Server Error",
+                                                      "code": 500,
+                                                      "_postman_previewlanguage": "json",
+                                                      "header": [
+                                                        {
+                                                          "key": "Content-Type",
+                                                          "value": "application/json"
+                                                        }
+                                                      ],
+                                                      "cookie": [],
+                                                      "responseTime": null,
+                                                      "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"details\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/CloudErrorBody detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/CloudErrorBody detected>\"\n      }\n    ],\n    \"message\": \"<string>\",\n    \"target\": \"<string>\"\n  }\n}",
+                                                      "createdAt": "2026-07-28T10:55:39.000Z",
+                                                      "updatedAt": "2026-07-28T10:55:39.000Z",
+                                                      "uid": "35240-06be7b23-ba03-45a0-a924-1627ecde2445"
+                                                    }
+                                                  ],
+                                                  "createdAt": "2026-07-28T10:55:39.000Z",
+                                                  "updatedAt": "2026-07-28T10:55:39.000Z",
+                                                  "uid": "35240-deb65da8-5bd4-4384-9ec7-39b0d2f78efe"
+                                                }
+                                              ],
+                                              "id": "e88c2084-def5-45cb-9f57-089e5c4df5af",
+                                              "createdAt": "2026-07-28T10:55:39.000Z",
+                                              "updatedAt": "2026-07-28T10:55:39.000Z",
+                                              "uid": "35240-e88c2084-def5-45cb-9f57-089e5c4df5af"
+                                            }
+                                          ],
+                                          "id": "241c3aad-e9b4-4a59-9aa9-73ca26d04aab",
+                                          "createdAt": "2026-07-28T10:55:39.000Z",
+                                          "updatedAt": "2026-07-28T10:55:39.000Z",
+                                          "uid": "35240-241c3aad-e9b4-4a59-9aa9-73ca26d04aab"
+                                        }
+                                      ],
+                                      "id": "c5a76f72-38d7-41bf-a83b-d9678e770640",
+                                      "createdAt": "2026-07-28T10:55:39.000Z",
+                                      "updatedAt": "2026-07-28T10:55:39.000Z",
+                                      "uid": "35240-c5a76f72-38d7-41bf-a83b-d9678e770640"
+                                    }
+                                  ],
+                                  "id": "f9827da3-cacb-4cff-93ff-3d9456baebeb",
+                                  "createdAt": "2026-07-28T10:55:39.000Z",
+                                  "updatedAt": "2026-07-28T10:55:39.000Z",
+                                  "uid": "35240-f9827da3-cacb-4cff-93ff-3d9456baebeb"
+                                }
+                              ],
+                              "id": "d5513e80-6194-47b9-a15f-f88d8d0a4dc3",
+                              "createdAt": "2026-07-28T10:55:39.000Z",
+                              "updatedAt": "2026-07-28T10:55:39.000Z",
+                              "uid": "35240-d5513e80-6194-47b9-a15f-f88d8d0a4dc3"
+                            }
+                          ],
+                          "id": "4e2e9ba7-69b1-40da-ae10-280b7f98b4b1",
+                          "createdAt": "2026-07-28T10:55:39.000Z",
+                          "updatedAt": "2026-07-28T10:55:39.000Z",
+                          "uid": "35240-4e2e9ba7-69b1-40da-ae10-280b7f98b4b1"
+                        }
+                      ],
+                      "id": "21fd0e63-b8c9-4f8a-a750-d0d39200e133",
+                      "createdAt": "2026-07-28T10:55:39.000Z",
+                      "updatedAt": "2026-07-28T10:55:39.000Z",
+                      "uid": "35240-21fd0e63-b8c9-4f8a-a750-d0d39200e133"
+                    }
+                  ],
+                  "id": "469dabbb-df67-40d1-9d9c-56bec39c86eb",
+                  "createdAt": "2026-07-28T10:55:39.000Z",
+                  "updatedAt": "2026-07-28T10:55:39.000Z",
+                  "uid": "35240-469dabbb-df67-40d1-9d9c-56bec39c86eb"
+                }
+              ],
+              "id": "9c767a72-3398-4abb-b92d-def2000c5c81",
+              "createdAt": "2026-07-28T10:55:39.000Z",
+              "updatedAt": "2026-07-28T10:55:39.000Z",
+              "uid": "35240-9c767a72-3398-4abb-b92d-def2000c5c81"
+            }
+          ],
+          "id": "2ef3a4a8-1c87-4998-8996-00bbbeb67c56",
+          "createdAt": "2026-07-28T10:55:39.000Z",
+          "updatedAt": "2026-07-28T10:55:39.000Z",
+          "uid": "35240-2ef3a4a8-1c87-4998-8996-00bbbeb67c56"
+        }
+      ],
+      "id": "eec57436-fb48-49a2-a812-27d330397ad6",
+      "createdAt": "2026-07-28T10:55:39.000Z",
+      "updatedAt": "2026-07-28T10:55:39.000Z",
+      "uid": "35240-eec57436-fb48-49a2-a812-27d330397ad6"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "user_impersonation",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "implicit",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://management.azure.com"
+    }
+  ]
+}

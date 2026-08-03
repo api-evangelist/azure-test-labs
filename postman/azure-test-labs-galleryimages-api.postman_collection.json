@@ -1,0 +1,383 @@
+{
+  "info": {
+    "_postman_id": "b2edb861-c46b-42ae-9d6a-d07303d6de58",
+    "name": "DevTestLabsClient ArmTemplates GalleryImages API",
+    "description": "The DevTest Labs Client.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T10:55:21.000Z",
+    "updatedAt": "2026-07-28T10:55:21.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-b2edb861-c46b-42ae-9d6a-d07303d6de58"
+  },
+  "item": [
+    {
+      "name": "subscriptions",
+      "item": [
+        {
+          "name": "{subscriptionId}",
+          "item": [
+            {
+              "name": "resourceGroups",
+              "item": [
+                {
+                  "name": "{resourceGroupName}",
+                  "item": [
+                    {
+                      "name": "providers",
+                      "item": [
+                        {
+                          "name": "Microsoft.DevTestLab",
+                          "item": [
+                            {
+                              "name": "labs",
+                              "item": [
+                                {
+                                  "name": "{labName}",
+                                  "item": [
+                                    {
+                                      "name": "galleryimages",
+                                      "item": [
+                                        {
+                                          "name": "Azure DevTest Labs Gallery Images_ List",
+                                          "id": "6caeb158-b923-4c01-8ef8-a5bdac7f169f",
+                                          "protocolProfileBehavior": {
+                                            "disableBodyPruning": true
+                                          },
+                                          "request": {
+                                            "method": "GET",
+                                            "header": [
+                                              {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                              }
+                                            ],
+                                            "url": {
+                                              "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/labs/:labName/galleryimages?$expand=<string>&$filter=<string>&$top=<integer>&$orderby=<string>&api-version=2018-09-15",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "subscriptions",
+                                                ":subscriptionId",
+                                                "resourceGroups",
+                                                ":resourceGroupName",
+                                                "providers",
+                                                "Microsoft.DevTestLab",
+                                                "labs",
+                                                ":labName",
+                                                "galleryimages"
+                                              ],
+                                              "query": [
+                                                {
+                                                  "description": "Specify the $expand query. Example: 'properties($select=author)'",
+                                                  "key": "$expand",
+                                                  "value": "<string>"
+                                                },
+                                                {
+                                                  "description": "The filter to apply to the operation. Example: '$filter=contains(name,'myName')",
+                                                  "key": "$filter",
+                                                  "value": "<string>"
+                                                },
+                                                {
+                                                  "description": "The maximum number of resources to return from the operation. Example: '$top=10'",
+                                                  "key": "$top",
+                                                  "value": "<integer>"
+                                                },
+                                                {
+                                                  "description": "The ordering expression for the results, using OData notation. Example: '$orderby=name desc'",
+                                                  "key": "$orderby",
+                                                  "value": "<string>"
+                                                },
+                                                {
+                                                  "description": "(Required) Client API version.",
+                                                  "key": "api-version",
+                                                  "value": "2018-09-15"
+                                                }
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "id": "15f9f6df-06b6-4e82-979c-496650ddbc9e",
+                                                  "key": "subscriptionId",
+                                                  "value": "<string>",
+                                                  "description": "(Required) The subscription ID."
+                                                },
+                                                {
+                                                  "id": "dee4eaad-5134-474e-a27c-b15daccb160a",
+                                                  "key": "resourceGroupName",
+                                                  "value": "<string>",
+                                                  "description": "(Required) The name of the resource group."
+                                                },
+                                                {
+                                                  "id": "f5849661-94e8-4ddf-95d0-52b51eabb967",
+                                                  "key": "labName",
+                                                  "value": "<string>",
+                                                  "description": "(Required) The name of the lab."
+                                                }
+                                              ]
+                                            },
+                                            "description": "List gallery images in a given lab."
+                                          },
+                                          "response": [
+                                            {
+                                              "id": "376de338-567e-41da-b055-c3677853b3f0",
+                                              "name": "OK",
+                                              "originalRequest": {
+                                                "method": "GET",
+                                                "header": [
+                                                  {
+                                                    "key": "Accept",
+                                                    "value": "application/json"
+                                                  },
+                                                  {
+                                                    "description": "Added as a part of security scheme: oauth2",
+                                                    "key": "Authorization",
+                                                    "value": "<token>"
+                                                  }
+                                                ],
+                                                "url": {
+                                                  "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/labs/:labName/galleryimages?$expand=<string>&$filter=<string>&$top=<integer>&$orderby=<string>&api-version=2018-09-15",
+                                                  "host": [
+                                                    "{{baseUrl}}"
+                                                  ],
+                                                  "path": [
+                                                    "subscriptions",
+                                                    ":subscriptionId",
+                                                    "resourceGroups",
+                                                    ":resourceGroupName",
+                                                    "providers",
+                                                    "Microsoft.DevTestLab",
+                                                    "labs",
+                                                    ":labName",
+                                                    "galleryimages"
+                                                  ],
+                                                  "query": [
+                                                    {
+                                                      "description": "Specify the $expand query. Example: 'properties($select=author)'",
+                                                      "key": "$expand",
+                                                      "value": "<string>"
+                                                    },
+                                                    {
+                                                      "description": "The filter to apply to the operation. Example: '$filter=contains(name,'myName')",
+                                                      "key": "$filter",
+                                                      "value": "<string>"
+                                                    },
+                                                    {
+                                                      "description": "The maximum number of resources to return from the operation. Example: '$top=10'",
+                                                      "key": "$top",
+                                                      "value": "<integer>"
+                                                    },
+                                                    {
+                                                      "description": "The ordering expression for the results, using OData notation. Example: '$orderby=name desc'",
+                                                      "key": "$orderby",
+                                                      "value": "<string>"
+                                                    },
+                                                    {
+                                                      "description": "(Required) Client API version.",
+                                                      "key": "api-version",
+                                                      "value": "2018-09-15"
+                                                    }
+                                                  ],
+                                                  "variable": [
+                                                    {
+                                                      "key": "subscriptionId"
+                                                    },
+                                                    {
+                                                      "key": "resourceGroupName"
+                                                    },
+                                                    {
+                                                      "key": "labName"
+                                                    }
+                                                  ]
+                                                }
+                                              },
+                                              "status": "OK",
+                                              "code": 200,
+                                              "_postman_previewlanguage": "json",
+                                              "header": [
+                                                {
+                                                  "key": "Content-Type",
+                                                  "value": "application/json"
+                                                }
+                                              ],
+                                              "cookie": [],
+                                              "responseTime": null,
+                                              "body": "{\n  \"nextLink\": \"<string>\",\n  \"value\": [\n    {\n      \"properties\": {},\n      \"id\": \"<string>\",\n      \"location\": \"<string>\",\n      \"name\": \"<string>\",\n      \"tags\": {\n        \"consectetur_b2\": \"<string>\"\n      },\n      \"type\": \"<string>\"\n    },\n    {\n      \"properties\": {},\n      \"id\": \"<string>\",\n      \"location\": \"<string>\",\n      \"name\": \"<string>\",\n      \"tags\": {\n        \"ad_15\": \"<string>\"\n      },\n      \"type\": \"<string>\"\n    }\n  ]\n}",
+                                              "createdAt": "2026-07-28T10:55:22.000Z",
+                                              "updatedAt": "2026-07-28T10:55:22.000Z",
+                                              "uid": "35240-376de338-567e-41da-b055-c3677853b3f0"
+                                            },
+                                            {
+                                              "id": "f1897901-2515-48e2-8c93-0f03f6531e30",
+                                              "name": "BadRequest",
+                                              "originalRequest": {
+                                                "method": "GET",
+                                                "header": [
+                                                  {
+                                                    "key": "Accept",
+                                                    "value": "application/json"
+                                                  },
+                                                  {
+                                                    "description": "Added as a part of security scheme: oauth2",
+                                                    "key": "Authorization",
+                                                    "value": "<token>"
+                                                  }
+                                                ],
+                                                "url": {
+                                                  "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/labs/:labName/galleryimages?$expand=<string>&$filter=<string>&$top=<integer>&$orderby=<string>&api-version=2018-09-15",
+                                                  "host": [
+                                                    "{{baseUrl}}"
+                                                  ],
+                                                  "path": [
+                                                    "subscriptions",
+                                                    ":subscriptionId",
+                                                    "resourceGroups",
+                                                    ":resourceGroupName",
+                                                    "providers",
+                                                    "Microsoft.DevTestLab",
+                                                    "labs",
+                                                    ":labName",
+                                                    "galleryimages"
+                                                  ],
+                                                  "query": [
+                                                    {
+                                                      "description": "Specify the $expand query. Example: 'properties($select=author)'",
+                                                      "key": "$expand",
+                                                      "value": "<string>"
+                                                    },
+                                                    {
+                                                      "description": "The filter to apply to the operation. Example: '$filter=contains(name,'myName')",
+                                                      "key": "$filter",
+                                                      "value": "<string>"
+                                                    },
+                                                    {
+                                                      "description": "The maximum number of resources to return from the operation. Example: '$top=10'",
+                                                      "key": "$top",
+                                                      "value": "<integer>"
+                                                    },
+                                                    {
+                                                      "description": "The ordering expression for the results, using OData notation. Example: '$orderby=name desc'",
+                                                      "key": "$orderby",
+                                                      "value": "<string>"
+                                                    },
+                                                    {
+                                                      "description": "(Required) Client API version.",
+                                                      "key": "api-version",
+                                                      "value": "2018-09-15"
+                                                    }
+                                                  ],
+                                                  "variable": [
+                                                    {
+                                                      "key": "subscriptionId"
+                                                    },
+                                                    {
+                                                      "key": "resourceGroupName"
+                                                    },
+                                                    {
+                                                      "key": "labName"
+                                                    }
+                                                  ]
+                                                }
+                                              },
+                                              "status": "Internal Server Error",
+                                              "code": 500,
+                                              "_postman_previewlanguage": "json",
+                                              "header": [
+                                                {
+                                                  "key": "Content-Type",
+                                                  "value": "application/json"
+                                                }
+                                              ],
+                                              "cookie": [],
+                                              "responseTime": null,
+                                              "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"details\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/CloudErrorBody detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/CloudErrorBody detected>\"\n      }\n    ],\n    \"message\": \"<string>\",\n    \"target\": \"<string>\"\n  }\n}",
+                                              "createdAt": "2026-07-28T10:55:22.000Z",
+                                              "updatedAt": "2026-07-28T10:55:22.000Z",
+                                              "uid": "35240-f1897901-2515-48e2-8c93-0f03f6531e30"
+                                            }
+                                          ],
+                                          "createdAt": "2026-07-28T10:55:22.000Z",
+                                          "updatedAt": "2026-07-28T10:55:22.000Z",
+                                          "uid": "35240-6caeb158-b923-4c01-8ef8-a5bdac7f169f"
+                                        }
+                                      ],
+                                      "id": "4a3a33a6-3c67-43f8-b0bc-7f46176df177",
+                                      "createdAt": "2026-07-28T10:55:22.000Z",
+                                      "updatedAt": "2026-07-28T10:55:22.000Z",
+                                      "uid": "35240-4a3a33a6-3c67-43f8-b0bc-7f46176df177"
+                                    }
+                                  ],
+                                  "id": "73f9c043-22b1-4a4e-a99c-85e8739961f3",
+                                  "createdAt": "2026-07-28T10:55:22.000Z",
+                                  "updatedAt": "2026-07-28T10:55:22.000Z",
+                                  "uid": "35240-73f9c043-22b1-4a4e-a99c-85e8739961f3"
+                                }
+                              ],
+                              "id": "e68fa827-cc17-486e-b150-61c6a73e01c4",
+                              "createdAt": "2026-07-28T10:55:22.000Z",
+                              "updatedAt": "2026-07-28T10:55:22.000Z",
+                              "uid": "35240-e68fa827-cc17-486e-b150-61c6a73e01c4"
+                            }
+                          ],
+                          "id": "1728c1a0-194e-47e1-8914-04b02f5b1c93",
+                          "createdAt": "2026-07-28T10:55:22.000Z",
+                          "updatedAt": "2026-07-28T10:55:22.000Z",
+                          "uid": "35240-1728c1a0-194e-47e1-8914-04b02f5b1c93"
+                        }
+                      ],
+                      "id": "b3363f9d-9d75-4b6c-b030-0e44bdd64743",
+                      "createdAt": "2026-07-28T10:55:22.000Z",
+                      "updatedAt": "2026-07-28T10:55:22.000Z",
+                      "uid": "35240-b3363f9d-9d75-4b6c-b030-0e44bdd64743"
+                    }
+                  ],
+                  "id": "b72c2cb5-1b8e-47d7-a4e6-a6bd872c515d",
+                  "createdAt": "2026-07-28T10:55:22.000Z",
+                  "updatedAt": "2026-07-28T10:55:22.000Z",
+                  "uid": "35240-b72c2cb5-1b8e-47d7-a4e6-a6bd872c515d"
+                }
+              ],
+              "id": "76b2adbc-64ee-4578-8e9b-9fc92d373af1",
+              "createdAt": "2026-07-28T10:55:22.000Z",
+              "updatedAt": "2026-07-28T10:55:22.000Z",
+              "uid": "35240-76b2adbc-64ee-4578-8e9b-9fc92d373af1"
+            }
+          ],
+          "id": "e8e6a88a-1fae-43ff-b83c-cd49fcf4463d",
+          "createdAt": "2026-07-28T10:55:22.000Z",
+          "updatedAt": "2026-07-28T10:55:22.000Z",
+          "uid": "35240-e8e6a88a-1fae-43ff-b83c-cd49fcf4463d"
+        }
+      ],
+      "id": "b98307eb-0734-4f3d-8f70-585bf9cdd1e8",
+      "createdAt": "2026-07-28T10:55:22.000Z",
+      "updatedAt": "2026-07-28T10:55:22.000Z",
+      "uid": "35240-b98307eb-0734-4f3d-8f70-585bf9cdd1e8"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "user_impersonation",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "implicit",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://management.azure.com"
+    }
+  ]
+}

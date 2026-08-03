@@ -1,0 +1,1617 @@
+{
+  "info": {
+    "_postman_id": "dc41c0a3-9d05-43db-a19f-b4a2bd84effb",
+    "name": "DevTestLabsClient ArmTemplates Policies API",
+    "description": "The DevTest Labs Client.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T10:55:38.000Z",
+    "updatedAt": "2026-07-28T10:55:38.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-dc41c0a3-9d05-43db-a19f-b4a2bd84effb"
+  },
+  "item": [
+    {
+      "name": "subscriptions",
+      "item": [
+        {
+          "name": "{subscriptionId}",
+          "item": [
+            {
+              "name": "resourceGroups",
+              "item": [
+                {
+                  "name": "{resourceGroupName}",
+                  "item": [
+                    {
+                      "name": "providers",
+                      "item": [
+                        {
+                          "name": "Microsoft.DevTestLab",
+                          "item": [
+                            {
+                              "name": "labs",
+                              "item": [
+                                {
+                                  "name": "{labName}",
+                                  "item": [
+                                    {
+                                      "name": "policysets",
+                                      "item": [
+                                        {
+                                          "name": "{policySetName}",
+                                          "item": [
+                                            {
+                                              "name": "policies",
+                                              "item": [
+                                                {
+                                                  "name": "{name}",
+                                                  "item": [
+                                                    {
+                                                      "name": "Azure DevTest Labs Policies_ Delete",
+                                                      "id": "ee0022db-bd93-4f63-aff7-53fa0b40beb4",
+                                                      "protocolProfileBehavior": {
+                                                        "disableBodyPruning": true
+                                                      },
+                                                      "request": {
+                                                        "method": "DELETE",
+                                                        "header": [
+                                                          {
+                                                            "key": "Accept",
+                                                            "value": "application/json"
+                                                          }
+                                                        ],
+                                                        "url": {
+                                                          "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/labs/:labName/policysets/:policySetName/policies/:name?api-version=2018-09-15",
+                                                          "host": [
+                                                            "{{baseUrl}}"
+                                                          ],
+                                                          "path": [
+                                                            "subscriptions",
+                                                            ":subscriptionId",
+                                                            "resourceGroups",
+                                                            ":resourceGroupName",
+                                                            "providers",
+                                                            "Microsoft.DevTestLab",
+                                                            "labs",
+                                                            ":labName",
+                                                            "policysets",
+                                                            ":policySetName",
+                                                            "policies",
+                                                            ":name"
+                                                          ],
+                                                          "query": [
+                                                            {
+                                                              "description": "(Required) Client API version.",
+                                                              "key": "api-version",
+                                                              "value": "2018-09-15"
+                                                            }
+                                                          ],
+                                                          "variable": [
+                                                            {
+                                                              "id": "cc21cd18-2464-4b5d-8700-39416cb23d12",
+                                                              "key": "subscriptionId",
+                                                              "value": "<string>",
+                                                              "description": "(Required) The subscription ID."
+                                                            },
+                                                            {
+                                                              "id": "c6df9216-882c-409e-a93d-feab52267df4",
+                                                              "key": "resourceGroupName",
+                                                              "value": "<string>",
+                                                              "description": "(Required) The name of the resource group."
+                                                            },
+                                                            {
+                                                              "id": "724ae1f9-b011-4b4f-b5a4-bae96c152e82",
+                                                              "key": "labName",
+                                                              "value": "<string>",
+                                                              "description": "(Required) The name of the lab."
+                                                            },
+                                                            {
+                                                              "id": "dd1ad3ae-93d1-4aef-9098-daa87538c78b",
+                                                              "key": "policySetName",
+                                                              "value": "<string>",
+                                                              "description": "(Required) The name of the policy set."
+                                                            },
+                                                            {
+                                                              "id": "b60a38f4-6c77-4e6b-b501-182003a5ea93",
+                                                              "key": "name",
+                                                              "value": "<string>",
+                                                              "description": "(Required) The name of the policy."
+                                                            }
+                                                          ]
+                                                        },
+                                                        "description": "Delete policy."
+                                                      },
+                                                      "response": [
+                                                        {
+                                                          "id": "126d1b1b-0431-4dbd-a6e9-feb2c65ae8ec",
+                                                          "name": "OK",
+                                                          "originalRequest": {
+                                                            "method": "DELETE",
+                                                            "header": [
+                                                              {
+                                                                "description": "Added as a part of security scheme: oauth2",
+                                                                "key": "Authorization",
+                                                                "value": "<token>"
+                                                              }
+                                                            ],
+                                                            "url": {
+                                                              "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/labs/:labName/policysets/:policySetName/policies/:name?api-version=2018-09-15",
+                                                              "host": [
+                                                                "{{baseUrl}}"
+                                                              ],
+                                                              "path": [
+                                                                "subscriptions",
+                                                                ":subscriptionId",
+                                                                "resourceGroups",
+                                                                ":resourceGroupName",
+                                                                "providers",
+                                                                "Microsoft.DevTestLab",
+                                                                "labs",
+                                                                ":labName",
+                                                                "policysets",
+                                                                ":policySetName",
+                                                                "policies",
+                                                                ":name"
+                                                              ],
+                                                              "query": [
+                                                                {
+                                                                  "description": "(Required) Client API version.",
+                                                                  "key": "api-version",
+                                                                  "value": "2018-09-15"
+                                                                }
+                                                              ],
+                                                              "variable": [
+                                                                {
+                                                                  "key": "subscriptionId"
+                                                                },
+                                                                {
+                                                                  "key": "resourceGroupName"
+                                                                },
+                                                                {
+                                                                  "key": "labName"
+                                                                },
+                                                                {
+                                                                  "key": "policySetName"
+                                                                },
+                                                                {
+                                                                  "key": "name"
+                                                                }
+                                                              ]
+                                                            }
+                                                          },
+                                                          "status": "OK",
+                                                          "code": 200,
+                                                          "_postman_previewlanguage": "text",
+                                                          "header": [],
+                                                          "cookie": [],
+                                                          "responseTime": null,
+                                                          "body": null,
+                                                          "createdAt": "2026-07-28T10:55:38.000Z",
+                                                          "updatedAt": "2026-07-28T10:55:38.000Z",
+                                                          "uid": "35240-126d1b1b-0431-4dbd-a6e9-feb2c65ae8ec"
+                                                        },
+                                                        {
+                                                          "id": "c8cfb5a8-1950-40c4-ab84-d101777cf789",
+                                                          "name": "No Content",
+                                                          "originalRequest": {
+                                                            "method": "DELETE",
+                                                            "header": [
+                                                              {
+                                                                "description": "Added as a part of security scheme: oauth2",
+                                                                "key": "Authorization",
+                                                                "value": "<token>"
+                                                              }
+                                                            ],
+                                                            "url": {
+                                                              "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/labs/:labName/policysets/:policySetName/policies/:name?api-version=2018-09-15",
+                                                              "host": [
+                                                                "{{baseUrl}}"
+                                                              ],
+                                                              "path": [
+                                                                "subscriptions",
+                                                                ":subscriptionId",
+                                                                "resourceGroups",
+                                                                ":resourceGroupName",
+                                                                "providers",
+                                                                "Microsoft.DevTestLab",
+                                                                "labs",
+                                                                ":labName",
+                                                                "policysets",
+                                                                ":policySetName",
+                                                                "policies",
+                                                                ":name"
+                                                              ],
+                                                              "query": [
+                                                                {
+                                                                  "description": "(Required) Client API version.",
+                                                                  "key": "api-version",
+                                                                  "value": "2018-09-15"
+                                                                }
+                                                              ],
+                                                              "variable": [
+                                                                {
+                                                                  "key": "subscriptionId"
+                                                                },
+                                                                {
+                                                                  "key": "resourceGroupName"
+                                                                },
+                                                                {
+                                                                  "key": "labName"
+                                                                },
+                                                                {
+                                                                  "key": "policySetName"
+                                                                },
+                                                                {
+                                                                  "key": "name"
+                                                                }
+                                                              ]
+                                                            }
+                                                          },
+                                                          "status": "No Content",
+                                                          "code": 204,
+                                                          "_postman_previewlanguage": "text",
+                                                          "header": [],
+                                                          "cookie": [],
+                                                          "responseTime": null,
+                                                          "body": null,
+                                                          "createdAt": "2026-07-28T10:55:38.000Z",
+                                                          "updatedAt": "2026-07-28T10:55:38.000Z",
+                                                          "uid": "35240-c8cfb5a8-1950-40c4-ab84-d101777cf789"
+                                                        },
+                                                        {
+                                                          "id": "007d19d6-77d0-4a7d-9a73-bca53251bdfc",
+                                                          "name": "BadRequest",
+                                                          "originalRequest": {
+                                                            "method": "DELETE",
+                                                            "header": [
+                                                              {
+                                                                "key": "Accept",
+                                                                "value": "application/json"
+                                                              },
+                                                              {
+                                                                "description": "Added as a part of security scheme: oauth2",
+                                                                "key": "Authorization",
+                                                                "value": "<token>"
+                                                              }
+                                                            ],
+                                                            "url": {
+                                                              "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/labs/:labName/policysets/:policySetName/policies/:name?api-version=2018-09-15",
+                                                              "host": [
+                                                                "{{baseUrl}}"
+                                                              ],
+                                                              "path": [
+                                                                "subscriptions",
+                                                                ":subscriptionId",
+                                                                "resourceGroups",
+                                                                ":resourceGroupName",
+                                                                "providers",
+                                                                "Microsoft.DevTestLab",
+                                                                "labs",
+                                                                ":labName",
+                                                                "policysets",
+                                                                ":policySetName",
+                                                                "policies",
+                                                                ":name"
+                                                              ],
+                                                              "query": [
+                                                                {
+                                                                  "description": "(Required) Client API version.",
+                                                                  "key": "api-version",
+                                                                  "value": "2018-09-15"
+                                                                }
+                                                              ],
+                                                              "variable": [
+                                                                {
+                                                                  "key": "subscriptionId"
+                                                                },
+                                                                {
+                                                                  "key": "resourceGroupName"
+                                                                },
+                                                                {
+                                                                  "key": "labName"
+                                                                },
+                                                                {
+                                                                  "key": "policySetName"
+                                                                },
+                                                                {
+                                                                  "key": "name"
+                                                                }
+                                                              ]
+                                                            }
+                                                          },
+                                                          "status": "Internal Server Error",
+                                                          "code": 500,
+                                                          "_postman_previewlanguage": "json",
+                                                          "header": [
+                                                            {
+                                                              "key": "Content-Type",
+                                                              "value": "application/json"
+                                                            }
+                                                          ],
+                                                          "cookie": [],
+                                                          "responseTime": null,
+                                                          "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"details\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/CloudErrorBody detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/CloudErrorBody detected>\"\n      }\n    ],\n    \"message\": \"<string>\",\n    \"target\": \"<string>\"\n  }\n}",
+                                                          "createdAt": "2026-07-28T10:55:38.000Z",
+                                                          "updatedAt": "2026-07-28T10:55:38.000Z",
+                                                          "uid": "35240-007d19d6-77d0-4a7d-9a73-bca53251bdfc"
+                                                        }
+                                                      ],
+                                                      "createdAt": "2026-07-28T10:55:38.000Z",
+                                                      "updatedAt": "2026-07-28T10:55:38.000Z",
+                                                      "uid": "35240-ee0022db-bd93-4f63-aff7-53fa0b40beb4"
+                                                    },
+                                                    {
+                                                      "name": "Azure DevTest Labs Policies_ Get",
+                                                      "id": "594c35d8-af7d-44df-be20-0b711ca4e1fb",
+                                                      "protocolProfileBehavior": {
+                                                        "disableBodyPruning": true
+                                                      },
+                                                      "request": {
+                                                        "method": "GET",
+                                                        "header": [
+                                                          {
+                                                            "key": "Accept",
+                                                            "value": "application/json"
+                                                          }
+                                                        ],
+                                                        "url": {
+                                                          "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/labs/:labName/policysets/:policySetName/policies/:name?$expand=<string>&api-version=2018-09-15",
+                                                          "host": [
+                                                            "{{baseUrl}}"
+                                                          ],
+                                                          "path": [
+                                                            "subscriptions",
+                                                            ":subscriptionId",
+                                                            "resourceGroups",
+                                                            ":resourceGroupName",
+                                                            "providers",
+                                                            "Microsoft.DevTestLab",
+                                                            "labs",
+                                                            ":labName",
+                                                            "policysets",
+                                                            ":policySetName",
+                                                            "policies",
+                                                            ":name"
+                                                          ],
+                                                          "query": [
+                                                            {
+                                                              "description": "Specify the $expand query. Example: 'properties($select=description)'",
+                                                              "key": "$expand",
+                                                              "value": "<string>"
+                                                            },
+                                                            {
+                                                              "description": "(Required) Client API version.",
+                                                              "key": "api-version",
+                                                              "value": "2018-09-15"
+                                                            }
+                                                          ],
+                                                          "variable": [
+                                                            {
+                                                              "id": "e1189969-3167-49c1-b487-3178b04dc20b",
+                                                              "key": "subscriptionId",
+                                                              "value": "<string>",
+                                                              "description": "(Required) The subscription ID."
+                                                            },
+                                                            {
+                                                              "id": "e3e06df3-03c2-4c4c-9325-08f118f691ff",
+                                                              "key": "resourceGroupName",
+                                                              "value": "<string>",
+                                                              "description": "(Required) The name of the resource group."
+                                                            },
+                                                            {
+                                                              "id": "e3894f20-a927-48f6-ab75-4e19b46e9dc3",
+                                                              "key": "labName",
+                                                              "value": "<string>",
+                                                              "description": "(Required) The name of the lab."
+                                                            },
+                                                            {
+                                                              "id": "dab3458e-e03f-485b-bfe9-50a9a172529b",
+                                                              "key": "policySetName",
+                                                              "value": "<string>",
+                                                              "description": "(Required) The name of the policy set."
+                                                            },
+                                                            {
+                                                              "id": "a8a4e937-66be-4570-98df-1babf9036a3b",
+                                                              "key": "name",
+                                                              "value": "<string>",
+                                                              "description": "(Required) The name of the policy."
+                                                            }
+                                                          ]
+                                                        },
+                                                        "description": "Get policy."
+                                                      },
+                                                      "response": [
+                                                        {
+                                                          "id": "34a2936c-18be-4abc-9388-94a4ec12a5da",
+                                                          "name": "OK",
+                                                          "originalRequest": {
+                                                            "method": "GET",
+                                                            "header": [
+                                                              {
+                                                                "key": "Accept",
+                                                                "value": "application/json"
+                                                              },
+                                                              {
+                                                                "description": "Added as a part of security scheme: oauth2",
+                                                                "key": "Authorization",
+                                                                "value": "<token>"
+                                                              }
+                                                            ],
+                                                            "url": {
+                                                              "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/labs/:labName/policysets/:policySetName/policies/:name?$expand=<string>&api-version=2018-09-15",
+                                                              "host": [
+                                                                "{{baseUrl}}"
+                                                              ],
+                                                              "path": [
+                                                                "subscriptions",
+                                                                ":subscriptionId",
+                                                                "resourceGroups",
+                                                                ":resourceGroupName",
+                                                                "providers",
+                                                                "Microsoft.DevTestLab",
+                                                                "labs",
+                                                                ":labName",
+                                                                "policysets",
+                                                                ":policySetName",
+                                                                "policies",
+                                                                ":name"
+                                                              ],
+                                                              "query": [
+                                                                {
+                                                                  "description": "Specify the $expand query. Example: 'properties($select=description)'",
+                                                                  "key": "$expand",
+                                                                  "value": "<string>"
+                                                                },
+                                                                {
+                                                                  "description": "(Required) Client API version.",
+                                                                  "key": "api-version",
+                                                                  "value": "2018-09-15"
+                                                                }
+                                                              ],
+                                                              "variable": [
+                                                                {
+                                                                  "key": "subscriptionId"
+                                                                },
+                                                                {
+                                                                  "key": "resourceGroupName"
+                                                                },
+                                                                {
+                                                                  "key": "labName"
+                                                                },
+                                                                {
+                                                                  "key": "policySetName"
+                                                                },
+                                                                {
+                                                                  "key": "name"
+                                                                }
+                                                              ]
+                                                            }
+                                                          },
+                                                          "status": "OK",
+                                                          "code": 200,
+                                                          "_postman_previewlanguage": "json",
+                                                          "header": [
+                                                            {
+                                                              "key": "Content-Type",
+                                                              "value": "application/json"
+                                                            }
+                                                          ],
+                                                          "cookie": [],
+                                                          "responseTime": null,
+                                                          "body": "{\n  \"properties\": {},\n  \"id\": \"<string>\",\n  \"location\": \"<string>\",\n  \"name\": \"<string>\",\n  \"tags\": {\n    \"dolor_9\": \"<string>\",\n    \"in_cd\": \"<string>\"\n  },\n  \"type\": \"<string>\"\n}",
+                                                          "createdAt": "2026-07-28T10:55:38.000Z",
+                                                          "updatedAt": "2026-07-28T10:55:38.000Z",
+                                                          "uid": "35240-34a2936c-18be-4abc-9388-94a4ec12a5da"
+                                                        },
+                                                        {
+                                                          "id": "66fe3fcc-de90-4e01-b57f-cf86c9ce1ca2",
+                                                          "name": "BadRequest",
+                                                          "originalRequest": {
+                                                            "method": "GET",
+                                                            "header": [
+                                                              {
+                                                                "key": "Accept",
+                                                                "value": "application/json"
+                                                              },
+                                                              {
+                                                                "description": "Added as a part of security scheme: oauth2",
+                                                                "key": "Authorization",
+                                                                "value": "<token>"
+                                                              }
+                                                            ],
+                                                            "url": {
+                                                              "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/labs/:labName/policysets/:policySetName/policies/:name?$expand=<string>&api-version=2018-09-15",
+                                                              "host": [
+                                                                "{{baseUrl}}"
+                                                              ],
+                                                              "path": [
+                                                                "subscriptions",
+                                                                ":subscriptionId",
+                                                                "resourceGroups",
+                                                                ":resourceGroupName",
+                                                                "providers",
+                                                                "Microsoft.DevTestLab",
+                                                                "labs",
+                                                                ":labName",
+                                                                "policysets",
+                                                                ":policySetName",
+                                                                "policies",
+                                                                ":name"
+                                                              ],
+                                                              "query": [
+                                                                {
+                                                                  "description": "Specify the $expand query. Example: 'properties($select=description)'",
+                                                                  "key": "$expand",
+                                                                  "value": "<string>"
+                                                                },
+                                                                {
+                                                                  "description": "(Required) Client API version.",
+                                                                  "key": "api-version",
+                                                                  "value": "2018-09-15"
+                                                                }
+                                                              ],
+                                                              "variable": [
+                                                                {
+                                                                  "key": "subscriptionId"
+                                                                },
+                                                                {
+                                                                  "key": "resourceGroupName"
+                                                                },
+                                                                {
+                                                                  "key": "labName"
+                                                                },
+                                                                {
+                                                                  "key": "policySetName"
+                                                                },
+                                                                {
+                                                                  "key": "name"
+                                                                }
+                                                              ]
+                                                            }
+                                                          },
+                                                          "status": "Internal Server Error",
+                                                          "code": 500,
+                                                          "_postman_previewlanguage": "json",
+                                                          "header": [
+                                                            {
+                                                              "key": "Content-Type",
+                                                              "value": "application/json"
+                                                            }
+                                                          ],
+                                                          "cookie": [],
+                                                          "responseTime": null,
+                                                          "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"details\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/CloudErrorBody detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/CloudErrorBody detected>\"\n      }\n    ],\n    \"message\": \"<string>\",\n    \"target\": \"<string>\"\n  }\n}",
+                                                          "createdAt": "2026-07-28T10:55:38.000Z",
+                                                          "updatedAt": "2026-07-28T10:55:38.000Z",
+                                                          "uid": "35240-66fe3fcc-de90-4e01-b57f-cf86c9ce1ca2"
+                                                        }
+                                                      ],
+                                                      "createdAt": "2026-07-28T10:55:38.000Z",
+                                                      "updatedAt": "2026-07-28T10:55:38.000Z",
+                                                      "uid": "35240-594c35d8-af7d-44df-be20-0b711ca4e1fb"
+                                                    },
+                                                    {
+                                                      "name": "Azure DevTest Labs Policies_ Update",
+                                                      "id": "7161601b-dd3e-4ed0-aee1-706e3ec706bc",
+                                                      "protocolProfileBehavior": {
+                                                        "disableBodyPruning": true
+                                                      },
+                                                      "request": {
+                                                        "method": "PATCH",
+                                                        "header": [
+                                                          {
+                                                            "key": "Content-Type",
+                                                            "value": "application/json"
+                                                          },
+                                                          {
+                                                            "key": "Accept",
+                                                            "value": "application/json"
+                                                          }
+                                                        ],
+                                                        "body": {
+                                                          "mode": "raw",
+                                                          "raw": "{\n  \"properties\": {},\n  \"tags\": {\n    \"ea54\": \"<string>\"\n  }\n}",
+                                                          "options": {
+                                                            "raw": {
+                                                              "headerFamily": "json",
+                                                              "language": "json"
+                                                            }
+                                                          }
+                                                        },
+                                                        "url": {
+                                                          "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/labs/:labName/policysets/:policySetName/policies/:name?api-version=2018-09-15",
+                                                          "host": [
+                                                            "{{baseUrl}}"
+                                                          ],
+                                                          "path": [
+                                                            "subscriptions",
+                                                            ":subscriptionId",
+                                                            "resourceGroups",
+                                                            ":resourceGroupName",
+                                                            "providers",
+                                                            "Microsoft.DevTestLab",
+                                                            "labs",
+                                                            ":labName",
+                                                            "policysets",
+                                                            ":policySetName",
+                                                            "policies",
+                                                            ":name"
+                                                          ],
+                                                          "query": [
+                                                            {
+                                                              "description": "(Required) Client API version.",
+                                                              "key": "api-version",
+                                                              "value": "2018-09-15"
+                                                            }
+                                                          ],
+                                                          "variable": [
+                                                            {
+                                                              "id": "3a418be4-44f7-4917-9bbc-7262530bc375",
+                                                              "key": "subscriptionId",
+                                                              "value": "<string>",
+                                                              "description": "(Required) The subscription ID."
+                                                            },
+                                                            {
+                                                              "id": "1c667991-b9a7-4c4d-9c7d-4438e2288de8",
+                                                              "key": "resourceGroupName",
+                                                              "value": "<string>",
+                                                              "description": "(Required) The name of the resource group."
+                                                            },
+                                                            {
+                                                              "id": "a612cad2-ddce-4c0b-82d5-716d785578ed",
+                                                              "key": "labName",
+                                                              "value": "<string>",
+                                                              "description": "(Required) The name of the lab."
+                                                            },
+                                                            {
+                                                              "id": "78e8bf2b-090f-45c6-8e81-bfd7b6f30ff4",
+                                                              "key": "policySetName",
+                                                              "value": "<string>",
+                                                              "description": "(Required) The name of the policy set."
+                                                            },
+                                                            {
+                                                              "id": "64a7ce58-0145-492e-8b47-bf9bc0d8e5a9",
+                                                              "key": "name",
+                                                              "value": "<string>",
+                                                              "description": "(Required) The name of the policy."
+                                                            }
+                                                          ]
+                                                        },
+                                                        "description": "Allows modifying tags of policies. All other properties will be ignored."
+                                                      },
+                                                      "response": [
+                                                        {
+                                                          "id": "65f33964-497a-4761-b8fe-d7e28400331d",
+                                                          "name": "OK",
+                                                          "originalRequest": {
+                                                            "method": "PATCH",
+                                                            "header": [
+                                                              {
+                                                                "key": "Content-Type",
+                                                                "value": "application/json"
+                                                              },
+                                                              {
+                                                                "key": "Accept",
+                                                                "value": "application/json"
+                                                              },
+                                                              {
+                                                                "description": "Added as a part of security scheme: oauth2",
+                                                                "key": "Authorization",
+                                                                "value": "<token>"
+                                                              }
+                                                            ],
+                                                            "body": {
+                                                              "mode": "raw",
+                                                              "raw": "{\n  \"properties\": {},\n  \"tags\": {\n    \"ea54\": \"<string>\"\n  }\n}",
+                                                              "options": {
+                                                                "raw": {
+                                                                  "headerFamily": "json",
+                                                                  "language": "json"
+                                                                }
+                                                              }
+                                                            },
+                                                            "url": {
+                                                              "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/labs/:labName/policysets/:policySetName/policies/:name?api-version=2018-09-15",
+                                                              "host": [
+                                                                "{{baseUrl}}"
+                                                              ],
+                                                              "path": [
+                                                                "subscriptions",
+                                                                ":subscriptionId",
+                                                                "resourceGroups",
+                                                                ":resourceGroupName",
+                                                                "providers",
+                                                                "Microsoft.DevTestLab",
+                                                                "labs",
+                                                                ":labName",
+                                                                "policysets",
+                                                                ":policySetName",
+                                                                "policies",
+                                                                ":name"
+                                                              ],
+                                                              "query": [
+                                                                {
+                                                                  "description": "(Required) Client API version.",
+                                                                  "key": "api-version",
+                                                                  "value": "2018-09-15"
+                                                                }
+                                                              ],
+                                                              "variable": [
+                                                                {
+                                                                  "key": "subscriptionId"
+                                                                },
+                                                                {
+                                                                  "key": "resourceGroupName"
+                                                                },
+                                                                {
+                                                                  "key": "labName"
+                                                                },
+                                                                {
+                                                                  "key": "policySetName"
+                                                                },
+                                                                {
+                                                                  "key": "name"
+                                                                }
+                                                              ]
+                                                            }
+                                                          },
+                                                          "status": "OK",
+                                                          "code": 200,
+                                                          "_postman_previewlanguage": "json",
+                                                          "header": [
+                                                            {
+                                                              "key": "Content-Type",
+                                                              "value": "application/json"
+                                                            }
+                                                          ],
+                                                          "cookie": [],
+                                                          "responseTime": null,
+                                                          "body": "{\n  \"properties\": {},\n  \"id\": \"<string>\",\n  \"location\": \"<string>\",\n  \"name\": \"<string>\",\n  \"tags\": {\n    \"dolor_9\": \"<string>\",\n    \"in_cd\": \"<string>\"\n  },\n  \"type\": \"<string>\"\n}",
+                                                          "createdAt": "2026-07-28T10:55:38.000Z",
+                                                          "updatedAt": "2026-07-28T10:55:38.000Z",
+                                                          "uid": "35240-65f33964-497a-4761-b8fe-d7e28400331d"
+                                                        },
+                                                        {
+                                                          "id": "43f3f53b-d599-4b2d-8c66-b630b4df8888",
+                                                          "name": "BadRequest",
+                                                          "originalRequest": {
+                                                            "method": "PATCH",
+                                                            "header": [
+                                                              {
+                                                                "key": "Content-Type",
+                                                                "value": "application/json"
+                                                              },
+                                                              {
+                                                                "key": "Accept",
+                                                                "value": "application/json"
+                                                              },
+                                                              {
+                                                                "description": "Added as a part of security scheme: oauth2",
+                                                                "key": "Authorization",
+                                                                "value": "<token>"
+                                                              }
+                                                            ],
+                                                            "body": {
+                                                              "mode": "raw",
+                                                              "raw": "{\n  \"properties\": {},\n  \"tags\": {\n    \"ea54\": \"<string>\"\n  }\n}",
+                                                              "options": {
+                                                                "raw": {
+                                                                  "headerFamily": "json",
+                                                                  "language": "json"
+                                                                }
+                                                              }
+                                                            },
+                                                            "url": {
+                                                              "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/labs/:labName/policysets/:policySetName/policies/:name?api-version=2018-09-15",
+                                                              "host": [
+                                                                "{{baseUrl}}"
+                                                              ],
+                                                              "path": [
+                                                                "subscriptions",
+                                                                ":subscriptionId",
+                                                                "resourceGroups",
+                                                                ":resourceGroupName",
+                                                                "providers",
+                                                                "Microsoft.DevTestLab",
+                                                                "labs",
+                                                                ":labName",
+                                                                "policysets",
+                                                                ":policySetName",
+                                                                "policies",
+                                                                ":name"
+                                                              ],
+                                                              "query": [
+                                                                {
+                                                                  "description": "(Required) Client API version.",
+                                                                  "key": "api-version",
+                                                                  "value": "2018-09-15"
+                                                                }
+                                                              ],
+                                                              "variable": [
+                                                                {
+                                                                  "key": "subscriptionId"
+                                                                },
+                                                                {
+                                                                  "key": "resourceGroupName"
+                                                                },
+                                                                {
+                                                                  "key": "labName"
+                                                                },
+                                                                {
+                                                                  "key": "policySetName"
+                                                                },
+                                                                {
+                                                                  "key": "name"
+                                                                }
+                                                              ]
+                                                            }
+                                                          },
+                                                          "status": "Internal Server Error",
+                                                          "code": 500,
+                                                          "_postman_previewlanguage": "json",
+                                                          "header": [
+                                                            {
+                                                              "key": "Content-Type",
+                                                              "value": "application/json"
+                                                            }
+                                                          ],
+                                                          "cookie": [],
+                                                          "responseTime": null,
+                                                          "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"details\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/CloudErrorBody detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/CloudErrorBody detected>\"\n      }\n    ],\n    \"message\": \"<string>\",\n    \"target\": \"<string>\"\n  }\n}",
+                                                          "createdAt": "2026-07-28T10:55:38.000Z",
+                                                          "updatedAt": "2026-07-28T10:55:38.000Z",
+                                                          "uid": "35240-43f3f53b-d599-4b2d-8c66-b630b4df8888"
+                                                        }
+                                                      ],
+                                                      "createdAt": "2026-07-28T10:55:38.000Z",
+                                                      "updatedAt": "2026-07-28T10:55:38.000Z",
+                                                      "uid": "35240-7161601b-dd3e-4ed0-aee1-706e3ec706bc"
+                                                    },
+                                                    {
+                                                      "name": "Azure DevTest Labs Policies_ Create or Update",
+                                                      "id": "88a5f044-6016-4c4c-894c-38ddec9ef887",
+                                                      "protocolProfileBehavior": {
+                                                        "disableBodyPruning": true
+                                                      },
+                                                      "request": {
+                                                        "method": "PUT",
+                                                        "header": [
+                                                          {
+                                                            "key": "Content-Type",
+                                                            "value": "application/json"
+                                                          },
+                                                          {
+                                                            "key": "Accept",
+                                                            "value": "application/json"
+                                                          }
+                                                        ],
+                                                        "body": {
+                                                          "mode": "raw",
+                                                          "raw": "{\n  \"properties\": {},\n  \"id\": \"<string>\",\n  \"location\": \"<string>\",\n  \"name\": \"<string>\",\n  \"tags\": {\n    \"dolor_9\": \"<string>\",\n    \"in_cd\": \"<string>\"\n  },\n  \"type\": \"<string>\"\n}",
+                                                          "options": {
+                                                            "raw": {
+                                                              "headerFamily": "json",
+                                                              "language": "json"
+                                                            }
+                                                          }
+                                                        },
+                                                        "url": {
+                                                          "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/labs/:labName/policysets/:policySetName/policies/:name?api-version=2018-09-15",
+                                                          "host": [
+                                                            "{{baseUrl}}"
+                                                          ],
+                                                          "path": [
+                                                            "subscriptions",
+                                                            ":subscriptionId",
+                                                            "resourceGroups",
+                                                            ":resourceGroupName",
+                                                            "providers",
+                                                            "Microsoft.DevTestLab",
+                                                            "labs",
+                                                            ":labName",
+                                                            "policysets",
+                                                            ":policySetName",
+                                                            "policies",
+                                                            ":name"
+                                                          ],
+                                                          "query": [
+                                                            {
+                                                              "description": "(Required) Client API version.",
+                                                              "key": "api-version",
+                                                              "value": "2018-09-15"
+                                                            }
+                                                          ],
+                                                          "variable": [
+                                                            {
+                                                              "id": "0433dccc-7a20-4969-8d79-80208d40d885",
+                                                              "key": "subscriptionId",
+                                                              "value": "<string>",
+                                                              "description": "(Required) The subscription ID."
+                                                            },
+                                                            {
+                                                              "id": "846792cf-fa6e-4791-987d-8748a6316087",
+                                                              "key": "resourceGroupName",
+                                                              "value": "<string>",
+                                                              "description": "(Required) The name of the resource group."
+                                                            },
+                                                            {
+                                                              "id": "63a7065c-4bee-483a-9c05-8b5ac546ebcf",
+                                                              "key": "labName",
+                                                              "value": "<string>",
+                                                              "description": "(Required) The name of the lab."
+                                                            },
+                                                            {
+                                                              "id": "128d34a0-8290-4ee0-9229-e0b84124715b",
+                                                              "key": "policySetName",
+                                                              "value": "<string>",
+                                                              "description": "(Required) The name of the policy set."
+                                                            },
+                                                            {
+                                                              "id": "c212a39e-58e6-442a-9784-eac7e8543b1a",
+                                                              "key": "name",
+                                                              "value": "<string>",
+                                                              "description": "(Required) The name of the policy."
+                                                            }
+                                                          ]
+                                                        },
+                                                        "description": "Create or replace an existing policy."
+                                                      },
+                                                      "response": [
+                                                        {
+                                                          "id": "be013505-40ce-4f7a-9af3-c68825b3449d",
+                                                          "name": "OK",
+                                                          "originalRequest": {
+                                                            "method": "PUT",
+                                                            "header": [
+                                                              {
+                                                                "key": "Content-Type",
+                                                                "value": "application/json"
+                                                              },
+                                                              {
+                                                                "key": "Accept",
+                                                                "value": "application/json"
+                                                              },
+                                                              {
+                                                                "description": "Added as a part of security scheme: oauth2",
+                                                                "key": "Authorization",
+                                                                "value": "<token>"
+                                                              }
+                                                            ],
+                                                            "body": {
+                                                              "mode": "raw",
+                                                              "raw": "{\n  \"properties\": {},\n  \"id\": \"<string>\",\n  \"location\": \"<string>\",\n  \"name\": \"<string>\",\n  \"tags\": {\n    \"dolor_9\": \"<string>\",\n    \"in_cd\": \"<string>\"\n  },\n  \"type\": \"<string>\"\n}",
+                                                              "options": {
+                                                                "raw": {
+                                                                  "headerFamily": "json",
+                                                                  "language": "json"
+                                                                }
+                                                              }
+                                                            },
+                                                            "url": {
+                                                              "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/labs/:labName/policysets/:policySetName/policies/:name?api-version=2018-09-15",
+                                                              "host": [
+                                                                "{{baseUrl}}"
+                                                              ],
+                                                              "path": [
+                                                                "subscriptions",
+                                                                ":subscriptionId",
+                                                                "resourceGroups",
+                                                                ":resourceGroupName",
+                                                                "providers",
+                                                                "Microsoft.DevTestLab",
+                                                                "labs",
+                                                                ":labName",
+                                                                "policysets",
+                                                                ":policySetName",
+                                                                "policies",
+                                                                ":name"
+                                                              ],
+                                                              "query": [
+                                                                {
+                                                                  "description": "(Required) Client API version.",
+                                                                  "key": "api-version",
+                                                                  "value": "2018-09-15"
+                                                                }
+                                                              ],
+                                                              "variable": [
+                                                                {
+                                                                  "key": "subscriptionId"
+                                                                },
+                                                                {
+                                                                  "key": "resourceGroupName"
+                                                                },
+                                                                {
+                                                                  "key": "labName"
+                                                                },
+                                                                {
+                                                                  "key": "policySetName"
+                                                                },
+                                                                {
+                                                                  "key": "name"
+                                                                }
+                                                              ]
+                                                            }
+                                                          },
+                                                          "status": "OK",
+                                                          "code": 200,
+                                                          "_postman_previewlanguage": "json",
+                                                          "header": [
+                                                            {
+                                                              "key": "Content-Type",
+                                                              "value": "application/json"
+                                                            }
+                                                          ],
+                                                          "cookie": [],
+                                                          "responseTime": null,
+                                                          "body": "{\n  \"properties\": {},\n  \"id\": \"<string>\",\n  \"location\": \"<string>\",\n  \"name\": \"<string>\",\n  \"tags\": {\n    \"dolor_9\": \"<string>\",\n    \"in_cd\": \"<string>\"\n  },\n  \"type\": \"<string>\"\n}",
+                                                          "createdAt": "2026-07-28T10:55:38.000Z",
+                                                          "updatedAt": "2026-07-28T10:55:38.000Z",
+                                                          "uid": "35240-be013505-40ce-4f7a-9af3-c68825b3449d"
+                                                        },
+                                                        {
+                                                          "id": "4e895de1-020e-44b1-a3ff-8201ab2cfe78",
+                                                          "name": "Created",
+                                                          "originalRequest": {
+                                                            "method": "PUT",
+                                                            "header": [
+                                                              {
+                                                                "key": "Content-Type",
+                                                                "value": "application/json"
+                                                              },
+                                                              {
+                                                                "key": "Accept",
+                                                                "value": "application/json"
+                                                              },
+                                                              {
+                                                                "description": "Added as a part of security scheme: oauth2",
+                                                                "key": "Authorization",
+                                                                "value": "<token>"
+                                                              }
+                                                            ],
+                                                            "body": {
+                                                              "mode": "raw",
+                                                              "raw": "{\n  \"properties\": {},\n  \"id\": \"<string>\",\n  \"location\": \"<string>\",\n  \"name\": \"<string>\",\n  \"tags\": {\n    \"dolor_9\": \"<string>\",\n    \"in_cd\": \"<string>\"\n  },\n  \"type\": \"<string>\"\n}",
+                                                              "options": {
+                                                                "raw": {
+                                                                  "headerFamily": "json",
+                                                                  "language": "json"
+                                                                }
+                                                              }
+                                                            },
+                                                            "url": {
+                                                              "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/labs/:labName/policysets/:policySetName/policies/:name?api-version=2018-09-15",
+                                                              "host": [
+                                                                "{{baseUrl}}"
+                                                              ],
+                                                              "path": [
+                                                                "subscriptions",
+                                                                ":subscriptionId",
+                                                                "resourceGroups",
+                                                                ":resourceGroupName",
+                                                                "providers",
+                                                                "Microsoft.DevTestLab",
+                                                                "labs",
+                                                                ":labName",
+                                                                "policysets",
+                                                                ":policySetName",
+                                                                "policies",
+                                                                ":name"
+                                                              ],
+                                                              "query": [
+                                                                {
+                                                                  "description": "(Required) Client API version.",
+                                                                  "key": "api-version",
+                                                                  "value": "2018-09-15"
+                                                                }
+                                                              ],
+                                                              "variable": [
+                                                                {
+                                                                  "key": "subscriptionId"
+                                                                },
+                                                                {
+                                                                  "key": "resourceGroupName"
+                                                                },
+                                                                {
+                                                                  "key": "labName"
+                                                                },
+                                                                {
+                                                                  "key": "policySetName"
+                                                                },
+                                                                {
+                                                                  "key": "name"
+                                                                }
+                                                              ]
+                                                            }
+                                                          },
+                                                          "status": "Created",
+                                                          "code": 201,
+                                                          "_postman_previewlanguage": "json",
+                                                          "header": [
+                                                            {
+                                                              "key": "Content-Type",
+                                                              "value": "application/json"
+                                                            }
+                                                          ],
+                                                          "cookie": [],
+                                                          "responseTime": null,
+                                                          "body": "{\n  \"properties\": {},\n  \"id\": \"<string>\",\n  \"location\": \"<string>\",\n  \"name\": \"<string>\",\n  \"tags\": {\n    \"dolor_9\": \"<string>\",\n    \"in_cd\": \"<string>\"\n  },\n  \"type\": \"<string>\"\n}",
+                                                          "createdAt": "2026-07-28T10:55:38.000Z",
+                                                          "updatedAt": "2026-07-28T10:55:38.000Z",
+                                                          "uid": "35240-4e895de1-020e-44b1-a3ff-8201ab2cfe78"
+                                                        },
+                                                        {
+                                                          "id": "7fef0f22-d104-4ec3-b009-b4cfb4c63255",
+                                                          "name": "BadRequest",
+                                                          "originalRequest": {
+                                                            "method": "PUT",
+                                                            "header": [
+                                                              {
+                                                                "key": "Content-Type",
+                                                                "value": "application/json"
+                                                              },
+                                                              {
+                                                                "key": "Accept",
+                                                                "value": "application/json"
+                                                              },
+                                                              {
+                                                                "description": "Added as a part of security scheme: oauth2",
+                                                                "key": "Authorization",
+                                                                "value": "<token>"
+                                                              }
+                                                            ],
+                                                            "body": {
+                                                              "mode": "raw",
+                                                              "raw": "{\n  \"properties\": {},\n  \"id\": \"<string>\",\n  \"location\": \"<string>\",\n  \"name\": \"<string>\",\n  \"tags\": {\n    \"dolor_9\": \"<string>\",\n    \"in_cd\": \"<string>\"\n  },\n  \"type\": \"<string>\"\n}",
+                                                              "options": {
+                                                                "raw": {
+                                                                  "headerFamily": "json",
+                                                                  "language": "json"
+                                                                }
+                                                              }
+                                                            },
+                                                            "url": {
+                                                              "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/labs/:labName/policysets/:policySetName/policies/:name?api-version=2018-09-15",
+                                                              "host": [
+                                                                "{{baseUrl}}"
+                                                              ],
+                                                              "path": [
+                                                                "subscriptions",
+                                                                ":subscriptionId",
+                                                                "resourceGroups",
+                                                                ":resourceGroupName",
+                                                                "providers",
+                                                                "Microsoft.DevTestLab",
+                                                                "labs",
+                                                                ":labName",
+                                                                "policysets",
+                                                                ":policySetName",
+                                                                "policies",
+                                                                ":name"
+                                                              ],
+                                                              "query": [
+                                                                {
+                                                                  "description": "(Required) Client API version.",
+                                                                  "key": "api-version",
+                                                                  "value": "2018-09-15"
+                                                                }
+                                                              ],
+                                                              "variable": [
+                                                                {
+                                                                  "key": "subscriptionId"
+                                                                },
+                                                                {
+                                                                  "key": "resourceGroupName"
+                                                                },
+                                                                {
+                                                                  "key": "labName"
+                                                                },
+                                                                {
+                                                                  "key": "policySetName"
+                                                                },
+                                                                {
+                                                                  "key": "name"
+                                                                }
+                                                              ]
+                                                            }
+                                                          },
+                                                          "status": "Internal Server Error",
+                                                          "code": 500,
+                                                          "_postman_previewlanguage": "json",
+                                                          "header": [
+                                                            {
+                                                              "key": "Content-Type",
+                                                              "value": "application/json"
+                                                            }
+                                                          ],
+                                                          "cookie": [],
+                                                          "responseTime": null,
+                                                          "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"details\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/CloudErrorBody detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/CloudErrorBody detected>\"\n      }\n    ],\n    \"message\": \"<string>\",\n    \"target\": \"<string>\"\n  }\n}",
+                                                          "createdAt": "2026-07-28T10:55:38.000Z",
+                                                          "updatedAt": "2026-07-28T10:55:38.000Z",
+                                                          "uid": "35240-7fef0f22-d104-4ec3-b009-b4cfb4c63255"
+                                                        }
+                                                      ],
+                                                      "createdAt": "2026-07-28T10:55:38.000Z",
+                                                      "updatedAt": "2026-07-28T10:55:38.000Z",
+                                                      "uid": "35240-88a5f044-6016-4c4c-894c-38ddec9ef887"
+                                                    }
+                                                  ],
+                                                  "id": "51e0598e-81d7-471f-83ab-5a3e96cf39b0",
+                                                  "createdAt": "2026-07-28T10:55:38.000Z",
+                                                  "updatedAt": "2026-07-28T10:55:38.000Z",
+                                                  "uid": "35240-51e0598e-81d7-471f-83ab-5a3e96cf39b0"
+                                                },
+                                                {
+                                                  "name": "Azure DevTest Labs Policies_ List",
+                                                  "id": "4ce71d19-7011-4746-92f9-09a231c4c7d8",
+                                                  "protocolProfileBehavior": {
+                                                    "disableBodyPruning": true
+                                                  },
+                                                  "request": {
+                                                    "method": "GET",
+                                                    "header": [
+                                                      {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                      }
+                                                    ],
+                                                    "url": {
+                                                      "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/labs/:labName/policysets/:policySetName/policies?$expand=<string>&$filter=<string>&$top=<integer>&$orderby=<string>&api-version=2018-09-15",
+                                                      "host": [
+                                                        "{{baseUrl}}"
+                                                      ],
+                                                      "path": [
+                                                        "subscriptions",
+                                                        ":subscriptionId",
+                                                        "resourceGroups",
+                                                        ":resourceGroupName",
+                                                        "providers",
+                                                        "Microsoft.DevTestLab",
+                                                        "labs",
+                                                        ":labName",
+                                                        "policysets",
+                                                        ":policySetName",
+                                                        "policies"
+                                                      ],
+                                                      "query": [
+                                                        {
+                                                          "description": "Specify the $expand query. Example: 'properties($select=description)'",
+                                                          "key": "$expand",
+                                                          "value": "<string>"
+                                                        },
+                                                        {
+                                                          "description": "The filter to apply to the operation. Example: '$filter=contains(name,'myName')",
+                                                          "key": "$filter",
+                                                          "value": "<string>"
+                                                        },
+                                                        {
+                                                          "description": "The maximum number of resources to return from the operation. Example: '$top=10'",
+                                                          "key": "$top",
+                                                          "value": "<integer>"
+                                                        },
+                                                        {
+                                                          "description": "The ordering expression for the results, using OData notation. Example: '$orderby=name desc'",
+                                                          "key": "$orderby",
+                                                          "value": "<string>"
+                                                        },
+                                                        {
+                                                          "description": "(Required) Client API version.",
+                                                          "key": "api-version",
+                                                          "value": "2018-09-15"
+                                                        }
+                                                      ],
+                                                      "variable": [
+                                                        {
+                                                          "id": "db28e11b-f55f-48c5-a513-acd01baa8429",
+                                                          "key": "subscriptionId",
+                                                          "value": "<string>",
+                                                          "description": "(Required) The subscription ID."
+                                                        },
+                                                        {
+                                                          "id": "83fe6c2d-ed23-464b-bce0-6899bc48e42f",
+                                                          "key": "resourceGroupName",
+                                                          "value": "<string>",
+                                                          "description": "(Required) The name of the resource group."
+                                                        },
+                                                        {
+                                                          "id": "8f24ba3f-c145-4043-9898-b064ed0f5541",
+                                                          "key": "labName",
+                                                          "value": "<string>",
+                                                          "description": "(Required) The name of the lab."
+                                                        },
+                                                        {
+                                                          "id": "7964e767-50b4-4cf5-b5b7-9b7e38bf9dcd",
+                                                          "key": "policySetName",
+                                                          "value": "<string>",
+                                                          "description": "(Required) The name of the policy set."
+                                                        }
+                                                      ]
+                                                    },
+                                                    "description": "List policies in a given policy set."
+                                                  },
+                                                  "response": [
+                                                    {
+                                                      "id": "0807edda-94a5-423e-aecd-398706dd0467",
+                                                      "name": "OK",
+                                                      "originalRequest": {
+                                                        "method": "GET",
+                                                        "header": [
+                                                          {
+                                                            "key": "Accept",
+                                                            "value": "application/json"
+                                                          },
+                                                          {
+                                                            "description": "Added as a part of security scheme: oauth2",
+                                                            "key": "Authorization",
+                                                            "value": "<token>"
+                                                          }
+                                                        ],
+                                                        "url": {
+                                                          "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/labs/:labName/policysets/:policySetName/policies?$expand=<string>&$filter=<string>&$top=<integer>&$orderby=<string>&api-version=2018-09-15",
+                                                          "host": [
+                                                            "{{baseUrl}}"
+                                                          ],
+                                                          "path": [
+                                                            "subscriptions",
+                                                            ":subscriptionId",
+                                                            "resourceGroups",
+                                                            ":resourceGroupName",
+                                                            "providers",
+                                                            "Microsoft.DevTestLab",
+                                                            "labs",
+                                                            ":labName",
+                                                            "policysets",
+                                                            ":policySetName",
+                                                            "policies"
+                                                          ],
+                                                          "query": [
+                                                            {
+                                                              "description": "Specify the $expand query. Example: 'properties($select=description)'",
+                                                              "key": "$expand",
+                                                              "value": "<string>"
+                                                            },
+                                                            {
+                                                              "description": "The filter to apply to the operation. Example: '$filter=contains(name,'myName')",
+                                                              "key": "$filter",
+                                                              "value": "<string>"
+                                                            },
+                                                            {
+                                                              "description": "The maximum number of resources to return from the operation. Example: '$top=10'",
+                                                              "key": "$top",
+                                                              "value": "<integer>"
+                                                            },
+                                                            {
+                                                              "description": "The ordering expression for the results, using OData notation. Example: '$orderby=name desc'",
+                                                              "key": "$orderby",
+                                                              "value": "<string>"
+                                                            },
+                                                            {
+                                                              "description": "(Required) Client API version.",
+                                                              "key": "api-version",
+                                                              "value": "2018-09-15"
+                                                            }
+                                                          ],
+                                                          "variable": [
+                                                            {
+                                                              "key": "subscriptionId"
+                                                            },
+                                                            {
+                                                              "key": "resourceGroupName"
+                                                            },
+                                                            {
+                                                              "key": "labName"
+                                                            },
+                                                            {
+                                                              "key": "policySetName"
+                                                            }
+                                                          ]
+                                                        }
+                                                      },
+                                                      "status": "OK",
+                                                      "code": 200,
+                                                      "_postman_previewlanguage": "json",
+                                                      "header": [
+                                                        {
+                                                          "key": "Content-Type",
+                                                          "value": "application/json"
+                                                        }
+                                                      ],
+                                                      "cookie": [],
+                                                      "responseTime": null,
+                                                      "body": "{\n  \"nextLink\": \"<string>\",\n  \"value\": [\n    {\n      \"properties\": {},\n      \"id\": \"<string>\",\n      \"location\": \"<string>\",\n      \"name\": \"<string>\",\n      \"tags\": {\n        \"reprehenderit21d\": \"<string>\",\n        \"magnabe0\": \"<string>\"\n      },\n      \"type\": \"<string>\"\n    },\n    {\n      \"properties\": {},\n      \"id\": \"<string>\",\n      \"location\": \"<string>\",\n      \"name\": \"<string>\",\n      \"tags\": {\n        \"culpa7\": \"<string>\",\n        \"Excepteuref\": \"<string>\"\n      },\n      \"type\": \"<string>\"\n    }\n  ]\n}",
+                                                      "createdAt": "2026-07-28T10:55:38.000Z",
+                                                      "updatedAt": "2026-07-28T10:55:38.000Z",
+                                                      "uid": "35240-0807edda-94a5-423e-aecd-398706dd0467"
+                                                    },
+                                                    {
+                                                      "id": "2946e2c1-06a8-4c08-b7ef-5527db9e29de",
+                                                      "name": "BadRequest",
+                                                      "originalRequest": {
+                                                        "method": "GET",
+                                                        "header": [
+                                                          {
+                                                            "key": "Accept",
+                                                            "value": "application/json"
+                                                          },
+                                                          {
+                                                            "description": "Added as a part of security scheme: oauth2",
+                                                            "key": "Authorization",
+                                                            "value": "<token>"
+                                                          }
+                                                        ],
+                                                        "url": {
+                                                          "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/labs/:labName/policysets/:policySetName/policies?$expand=<string>&$filter=<string>&$top=<integer>&$orderby=<string>&api-version=2018-09-15",
+                                                          "host": [
+                                                            "{{baseUrl}}"
+                                                          ],
+                                                          "path": [
+                                                            "subscriptions",
+                                                            ":subscriptionId",
+                                                            "resourceGroups",
+                                                            ":resourceGroupName",
+                                                            "providers",
+                                                            "Microsoft.DevTestLab",
+                                                            "labs",
+                                                            ":labName",
+                                                            "policysets",
+                                                            ":policySetName",
+                                                            "policies"
+                                                          ],
+                                                          "query": [
+                                                            {
+                                                              "description": "Specify the $expand query. Example: 'properties($select=description)'",
+                                                              "key": "$expand",
+                                                              "value": "<string>"
+                                                            },
+                                                            {
+                                                              "description": "The filter to apply to the operation. Example: '$filter=contains(name,'myName')",
+                                                              "key": "$filter",
+                                                              "value": "<string>"
+                                                            },
+                                                            {
+                                                              "description": "The maximum number of resources to return from the operation. Example: '$top=10'",
+                                                              "key": "$top",
+                                                              "value": "<integer>"
+                                                            },
+                                                            {
+                                                              "description": "The ordering expression for the results, using OData notation. Example: '$orderby=name desc'",
+                                                              "key": "$orderby",
+                                                              "value": "<string>"
+                                                            },
+                                                            {
+                                                              "description": "(Required) Client API version.",
+                                                              "key": "api-version",
+                                                              "value": "2018-09-15"
+                                                            }
+                                                          ],
+                                                          "variable": [
+                                                            {
+                                                              "key": "subscriptionId"
+                                                            },
+                                                            {
+                                                              "key": "resourceGroupName"
+                                                            },
+                                                            {
+                                                              "key": "labName"
+                                                            },
+                                                            {
+                                                              "key": "policySetName"
+                                                            }
+                                                          ]
+                                                        }
+                                                      },
+                                                      "status": "Internal Server Error",
+                                                      "code": 500,
+                                                      "_postman_previewlanguage": "json",
+                                                      "header": [
+                                                        {
+                                                          "key": "Content-Type",
+                                                          "value": "application/json"
+                                                        }
+                                                      ],
+                                                      "cookie": [],
+                                                      "responseTime": null,
+                                                      "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"details\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/CloudErrorBody detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/CloudErrorBody detected>\"\n      }\n    ],\n    \"message\": \"<string>\",\n    \"target\": \"<string>\"\n  }\n}",
+                                                      "createdAt": "2026-07-28T10:55:38.000Z",
+                                                      "updatedAt": "2026-07-28T10:55:38.000Z",
+                                                      "uid": "35240-2946e2c1-06a8-4c08-b7ef-5527db9e29de"
+                                                    }
+                                                  ],
+                                                  "createdAt": "2026-07-28T10:55:38.000Z",
+                                                  "updatedAt": "2026-07-28T10:55:38.000Z",
+                                                  "uid": "35240-4ce71d19-7011-4746-92f9-09a231c4c7d8"
+                                                }
+                                              ],
+                                              "id": "6cb403bb-5984-4ec0-a2e5-61fe2df3f442",
+                                              "createdAt": "2026-07-28T10:55:38.000Z",
+                                              "updatedAt": "2026-07-28T10:55:38.000Z",
+                                              "uid": "35240-6cb403bb-5984-4ec0-a2e5-61fe2df3f442"
+                                            }
+                                          ],
+                                          "id": "c16756f0-b788-4818-ab8d-f35c295f9dd3",
+                                          "createdAt": "2026-07-28T10:55:38.000Z",
+                                          "updatedAt": "2026-07-28T10:55:38.000Z",
+                                          "uid": "35240-c16756f0-b788-4818-ab8d-f35c295f9dd3"
+                                        }
+                                      ],
+                                      "id": "4582461a-8e3c-44b0-8697-45cc53429765",
+                                      "createdAt": "2026-07-28T10:55:38.000Z",
+                                      "updatedAt": "2026-07-28T10:55:38.000Z",
+                                      "uid": "35240-4582461a-8e3c-44b0-8697-45cc53429765"
+                                    }
+                                  ],
+                                  "id": "26bd4934-c6bc-4ff5-a891-63e54b9b93e0",
+                                  "createdAt": "2026-07-28T10:55:38.000Z",
+                                  "updatedAt": "2026-07-28T10:55:38.000Z",
+                                  "uid": "35240-26bd4934-c6bc-4ff5-a891-63e54b9b93e0"
+                                }
+                              ],
+                              "id": "4b79d0ee-92c8-4050-9092-ef268476e32e",
+                              "createdAt": "2026-07-28T10:55:38.000Z",
+                              "updatedAt": "2026-07-28T10:55:38.000Z",
+                              "uid": "35240-4b79d0ee-92c8-4050-9092-ef268476e32e"
+                            }
+                          ],
+                          "id": "6970e79e-619d-4a10-b065-c02e755c5664",
+                          "createdAt": "2026-07-28T10:55:38.000Z",
+                          "updatedAt": "2026-07-28T10:55:38.000Z",
+                          "uid": "35240-6970e79e-619d-4a10-b065-c02e755c5664"
+                        }
+                      ],
+                      "id": "02ac7989-61d3-4f73-97e6-5ea2622c8033",
+                      "createdAt": "2026-07-28T10:55:38.000Z",
+                      "updatedAt": "2026-07-28T10:55:38.000Z",
+                      "uid": "35240-02ac7989-61d3-4f73-97e6-5ea2622c8033"
+                    }
+                  ],
+                  "id": "e81f95bd-6123-47de-93bf-93fda072cba9",
+                  "createdAt": "2026-07-28T10:55:38.000Z",
+                  "updatedAt": "2026-07-28T10:55:38.000Z",
+                  "uid": "35240-e81f95bd-6123-47de-93bf-93fda072cba9"
+                }
+              ],
+              "id": "58018456-a8ff-4954-b8a2-85761e16ae1a",
+              "createdAt": "2026-07-28T10:55:38.000Z",
+              "updatedAt": "2026-07-28T10:55:38.000Z",
+              "uid": "35240-58018456-a8ff-4954-b8a2-85761e16ae1a"
+            }
+          ],
+          "id": "8e20d250-ecc4-48f2-b59d-c6ff0cf9c4fe",
+          "createdAt": "2026-07-28T10:55:38.000Z",
+          "updatedAt": "2026-07-28T10:55:38.000Z",
+          "uid": "35240-8e20d250-ecc4-48f2-b59d-c6ff0cf9c4fe"
+        }
+      ],
+      "id": "a6cbaf41-b0f1-436e-b3c7-e501ee054fb4",
+      "createdAt": "2026-07-28T10:55:38.000Z",
+      "updatedAt": "2026-07-28T10:55:38.000Z",
+      "uid": "35240-a6cbaf41-b0f1-436e-b3c7-e501ee054fb4"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "user_impersonation",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "implicit",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://management.azure.com"
+    }
+  ]
+}
