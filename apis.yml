@@ -28,7 +28,7 @@ tags:
 url: https://raw.githubusercontent.com/api-evangelist/azure-test-labs/refs/heads/main/apis.yml
 created: '2024-01-01'
 modified: '2026-05-19'
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 apis:
 - aid: azure-test-labs:azure-test-labs-armtemplates-api
   name: Azure DevTest Labs ArmTemplates API
