@@ -1,0 +1,690 @@
+{
+  "item": [
+    {
+      "id": "c1af8d85-8bac-4424-8895-52f0b63488bc",
+      "name": "Costs",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f77bce8a-a75f-4008-8780-b39266c8951f",
+          "name": "Azure DevTest Labs Costs_ Get",
+          "request": {
+            "name": "Azure DevTest Labs Costs_ Get",
+            "description": {
+              "content": "Get cost.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "subscriptions",
+                ":subscriptionId",
+                "resourceGroups",
+                ":resourceGroupName",
+                "providers",
+                "Microsoft.DevTestLab",
+                "labs",
+                ":labName",
+                "costs",
+                ":name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$expand",
+                  "value": "<string>",
+                  "description": "Specify the $expand query. Example: 'properties($expand=labCostDetails)'"
+                },
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "2018-09-15",
+                  "description": "(Required) Client API version."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "subscriptionId",
+                  "description": "(Required) The subscription ID."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "resourceGroupName",
+                  "description": "(Required) The name of the resource group."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "labName",
+                  "description": "(Required) The name of the lab."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) The name of the cost."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d0494d77-dc3a-47c7-ad3d-f9dad408095c",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.DevTestLab",
+                    "labs",
+                    ":labName",
+                    "costs",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$expand",
+                      "value": "example-value"
+                    },
+                    {
+                      "key": "api-version",
+                      "value": "2018-09-15"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "subscriptionId",
+                      "description": "(Required) The subscription ID."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The name of the resource group."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "labName",
+                      "description": "(Required) The name of the lab."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) The name of the cost."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"properties\": {\n    \"createdDate\": \"2015-11-09T19:50:56.478Z\",\n    \"currencyCode\": \"string\",\n    \"endDateTime\": \"2019-12-26T07:27:37.179Z\",\n    \"labCostDetails\": [\n      {\n        \"cost\": 1762.044963624182,\n        \"costType\": \"Projected\",\n        \"date\": \"2008-02-02T00:55:00.555Z\"\n      },\n      {\n        \"cost\": 9255.339004348554,\n        \"costType\": \"Reported\",\n        \"date\": \"1997-02-19T12:44:55.065Z\"\n      }\n    ],\n    \"labCostSummary\": {\n      \"estimatedLabCost\": 7997.364997645199\n    },\n    \"provisioningState\": \"string\",\n    \"resourceCosts\": [\n      {\n        \"externalResourceId\": \"string\",\n        \"resourceCost\": 9355.092513947651,\n        \"resourceId\": \"string\",\n        \"resourceOwner\": \"string\",\n        \"resourcePricingTier\": \"string\",\n        \"resourceStatus\": \"string\",\n        \"resourceType\": \"string\",\n        \"resourceUId\": \"string\",\n        \"resourcename\": \"string\"\n      },\n      {\n        \"externalResourceId\": \"string\",\n        \"resourceCost\": 700.8887959285281,\n        \"resourceId\": \"string\",\n        \"resourceOwner\": \"string\",\n        \"resourcePricingTier\": \"string\",\n        \"resourceStatus\": \"string\",\n        \"resourceType\": \"string\",\n        \"resourceUId\": \"string\",\n        \"resourcename\": \"string\"\n      }\n    ],\n    \"startDateTime\": \"1951-07-27T10:00:54.661Z\",\n    \"targetCost\": {\n      \"costThresholds\": [\n        {\n          \"displayOnChart\": \"Disabled\",\n          \"notificationSent\": \"string\",\n          \"percentageThreshold\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"sendNotificationWhenExceeded\": \"Disabled\",\n          \"thresholdId\": \"string\"\n        },\n        {\n          \"displayOnChart\": \"Disabled\",\n          \"notificationSent\": \"string\",\n          \"percentageThreshold\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"sendNotificationWhenExceeded\": \"Enabled\",\n          \"thresholdId\": \"string\"\n        }\n      ],\n      \"cycleEndDateTime\": \"1978-02-05T19:42:33.270Z\",\n      \"cycleStartDateTime\": \"1988-07-30T20:21:59.895Z\",\n      \"cycleType\": \"Custom\",\n      \"status\": \"Disabled\",\n      \"target\": 4801\n    },\n    \"uniqueIdentifier\": \"string\"\n  },\n  \"id\": \"string\",\n  \"location\": \"string\",\n  \"name\": \"string\",\n  \"tags\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\",\n    \"key_2\": \"string\",\n    \"key_3\": \"string\"\n  },\n  \"type\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "379383d7-1d48-4d3b-9d61-2c27a2a25aa4",
+              "name": "BadRequest",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.DevTestLab",
+                    "labs",
+                    ":labName",
+                    "costs",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$expand",
+                      "value": "example-value"
+                    },
+                    {
+                      "key": "api-version",
+                      "value": "2018-09-15"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "subscriptionId",
+                      "description": "(Required) The subscription ID."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The name of the resource group."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "labName",
+                      "description": "(Required) The name of the lab."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) The name of the cost."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"details\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/CloudErrorBody detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/CloudErrorBody detected>\"\n      }\n    ],\n    \"message\": \"string\",\n    \"target\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1d953641-b4c8-4fd2-a94a-97c9731ef0a0",
+          "name": "Azure DevTest Labs Costs_ Create or Update",
+          "request": {
+            "name": "Azure DevTest Labs Costs_ Create or Update",
+            "description": {
+              "content": "Create or replace an existing cost.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "subscriptions",
+                ":subscriptionId",
+                "resourceGroups",
+                ":resourceGroupName",
+                "providers",
+                "Microsoft.DevTestLab",
+                "labs",
+                ":labName",
+                "costs",
+                ":name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "2018-09-15",
+                  "description": "(Required) Client API version."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "subscriptionId",
+                  "description": "(Required) The subscription ID."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "resourceGroupName",
+                  "description": "(Required) The name of the resource group."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "labName",
+                  "description": "(Required) The name of the lab."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) The name of the cost."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"properties\": {\n    \"createdDate\": \"<dateTime>\",\n    \"currencyCode\": \"<string>\",\n    \"endDateTime\": \"<dateTime>\",\n    \"labCostSummary\": {\n      \"estimatedLabCost\": \"<double>\"\n    },\n    \"startDateTime\": \"<dateTime>\",\n    \"targetCost\": {\n      \"costThresholds\": [\n        {\n          \"displayOnChart\": \"<string>\",\n          \"notificationSent\": \"<string>\",\n          \"percentageThreshold\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"sendNotificationWhenExceeded\": \"<string>\",\n          \"thresholdId\": \"<string>\"\n        },\n        {\n          \"displayOnChart\": \"<string>\",\n          \"notificationSent\": \"<string>\",\n          \"percentageThreshold\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"sendNotificationWhenExceeded\": \"<string>\",\n          \"thresholdId\": \"<string>\"\n        }\n      ],\n      \"cycleEndDateTime\": \"<dateTime>\",\n      \"cycleStartDateTime\": \"<dateTime>\",\n      \"cycleType\": \"<string>\",\n      \"status\": \"<string>\",\n      \"target\": \"<integer>\"\n    }\n  },\n  \"location\": \"<string>\",\n  \"tags\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "18665214-e4b6-4c4e-88fa-c5e145367b7a",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.DevTestLab",
+                    "labs",
+                    ":labName",
+                    "costs",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2018-09-15"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "subscriptionId",
+                      "description": "(Required) The subscription ID."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The name of the resource group."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "labName",
+                      "description": "(Required) The name of the lab."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) The name of the cost."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"properties\": {\n    \"createdDate\": \"<dateTime>\",\n    \"currencyCode\": \"<string>\",\n    \"endDateTime\": \"<dateTime>\",\n    \"labCostSummary\": {\n      \"estimatedLabCost\": \"<double>\"\n    },\n    \"startDateTime\": \"<dateTime>\",\n    \"targetCost\": {\n      \"costThresholds\": [\n        {\n          \"displayOnChart\": \"<string>\",\n          \"notificationSent\": \"<string>\",\n          \"percentageThreshold\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"sendNotificationWhenExceeded\": \"<string>\",\n          \"thresholdId\": \"<string>\"\n        },\n        {\n          \"displayOnChart\": \"<string>\",\n          \"notificationSent\": \"<string>\",\n          \"percentageThreshold\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"sendNotificationWhenExceeded\": \"<string>\",\n          \"thresholdId\": \"<string>\"\n        }\n      ],\n      \"cycleEndDateTime\": \"<dateTime>\",\n      \"cycleStartDateTime\": \"<dateTime>\",\n      \"cycleType\": \"<string>\",\n      \"status\": \"<string>\",\n      \"target\": \"<integer>\"\n    }\n  },\n  \"location\": \"<string>\",\n  \"tags\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"properties\": {\n    \"createdDate\": \"<dateTime>\",\n    \"currencyCode\": \"<string>\",\n    \"endDateTime\": \"<dateTime>\",\n    \"labCostDetails\": [\n      {\n        \"cost\": 5377.350753005166,\n        \"costType\": \"Unavailable\",\n        \"date\": \"1994-05-16T05:01:37.846Z\"\n      },\n      {\n        \"cost\": 8940.535762787622,\n        \"costType\": \"Projected\",\n        \"date\": \"1990-07-27T16:06:05.489Z\"\n      }\n    ],\n    \"labCostSummary\": {\n      \"estimatedLabCost\": \"<double>\"\n    },\n    \"provisioningState\": \"string\",\n    \"resourceCosts\": [\n      {\n        \"externalResourceId\": \"string\",\n        \"resourceCost\": 7910.132669391261,\n        \"resourceId\": \"string\",\n        \"resourceOwner\": \"string\",\n        \"resourcePricingTier\": \"string\",\n        \"resourceStatus\": \"string\",\n        \"resourceType\": \"string\",\n        \"resourceUId\": \"string\",\n        \"resourcename\": \"string\"\n      },\n      {\n        \"externalResourceId\": \"string\",\n        \"resourceCost\": 8429.189520937714,\n        \"resourceId\": \"string\",\n        \"resourceOwner\": \"string\",\n        \"resourcePricingTier\": \"string\",\n        \"resourceStatus\": \"string\",\n        \"resourceType\": \"string\",\n        \"resourceUId\": \"string\",\n        \"resourcename\": \"string\"\n      }\n    ],\n    \"startDateTime\": \"<dateTime>\",\n    \"targetCost\": {\n      \"costThresholds\": [\n        {\n          \"displayOnChart\": \"<string>\",\n          \"notificationSent\": \"<string>\",\n          \"percentageThreshold\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"sendNotificationWhenExceeded\": \"<string>\",\n          \"thresholdId\": \"<string>\"\n        },\n        {\n          \"displayOnChart\": \"<string>\",\n          \"notificationSent\": \"<string>\",\n          \"percentageThreshold\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"sendNotificationWhenExceeded\": \"<string>\",\n          \"thresholdId\": \"<string>\"\n        }\n      ],\n      \"cycleEndDateTime\": \"<dateTime>\",\n      \"cycleStartDateTime\": \"<dateTime>\",\n      \"cycleType\": \"<string>\",\n      \"status\": \"<string>\",\n      \"target\": \"<integer>\"\n    },\n    \"uniqueIdentifier\": \"string\"\n  },\n  \"id\": \"string\",\n  \"location\": \"<string>\",\n  \"name\": \"string\",\n  \"tags\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\",\n    \"key_2\": \"<string>\"\n  },\n  \"type\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8445d4a7-a2d8-48db-9526-84c9ac5a92dd",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.DevTestLab",
+                    "labs",
+                    ":labName",
+                    "costs",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2018-09-15"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "subscriptionId",
+                      "description": "(Required) The subscription ID."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The name of the resource group."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "labName",
+                      "description": "(Required) The name of the lab."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) The name of the cost."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"properties\": {\n    \"createdDate\": \"<dateTime>\",\n    \"currencyCode\": \"<string>\",\n    \"endDateTime\": \"<dateTime>\",\n    \"labCostSummary\": {\n      \"estimatedLabCost\": \"<double>\"\n    },\n    \"startDateTime\": \"<dateTime>\",\n    \"targetCost\": {\n      \"costThresholds\": [\n        {\n          \"displayOnChart\": \"<string>\",\n          \"notificationSent\": \"<string>\",\n          \"percentageThreshold\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"sendNotificationWhenExceeded\": \"<string>\",\n          \"thresholdId\": \"<string>\"\n        },\n        {\n          \"displayOnChart\": \"<string>\",\n          \"notificationSent\": \"<string>\",\n          \"percentageThreshold\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"sendNotificationWhenExceeded\": \"<string>\",\n          \"thresholdId\": \"<string>\"\n        }\n      ],\n      \"cycleEndDateTime\": \"<dateTime>\",\n      \"cycleStartDateTime\": \"<dateTime>\",\n      \"cycleType\": \"<string>\",\n      \"status\": \"<string>\",\n      \"target\": \"<integer>\"\n    }\n  },\n  \"location\": \"<string>\",\n  \"tags\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"properties\": {\n    \"createdDate\": \"<dateTime>\",\n    \"currencyCode\": \"<string>\",\n    \"endDateTime\": \"<dateTime>\",\n    \"labCostDetails\": [\n      {\n        \"cost\": 5377.350753005166,\n        \"costType\": \"Unavailable\",\n        \"date\": \"1994-05-16T05:01:37.846Z\"\n      },\n      {\n        \"cost\": 8940.535762787622,\n        \"costType\": \"Projected\",\n        \"date\": \"1990-07-27T16:06:05.489Z\"\n      }\n    ],\n    \"labCostSummary\": {\n      \"estimatedLabCost\": \"<double>\"\n    },\n    \"provisioningState\": \"string\",\n    \"resourceCosts\": [\n      {\n        \"externalResourceId\": \"string\",\n        \"resourceCost\": 7910.132669391261,\n        \"resourceId\": \"string\",\n        \"resourceOwner\": \"string\",\n        \"resourcePricingTier\": \"string\",\n        \"resourceStatus\": \"string\",\n        \"resourceType\": \"string\",\n        \"resourceUId\": \"string\",\n        \"resourcename\": \"string\"\n      },\n      {\n        \"externalResourceId\": \"string\",\n        \"resourceCost\": 8429.189520937714,\n        \"resourceId\": \"string\",\n        \"resourceOwner\": \"string\",\n        \"resourcePricingTier\": \"string\",\n        \"resourceStatus\": \"string\",\n        \"resourceType\": \"string\",\n        \"resourceUId\": \"string\",\n        \"resourcename\": \"string\"\n      }\n    ],\n    \"startDateTime\": \"<dateTime>\",\n    \"targetCost\": {\n      \"costThresholds\": [\n        {\n          \"displayOnChart\": \"<string>\",\n          \"notificationSent\": \"<string>\",\n          \"percentageThreshold\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"sendNotificationWhenExceeded\": \"<string>\",\n          \"thresholdId\": \"<string>\"\n        },\n        {\n          \"displayOnChart\": \"<string>\",\n          \"notificationSent\": \"<string>\",\n          \"percentageThreshold\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"sendNotificationWhenExceeded\": \"<string>\",\n          \"thresholdId\": \"<string>\"\n        }\n      ],\n      \"cycleEndDateTime\": \"<dateTime>\",\n      \"cycleStartDateTime\": \"<dateTime>\",\n      \"cycleType\": \"<string>\",\n      \"status\": \"<string>\",\n      \"target\": \"<integer>\"\n    },\n    \"uniqueIdentifier\": \"string\"\n  },\n  \"id\": \"string\",\n  \"location\": \"<string>\",\n  \"name\": \"string\",\n  \"tags\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\",\n    \"key_2\": \"<string>\"\n  },\n  \"type\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0c49360a-4cf2-4e03-8dfa-aaad0d56c55c",
+              "name": "BadRequest",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.DevTestLab",
+                    "labs",
+                    ":labName",
+                    "costs",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2018-09-15"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "subscriptionId",
+                      "description": "(Required) The subscription ID."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The name of the resource group."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "labName",
+                      "description": "(Required) The name of the lab."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) The name of the cost."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"properties\": {\n    \"createdDate\": \"<dateTime>\",\n    \"currencyCode\": \"<string>\",\n    \"endDateTime\": \"<dateTime>\",\n    \"labCostSummary\": {\n      \"estimatedLabCost\": \"<double>\"\n    },\n    \"startDateTime\": \"<dateTime>\",\n    \"targetCost\": {\n      \"costThresholds\": [\n        {\n          \"displayOnChart\": \"<string>\",\n          \"notificationSent\": \"<string>\",\n          \"percentageThreshold\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"sendNotificationWhenExceeded\": \"<string>\",\n          \"thresholdId\": \"<string>\"\n        },\n        {\n          \"displayOnChart\": \"<string>\",\n          \"notificationSent\": \"<string>\",\n          \"percentageThreshold\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"sendNotificationWhenExceeded\": \"<string>\",\n          \"thresholdId\": \"<string>\"\n        }\n      ],\n      \"cycleEndDateTime\": \"<dateTime>\",\n      \"cycleStartDateTime\": \"<dateTime>\",\n      \"cycleType\": \"<string>\",\n      \"status\": \"<string>\",\n      \"target\": \"<integer>\"\n    }\n  },\n  \"location\": \"<string>\",\n  \"tags\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"details\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/CloudErrorBody detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/CloudErrorBody detected>\"\n      }\n    ],\n    \"message\": \"string\",\n    \"target\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://management.azure.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "user_impersonation"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "implicit"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "b0a15a6d-b2e4-4ff7-a966-44b6fdeb66af",
+    "name": "DevTestLabsClient ArmTemplates Costs API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The DevTest Labs Client.",
+      "type": "text/plain"
+    }
+  }
+}

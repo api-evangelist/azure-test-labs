@@ -1,0 +1,79 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "DevTestLabsClient ArmTemplates GalleryImages API",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "GalleryImages",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Azure DevTest Labs Gallery Images_ List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/labs/:labName/galleryimages",
+            "params": [
+              {
+                "name": "subscriptionId",
+                "value": "",
+                "type": "path",
+                "description": "The subscription ID."
+              },
+              {
+                "name": "resourceGroupName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the resource group."
+              },
+              {
+                "name": "labName",
+                "value": "example-value",
+                "type": "path",
+                "description": "The name of the lab."
+              },
+              {
+                "name": "$expand",
+                "value": "example-value",
+                "type": "query",
+                "description": "Specify the $expand query. Example: 'properties($select=author)'"
+              },
+              {
+                "name": "$filter",
+                "value": "example-value",
+                "type": "query",
+                "description": "The filter to apply to the operation. Example: '$filter=contains(name,'myName')"
+              },
+              {
+                "name": "$top",
+                "value": "example-value",
+                "type": "query",
+                "description": "The maximum number of resources to return from the operation. Example: '$top=10'"
+              },
+              {
+                "name": "$orderby",
+                "value": "example-value",
+                "type": "query",
+                "description": "The ordering expression for the results, using OData notation. Example: '$orderby=name desc'"
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "Client API version."
+              }
+            ]
+          },
+          "docs": "List gallery images in a given lab."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

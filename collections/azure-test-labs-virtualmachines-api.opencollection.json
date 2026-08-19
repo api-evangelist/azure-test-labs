@@ -1,0 +1,816 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "DevTestLabsClient ArmTemplates VirtualMachines API",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "VirtualMachines",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Azure DevTest Labs Virtual Machines_ List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/labs/:labName/virtualmachines",
+            "params": [
+              {
+                "name": "subscriptionId",
+                "value": "",
+                "type": "path",
+                "description": "The subscription ID."
+              },
+              {
+                "name": "resourceGroupName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the resource group."
+              },
+              {
+                "name": "labName",
+                "value": "example-value",
+                "type": "path",
+                "description": "The name of the lab."
+              },
+              {
+                "name": "$expand",
+                "value": "example-value",
+                "type": "query",
+                "description": "Specify the $expand query. Example: 'properties($expand=artifacts,computeVm,networkInterface,applicableSchedule)'"
+              },
+              {
+                "name": "$filter",
+                "value": "example-value",
+                "type": "query",
+                "description": "The filter to apply to the operation. Example: '$filter=contains(name,'myName')"
+              },
+              {
+                "name": "$top",
+                "value": "example-value",
+                "type": "query",
+                "description": "The maximum number of resources to return from the operation. Example: '$top=10'"
+              },
+              {
+                "name": "$orderby",
+                "value": "example-value",
+                "type": "query",
+                "description": "The ordering expression for the results, using OData notation. Example: '$orderby=name desc'"
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "Client API version."
+              }
+            ]
+          },
+          "docs": "List virtual machines in a given lab."
+        },
+        {
+          "info": {
+            "name": "Azure DevTest Labs Virtual Machines_ Get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/labs/:labName/virtualmachines/:name",
+            "params": [
+              {
+                "name": "subscriptionId",
+                "value": "",
+                "type": "path",
+                "description": "The subscription ID."
+              },
+              {
+                "name": "resourceGroupName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the resource group."
+              },
+              {
+                "name": "labName",
+                "value": "example-value",
+                "type": "path",
+                "description": "The name of the lab."
+              },
+              {
+                "name": "name",
+                "value": "example-value",
+                "type": "path",
+                "description": "The name of the virtual machine."
+              },
+              {
+                "name": "$expand",
+                "value": "example-value",
+                "type": "query",
+                "description": "Specify the $expand query. Example: 'properties($expand=artifacts,computeVm,networkInterface,applicableSchedule)'"
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "Client API version."
+              }
+            ]
+          },
+          "docs": "Get virtual machine."
+        },
+        {
+          "info": {
+            "name": "Azure DevTest Labs Virtual Machines_ Create or Update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/labs/:labName/virtualmachines/:name",
+            "params": [
+              {
+                "name": "subscriptionId",
+                "value": "",
+                "type": "path",
+                "description": "The subscription ID."
+              },
+              {
+                "name": "resourceGroupName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the resource group."
+              },
+              {
+                "name": "labName",
+                "value": "example-value",
+                "type": "path",
+                "description": "The name of the lab."
+              },
+              {
+                "name": "name",
+                "value": "example-value",
+                "type": "path",
+                "description": "The name of the virtual machine."
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "Client API version."
+              }
+            ]
+          },
+          "docs": "Create or replace an existing virtual machine. This operation can take a while to complete."
+        },
+        {
+          "info": {
+            "name": "Azure DevTest Labs Virtual Machines_ Update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/labs/:labName/virtualmachines/:name",
+            "params": [
+              {
+                "name": "subscriptionId",
+                "value": "",
+                "type": "path",
+                "description": "The subscription ID."
+              },
+              {
+                "name": "resourceGroupName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the resource group."
+              },
+              {
+                "name": "labName",
+                "value": "example-value",
+                "type": "path",
+                "description": "The name of the lab."
+              },
+              {
+                "name": "name",
+                "value": "example-value",
+                "type": "path",
+                "description": "The name of the virtual machine."
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "Client API version."
+              }
+            ]
+          },
+          "docs": "Allows modifying tags of virtual machines. All other properties will be ignored."
+        },
+        {
+          "info": {
+            "name": "Azure DevTest Labs Virtual Machines_ Delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/labs/:labName/virtualmachines/:name",
+            "params": [
+              {
+                "name": "subscriptionId",
+                "value": "",
+                "type": "path",
+                "description": "The subscription ID."
+              },
+              {
+                "name": "resourceGroupName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the resource group."
+              },
+              {
+                "name": "labName",
+                "value": "example-value",
+                "type": "path",
+                "description": "The name of the lab."
+              },
+              {
+                "name": "name",
+                "value": "example-value",
+                "type": "path",
+                "description": "The name of the virtual machine."
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "Client API version."
+              }
+            ]
+          },
+          "docs": "Delete virtual machine. This operation can take a while to complete."
+        },
+        {
+          "info": {
+            "name": "Azure DevTest Labs Virtual Machines_ Add Data Disk",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/labs/:labName/virtualmachines/:name/addDataDisk",
+            "params": [
+              {
+                "name": "subscriptionId",
+                "value": "",
+                "type": "path",
+                "description": "The subscription ID."
+              },
+              {
+                "name": "resourceGroupName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the resource group."
+              },
+              {
+                "name": "labName",
+                "value": "example-value",
+                "type": "path",
+                "description": "The name of the lab."
+              },
+              {
+                "name": "name",
+                "value": "example-value",
+                "type": "path",
+                "description": "The name of the virtual machine."
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "Client API version."
+              }
+            ]
+          },
+          "docs": "Attach a new or existing data disk to virtual machine. This operation can take a while to complete."
+        },
+        {
+          "info": {
+            "name": "Azure DevTest Labs Virtual Machines_ Apply Artifacts",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/labs/:labName/virtualmachines/:name/applyArtifacts",
+            "params": [
+              {
+                "name": "subscriptionId",
+                "value": "",
+                "type": "path",
+                "description": "The subscription ID."
+              },
+              {
+                "name": "resourceGroupName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the resource group."
+              },
+              {
+                "name": "labName",
+                "value": "example-value",
+                "type": "path",
+                "description": "The name of the lab."
+              },
+              {
+                "name": "name",
+                "value": "example-value",
+                "type": "path",
+                "description": "The name of the virtual machine."
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "Client API version."
+              }
+            ]
+          },
+          "docs": "Apply artifacts to virtual machine. This operation can take a while to complete."
+        },
+        {
+          "info": {
+            "name": "Azure DevTest Labs Virtual Machines_ Claim",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/labs/:labName/virtualmachines/:name/claim",
+            "params": [
+              {
+                "name": "subscriptionId",
+                "value": "",
+                "type": "path",
+                "description": "The subscription ID."
+              },
+              {
+                "name": "resourceGroupName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the resource group."
+              },
+              {
+                "name": "labName",
+                "value": "example-value",
+                "type": "path",
+                "description": "The name of the lab."
+              },
+              {
+                "name": "name",
+                "value": "example-value",
+                "type": "path",
+                "description": "The name of the virtual machine."
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "Client API version."
+              }
+            ]
+          },
+          "docs": "Take ownership of an existing virtual machine This operation can take a while to complete."
+        },
+        {
+          "info": {
+            "name": "Azure DevTest Labs Virtual Machines_ Detach Data Disk",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/labs/:labName/virtualmachines/:name/detachDataDisk",
+            "params": [
+              {
+                "name": "subscriptionId",
+                "value": "",
+                "type": "path",
+                "description": "The subscription ID."
+              },
+              {
+                "name": "resourceGroupName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the resource group."
+              },
+              {
+                "name": "labName",
+                "value": "example-value",
+                "type": "path",
+                "description": "The name of the lab."
+              },
+              {
+                "name": "name",
+                "value": "example-value",
+                "type": "path",
+                "description": "The name of the virtual machine."
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "Client API version."
+              }
+            ]
+          },
+          "docs": "Detach the specified disk from the virtual machine. This operation can take a while to complete."
+        },
+        {
+          "info": {
+            "name": "Azure DevTest Labs Virtual Machines_ Get Rdp File Contents",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/labs/:labName/virtualmachines/:name/getRdpFileContents",
+            "params": [
+              {
+                "name": "subscriptionId",
+                "value": "",
+                "type": "path",
+                "description": "The subscription ID."
+              },
+              {
+                "name": "resourceGroupName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the resource group."
+              },
+              {
+                "name": "labName",
+                "value": "example-value",
+                "type": "path",
+                "description": "The name of the lab."
+              },
+              {
+                "name": "name",
+                "value": "example-value",
+                "type": "path",
+                "description": "The name of the virtual machine."
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "Client API version."
+              }
+            ]
+          },
+          "docs": "Gets a string that represents the contents of the RDP file for the virtual machine"
+        },
+        {
+          "info": {
+            "name": "Azure DevTest Labs Virtual Machines_ List Applicable Schedules",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/labs/:labName/virtualmachines/:name/listApplicableSchedules",
+            "params": [
+              {
+                "name": "subscriptionId",
+                "value": "",
+                "type": "path",
+                "description": "The subscription ID."
+              },
+              {
+                "name": "resourceGroupName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the resource group."
+              },
+              {
+                "name": "labName",
+                "value": "example-value",
+                "type": "path",
+                "description": "The name of the lab."
+              },
+              {
+                "name": "name",
+                "value": "example-value",
+                "type": "path",
+                "description": "The name of the virtual machine."
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "Client API version."
+              }
+            ]
+          },
+          "docs": "Lists the applicable start/stop schedules, if any."
+        },
+        {
+          "info": {
+            "name": "Azure DevTest Labs Virtual Machines_ Redeploy",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/labs/:labName/virtualmachines/:name/redeploy",
+            "params": [
+              {
+                "name": "subscriptionId",
+                "value": "",
+                "type": "path",
+                "description": "The subscription ID."
+              },
+              {
+                "name": "resourceGroupName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the resource group."
+              },
+              {
+                "name": "labName",
+                "value": "example-value",
+                "type": "path",
+                "description": "The name of the lab."
+              },
+              {
+                "name": "name",
+                "value": "example-value",
+                "type": "path",
+                "description": "The name of the virtual machine."
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "Client API version."
+              }
+            ]
+          },
+          "docs": "Redeploy a virtual machine This operation can take a while to complete."
+        },
+        {
+          "info": {
+            "name": "Azure DevTest Labs Virtual Machines_ Resize",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/labs/:labName/virtualmachines/:name/resize",
+            "params": [
+              {
+                "name": "subscriptionId",
+                "value": "",
+                "type": "path",
+                "description": "The subscription ID."
+              },
+              {
+                "name": "resourceGroupName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the resource group."
+              },
+              {
+                "name": "labName",
+                "value": "example-value",
+                "type": "path",
+                "description": "The name of the lab."
+              },
+              {
+                "name": "name",
+                "value": "example-value",
+                "type": "path",
+                "description": "The name of the virtual machine."
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "Client API version."
+              }
+            ]
+          },
+          "docs": "Resize Virtual Machine. This operation can take a while to complete."
+        },
+        {
+          "info": {
+            "name": "Azure DevTest Labs Virtual Machines_ Restart",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/labs/:labName/virtualmachines/:name/restart",
+            "params": [
+              {
+                "name": "subscriptionId",
+                "value": "",
+                "type": "path",
+                "description": "The subscription ID."
+              },
+              {
+                "name": "resourceGroupName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the resource group."
+              },
+              {
+                "name": "labName",
+                "value": "example-value",
+                "type": "path",
+                "description": "The name of the lab."
+              },
+              {
+                "name": "name",
+                "value": "example-value",
+                "type": "path",
+                "description": "The name of the virtual machine."
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "Client API version."
+              }
+            ]
+          },
+          "docs": "Restart a virtual machine. This operation can take a while to complete."
+        },
+        {
+          "info": {
+            "name": "Azure DevTest Labs Virtual Machines_ Start",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/labs/:labName/virtualmachines/:name/start",
+            "params": [
+              {
+                "name": "subscriptionId",
+                "value": "",
+                "type": "path",
+                "description": "The subscription ID."
+              },
+              {
+                "name": "resourceGroupName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the resource group."
+              },
+              {
+                "name": "labName",
+                "value": "example-value",
+                "type": "path",
+                "description": "The name of the lab."
+              },
+              {
+                "name": "name",
+                "value": "example-value",
+                "type": "path",
+                "description": "The name of the virtual machine."
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "Client API version."
+              }
+            ]
+          },
+          "docs": "Start a virtual machine. This operation can take a while to complete."
+        },
+        {
+          "info": {
+            "name": "Azure DevTest Labs Virtual Machines_ Stop",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/labs/:labName/virtualmachines/:name/stop",
+            "params": [
+              {
+                "name": "subscriptionId",
+                "value": "",
+                "type": "path",
+                "description": "The subscription ID."
+              },
+              {
+                "name": "resourceGroupName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the resource group."
+              },
+              {
+                "name": "labName",
+                "value": "example-value",
+                "type": "path",
+                "description": "The name of the lab."
+              },
+              {
+                "name": "name",
+                "value": "example-value",
+                "type": "path",
+                "description": "The name of the virtual machine."
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "Client API version."
+              }
+            ]
+          },
+          "docs": "Stop a virtual machine This operation can take a while to complete."
+        },
+        {
+          "info": {
+            "name": "Azure DevTest Labs Virtual Machines_ Transfer Disks",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/labs/:labName/virtualmachines/:name/transferDisks",
+            "params": [
+              {
+                "name": "subscriptionId",
+                "value": "",
+                "type": "path",
+                "description": "The subscription ID."
+              },
+              {
+                "name": "resourceGroupName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the resource group."
+              },
+              {
+                "name": "labName",
+                "value": "example-value",
+                "type": "path",
+                "description": "The name of the lab."
+              },
+              {
+                "name": "name",
+                "value": "example-value",
+                "type": "path",
+                "description": "The name of the virtual machine."
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "Client API version."
+              }
+            ]
+          },
+          "docs": "Transfers all data disks attached to the virtual machine to be owned by the current user. This operation can take a while to complete."
+        },
+        {
+          "info": {
+            "name": "Azure DevTest Labs Virtual Machines_ Un Claim",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/labs/:labName/virtualmachines/:name/unClaim",
+            "params": [
+              {
+                "name": "subscriptionId",
+                "value": "",
+                "type": "path",
+                "description": "The subscription ID."
+              },
+              {
+                "name": "resourceGroupName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the resource group."
+              },
+              {
+                "name": "labName",
+                "value": "example-value",
+                "type": "path",
+                "description": "The name of the lab."
+              },
+              {
+                "name": "name",
+                "value": "example-value",
+                "type": "path",
+                "description": "The name of the virtual machine."
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "Client API version."
+              }
+            ]
+          },
+          "docs": "Release ownership of an existing virtual machine This operation can take a while to complete."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,3523 @@
+{
+  "item": [
+    {
+      "id": "c44131fb-6009-4a9f-96d2-ef4b34cb8c63",
+      "name": "Labs",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "44823767-16d3-4533-a0a5-c6deae08c7fb",
+          "name": "Azure DevTest Labs Labs_ List by Subscription",
+          "request": {
+            "name": "Azure DevTest Labs Labs_ List by Subscription",
+            "description": {
+              "content": "List labs in a subscription.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "subscriptions",
+                ":subscriptionId",
+                "providers",
+                "Microsoft.DevTestLab",
+                "labs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$expand",
+                  "value": "<string>",
+                  "description": "Specify the $expand query. Example: 'properties($select=defaultStorageAccount)'"
+                },
+                {
+                  "disabled": false,
+                  "key": "$filter",
+                  "value": "<string>",
+                  "description": "The filter to apply to the operation. Example: '$filter=contains(name,'myName')"
+                },
+                {
+                  "disabled": false,
+                  "key": "$top",
+                  "value": "<integer>",
+                  "description": "The maximum number of resources to return from the operation. Example: '$top=10'"
+                },
+                {
+                  "disabled": false,
+                  "key": "$orderby",
+                  "value": "<string>",
+                  "description": "The ordering expression for the results, using OData notation. Example: '$orderby=name desc'"
+                },
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "2018-09-15",
+                  "description": "(Required) Client API version."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "subscriptionId",
+                  "description": "(Required) The subscription ID."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "32141378-c5e3-44f7-8eeb-96c242d7db21",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "providers",
+                    "Microsoft.DevTestLab",
+                    "labs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$expand",
+                      "value": "example-value"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "example-value"
+                    },
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$orderby",
+                      "value": "example-value"
+                    },
+                    {
+                      "key": "api-version",
+                      "value": "2018-09-15"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "subscriptionId",
+                      "description": "(Required) The subscription ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": [\n    {\n      \"id\": \"/subscriptions/{subscription-id}/resourcegroups/{resourcegroup-name-1}/providers/microsoft.devtestlab/labs/{lab-name-1}\",\n      \"location\": \"westcentralus\",\n      \"name\": \"{lab-name-1}\",\n      \"properties\": {\n        \"announcement\": {\n          \"enabled\": \"Disabled\",\n          \"expired\": false,\n          \"markdown\": \"\",\n          \"title\": \"\"\n        },\n        \"artifactsStorageAccount\": \"/subscriptions/{subscription-id}/resourceGroups/{resourcegroup-name-1}/providers/Microsoft.Storage/storageAccounts/{storageaccount-name-1}\",\n        \"createdDate\": \"2018-09-30T08:38:13.1973609-07:00\",\n        \"defaultPremiumStorageAccount\": \"/subscriptions/{subscription-id}/resourceGroups/{resourcegroup-name-1}/providers/Microsoft.Storage/storageAccounts/{storageaccount-name-1}\",\n        \"defaultStorageAccount\": \"/subscriptions/{subscription-id}/resourceGroups/{resourcegroup-name-1}/providers/Microsoft.Storage/storageAccounts/{storageaccount-name-1}\",\n        \"environmentPermission\": \"Reader\",\n        \"labStorageType\": \"Premium\",\n        \"mandatoryArtifactsResourceIdsLinux\": [],\n        \"mandatoryArtifactsResourceIdsWindows\": [],\n        \"premiumDataDiskStorageAccount\": \"/subscriptions/{subscription-id}/resourceGroups/{resourcegroup-name-1}/providers/Microsoft.Storage/storageAccounts/{storageaccount-name-1}\",\n        \"premiumDataDisks\": \"Disabled\",\n        \"provisioningState\": \"Succeeded\",\n        \"support\": {\n          \"enabled\": \"Disabled\",\n          \"markdown\": \"\"\n        },\n        \"uniqueIdentifier\": \"{unique-identifier}\",\n        \"vaultName\": \"/subscriptions/{subscription-id}/resourceGroups/{resourcegroup-name-1}/providers/Microsoft.KeyVault/vaults/{keyvault-name-1}\"\n      },\n      \"tags\": {},\n      \"type\": \"Microsoft.DevTestLab/labs\"\n    },\n    {\n      \"id\": \"/subscriptions/{subscription-id}/resourcegroups/{resourcegroup-name-2}/providers/microsoft.devtestlab/labs/{lab-name-2}\",\n      \"location\": \"japaneast\",\n      \"name\": \"{lab-name-2}\",\n      \"properties\": {\n        \"announcement\": {\n          \"enabled\": \"Disabled\",\n          \"expired\": false,\n          \"markdown\": \"\",\n          \"title\": \"\"\n        },\n        \"artifactsStorageAccount\": \"/subscriptions/{subscription-id}/resourceGroups/{resourcegroup-name-2}/providers/Microsoft.Storage/storageAccounts/{storageaccount-name-2}\",\n        \"createdDate\": \"2018-09-30T09:37:52.9675083-07:00\",\n        \"defaultPremiumStorageAccount\": \"/subscriptions/{subscription-id}/resourceGroups/{resourcegroup-name-2}/providers/Microsoft.Storage/storageAccounts/{storageaccount-name-2}\",\n        \"defaultStorageAccount\": \"/subscriptions/{subscription-id}/resourceGroups/{resourcegroup-name-2}/providers/Microsoft.Storage/storageAccounts/{storageaccount-name-2}\",\n        \"environmentPermission\": \"Reader\",\n        \"labStorageType\": \"Premium\",\n        \"mandatoryArtifactsResourceIdsLinux\": [],\n        \"mandatoryArtifactsResourceIdsWindows\": [],\n        \"premiumDataDiskStorageAccount\": \"/subscriptions/{subscription-id}/resourceGroups/{resourcegroup-name-2}/providers/Microsoft.Storage/storageAccounts/{storageaccount-name-2}\",\n        \"premiumDataDisks\": \"Disabled\",\n        \"provisioningState\": \"Succeeded\",\n        \"support\": {\n          \"enabled\": \"Disabled\",\n          \"markdown\": \"\"\n        },\n        \"uniqueIdentifier\": \"{unique-identifier}\",\n        \"vaultName\": \"/subscriptions/{subscription-id}/resourceGroups/{resourcegroup-name-2}/providers/Microsoft.KeyVault/vaults/{keyvault-name-2}\"\n      },\n      \"tags\": {},\n      \"type\": \"Microsoft.DevTestLab/labs\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2519ddf1-a7f5-47ee-94e6-33a7bf48755e",
+              "name": "BadRequest",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "providers",
+                    "Microsoft.DevTestLab",
+                    "labs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$expand",
+                      "value": "example-value"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "example-value"
+                    },
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$orderby",
+                      "value": "example-value"
+                    },
+                    {
+                      "key": "api-version",
+                      "value": "2018-09-15"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "subscriptionId",
+                      "description": "(Required) The subscription ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"details\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/CloudErrorBody detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/CloudErrorBody detected>\"\n      }\n    ],\n    \"message\": \"string\",\n    \"target\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a2ef90d5-be18-4756-9408-861181b7028d",
+          "name": "Azure DevTest Labs Labs_ List by Resource Group",
+          "request": {
+            "name": "Azure DevTest Labs Labs_ List by Resource Group",
+            "description": {
+              "content": "List labs in a resource group.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "subscriptions",
+                ":subscriptionId",
+                "resourceGroups",
+                ":resourceGroupName",
+                "providers",
+                "Microsoft.DevTestLab",
+                "labs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$expand",
+                  "value": "<string>",
+                  "description": "Specify the $expand query. Example: 'properties($select=defaultStorageAccount)'"
+                },
+                {
+                  "disabled": false,
+                  "key": "$filter",
+                  "value": "<string>",
+                  "description": "The filter to apply to the operation. Example: '$filter=contains(name,'myName')"
+                },
+                {
+                  "disabled": false,
+                  "key": "$top",
+                  "value": "<integer>",
+                  "description": "The maximum number of resources to return from the operation. Example: '$top=10'"
+                },
+                {
+                  "disabled": false,
+                  "key": "$orderby",
+                  "value": "<string>",
+                  "description": "The ordering expression for the results, using OData notation. Example: '$orderby=name desc'"
+                },
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "2018-09-15",
+                  "description": "(Required) Client API version."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "subscriptionId",
+                  "description": "(Required) The subscription ID."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "resourceGroupName",
+                  "description": "(Required) The name of the resource group."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bda08486-d26e-427d-b066-899dfe304489",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.DevTestLab",
+                    "labs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$expand",
+                      "value": "example-value"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "example-value"
+                    },
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$orderby",
+                      "value": "example-value"
+                    },
+                    {
+                      "key": "api-version",
+                      "value": "2018-09-15"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "subscriptionId",
+                      "description": "(Required) The subscription ID."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The name of the resource group."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": [\n    {\n      \"id\": \"/subscriptions/{subscription-id}/resourcegroups/myResourceGroup/providers/microsoft.devtestlab/labs/{devtestlab-name}\",\n      \"location\": \"{azure-location}\",\n      \"name\": \"{devtestlab-name}\",\n      \"properties\": {\n        \"announcement\": {\n          \"enabled\": \"Disabled\",\n          \"expired\": false,\n          \"markdown\": \"\",\n          \"title\": \"\"\n        },\n        \"createdDate\": \"2018-10-02T10:23:20.9573599-07:00\",\n        \"environmentPermission\": \"Reader\",\n        \"labStorageType\": \"Standard\",\n        \"mandatoryArtifactsResourceIdsLinux\": [],\n        \"mandatoryArtifactsResourceIdsWindows\": [],\n        \"premiumDataDisks\": \"Disabled\",\n        \"provisioningState\": \"Succeeded\",\n        \"support\": {\n          \"enabled\": \"Disabled\",\n          \"markdown\": \"\"\n        },\n        \"uniqueIdentifier\": \"{unique-identifier}\",\n        \"vaultName\": \"/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.KeyVault/vaults/{keyvault-name}\"\n      },\n      \"tags\": {\n        \"MyTag\": \"MyValue\"\n      },\n      \"type\": \"Microsoft.DevTestLab/labs\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "60efbf8f-cf4f-4a1d-9ef7-c71341e94f04",
+              "name": "BadRequest",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.DevTestLab",
+                    "labs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$expand",
+                      "value": "example-value"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "example-value"
+                    },
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$orderby",
+                      "value": "example-value"
+                    },
+                    {
+                      "key": "api-version",
+                      "value": "2018-09-15"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "subscriptionId",
+                      "description": "(Required) The subscription ID."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The name of the resource group."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"details\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/CloudErrorBody detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/CloudErrorBody detected>\"\n      }\n    ],\n    \"message\": \"string\",\n    \"target\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "779ea2ab-8d91-43d3-afec-2fd0ef5d3f86",
+          "name": "Azure DevTest Labs Labs_ Delete",
+          "request": {
+            "name": "Azure DevTest Labs Labs_ Delete",
+            "description": {
+              "content": "Delete lab. This operation can take a while to complete.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "subscriptions",
+                ":subscriptionId",
+                "resourceGroups",
+                ":resourceGroupName",
+                "providers",
+                "Microsoft.DevTestLab",
+                "labs",
+                ":name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "2018-09-15",
+                  "description": "(Required) Client API version."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "subscriptionId",
+                  "description": "(Required) The subscription ID."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "resourceGroupName",
+                  "description": "(Required) The name of the resource group."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) The name of the lab."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5b892119-2067-4c95-a983-e8b87e4a6872",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.DevTestLab",
+                    "labs",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2018-09-15"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "subscriptionId",
+                      "description": "(Required) The subscription ID."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The name of the resource group."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) The name of the lab."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "368bbcdb-d34e-48aa-8913-cad3e7edc7e2",
+              "name": "Accepted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.DevTestLab",
+                    "labs",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2018-09-15"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "subscriptionId",
+                      "description": "(Required) The subscription ID."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The name of the resource group."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) The name of the lab."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "33cc8fbb-07bf-4390-be2a-ea828bab1db1",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.DevTestLab",
+                    "labs",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2018-09-15"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "subscriptionId",
+                      "description": "(Required) The subscription ID."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The name of the resource group."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) The name of the lab."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c6e4b790-58ee-4ebf-aebd-bc068d25890a",
+              "name": "BadRequest",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.DevTestLab",
+                    "labs",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2018-09-15"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "subscriptionId",
+                      "description": "(Required) The subscription ID."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The name of the resource group."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) The name of the lab."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"details\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/CloudErrorBody detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/CloudErrorBody detected>\"\n      }\n    ],\n    \"message\": \"string\",\n    \"target\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d925fe18-5428-47d3-8b75-d4cdd7cb3f15",
+          "name": "Azure DevTest Labs Labs_ Get",
+          "request": {
+            "name": "Azure DevTest Labs Labs_ Get",
+            "description": {
+              "content": "Get lab.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "subscriptions",
+                ":subscriptionId",
+                "resourceGroups",
+                ":resourceGroupName",
+                "providers",
+                "Microsoft.DevTestLab",
+                "labs",
+                ":name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$expand",
+                  "value": "<string>",
+                  "description": "Specify the $expand query. Example: 'properties($select=defaultStorageAccount)'"
+                },
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "2018-09-15",
+                  "description": "(Required) Client API version."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "subscriptionId",
+                  "description": "(Required) The subscription ID."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "resourceGroupName",
+                  "description": "(Required) The name of the resource group."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) The name of the lab."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "11d2c4d1-203f-47bb-8a0d-a8f4630b0de8",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.DevTestLab",
+                    "labs",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$expand",
+                      "value": "example-value"
+                    },
+                    {
+                      "key": "api-version",
+                      "value": "2018-09-15"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "subscriptionId",
+                      "description": "(Required) The subscription ID."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The name of the resource group."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) The name of the lab."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"/subscriptions/{subscription-id}/resourcegroups/myResourceGroup/providers/microsoft.devtestlab/labs/{devtestlab-name}\",\n  \"location\": \"{azure-location}\",\n  \"name\": \"{devtestlab-name}\",\n  \"properties\": {\n    \"announcement\": {\n      \"enabled\": \"Disabled\",\n      \"expired\": false,\n      \"markdown\": \"\",\n      \"title\": \"\"\n    },\n    \"artifactsStorageAccount\": \"/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/{storageaccount-name}\",\n    \"createdDate\": \"2018-10-01T18:40:48.1739018-07:00\",\n    \"defaultPremiumStorageAccount\": \"/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/{storageaccount-name}\",\n    \"defaultStorageAccount\": \"/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/{storageaccount-name}\",\n    \"environmentPermission\": \"Reader\",\n    \"labStorageType\": \"Standard\",\n    \"mandatoryArtifactsResourceIdsLinux\": [],\n    \"mandatoryArtifactsResourceIdsWindows\": [],\n    \"premiumDataDiskStorageAccount\": \"/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/{storageaccount-name}\",\n    \"premiumDataDisks\": \"Disabled\",\n    \"provisioningState\": \"Succeeded\",\n    \"support\": {\n      \"enabled\": \"Disabled\",\n      \"markdown\": \"\"\n    },\n    \"uniqueIdentifier\": \"{unique-identifier}\",\n    \"vaultName\": \"/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.KeyVault/vaults/{keyvault-name}\"\n  },\n  \"tags\": {\n    \"MyTag\": \"MyValue\"\n  },\n  \"type\": \"Microsoft.DevTestLab/labs\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b9baef20-bffa-453c-a88f-a12d8b185fc7",
+              "name": "BadRequest",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.DevTestLab",
+                    "labs",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$expand",
+                      "value": "example-value"
+                    },
+                    {
+                      "key": "api-version",
+                      "value": "2018-09-15"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "subscriptionId",
+                      "description": "(Required) The subscription ID."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The name of the resource group."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) The name of the lab."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"details\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/CloudErrorBody detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/CloudErrorBody detected>\"\n      }\n    ],\n    \"message\": \"string\",\n    \"target\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bcb32782-81b2-485c-a0c7-a5225e58f1da",
+          "name": "Azure DevTest Labs Labs_ Update",
+          "request": {
+            "name": "Azure DevTest Labs Labs_ Update",
+            "description": {
+              "content": "Allows modifying tags of labs. All other properties will be ignored.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "subscriptions",
+                ":subscriptionId",
+                "resourceGroups",
+                ":resourceGroupName",
+                "providers",
+                "Microsoft.DevTestLab",
+                "labs",
+                ":name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "2018-09-15",
+                  "description": "(Required) Client API version."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "subscriptionId",
+                  "description": "(Required) The subscription ID."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "resourceGroupName",
+                  "description": "(Required) The name of the resource group."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) The name of the lab."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"properties\": {\n    \"announcement\": {\n      \"enabled\": \"<string>\",\n      \"expirationDate\": \"<dateTime>\",\n      \"expired\": \"<boolean>\",\n      \"markdown\": \"<string>\",\n      \"title\": \"<string>\"\n    },\n    \"environmentPermission\": \"<string>\",\n    \"extendedProperties\": {\n      \"key_0\": \"<string>\",\n      \"key_1\": \"<string>\"\n    },\n    \"labStorageType\": \"<string>\",\n    \"mandatoryArtifactsResourceIdsLinux\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"mandatoryArtifactsResourceIdsWindows\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"premiumDataDisks\": \"<string>\",\n    \"support\": {\n      \"enabled\": \"<string>\",\n      \"markdown\": \"<string>\"\n    }\n  },\n  \"tags\": {\n    \"key_0\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "52ae9642-c944-46f9-beaf-7364f167f785",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.DevTestLab",
+                    "labs",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2018-09-15"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "subscriptionId",
+                      "description": "(Required) The subscription ID."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The name of the resource group."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) The name of the lab."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"properties\": {\n    \"announcement\": {\n      \"enabled\": \"<string>\",\n      \"expirationDate\": \"<dateTime>\",\n      \"expired\": \"<boolean>\",\n      \"markdown\": \"<string>\",\n      \"title\": \"<string>\"\n    },\n    \"environmentPermission\": \"<string>\",\n    \"extendedProperties\": {\n      \"key_0\": \"<string>\",\n      \"key_1\": \"<string>\",\n      \"key_2\": \"<string>\"\n    },\n    \"labStorageType\": \"<string>\",\n    \"mandatoryArtifactsResourceIdsLinux\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"mandatoryArtifactsResourceIdsWindows\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"premiumDataDisks\": \"<string>\",\n    \"support\": {\n      \"enabled\": \"<string>\",\n      \"markdown\": \"<string>\"\n    }\n  },\n  \"tags\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"/subscriptions/{subscription-id}/resourcegroups/myResourceGroup/providers/microsoft.devtestlab/labs/{devtestlab-name}\",\n  \"location\": \"{azure-location}\",\n  \"name\": \"{devtestlab-name}\",\n  \"properties\": {\n    \"announcement\": {\n      \"enabled\": \"Disabled\",\n      \"expired\": false,\n      \"markdown\": \"\",\n      \"title\": \"\"\n    },\n    \"createdDate\": \"2018-10-01T18:40:48.1739018-07:00\",\n    \"environmentPermission\": \"Reader\",\n    \"labStorageType\": \"Standard\",\n    \"mandatoryArtifactsResourceIdsLinux\": [],\n    \"mandatoryArtifactsResourceIdsWindows\": [],\n    \"premiumDataDisks\": \"Disabled\",\n    \"provisioningState\": \"Succeeded\",\n    \"support\": {\n      \"enabled\": \"Disabled\",\n      \"markdown\": \"\"\n    },\n    \"uniqueIdentifier\": \"{unique-identifier}\",\n    \"vaultName\": \"/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.KeyVault/vaults/{keyvault-name}\"\n  },\n  \"tags\": {\n    \"MyTag\": \"MyValue\"\n  },\n  \"type\": \"Microsoft.DevTestLab/labs\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "00ede493-70be-450e-a924-0cfd56dec572",
+              "name": "BadRequest",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.DevTestLab",
+                    "labs",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2018-09-15"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "subscriptionId",
+                      "description": "(Required) The subscription ID."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The name of the resource group."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) The name of the lab."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"properties\": {\n    \"announcement\": {\n      \"enabled\": \"<string>\",\n      \"expirationDate\": \"<dateTime>\",\n      \"expired\": \"<boolean>\",\n      \"markdown\": \"<string>\",\n      \"title\": \"<string>\"\n    },\n    \"environmentPermission\": \"<string>\",\n    \"extendedProperties\": {\n      \"key_0\": \"<string>\",\n      \"key_1\": \"<string>\",\n      \"key_2\": \"<string>\"\n    },\n    \"labStorageType\": \"<string>\",\n    \"mandatoryArtifactsResourceIdsLinux\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"mandatoryArtifactsResourceIdsWindows\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"premiumDataDisks\": \"<string>\",\n    \"support\": {\n      \"enabled\": \"<string>\",\n      \"markdown\": \"<string>\"\n    }\n  },\n  \"tags\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"details\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/CloudErrorBody detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/CloudErrorBody detected>\"\n      }\n    ],\n    \"message\": \"string\",\n    \"target\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "efb5d87d-045b-40ed-a7ba-cd902700518e",
+          "name": "Azure DevTest Labs Labs_ Create or Update",
+          "request": {
+            "name": "Azure DevTest Labs Labs_ Create or Update",
+            "description": {
+              "content": "Create or replace an existing lab. This operation can take a while to complete.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "subscriptions",
+                ":subscriptionId",
+                "resourceGroups",
+                ":resourceGroupName",
+                "providers",
+                "Microsoft.DevTestLab",
+                "labs",
+                ":name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "2018-09-15",
+                  "description": "(Required) Client API version."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "subscriptionId",
+                  "description": "(Required) The subscription ID."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "resourceGroupName",
+                  "description": "(Required) The name of the resource group."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) The name of the lab."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"properties\": {\n    \"announcement\": {\n      \"enabled\": \"<string>\",\n      \"expirationDate\": \"<dateTime>\",\n      \"expired\": \"<boolean>\",\n      \"markdown\": \"<string>\",\n      \"title\": \"<string>\"\n    },\n    \"environmentPermission\": \"<string>\",\n    \"extendedProperties\": {\n      \"key_0\": \"<string>\",\n      \"key_1\": \"<string>\"\n    },\n    \"labStorageType\": \"<string>\",\n    \"mandatoryArtifactsResourceIdsLinux\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"mandatoryArtifactsResourceIdsWindows\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"premiumDataDisks\": \"<string>\",\n    \"support\": {\n      \"enabled\": \"<string>\",\n      \"markdown\": \"<string>\"\n    }\n  },\n  \"location\": \"<string>\",\n  \"tags\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\",\n    \"key_2\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "237ef116-6151-41c0-bf71-0b8f0a83c7ca",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.DevTestLab",
+                    "labs",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2018-09-15"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "subscriptionId",
+                      "description": "(Required) The subscription ID."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The name of the resource group."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) The name of the lab."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"properties\": {\n    \"announcement\": {\n      \"enabled\": \"<string>\",\n      \"expirationDate\": \"<dateTime>\",\n      \"expired\": \"<boolean>\",\n      \"markdown\": \"<string>\",\n      \"title\": \"<string>\"\n    },\n    \"environmentPermission\": \"<string>\",\n    \"extendedProperties\": {\n      \"key_0\": \"<string>\",\n      \"key_1\": \"<string>\",\n      \"key_2\": \"<string>\"\n    },\n    \"labStorageType\": \"<string>\",\n    \"mandatoryArtifactsResourceIdsLinux\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"mandatoryArtifactsResourceIdsWindows\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"premiumDataDisks\": \"<string>\",\n    \"support\": {\n      \"enabled\": \"<string>\",\n      \"markdown\": \"<string>\"\n    }\n  },\n  \"location\": \"<string>\",\n  \"tags\": {\n    \"key_0\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"/subscriptions/{subscription-id}/resourcegroups/myResourceGroup/providers/microsoft.devtestlab/labs/{devtestlab-name}\",\n  \"location\": \"{azure-location}\",\n  \"name\": \"{devtestlab-name}\",\n  \"properties\": {\n    \"announcement\": {\n      \"enabled\": \"Disabled\",\n      \"expired\": false,\n      \"markdown\": \"\",\n      \"title\": \"\"\n    },\n    \"createdDate\": \"2018-10-01T18:40:48.1739018-07:00\",\n    \"environmentPermission\": \"Reader\",\n    \"labStorageType\": \"Standard\",\n    \"mandatoryArtifactsResourceIdsLinux\": [],\n    \"mandatoryArtifactsResourceIdsWindows\": [],\n    \"premiumDataDisks\": \"Disabled\",\n    \"provisioningState\": \"Creating\",\n    \"support\": {\n      \"enabled\": \"Disabled\",\n      \"markdown\": \"\"\n    },\n    \"uniqueIdentifier\": \"{unique-identifier}\"\n  },\n  \"tags\": {\n    \"MyTag\": \"MyValue\"\n  },\n  \"type\": \"Microsoft.DevTestLab/labs\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "57e0e889-2a39-4abe-9c53-408d2e451f6f",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.DevTestLab",
+                    "labs",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2018-09-15"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "subscriptionId",
+                      "description": "(Required) The subscription ID."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The name of the resource group."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) The name of the lab."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"properties\": {\n    \"announcement\": {\n      \"enabled\": \"<string>\",\n      \"expirationDate\": \"<dateTime>\",\n      \"expired\": \"<boolean>\",\n      \"markdown\": \"<string>\",\n      \"title\": \"<string>\"\n    },\n    \"environmentPermission\": \"<string>\",\n    \"extendedProperties\": {\n      \"key_0\": \"<string>\",\n      \"key_1\": \"<string>\",\n      \"key_2\": \"<string>\"\n    },\n    \"labStorageType\": \"<string>\",\n    \"mandatoryArtifactsResourceIdsLinux\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"mandatoryArtifactsResourceIdsWindows\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"premiumDataDisks\": \"<string>\",\n    \"support\": {\n      \"enabled\": \"<string>\",\n      \"markdown\": \"<string>\"\n    }\n  },\n  \"location\": \"<string>\",\n  \"tags\": {\n    \"key_0\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"/subscriptions/{subscription-id}/resourcegroups/myResourceGroup/providers/microsoft.devtestlab/labs/{devtestlab-name}\",\n  \"location\": \"{azure-location}\",\n  \"name\": \"{devtestlab-name}\",\n  \"properties\": {\n    \"announcement\": {\n      \"enabled\": \"Disabled\",\n      \"expired\": false,\n      \"markdown\": \"\",\n      \"title\": \"\"\n    },\n    \"createdDate\": \"2018-10-01T18:40:48.1739018-07:00\",\n    \"environmentPermission\": \"Reader\",\n    \"labStorageType\": \"Standard\",\n    \"mandatoryArtifactsResourceIdsLinux\": [],\n    \"mandatoryArtifactsResourceIdsWindows\": [],\n    \"premiumDataDisks\": \"Disabled\",\n    \"provisioningState\": \"Creating\",\n    \"support\": {\n      \"enabled\": \"Disabled\",\n      \"markdown\": \"\"\n    },\n    \"uniqueIdentifier\": \"{unique-identifier}\"\n  },\n  \"tags\": {\n    \"MyTag\": \"MyValue\"\n  },\n  \"type\": \"Microsoft.DevTestLab/labs\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "96c62ea4-aabd-4528-a490-25d857ca8791",
+              "name": "BadRequest",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.DevTestLab",
+                    "labs",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2018-09-15"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "subscriptionId",
+                      "description": "(Required) The subscription ID."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The name of the resource group."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) The name of the lab."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"properties\": {\n    \"announcement\": {\n      \"enabled\": \"<string>\",\n      \"expirationDate\": \"<dateTime>\",\n      \"expired\": \"<boolean>\",\n      \"markdown\": \"<string>\",\n      \"title\": \"<string>\"\n    },\n    \"environmentPermission\": \"<string>\",\n    \"extendedProperties\": {\n      \"key_0\": \"<string>\",\n      \"key_1\": \"<string>\",\n      \"key_2\": \"<string>\"\n    },\n    \"labStorageType\": \"<string>\",\n    \"mandatoryArtifactsResourceIdsLinux\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"mandatoryArtifactsResourceIdsWindows\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"premiumDataDisks\": \"<string>\",\n    \"support\": {\n      \"enabled\": \"<string>\",\n      \"markdown\": \"<string>\"\n    }\n  },\n  \"location\": \"<string>\",\n  \"tags\": {\n    \"key_0\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"details\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/CloudErrorBody detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/CloudErrorBody detected>\"\n      }\n    ],\n    \"message\": \"string\",\n    \"target\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f61d9b41-dc93-4925-ac42-c985af410cd3",
+          "name": "Azure DevTest Labs Labs_ Claim Any Vm",
+          "request": {
+            "name": "Azure DevTest Labs Labs_ Claim Any Vm",
+            "description": {
+              "content": "Claim a random claimable virtual machine in the lab. This operation can take a while to complete.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "subscriptions",
+                ":subscriptionId",
+                "resourceGroups",
+                ":resourceGroupName",
+                "providers",
+                "Microsoft.DevTestLab",
+                "labs",
+                ":name",
+                "claimAnyVm"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "2018-09-15",
+                  "description": "(Required) Client API version."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "subscriptionId",
+                  "description": "(Required) The subscription ID."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "resourceGroupName",
+                  "description": "(Required) The name of the resource group."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) The name of the lab."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1675cbf7-b244-484f-84b8-2900e4f79b9c",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.DevTestLab",
+                    "labs",
+                    ":name",
+                    "claimAnyVm"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2018-09-15"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "subscriptionId",
+                      "description": "(Required) The subscription ID."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The name of the resource group."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) The name of the lab."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e003b0ed-e0f6-4b5f-b4d3-74d98d6333a8",
+              "name": "Accepted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.DevTestLab",
+                    "labs",
+                    ":name",
+                    "claimAnyVm"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2018-09-15"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "subscriptionId",
+                      "description": "(Required) The subscription ID."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The name of the resource group."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) The name of the lab."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "327d70fe-4b23-4ffe-88ca-9e7cac1e5e9a",
+              "name": "BadRequest",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.DevTestLab",
+                    "labs",
+                    ":name",
+                    "claimAnyVm"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2018-09-15"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "subscriptionId",
+                      "description": "(Required) The subscription ID."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The name of the resource group."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) The name of the lab."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"details\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/CloudErrorBody detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/CloudErrorBody detected>\"\n      }\n    ],\n    \"message\": \"string\",\n    \"target\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bcd9712f-4ffd-4eea-9f94-45ed4d6aa6e7",
+          "name": "Azure DevTest Labs Labs_ Create Environment",
+          "request": {
+            "name": "Azure DevTest Labs Labs_ Create Environment",
+            "description": {
+              "content": "Create virtual machines in a lab. This operation can take a while to complete.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "subscriptions",
+                ":subscriptionId",
+                "resourceGroups",
+                ":resourceGroupName",
+                "providers",
+                "Microsoft.DevTestLab",
+                "labs",
+                ":name",
+                "createEnvironment"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "2018-09-15",
+                  "description": "(Required) Client API version."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "subscriptionId",
+                  "description": "(Required) The subscription ID."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "resourceGroupName",
+                  "description": "(Required) The name of the resource group."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) The name of the lab."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"location\": \"<string>\",\n  \"name\": \"<string>\",\n  \"properties\": {\n    \"allowClaim\": \"<boolean>\",\n    \"artifactDeploymentStatus\": {\n      \"artifactsApplied\": \"<integer>\",\n      \"deploymentStatus\": \"<string>\",\n      \"totalArtifacts\": \"<integer>\"\n    },\n    \"artifacts\": [\n      {\n        \"artifactId\": \"<string>\",\n        \"artifactTitle\": \"<string>\",\n        \"deploymentStatusMessage\": \"<string>\",\n        \"installTime\": \"<dateTime>\",\n        \"parameters\": [\n          {\n            \"name\": \"<string>\",\n            \"value\": \"<string>\"\n          },\n          {\n            \"name\": \"<string>\",\n            \"value\": \"<string>\"\n          }\n        ],\n        \"status\": \"<string>\",\n        \"vmExtensionStatusMessage\": \"<string>\"\n      },\n      {\n        \"artifactId\": \"<string>\",\n        \"artifactTitle\": \"<string>\",\n        \"deploymentStatusMessage\": \"<string>\",\n        \"installTime\": \"<dateTime>\",\n        \"parameters\": [\n          {\n            \"name\": \"<string>\",\n            \"value\": \"<string>\"\n          },\n          {\n            \"name\": \"<string>\",\n            \"value\": \"<string>\"\n          }\n        ],\n        \"status\": \"<string>\",\n        \"vmExtensionStatusMessage\": \"<string>\"\n      }\n    ],\n    \"bulkCreationParameters\": {\n      \"instanceCount\": \"<integer>\"\n    },\n    \"computeId\": \"<string>\",\n    \"createdByUser\": \"<string>\",\n    \"createdByUserId\": \"<string>\",\n    \"createdDate\": \"<dateTime>\",\n    \"customImageId\": \"<string>\",\n    \"dataDiskParameters\": [\n      {\n        \"attachNewDataDiskOptions\": {\n          \"diskName\": \"<string>\",\n          \"diskSizeGiB\": \"<integer>\",\n          \"diskType\": \"<string>\"\n        },\n        \"existingLabDiskId\": \"<string>\",\n        \"hostCaching\": \"<string>\"\n      },\n      {\n        \"attachNewDataDiskOptions\": {\n          \"diskName\": \"<string>\",\n          \"diskSizeGiB\": \"<integer>\",\n          \"diskType\": \"<string>\"\n        },\n        \"existingLabDiskId\": \"<string>\",\n        \"hostCaching\": \"<string>\"\n      }\n    ],\n    \"disallowPublicIpAddress\": \"<boolean>\",\n    \"environmentId\": \"<string>\",\n    \"expirationDate\": \"<dateTime>\",\n    \"fqdn\": \"<string>\",\n    \"galleryImageReference\": {\n      \"offer\": \"<string>\",\n      \"osType\": \"<string>\",\n      \"publisher\": \"<string>\",\n      \"sku\": \"<string>\",\n      \"version\": \"<string>\"\n    },\n    \"isAuthenticationWithSshKey\": \"<boolean>\",\n    \"labSubnetName\": \"<string>\",\n    \"labVirtualNetworkId\": \"<string>\",\n    \"lastKnownPowerState\": \"<string>\",\n    \"networkInterface\": {\n      \"dnsName\": \"<string>\",\n      \"privateIpAddress\": \"<string>\",\n      \"publicIpAddress\": \"<string>\",\n      \"publicIpAddressId\": \"<string>\",\n      \"rdpAuthority\": \"<string>\",\n      \"sharedPublicIpAddressConfiguration\": {\n        \"inboundNatRules\": [\n          {\n            \"backendPort\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"frontendPort\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"transportProtocol\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"backendPort\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"frontendPort\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"transportProtocol\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      },\n      \"sshAuthority\": \"<string>\",\n      \"subnetId\": \"<string>\",\n      \"virtualNetworkId\": \"<string>\"\n    },\n    \"notes\": \"<string>\",\n    \"osType\": \"<string>\",\n    \"ownerObjectId\": \"<string>\",\n    \"ownerUserPrincipalName\": \"<string>\",\n    \"password\": \"<string>\",\n    \"planId\": \"<string>\",\n    \"scheduleParameters\": [\n      {\n        \"location\": \"<string>\",\n        \"name\": \"<string>\",\n        \"properties\": {\n          \"dailyRecurrence\": {\n            \"time\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"hourlyRecurrence\": {\n            \"minute\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"notificationSettings\": {\n            \"emailRecipient\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"notificationLocale\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"status\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"timeInMinutes\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"webhookUrl\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"status\": \"<string>\",\n          \"targetResourceId\": \"<string>\",\n          \"taskType\": \"<string>\",\n          \"timeZoneId\": \"<string>\",\n          \"weeklyRecurrence\": {\n            \"time\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"weekdays\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"tags\": {\n          \"key_0\": \"<string>\",\n          \"key_1\": \"<string>\"\n        }\n      },\n      {\n        \"location\": \"<string>\",\n        \"name\": \"<string>\",\n        \"properties\": {\n          \"dailyRecurrence\": {\n            \"time\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"hourlyRecurrence\": {\n            \"minute\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"notificationSettings\": {\n            \"emailRecipient\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"notificationLocale\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"status\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"timeInMinutes\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"webhookUrl\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"status\": \"<string>\",\n          \"targetResourceId\": \"<string>\",\n          \"taskType\": \"<string>\",\n          \"timeZoneId\": \"<string>\",\n          \"weeklyRecurrence\": {\n            \"time\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"weekdays\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"tags\": {\n          \"key_0\": \"<string>\",\n          \"key_1\": \"<string>\",\n          \"key_2\": \"<string>\"\n        }\n      }\n    ],\n    \"size\": \"<string>\",\n    \"sshKey\": \"<string>\",\n    \"storageType\": \"<string>\",\n    \"userName\": \"<string>\",\n    \"virtualMachineCreationSource\": \"<string>\"\n  },\n  \"tags\": {\n    \"key_0\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "15918c17-de79-41b1-a4e0-0f0dd0a90c84",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.DevTestLab",
+                    "labs",
+                    ":name",
+                    "createEnvironment"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2018-09-15"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "subscriptionId",
+                      "description": "(Required) The subscription ID."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The name of the resource group."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) The name of the lab."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"location\": \"<string>\",\n  \"name\": \"<string>\",\n  \"properties\": {\n    \"allowClaim\": \"<boolean>\",\n    \"artifactDeploymentStatus\": {\n      \"artifactsApplied\": \"<integer>\",\n      \"deploymentStatus\": \"<string>\",\n      \"totalArtifacts\": \"<integer>\"\n    },\n    \"artifacts\": [\n      {\n        \"artifactId\": \"<string>\",\n        \"artifactTitle\": \"<string>\",\n        \"deploymentStatusMessage\": \"<string>\",\n        \"installTime\": \"<dateTime>\",\n        \"parameters\": [\n          {\n            \"name\": \"<string>\",\n            \"value\": \"<string>\"\n          },\n          {\n            \"name\": \"<string>\",\n            \"value\": \"<string>\"\n          }\n        ],\n        \"status\": \"<string>\",\n        \"vmExtensionStatusMessage\": \"<string>\"\n      },\n      {\n        \"artifactId\": \"<string>\",\n        \"artifactTitle\": \"<string>\",\n        \"deploymentStatusMessage\": \"<string>\",\n        \"installTime\": \"<dateTime>\",\n        \"parameters\": [\n          {\n            \"name\": \"<string>\",\n            \"value\": \"<string>\"\n          },\n          {\n            \"name\": \"<string>\",\n            \"value\": \"<string>\"\n          }\n        ],\n        \"status\": \"<string>\",\n        \"vmExtensionStatusMessage\": \"<string>\"\n      }\n    ],\n    \"bulkCreationParameters\": {\n      \"instanceCount\": \"<integer>\"\n    },\n    \"computeId\": \"<string>\",\n    \"createdByUser\": \"<string>\",\n    \"createdByUserId\": \"<string>\",\n    \"createdDate\": \"<dateTime>\",\n    \"customImageId\": \"<string>\",\n    \"dataDiskParameters\": [\n      {\n        \"attachNewDataDiskOptions\": {\n          \"diskName\": \"<string>\",\n          \"diskSizeGiB\": \"<integer>\",\n          \"diskType\": \"<string>\"\n        },\n        \"existingLabDiskId\": \"<string>\",\n        \"hostCaching\": \"<string>\"\n      },\n      {\n        \"attachNewDataDiskOptions\": {\n          \"diskName\": \"<string>\",\n          \"diskSizeGiB\": \"<integer>\",\n          \"diskType\": \"<string>\"\n        },\n        \"existingLabDiskId\": \"<string>\",\n        \"hostCaching\": \"<string>\"\n      }\n    ],\n    \"disallowPublicIpAddress\": \"<boolean>\",\n    \"environmentId\": \"<string>\",\n    \"expirationDate\": \"<dateTime>\",\n    \"fqdn\": \"<string>\",\n    \"galleryImageReference\": {\n      \"offer\": \"<string>\",\n      \"osType\": \"<string>\",\n      \"publisher\": \"<string>\",\n      \"sku\": \"<string>\",\n      \"version\": \"<string>\"\n    },\n    \"isAuthenticationWithSshKey\": \"<boolean>\",\n    \"labSubnetName\": \"<string>\",\n    \"labVirtualNetworkId\": \"<string>\",\n    \"lastKnownPowerState\": \"<string>\",\n    \"networkInterface\": {\n      \"dnsName\": \"<string>\",\n      \"privateIpAddress\": \"<string>\",\n      \"publicIpAddress\": \"<string>\",\n      \"publicIpAddressId\": \"<string>\",\n      \"rdpAuthority\": \"<string>\",\n      \"sharedPublicIpAddressConfiguration\": {\n        \"inboundNatRules\": [\n          {\n            \"backendPort\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"frontendPort\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"transportProtocol\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"backendPort\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"frontendPort\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"transportProtocol\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      },\n      \"sshAuthority\": \"<string>\",\n      \"subnetId\": \"<string>\",\n      \"virtualNetworkId\": \"<string>\"\n    },\n    \"notes\": \"<string>\",\n    \"osType\": \"<string>\",\n    \"ownerObjectId\": \"<string>\",\n    \"ownerUserPrincipalName\": \"<string>\",\n    \"password\": \"<string>\",\n    \"planId\": \"<string>\",\n    \"scheduleParameters\": [\n      {\n        \"location\": \"<string>\",\n        \"name\": \"<string>\",\n        \"properties\": {\n          \"dailyRecurrence\": {\n            \"time\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"hourlyRecurrence\": {\n            \"minute\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"notificationSettings\": {\n            \"emailRecipient\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"notificationLocale\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"status\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"timeInMinutes\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"webhookUrl\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"status\": \"<string>\",\n          \"targetResourceId\": \"<string>\",\n          \"taskType\": \"<string>\",\n          \"timeZoneId\": \"<string>\",\n          \"weeklyRecurrence\": {\n            \"time\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"weekdays\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"tags\": {\n          \"key_0\": \"<string>\"\n        }\n      },\n      {\n        \"location\": \"<string>\",\n        \"name\": \"<string>\",\n        \"properties\": {\n          \"dailyRecurrence\": {\n            \"time\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"hourlyRecurrence\": {\n            \"minute\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"notificationSettings\": {\n            \"emailRecipient\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"notificationLocale\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"status\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"timeInMinutes\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"webhookUrl\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"status\": \"<string>\",\n          \"targetResourceId\": \"<string>\",\n          \"taskType\": \"<string>\",\n          \"timeZoneId\": \"<string>\",\n          \"weeklyRecurrence\": {\n            \"time\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"weekdays\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"tags\": {\n          \"key_0\": \"<string>\",\n          \"key_1\": \"<string>\"\n        }\n      }\n    ],\n    \"size\": \"<string>\",\n    \"sshKey\": \"<string>\",\n    \"storageType\": \"<string>\",\n    \"userName\": \"<string>\",\n    \"virtualMachineCreationSource\": \"<string>\"\n  },\n  \"tags\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c1e85eb2-d851-4c30-bc9b-5d203cfda191",
+              "name": "Accepted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.DevTestLab",
+                    "labs",
+                    ":name",
+                    "createEnvironment"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2018-09-15"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "subscriptionId",
+                      "description": "(Required) The subscription ID."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The name of the resource group."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) The name of the lab."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"location\": \"<string>\",\n  \"name\": \"<string>\",\n  \"properties\": {\n    \"allowClaim\": \"<boolean>\",\n    \"artifactDeploymentStatus\": {\n      \"artifactsApplied\": \"<integer>\",\n      \"deploymentStatus\": \"<string>\",\n      \"totalArtifacts\": \"<integer>\"\n    },\n    \"artifacts\": [\n      {\n        \"artifactId\": \"<string>\",\n        \"artifactTitle\": \"<string>\",\n        \"deploymentStatusMessage\": \"<string>\",\n        \"installTime\": \"<dateTime>\",\n        \"parameters\": [\n          {\n            \"name\": \"<string>\",\n            \"value\": \"<string>\"\n          },\n          {\n            \"name\": \"<string>\",\n            \"value\": \"<string>\"\n          }\n        ],\n        \"status\": \"<string>\",\n        \"vmExtensionStatusMessage\": \"<string>\"\n      },\n      {\n        \"artifactId\": \"<string>\",\n        \"artifactTitle\": \"<string>\",\n        \"deploymentStatusMessage\": \"<string>\",\n        \"installTime\": \"<dateTime>\",\n        \"parameters\": [\n          {\n            \"name\": \"<string>\",\n            \"value\": \"<string>\"\n          },\n          {\n            \"name\": \"<string>\",\n            \"value\": \"<string>\"\n          }\n        ],\n        \"status\": \"<string>\",\n        \"vmExtensionStatusMessage\": \"<string>\"\n      }\n    ],\n    \"bulkCreationParameters\": {\n      \"instanceCount\": \"<integer>\"\n    },\n    \"computeId\": \"<string>\",\n    \"createdByUser\": \"<string>\",\n    \"createdByUserId\": \"<string>\",\n    \"createdDate\": \"<dateTime>\",\n    \"customImageId\": \"<string>\",\n    \"dataDiskParameters\": [\n      {\n        \"attachNewDataDiskOptions\": {\n          \"diskName\": \"<string>\",\n          \"diskSizeGiB\": \"<integer>\",\n          \"diskType\": \"<string>\"\n        },\n        \"existingLabDiskId\": \"<string>\",\n        \"hostCaching\": \"<string>\"\n      },\n      {\n        \"attachNewDataDiskOptions\": {\n          \"diskName\": \"<string>\",\n          \"diskSizeGiB\": \"<integer>\",\n          \"diskType\": \"<string>\"\n        },\n        \"existingLabDiskId\": \"<string>\",\n        \"hostCaching\": \"<string>\"\n      }\n    ],\n    \"disallowPublicIpAddress\": \"<boolean>\",\n    \"environmentId\": \"<string>\",\n    \"expirationDate\": \"<dateTime>\",\n    \"fqdn\": \"<string>\",\n    \"galleryImageReference\": {\n      \"offer\": \"<string>\",\n      \"osType\": \"<string>\",\n      \"publisher\": \"<string>\",\n      \"sku\": \"<string>\",\n      \"version\": \"<string>\"\n    },\n    \"isAuthenticationWithSshKey\": \"<boolean>\",\n    \"labSubnetName\": \"<string>\",\n    \"labVirtualNetworkId\": \"<string>\",\n    \"lastKnownPowerState\": \"<string>\",\n    \"networkInterface\": {\n      \"dnsName\": \"<string>\",\n      \"privateIpAddress\": \"<string>\",\n      \"publicIpAddress\": \"<string>\",\n      \"publicIpAddressId\": \"<string>\",\n      \"rdpAuthority\": \"<string>\",\n      \"sharedPublicIpAddressConfiguration\": {\n        \"inboundNatRules\": [\n          {\n            \"backendPort\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"frontendPort\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"transportProtocol\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"backendPort\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"frontendPort\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"transportProtocol\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      },\n      \"sshAuthority\": \"<string>\",\n      \"subnetId\": \"<string>\",\n      \"virtualNetworkId\": \"<string>\"\n    },\n    \"notes\": \"<string>\",\n    \"osType\": \"<string>\",\n    \"ownerObjectId\": \"<string>\",\n    \"ownerUserPrincipalName\": \"<string>\",\n    \"password\": \"<string>\",\n    \"planId\": \"<string>\",\n    \"scheduleParameters\": [\n      {\n        \"location\": \"<string>\",\n        \"name\": \"<string>\",\n        \"properties\": {\n          \"dailyRecurrence\": {\n            \"time\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"hourlyRecurrence\": {\n            \"minute\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"notificationSettings\": {\n            \"emailRecipient\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"notificationLocale\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"status\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"timeInMinutes\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"webhookUrl\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"status\": \"<string>\",\n          \"targetResourceId\": \"<string>\",\n          \"taskType\": \"<string>\",\n          \"timeZoneId\": \"<string>\",\n          \"weeklyRecurrence\": {\n            \"time\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"weekdays\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"tags\": {\n          \"key_0\": \"<string>\"\n        }\n      },\n      {\n        \"location\": \"<string>\",\n        \"name\": \"<string>\",\n        \"properties\": {\n          \"dailyRecurrence\": {\n            \"time\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"hourlyRecurrence\": {\n            \"minute\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"notificationSettings\": {\n            \"emailRecipient\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"notificationLocale\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"status\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"timeInMinutes\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"webhookUrl\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"status\": \"<string>\",\n          \"targetResourceId\": \"<string>\",\n          \"taskType\": \"<string>\",\n          \"timeZoneId\": \"<string>\",\n          \"weeklyRecurrence\": {\n            \"time\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"weekdays\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"tags\": {\n          \"key_0\": \"<string>\",\n          \"key_1\": \"<string>\"\n        }\n      }\n    ],\n    \"size\": \"<string>\",\n    \"sshKey\": \"<string>\",\n    \"storageType\": \"<string>\",\n    \"userName\": \"<string>\",\n    \"virtualMachineCreationSource\": \"<string>\"\n  },\n  \"tags\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ba605d51-4ff0-4139-93f4-8aec273fe02a",
+              "name": "BadRequest",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.DevTestLab",
+                    "labs",
+                    ":name",
+                    "createEnvironment"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2018-09-15"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "subscriptionId",
+                      "description": "(Required) The subscription ID."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The name of the resource group."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) The name of the lab."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"location\": \"<string>\",\n  \"name\": \"<string>\",\n  \"properties\": {\n    \"allowClaim\": \"<boolean>\",\n    \"artifactDeploymentStatus\": {\n      \"artifactsApplied\": \"<integer>\",\n      \"deploymentStatus\": \"<string>\",\n      \"totalArtifacts\": \"<integer>\"\n    },\n    \"artifacts\": [\n      {\n        \"artifactId\": \"<string>\",\n        \"artifactTitle\": \"<string>\",\n        \"deploymentStatusMessage\": \"<string>\",\n        \"installTime\": \"<dateTime>\",\n        \"parameters\": [\n          {\n            \"name\": \"<string>\",\n            \"value\": \"<string>\"\n          },\n          {\n            \"name\": \"<string>\",\n            \"value\": \"<string>\"\n          }\n        ],\n        \"status\": \"<string>\",\n        \"vmExtensionStatusMessage\": \"<string>\"\n      },\n      {\n        \"artifactId\": \"<string>\",\n        \"artifactTitle\": \"<string>\",\n        \"deploymentStatusMessage\": \"<string>\",\n        \"installTime\": \"<dateTime>\",\n        \"parameters\": [\n          {\n            \"name\": \"<string>\",\n            \"value\": \"<string>\"\n          },\n          {\n            \"name\": \"<string>\",\n            \"value\": \"<string>\"\n          }\n        ],\n        \"status\": \"<string>\",\n        \"vmExtensionStatusMessage\": \"<string>\"\n      }\n    ],\n    \"bulkCreationParameters\": {\n      \"instanceCount\": \"<integer>\"\n    },\n    \"computeId\": \"<string>\",\n    \"createdByUser\": \"<string>\",\n    \"createdByUserId\": \"<string>\",\n    \"createdDate\": \"<dateTime>\",\n    \"customImageId\": \"<string>\",\n    \"dataDiskParameters\": [\n      {\n        \"attachNewDataDiskOptions\": {\n          \"diskName\": \"<string>\",\n          \"diskSizeGiB\": \"<integer>\",\n          \"diskType\": \"<string>\"\n        },\n        \"existingLabDiskId\": \"<string>\",\n        \"hostCaching\": \"<string>\"\n      },\n      {\n        \"attachNewDataDiskOptions\": {\n          \"diskName\": \"<string>\",\n          \"diskSizeGiB\": \"<integer>\",\n          \"diskType\": \"<string>\"\n        },\n        \"existingLabDiskId\": \"<string>\",\n        \"hostCaching\": \"<string>\"\n      }\n    ],\n    \"disallowPublicIpAddress\": \"<boolean>\",\n    \"environmentId\": \"<string>\",\n    \"expirationDate\": \"<dateTime>\",\n    \"fqdn\": \"<string>\",\n    \"galleryImageReference\": {\n      \"offer\": \"<string>\",\n      \"osType\": \"<string>\",\n      \"publisher\": \"<string>\",\n      \"sku\": \"<string>\",\n      \"version\": \"<string>\"\n    },\n    \"isAuthenticationWithSshKey\": \"<boolean>\",\n    \"labSubnetName\": \"<string>\",\n    \"labVirtualNetworkId\": \"<string>\",\n    \"lastKnownPowerState\": \"<string>\",\n    \"networkInterface\": {\n      \"dnsName\": \"<string>\",\n      \"privateIpAddress\": \"<string>\",\n      \"publicIpAddress\": \"<string>\",\n      \"publicIpAddressId\": \"<string>\",\n      \"rdpAuthority\": \"<string>\",\n      \"sharedPublicIpAddressConfiguration\": {\n        \"inboundNatRules\": [\n          {\n            \"backendPort\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"frontendPort\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"transportProtocol\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"backendPort\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"frontendPort\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"transportProtocol\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      },\n      \"sshAuthority\": \"<string>\",\n      \"subnetId\": \"<string>\",\n      \"virtualNetworkId\": \"<string>\"\n    },\n    \"notes\": \"<string>\",\n    \"osType\": \"<string>\",\n    \"ownerObjectId\": \"<string>\",\n    \"ownerUserPrincipalName\": \"<string>\",\n    \"password\": \"<string>\",\n    \"planId\": \"<string>\",\n    \"scheduleParameters\": [\n      {\n        \"location\": \"<string>\",\n        \"name\": \"<string>\",\n        \"properties\": {\n          \"dailyRecurrence\": {\n            \"time\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"hourlyRecurrence\": {\n            \"minute\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"notificationSettings\": {\n            \"emailRecipient\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"notificationLocale\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"status\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"timeInMinutes\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"webhookUrl\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"status\": \"<string>\",\n          \"targetResourceId\": \"<string>\",\n          \"taskType\": \"<string>\",\n          \"timeZoneId\": \"<string>\",\n          \"weeklyRecurrence\": {\n            \"time\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"weekdays\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"tags\": {\n          \"key_0\": \"<string>\"\n        }\n      },\n      {\n        \"location\": \"<string>\",\n        \"name\": \"<string>\",\n        \"properties\": {\n          \"dailyRecurrence\": {\n            \"time\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"hourlyRecurrence\": {\n            \"minute\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"notificationSettings\": {\n            \"emailRecipient\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"notificationLocale\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"status\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"timeInMinutes\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"webhookUrl\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"status\": \"<string>\",\n          \"targetResourceId\": \"<string>\",\n          \"taskType\": \"<string>\",\n          \"timeZoneId\": \"<string>\",\n          \"weeklyRecurrence\": {\n            \"time\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"weekdays\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"tags\": {\n          \"key_0\": \"<string>\",\n          \"key_1\": \"<string>\"\n        }\n      }\n    ],\n    \"size\": \"<string>\",\n    \"sshKey\": \"<string>\",\n    \"storageType\": \"<string>\",\n    \"userName\": \"<string>\",\n    \"virtualMachineCreationSource\": \"<string>\"\n  },\n  \"tags\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"details\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/CloudErrorBody detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/CloudErrorBody detected>\"\n      }\n    ],\n    \"message\": \"string\",\n    \"target\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "01563b59-5823-40f5-8b7a-7a4952a4149c",
+          "name": "Azure DevTest Labs Labs_ Export Resource Usage",
+          "request": {
+            "name": "Azure DevTest Labs Labs_ Export Resource Usage",
+            "description": {
+              "content": "Exports the lab resource usage into a storage account This operation can take a while to complete.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "subscriptions",
+                ":subscriptionId",
+                "resourceGroups",
+                ":resourceGroupName",
+                "providers",
+                "Microsoft.DevTestLab",
+                "labs",
+                ":name",
+                "exportResourceUsage"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "2018-09-15",
+                  "description": "(Required) Client API version."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "subscriptionId",
+                  "description": "(Required) The subscription ID."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "resourceGroupName",
+                  "description": "(Required) The name of the resource group."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) The name of the lab."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"blobStorageAbsoluteSasUri\": \"<string>\",\n  \"usageStartDate\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a88340fc-a3d5-492e-948b-5d99225cf71d",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.DevTestLab",
+                    "labs",
+                    ":name",
+                    "exportResourceUsage"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2018-09-15"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "subscriptionId",
+                      "description": "(Required) The subscription ID."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The name of the resource group."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) The name of the lab."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"blobStorageAbsoluteSasUri\": \"<string>\",\n  \"usageStartDate\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5abd2b73-cee4-4112-b8a9-d7251ce112ed",
+              "name": "Accepted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.DevTestLab",
+                    "labs",
+                    ":name",
+                    "exportResourceUsage"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2018-09-15"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "subscriptionId",
+                      "description": "(Required) The subscription ID."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The name of the resource group."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) The name of the lab."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"blobStorageAbsoluteSasUri\": \"<string>\",\n  \"usageStartDate\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "27c6b7e0-40e2-49a0-bb35-592bc0287a54",
+              "name": "BadRequest",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.DevTestLab",
+                    "labs",
+                    ":name",
+                    "exportResourceUsage"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2018-09-15"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "subscriptionId",
+                      "description": "(Required) The subscription ID."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The name of the resource group."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) The name of the lab."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"blobStorageAbsoluteSasUri\": \"<string>\",\n  \"usageStartDate\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"details\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/CloudErrorBody detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/CloudErrorBody detected>\"\n      }\n    ],\n    \"message\": \"string\",\n    \"target\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "666058f3-e11a-40bf-903f-1f7b288ff95a",
+          "name": "Azure DevTest Labs Labs_ Generate Upload Uri",
+          "request": {
+            "name": "Azure DevTest Labs Labs_ Generate Upload Uri",
+            "description": {
+              "content": "Generate a URI for uploading custom disk images to a Lab.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "subscriptions",
+                ":subscriptionId",
+                "resourceGroups",
+                ":resourceGroupName",
+                "providers",
+                "Microsoft.DevTestLab",
+                "labs",
+                ":name",
+                "generateUploadUri"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "2018-09-15",
+                  "description": "(Required) Client API version."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "subscriptionId",
+                  "description": "(Required) The subscription ID."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "resourceGroupName",
+                  "description": "(Required) The name of the resource group."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) The name of the lab."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"blobName\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e8788e07-8d3e-4e46-a3b4-badba88e9bdd",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.DevTestLab",
+                    "labs",
+                    ":name",
+                    "generateUploadUri"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2018-09-15"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "subscriptionId",
+                      "description": "(Required) The subscription ID."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The name of the resource group."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) The name of the lab."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"blobName\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"uploadUri\": \"https://{storage-name}.blob.core.windows.net/uploads/{blob-name}?sv=2017-04-17&sr=b&sig={signature}&st=2018-10-02T01:55:24Z&se=2018-10-03T02:10:23Z&sp=rcw\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dac31ff0-7fed-408d-9b48-7b8ace8c4acc",
+              "name": "BadRequest",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.DevTestLab",
+                    "labs",
+                    ":name",
+                    "generateUploadUri"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2018-09-15"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "subscriptionId",
+                      "description": "(Required) The subscription ID."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The name of the resource group."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) The name of the lab."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"blobName\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"details\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/CloudErrorBody detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/CloudErrorBody detected>\"\n      }\n    ],\n    \"message\": \"string\",\n    \"target\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7bfbf4c2-d5f4-4475-aeb3-570babce5608",
+          "name": "Azure DevTest Labs Labs_ Import Virtual Machine",
+          "request": {
+            "name": "Azure DevTest Labs Labs_ Import Virtual Machine",
+            "description": {
+              "content": "Import a virtual machine into a different lab. This operation can take a while to complete.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "subscriptions",
+                ":subscriptionId",
+                "resourceGroups",
+                ":resourceGroupName",
+                "providers",
+                "Microsoft.DevTestLab",
+                "labs",
+                ":name",
+                "importVirtualMachine"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "2018-09-15",
+                  "description": "(Required) Client API version."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "subscriptionId",
+                  "description": "(Required) The subscription ID."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "resourceGroupName",
+                  "description": "(Required) The name of the resource group."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) The name of the lab."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"destinationVirtualMachineName\": \"<string>\",\n  \"sourceVirtualMachineResourceId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4a72bf38-9f0c-4c7e-a732-08d326a3c8e7",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.DevTestLab",
+                    "labs",
+                    ":name",
+                    "importVirtualMachine"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2018-09-15"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "subscriptionId",
+                      "description": "(Required) The subscription ID."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The name of the resource group."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) The name of the lab."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"destinationVirtualMachineName\": \"<string>\",\n  \"sourceVirtualMachineResourceId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9c3dc047-4f4d-44b3-b311-a9713effb245",
+              "name": "Accepted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.DevTestLab",
+                    "labs",
+                    ":name",
+                    "importVirtualMachine"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2018-09-15"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "subscriptionId",
+                      "description": "(Required) The subscription ID."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The name of the resource group."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) The name of the lab."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"destinationVirtualMachineName\": \"<string>\",\n  \"sourceVirtualMachineResourceId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d7d08b27-1967-4dc0-ae56-97ac844227d1",
+              "name": "BadRequest",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.DevTestLab",
+                    "labs",
+                    ":name",
+                    "importVirtualMachine"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2018-09-15"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "subscriptionId",
+                      "description": "(Required) The subscription ID."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The name of the resource group."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) The name of the lab."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"destinationVirtualMachineName\": \"<string>\",\n  \"sourceVirtualMachineResourceId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"details\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/CloudErrorBody detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/CloudErrorBody detected>\"\n      }\n    ],\n    \"message\": \"string\",\n    \"target\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5ff52745-683a-4433-a622-7a0badc5b367",
+          "name": "Azure DevTest Labs Labs_ List Vhds",
+          "request": {
+            "name": "Azure DevTest Labs Labs_ List Vhds",
+            "description": {
+              "content": "List disk images available for custom image creation.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "subscriptions",
+                ":subscriptionId",
+                "resourceGroups",
+                ":resourceGroupName",
+                "providers",
+                "Microsoft.DevTestLab",
+                "labs",
+                ":name",
+                "listVhds"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "2018-09-15",
+                  "description": "(Required) Client API version."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "subscriptionId",
+                  "description": "(Required) The subscription ID."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "resourceGroupName",
+                  "description": "(Required) The name of the resource group."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) The name of the lab."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "aff8debc-4fb4-46a5-8e7f-5e573eb7ba61",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.DevTestLab",
+                    "labs",
+                    ":name",
+                    "listVhds"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2018-09-15"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "subscriptionId",
+                      "description": "(Required) The subscription ID."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The name of the resource group."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) The name of the lab."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"nextLink\": \"string\",\n  \"value\": [\n    {\n      \"id\": \"string\"\n    },\n    {\n      \"id\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bb6c7adf-9984-4c0b-9612-0f5a6fd46300",
+              "name": "BadRequest",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.DevTestLab",
+                    "labs",
+                    ":name",
+                    "listVhds"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2018-09-15"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "subscriptionId",
+                      "description": "(Required) The subscription ID."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The name of the resource group."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) The name of the lab."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"details\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/CloudErrorBody detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/CloudErrorBody detected>\"\n      }\n    ],\n    \"message\": \"string\",\n    \"target\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://management.azure.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "user_impersonation"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "implicit"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "a36f7ddc-5c8d-43a6-8820-996e496075d1",
+    "name": "DevTestLabsClient ArmTemplates Labs API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The DevTest Labs Client.",
+      "type": "text/plain"
+    }
+  }
+}

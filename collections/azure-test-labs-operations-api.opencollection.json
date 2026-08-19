@@ -1,0 +1,55 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "DevTestLabsClient ArmTemplates Operations API",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Operations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Azure DevTest Labs Operations_ Get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/subscriptions/:subscriptionId/providers/Microsoft.DevTestLab/locations/:locationName/operations/:name",
+            "params": [
+              {
+                "name": "subscriptionId",
+                "value": "",
+                "type": "path",
+                "description": "The subscription ID."
+              },
+              {
+                "name": "locationName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the location."
+              },
+              {
+                "name": "name",
+                "value": "example-value",
+                "type": "path",
+                "description": "The name of the operation."
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "Client API version."
+              }
+            ]
+          },
+          "docs": "Get operation."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

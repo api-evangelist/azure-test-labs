@@ -1,0 +1,189 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "DevTestLabsClient ArmTemplates Artifacts API",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Artifacts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Azure DevTest Labs Artifacts_ List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/labs/:labName/artifactsources/:artifactSourceName/artifacts",
+            "params": [
+              {
+                "name": "subscriptionId",
+                "value": "",
+                "type": "path",
+                "description": "The subscription ID."
+              },
+              {
+                "name": "resourceGroupName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the resource group."
+              },
+              {
+                "name": "labName",
+                "value": "example-value",
+                "type": "path",
+                "description": "The name of the lab."
+              },
+              {
+                "name": "artifactSourceName",
+                "value": "example-value",
+                "type": "path",
+                "description": "The name of the artifact source."
+              },
+              {
+                "name": "$expand",
+                "value": "example-value",
+                "type": "query",
+                "description": "Specify the $expand query. Example: 'properties($select=title)'"
+              },
+              {
+                "name": "$filter",
+                "value": "example-value",
+                "type": "query",
+                "description": "The filter to apply to the operation. Example: '$filter=contains(name,'myName')"
+              },
+              {
+                "name": "$top",
+                "value": "example-value",
+                "type": "query",
+                "description": "The maximum number of resources to return from the operation. Example: '$top=10'"
+              },
+              {
+                "name": "$orderby",
+                "value": "example-value",
+                "type": "query",
+                "description": "The ordering expression for the results, using OData notation. Example: '$orderby=name desc'"
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "Client API version."
+              }
+            ]
+          },
+          "docs": "List artifacts in a given artifact source."
+        },
+        {
+          "info": {
+            "name": "Azure DevTest Labs Artifacts_ Get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/labs/:labName/artifactsources/:artifactSourceName/artifacts/:name",
+            "params": [
+              {
+                "name": "subscriptionId",
+                "value": "",
+                "type": "path",
+                "description": "The subscription ID."
+              },
+              {
+                "name": "resourceGroupName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the resource group."
+              },
+              {
+                "name": "labName",
+                "value": "example-value",
+                "type": "path",
+                "description": "The name of the lab."
+              },
+              {
+                "name": "artifactSourceName",
+                "value": "example-value",
+                "type": "path",
+                "description": "The name of the artifact source."
+              },
+              {
+                "name": "name",
+                "value": "example-value",
+                "type": "path",
+                "description": "The name of the artifact."
+              },
+              {
+                "name": "$expand",
+                "value": "example-value",
+                "type": "query",
+                "description": "Specify the $expand query. Example: 'properties($select=title)'"
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "Client API version."
+              }
+            ]
+          },
+          "docs": "Get artifact."
+        },
+        {
+          "info": {
+            "name": "Azure DevTest Labs Artifacts_ Generate Arm Template",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/labs/:labName/artifactsources/:artifactSourceName/artifacts/:name/generateArmTemplate",
+            "params": [
+              {
+                "name": "subscriptionId",
+                "value": "",
+                "type": "path",
+                "description": "The subscription ID."
+              },
+              {
+                "name": "resourceGroupName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the resource group."
+              },
+              {
+                "name": "labName",
+                "value": "example-value",
+                "type": "path",
+                "description": "The name of the lab."
+              },
+              {
+                "name": "artifactSourceName",
+                "value": "example-value",
+                "type": "path",
+                "description": "The name of the artifact source."
+              },
+              {
+                "name": "name",
+                "value": "example-value",
+                "type": "path",
+                "description": "The name of the artifact."
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "Client API version."
+              }
+            ]
+          },
+          "docs": "Generates an ARM template for the given artifact, uploads the required files to a storage account, and validates the generated artifact."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

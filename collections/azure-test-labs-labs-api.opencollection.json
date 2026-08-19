@@ -1,0 +1,498 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "DevTestLabsClient ArmTemplates Labs API",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Labs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Azure DevTest Labs Labs_ List by Subscription",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/subscriptions/:subscriptionId/providers/Microsoft.DevTestLab/labs",
+            "params": [
+              {
+                "name": "subscriptionId",
+                "value": "",
+                "type": "path",
+                "description": "The subscription ID."
+              },
+              {
+                "name": "$expand",
+                "value": "example-value",
+                "type": "query",
+                "description": "Specify the $expand query. Example: 'properties($select=defaultStorageAccount)'"
+              },
+              {
+                "name": "$filter",
+                "value": "example-value",
+                "type": "query",
+                "description": "The filter to apply to the operation. Example: '$filter=contains(name,'myName')"
+              },
+              {
+                "name": "$top",
+                "value": "example-value",
+                "type": "query",
+                "description": "The maximum number of resources to return from the operation. Example: '$top=10'"
+              },
+              {
+                "name": "$orderby",
+                "value": "example-value",
+                "type": "query",
+                "description": "The ordering expression for the results, using OData notation. Example: '$orderby=name desc'"
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "Client API version."
+              }
+            ]
+          },
+          "docs": "List labs in a subscription."
+        },
+        {
+          "info": {
+            "name": "Azure DevTest Labs Labs_ List by Resource Group",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/labs",
+            "params": [
+              {
+                "name": "subscriptionId",
+                "value": "",
+                "type": "path",
+                "description": "The subscription ID."
+              },
+              {
+                "name": "resourceGroupName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the resource group."
+              },
+              {
+                "name": "$expand",
+                "value": "example-value",
+                "type": "query",
+                "description": "Specify the $expand query. Example: 'properties($select=defaultStorageAccount)'"
+              },
+              {
+                "name": "$filter",
+                "value": "example-value",
+                "type": "query",
+                "description": "The filter to apply to the operation. Example: '$filter=contains(name,'myName')"
+              },
+              {
+                "name": "$top",
+                "value": "example-value",
+                "type": "query",
+                "description": "The maximum number of resources to return from the operation. Example: '$top=10'"
+              },
+              {
+                "name": "$orderby",
+                "value": "example-value",
+                "type": "query",
+                "description": "The ordering expression for the results, using OData notation. Example: '$orderby=name desc'"
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "Client API version."
+              }
+            ]
+          },
+          "docs": "List labs in a resource group."
+        },
+        {
+          "info": {
+            "name": "Azure DevTest Labs Labs_ Get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/labs/:name",
+            "params": [
+              {
+                "name": "subscriptionId",
+                "value": "",
+                "type": "path",
+                "description": "The subscription ID."
+              },
+              {
+                "name": "resourceGroupName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the resource group."
+              },
+              {
+                "name": "name",
+                "value": "example-value",
+                "type": "path",
+                "description": "The name of the lab."
+              },
+              {
+                "name": "$expand",
+                "value": "example-value",
+                "type": "query",
+                "description": "Specify the $expand query. Example: 'properties($select=defaultStorageAccount)'"
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "Client API version."
+              }
+            ]
+          },
+          "docs": "Get lab."
+        },
+        {
+          "info": {
+            "name": "Azure DevTest Labs Labs_ Create or Update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/labs/:name",
+            "params": [
+              {
+                "name": "subscriptionId",
+                "value": "",
+                "type": "path",
+                "description": "The subscription ID."
+              },
+              {
+                "name": "resourceGroupName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the resource group."
+              },
+              {
+                "name": "name",
+                "value": "example-value",
+                "type": "path",
+                "description": "The name of the lab."
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "Client API version."
+              }
+            ]
+          },
+          "docs": "Create or replace an existing lab. This operation can take a while to complete."
+        },
+        {
+          "info": {
+            "name": "Azure DevTest Labs Labs_ Update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/labs/:name",
+            "params": [
+              {
+                "name": "subscriptionId",
+                "value": "",
+                "type": "path",
+                "description": "The subscription ID."
+              },
+              {
+                "name": "resourceGroupName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the resource group."
+              },
+              {
+                "name": "name",
+                "value": "example-value",
+                "type": "path",
+                "description": "The name of the lab."
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "Client API version."
+              }
+            ]
+          },
+          "docs": "Allows modifying tags of labs. All other properties will be ignored."
+        },
+        {
+          "info": {
+            "name": "Azure DevTest Labs Labs_ Delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/labs/:name",
+            "params": [
+              {
+                "name": "subscriptionId",
+                "value": "",
+                "type": "path",
+                "description": "The subscription ID."
+              },
+              {
+                "name": "resourceGroupName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the resource group."
+              },
+              {
+                "name": "name",
+                "value": "example-value",
+                "type": "path",
+                "description": "The name of the lab."
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "Client API version."
+              }
+            ]
+          },
+          "docs": "Delete lab. This operation can take a while to complete."
+        },
+        {
+          "info": {
+            "name": "Azure DevTest Labs Labs_ Claim Any Vm",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/labs/:name/claimAnyVm",
+            "params": [
+              {
+                "name": "subscriptionId",
+                "value": "",
+                "type": "path",
+                "description": "The subscription ID."
+              },
+              {
+                "name": "resourceGroupName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the resource group."
+              },
+              {
+                "name": "name",
+                "value": "example-value",
+                "type": "path",
+                "description": "The name of the lab."
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "Client API version."
+              }
+            ]
+          },
+          "docs": "Claim a random claimable virtual machine in the lab. This operation can take a while to complete."
+        },
+        {
+          "info": {
+            "name": "Azure DevTest Labs Labs_ Create Environment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/labs/:name/createEnvironment",
+            "params": [
+              {
+                "name": "subscriptionId",
+                "value": "",
+                "type": "path",
+                "description": "The subscription ID."
+              },
+              {
+                "name": "resourceGroupName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the resource group."
+              },
+              {
+                "name": "name",
+                "value": "example-value",
+                "type": "path",
+                "description": "The name of the lab."
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "Client API version."
+              }
+            ]
+          },
+          "docs": "Create virtual machines in a lab. This operation can take a while to complete."
+        },
+        {
+          "info": {
+            "name": "Azure DevTest Labs Labs_ Export Resource Usage",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/labs/:name/exportResourceUsage",
+            "params": [
+              {
+                "name": "subscriptionId",
+                "value": "",
+                "type": "path",
+                "description": "The subscription ID."
+              },
+              {
+                "name": "resourceGroupName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the resource group."
+              },
+              {
+                "name": "name",
+                "value": "example-value",
+                "type": "path",
+                "description": "The name of the lab."
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "Client API version."
+              }
+            ]
+          },
+          "docs": "Exports the lab resource usage into a storage account This operation can take a while to complete."
+        },
+        {
+          "info": {
+            "name": "Azure DevTest Labs Labs_ Generate Upload Uri",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/labs/:name/generateUploadUri",
+            "params": [
+              {
+                "name": "subscriptionId",
+                "value": "",
+                "type": "path",
+                "description": "The subscription ID."
+              },
+              {
+                "name": "resourceGroupName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the resource group."
+              },
+              {
+                "name": "name",
+                "value": "example-value",
+                "type": "path",
+                "description": "The name of the lab."
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "Client API version."
+              }
+            ]
+          },
+          "docs": "Generate a URI for uploading custom disk images to a Lab."
+        },
+        {
+          "info": {
+            "name": "Azure DevTest Labs Labs_ Import Virtual Machine",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/labs/:name/importVirtualMachine",
+            "params": [
+              {
+                "name": "subscriptionId",
+                "value": "",
+                "type": "path",
+                "description": "The subscription ID."
+              },
+              {
+                "name": "resourceGroupName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the resource group."
+              },
+              {
+                "name": "name",
+                "value": "example-value",
+                "type": "path",
+                "description": "The name of the lab."
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "Client API version."
+              }
+            ]
+          },
+          "docs": "Import a virtual machine into a different lab. This operation can take a while to complete."
+        },
+        {
+          "info": {
+            "name": "Azure DevTest Labs Labs_ List Vhds",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.DevTestLab/labs/:name/listVhds",
+            "params": [
+              {
+                "name": "subscriptionId",
+                "value": "",
+                "type": "path",
+                "description": "The subscription ID."
+              },
+              {
+                "name": "resourceGroupName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the resource group."
+              },
+              {
+                "name": "name",
+                "value": "example-value",
+                "type": "path",
+                "description": "The name of the lab."
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "Client API version."
+              }
+            ]
+          },
+          "docs": "List disk images available for custom image creation."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
