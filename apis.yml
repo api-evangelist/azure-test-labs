@@ -180,7 +180,8 @@ apis:
   description: The Operations API from Azure DevTest Labs — 1 operation(s) for operations.
   humanURL: https://azure.microsoft.com/en-us/services/devtest-lab/
   baseURL: https://management.azure.com
-  tags:
+  tags: []
+  tags_raw:
   - Operations
   properties:
   - type: OpenAPI
@@ -291,6 +292,8 @@ apis:
   humanURL: https://azure.microsoft.com/en-us/services/devtest-lab/
   baseURL: https://management.azure.com
   tags:
+  - User
+  tags_raw:
   - Users
   properties:
   - type: OpenAPI
@@ -303,6 +306,8 @@ apis:
   humanURL: https://azure.microsoft.com/en-us/services/devtest-lab/
   baseURL: https://management.azure.com
   tags:
+  - Virtual Machines
+  tags_raw:
   - VirtualMachines
   properties:
   - type: OpenAPI
@@ -328,6 +333,8 @@ apis:
   humanURL: https://azure.microsoft.com/en-us/services/devtest-lab/
   baseURL: https://management.azure.com
   tags:
+  - Virtual Networks
+  tags_raw:
   - VirtualNetworks
   properties:
   - type: OpenAPI
