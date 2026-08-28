@@ -4,6 +4,18 @@ description: Azure DevTest Labs enables developers to efficiently self-manage vi
   waiting for approvals. DevTest Labs creates labs consisting of pre-configured bases or Azure Resource Manager templates
   for development and testing purposes.
 type: Index
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: self-serve
