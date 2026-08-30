@@ -181,6 +181,8 @@ apis:
   humanURL: https://azure.microsoft.com/en-us/services/devtest-lab/
   baseURL: https://management.azure.com
   tags:
+  - Notification Channels
+  tags_raw:
   - NotificationChannels
   properties:
   - type: OpenAPI
@@ -318,7 +320,7 @@ apis:
   humanURL: https://azure.microsoft.com/en-us/services/devtest-lab/
   baseURL: https://management.azure.com
   tags:
-  - Virtual Machines
+  - VirtualMachines
   tags_raw:
   - VirtualMachines
   properties:
@@ -345,7 +347,7 @@ apis:
   humanURL: https://azure.microsoft.com/en-us/services/devtest-lab/
   baseURL: https://management.azure.com
   tags:
-  - Virtual Networks
+  - VirtualNetworks
   tags_raw:
   - VirtualNetworks
   properties:
