@@ -320,7 +320,7 @@ apis:
   humanURL: https://azure.microsoft.com/en-us/services/devtest-lab/
   baseURL: https://management.azure.com
   tags:
-  - VirtualMachines
+  - Virtual Machines
   tags_raw:
   - VirtualMachines
   properties:
@@ -347,7 +347,7 @@ apis:
   humanURL: https://azure.microsoft.com/en-us/services/devtest-lab/
   baseURL: https://management.azure.com
   tags:
-  - VirtualNetworks
+  - Virtual Networks
   tags_raw:
   - VirtualNetworks
   properties:
