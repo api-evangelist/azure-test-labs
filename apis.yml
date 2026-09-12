@@ -1,5 +1,6 @@
 aid: azure-test-labs
 name: Azure DevTest Labs
+x-parent: microsoft-azure
 description: Azure DevTest Labs enables developers to efficiently self-manage virtual machines and PaaS resources without
   waiting for approvals. DevTest Labs creates labs consisting of pre-configured bases or Azure Resource Manager templates
   for development and testing purposes.
@@ -37,7 +38,7 @@ tags:
 - Labs
 - Testing
 - Virtual Machines
-url: https://raw.githubusercontent.com/api-evangelist/azure-test-labs/refs/heads/main/apis.yml
+url: https://docs.microsoft.com/en-us/azure/devtest-labs/
 created: '2024-01-01'
 modified: '2026-05-19'
 specificationVersion: '0.23'
