@@ -1,9 +1,9 @@
 aid: azure-test-labs
 name: Azure DevTest Labs
 x-parent: microsoft-azure
-description: Azure DevTest Labs enables developers to efficiently self-manage virtual machines and PaaS resources without
-  waiting for approvals. DevTest Labs creates labs consisting of pre-configured bases or Azure Resource Manager templates
-  for development and testing purposes.
+description: Azure DevTest Labs enables developers to efficiently self-manage virtual machines and PaaS
+  resources without waiting for approvals. DevTest Labs creates labs consisting of pre-configured bases
+  or Azure Resource Manager templates for development and testing purposes.
 type: Index
 deliveryModel:
   model: saas
@@ -40,7 +40,7 @@ tags:
 - Virtual Machines
 url: https://docs.microsoft.com/en-us/azure/devtest-labs/
 created: '2024-01-01'
-modified: '2026-05-19'
+modified: '2026-09-16'
 specificationVersion: '0.23'
 apis:
 - aid: azure-test-labs:azure-test-labs-armtemplates-api
@@ -164,7 +164,7 @@ apis:
   - type: Documentation
     url: https://docs.microsoft.com/en-us/azure/devtest-labs/
 - aid: azure-test-labs:azure-test-labs-labs-api
-  name: Azure DevTest Labs Labs API
+  name: Azure DevTest Labs API
   description: The Labs API from Azure DevTest Labs — 9 operation(s) for labs.
   humanURL: https://azure.microsoft.com/en-us/services/devtest-lab/
   baseURL: https://management.azure.com
@@ -177,8 +177,7 @@ apis:
     url: https://docs.microsoft.com/en-us/azure/devtest-labs/
 - aid: azure-test-labs:azure-test-labs-notificationchannels-api
   name: Azure DevTest Labs NotificationChannels API
-  description: >-
-    The NotificationChannels API from Azure DevTest Labs — 3 operation(s) for notificationchannels.
+  description: The NotificationChannels API from Azure DevTest Labs — 3 operation(s) for notificationchannels.
   humanURL: https://azure.microsoft.com/en-us/services/devtest-lab/
   baseURL: https://management.azure.com
   tags:
@@ -229,8 +228,7 @@ apis:
     url: https://docs.microsoft.com/en-us/azure/devtest-labs/
 - aid: azure-test-labs:azure-test-labs-provideroperations-api
   name: Azure DevTest Labs ProviderOperations API
-  description: >-
-    The ProviderOperations API from Azure DevTest Labs — 1 operation(s) for provideroperations.
+  description: The ProviderOperations API from Azure DevTest Labs — 1 operation(s) for provideroperations.
   humanURL: https://azure.microsoft.com/en-us/services/devtest-lab/
   baseURL: https://management.azure.com
   tags:
@@ -278,8 +276,7 @@ apis:
     url: https://docs.microsoft.com/en-us/azure/devtest-labs/
 - aid: azure-test-labs:azure-test-labs-servicefabricschedules-api
   name: Azure DevTest Labs ServiceFabricSchedules API
-  description: >-
-    The ServiceFabricSchedules API from Azure DevTest Labs — 3 operation(s) for servicefabricschedules.
+  description: The ServiceFabricSchedules API from Azure DevTest Labs — 3 operation(s) for servicefabricschedules.
   humanURL: https://azure.microsoft.com/en-us/services/devtest-lab/
   baseURL: https://management.azure.com
   tags:
@@ -331,8 +328,7 @@ apis:
     url: https://docs.microsoft.com/en-us/azure/devtest-labs/
 - aid: azure-test-labs:azure-test-labs-virtualmachineschedules-api
   name: Azure DevTest Labs VirtualMachineSchedules API
-  description: >-
-    The VirtualMachineSchedules API from Azure DevTest Labs — 3 operation(s) for virtualmachineschedules.
+  description: The VirtualMachineSchedules API from Azure DevTest Labs — 3 operation(s) for virtualmachineschedules.
   humanURL: https://azure.microsoft.com/en-us/services/devtest-lab/
   baseURL: https://management.azure.com
   tags:
