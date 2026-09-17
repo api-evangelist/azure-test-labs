@@ -175,20 +175,6 @@ apis:
     url: openapi/azure-test-labs-labs-api-openapi.yml
   - type: Documentation
     url: https://docs.microsoft.com/en-us/azure/devtest-labs/
-- aid: azure-test-labs:azure-test-labs-notificationchannels-api
-  name: Azure DevTest Labs NotificationChannels API
-  description: The NotificationChannels API from Azure DevTest Labs — 3 operation(s) for notificationchannels.
-  humanURL: https://azure.microsoft.com/en-us/services/devtest-lab/
-  baseURL: https://management.azure.com
-  tags:
-  - Notification Channels
-  tags_raw:
-  - NotificationChannels
-  properties:
-  - type: OpenAPI
-    url: openapi/azure-test-labs-notificationchannels-api-openapi.yml
-  - type: Documentation
-    url: https://docs.microsoft.com/en-us/azure/devtest-labs/
 - aid: azure-test-labs:azure-test-labs-operations-api
   name: Azure DevTest Labs Operations API
   description: The Operations API from Azure DevTest Labs — 1 operation(s) for operations.
@@ -214,21 +200,10 @@ apis:
     url: openapi/azure-test-labs-policies-api-openapi.yml
   - type: Documentation
     url: https://docs.microsoft.com/en-us/azure/devtest-labs/
-- aid: azure-test-labs:azure-test-labs-policysets-api
-  name: Azure DevTest Labs PolicySets API
-  description: The PolicySets API from Azure DevTest Labs — 1 operation(s) for policysets.
-  humanURL: https://azure.microsoft.com/en-us/services/devtest-lab/
-  baseURL: https://management.azure.com
-  tags:
-  - PolicySets
-  properties:
-  - type: OpenAPI
-    url: openapi/azure-test-labs-policysets-api-openapi.yml
-  - type: Documentation
-    url: https://docs.microsoft.com/en-us/azure/devtest-labs/
 - aid: azure-test-labs:azure-test-labs-provideroperations-api
   name: Azure DevTest Labs ProviderOperations API
-  description: The ProviderOperations API from Azure DevTest Labs — 1 operation(s) for provideroperations.
+  description: >-
+    The ProviderOperations API from Azure DevTest Labs — 1 operation(s) for provideroperations.
   humanURL: https://azure.microsoft.com/en-us/services/devtest-lab/
   baseURL: https://management.azure.com
   tags:
@@ -276,7 +251,8 @@ apis:
     url: https://docs.microsoft.com/en-us/azure/devtest-labs/
 - aid: azure-test-labs:azure-test-labs-servicefabricschedules-api
   name: Azure DevTest Labs ServiceFabricSchedules API
-  description: The ServiceFabricSchedules API from Azure DevTest Labs — 3 operation(s) for servicefabricschedules.
+  description: >-
+    The ServiceFabricSchedules API from Azure DevTest Labs — 3 operation(s) for servicefabricschedules.
   humanURL: https://azure.microsoft.com/en-us/services/devtest-lab/
   baseURL: https://management.azure.com
   tags:
@@ -312,23 +288,10 @@ apis:
     url: openapi/azure-test-labs-users-api-openapi.yml
   - type: Documentation
     url: https://docs.microsoft.com/en-us/azure/devtest-labs/
-- aid: azure-test-labs:azure-test-labs-virtualmachines-api
-  name: Azure DevTest Labs VirtualMachines API
-  description: The VirtualMachines API from Azure DevTest Labs — 15 operation(s) for virtualmachines.
-  humanURL: https://azure.microsoft.com/en-us/services/devtest-lab/
-  baseURL: https://management.azure.com
-  tags:
-  - Virtual Machines
-  tags_raw:
-  - VirtualMachines
-  properties:
-  - type: OpenAPI
-    url: openapi/azure-test-labs-virtualmachines-api-openapi.yml
-  - type: Documentation
-    url: https://docs.microsoft.com/en-us/azure/devtest-labs/
 - aid: azure-test-labs:azure-test-labs-virtualmachineschedules-api
   name: Azure DevTest Labs VirtualMachineSchedules API
-  description: The VirtualMachineSchedules API from Azure DevTest Labs — 3 operation(s) for virtualmachineschedules.
+  description: >-
+    The VirtualMachineSchedules API from Azure DevTest Labs — 3 operation(s) for virtualmachineschedules.
   humanURL: https://azure.microsoft.com/en-us/services/devtest-lab/
   baseURL: https://management.azure.com
   tags:
@@ -338,18 +301,53 @@ apis:
     url: openapi/azure-test-labs-virtualmachineschedules-api-openapi.yml
   - type: Documentation
     url: https://docs.microsoft.com/en-us/azure/devtest-labs/
-- aid: azure-test-labs:azure-test-labs-virtualnetworks-api
-  name: Azure DevTest Labs VirtualNetworks API
-  description: The VirtualNetworks API from Azure DevTest Labs — 2 operation(s) for virtualnetworks.
+- aid: azure-test-labs:azure-test-labs-notification-channels-api
+  name: Azure DevTest Labs Notification Channels API
+  description: >-
+    The Notification Channels API from Azure DevTest Labs — 3 operation(s) for notification channels.
+  humanURL: https://azure.microsoft.com/en-us/services/devtest-lab/
+  baseURL: https://management.azure.com
+  tags:
+  - Notification Channels
+  properties:
+  - type: OpenAPI
+    url: openapi/azure-test-labs-notification-channels-api-openapi.yml
+  - type: Documentation
+    url: https://docs.microsoft.com/en-us/azure/devtest-labs/
+- aid: azure-test-labs:azure-test-labs-policy-sets-api
+  name: Azure DevTest Labs Policy Sets API
+  description: The Policy Sets API from Azure DevTest Labs — 1 operation(s) for policy sets.
+  humanURL: https://azure.microsoft.com/en-us/services/devtest-lab/
+  baseURL: https://management.azure.com
+  tags:
+  - Policy Sets
+  properties:
+  - type: OpenAPI
+    url: openapi/azure-test-labs-policy-sets-api-openapi.yml
+  - type: Documentation
+    url: https://docs.microsoft.com/en-us/azure/devtest-labs/
+- aid: azure-test-labs:azure-test-labs-virtual-machines-api
+  name: Azure DevTest Labs Virtual Machines API
+  description: The Virtual Machines API from Azure DevTest Labs — 15 operation(s) for virtual machines.
+  humanURL: https://azure.microsoft.com/en-us/services/devtest-lab/
+  baseURL: https://management.azure.com
+  tags:
+  - Virtual Machines
+  properties:
+  - type: OpenAPI
+    url: openapi/azure-test-labs-virtual-machines-api-openapi.yml
+  - type: Documentation
+    url: https://docs.microsoft.com/en-us/azure/devtest-labs/
+- aid: azure-test-labs:azure-test-labs-virtual-networks-api
+  name: Azure DevTest Labs Virtual Networks API
+  description: The Virtual Networks API from Azure DevTest Labs — 2 operation(s) for virtual networks.
   humanURL: https://azure.microsoft.com/en-us/services/devtest-lab/
   baseURL: https://management.azure.com
   tags:
   - Virtual Networks
-  tags_raw:
-  - VirtualNetworks
   properties:
   - type: OpenAPI
-    url: openapi/azure-test-labs-virtualnetworks-api-openapi.yml
+    url: openapi/azure-test-labs-virtual-networks-api-openapi.yml
   - type: Documentation
     url: https://docs.microsoft.com/en-us/azure/devtest-labs/
 common:
