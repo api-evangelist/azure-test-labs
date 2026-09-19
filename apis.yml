@@ -121,6 +121,8 @@ apis:
   humanURL: https://azure.microsoft.com/en-us/services/devtest-lab/
   baseURL: https://management.azure.com
   tags:
+  - Environment
+  tags_raw:
   - Environments
   properties:
   - type: OpenAPI
@@ -219,6 +221,8 @@ apis:
   humanURL: https://azure.microsoft.com/en-us/services/devtest-lab/
   baseURL: https://management.azure.com
   tags:
+  - Schedule
+  tags_raw:
   - Schedules
   properties:
   - type: OpenAPI
