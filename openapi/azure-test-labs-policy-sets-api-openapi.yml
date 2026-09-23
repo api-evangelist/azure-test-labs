@@ -1,7 +1,7 @@
 openapi: 3.2.0
 info:
   description: The DevTest Labs Client.
-  title: DevTestLabsClient Operations API
+  title: DevTestLabsClient Policy Sets API
   version: '2018-09-15'
   x-apisguru-categories:
   - cloud
@@ -23,16 +23,23 @@ security:
 - azure_auth:
   - user_impersonation
 tags:
-- name: Operations
+- name: Policy Sets
 paths:
-  /subscriptions/{subscriptionId}/providers/Microsoft.DevTestLab/locations/{locationName}/operations/{name}:
-    get:
-      description: Get operation.
-      operationId: Operations_Get
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/policysets/{name}/evaluatePolicies
+  : post:
+      description: Evaluates lab policy.
+      operationId: PolicySets_EvaluatePolicies
       parameters:
       - $ref: '#/components/parameters/subscriptionId'
-      - $ref: '#/components/parameters/locationName'
-      - description: The name of the operation.
+      - $ref: '#/components/parameters/resourceGroupName'
+      - description: The name of the lab.
+        in: path
+        name: labName
+        required: true
+        example: example-value
+        schema:
+          type: string
+      - description: The name of the policy set.
         in: path
         name: name
         required: true
@@ -46,7 +53,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/OperationResult'
+                $ref: '#/components/schemas/EvaluatePoliciesResponse'
         default:
           description: BadRequest
           content:
@@ -54,11 +61,18 @@ paths:
               schema:
                 $ref: '#/components/schemas/CloudError'
       tags:
-      - Operations
-      summary: Azure DevTest Labs Operations_ Get
+      - Policy Sets
+      summary: Azure DevTest Labs Policy Sets_ Evaluate Policies
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EvaluatePoliciesRequest'
+        description: Request body for evaluating a policy set.
+        required: true
 components:
   schemas:
     CloudError:
@@ -69,64 +83,21 @@ components:
           description: The cloud error that occurred
       type: object
       x-ms-external: true
-    OperationResult:
-      description: An Operation Result
+    EvaluatePoliciesProperties:
+      description: Properties for evaluating a policy set.
       properties:
-        error:
-          $ref: '#/components/schemas/OperationError'
-          description: Error details for the operation in case of a failure.
-        status:
-          description: The operation status.
+        factData:
+          description: The fact data.
           type: string
-        statusCode:
-          description: The status code for the operation.
-          enum:
-          - Continue
-          - SwitchingProtocols
-          - OK
-          - Created
-          - Accepted
-          - NonAuthoritativeInformation
-          - NoContent
-          - ResetContent
-          - PartialContent
-          - MultipleChoices
-          - MovedPermanently
-          - Redirect
-          - SeeOther
-          - NotModified
-          - UseProxy
-          - Unused
-          - TemporaryRedirect
-          - BadRequest
-          - Unauthorized
-          - PaymentRequired
-          - Forbidden
-          - NotFound
-          - MethodNotAllowed
-          - NotAcceptable
-          - ProxyAuthenticationRequired
-          - RequestTimeout
-          - Conflict
-          - Gone
-          - LengthRequired
-          - PreconditionFailed
-          - RequestEntityTooLarge
-          - RequestUriTooLong
-          - UnsupportedMediaType
-          - RequestedRangeNotSatisfiable
-          - ExpectationFailed
-          - UpgradeRequired
-          - InternalServerError
-          - NotImplemented
-          - BadGateway
-          - ServiceUnavailable
-          - GatewayTimeout
-          - HttpVersionNotSupported
+        factName:
+          description: The fact name.
           type: string
-          x-ms-enum:
-            modelAsString: true
-            name: HttpStatusCode
+        userObjectId:
+          description: The user for which policies will be evaluated
+          type: string
+        valueOffset:
+          description: The value offset.
+          type: string
       type: object
     CloudErrorBody:
       description: Body of an error from a REST request.
@@ -147,15 +118,45 @@ components:
           type: string
       type: object
       x-ms-external: true
-    OperationError:
-      description: Error details for the operation in case of a failure.
+    PolicySetResult:
+      description: Result of a policy set evaluation.
+      properties:
+        hasError:
+          description: A value indicating whether this policy set evaluation has discovered violations.
+          type: boolean
+        policyViolations:
+          description: The list of policy violations.
+          items:
+            $ref: '#/components/schemas/PolicyViolation'
+          type: array
+      type: object
+    EvaluatePoliciesRequest:
+      description: Request body for evaluating a policy set.
+      properties:
+        policies:
+          description: Policies to evaluate.
+          items:
+            $ref: '#/components/schemas/EvaluatePoliciesProperties'
+          type: array
+      type: object
+    PolicyViolation:
+      description: Policy violation.
       properties:
         code:
-          description: The error code of the operation error.
+          description: The code of the policy violation.
           type: string
         message:
-          description: The error message of the operation error.
+          description: The message of the policy violation.
           type: string
+      type: object
+    EvaluatePoliciesResponse:
+      description: Response body for evaluating a policy set.
+      properties:
+        results:
+          description: Results of evaluating a policy set.
+          items:
+            $ref: '#/components/schemas/PolicySetResult'
+          type: array
       type: object
   parameters:
     subscriptionId:
@@ -163,6 +164,14 @@ components:
       in: path
       name: subscriptionId
       required: true
+      schema:
+        type: string
+    resourceGroupName:
+      description: The name of the resource group.
+      in: path
+      name: resourceGroupName
+      required: true
+      x-ms-parameter-location: method
       schema:
         type: string
     api-version:
@@ -173,14 +182,6 @@ components:
       schema:
         type: string
         default: '2018-09-15'
-    locationName:
-      description: The name of the location.
-      in: path
-      name: locationName
-      required: true
-      x-ms-parameter-location: method
-      schema:
-        type: string
   securitySchemes:
     azure_auth:
       type: oauth2

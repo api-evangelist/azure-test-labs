@@ -1,8 +1,8 @@
-swagger: '2.0'
+openapi: 3.2.0
 info:
   description: The DevTest Labs Client.
-  title: DevTestLabsClient ArmTemplates ServiceRunners API
-  version: '2.0'
+  title: DevTestLabsClient Service Runners API
+  version: '2018-09-15'
   x-apisguru-categories:
   - cloud
   x-logo:
@@ -10,19 +10,15 @@ info:
   x-origin:
   - format: swagger
     url: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/devtestlabs/resource-manager/Microsoft.DevTestLab/stable/2018-09-15/DTL.json
+    version: '2.0'
   x-preferred: true
   x-providerName: azure.com
   x-serviceName: devtestlabs-DTL
   x-tags:
   - Azure
   - Microsoft
-host: management.azure.com
-schemes:
-- https
-consumes:
-- application/json
-produces:
-- application/json
+servers:
+- url: https://management.azure.com
 security:
 - azure_auth:
   - user_impersonation
@@ -34,21 +30,23 @@ paths:
       description: Delete service runner.
       operationId: ServiceRunners_Delete
       parameters:
-      - $ref: '#/parameters/subscriptionId'
-      - $ref: '#/parameters/resourceGroupName'
+      - $ref: '#/components/parameters/subscriptionId'
+      - $ref: '#/components/parameters/resourceGroupName'
       - description: The name of the lab.
         in: path
         name: labName
         required: true
-        type: string
         example: example-value
+        schema:
+          type: string
       - description: The name of the service runner.
         in: path
         name: name
         required: true
-        type: string
         example: example-value
-      - $ref: '#/parameters/api-version'
+        schema:
+          type: string
+      - $ref: '#/components/parameters/api-version'
       responses:
         '200':
           description: OK
@@ -56,8 +54,10 @@ paths:
           description: No Content
         default:
           description: BadRequest
-          schema:
-            $ref: '#/definitions/CloudError'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CloudError'
       tags:
       - ServiceRunners
       summary: Azure DevTest Labs Service Runners_ Delete
@@ -68,30 +68,36 @@ paths:
       description: Get service runner.
       operationId: ServiceRunners_Get
       parameters:
-      - $ref: '#/parameters/subscriptionId'
-      - $ref: '#/parameters/resourceGroupName'
+      - $ref: '#/components/parameters/subscriptionId'
+      - $ref: '#/components/parameters/resourceGroupName'
       - description: The name of the lab.
         in: path
         name: labName
         required: true
-        type: string
         example: example-value
+        schema:
+          type: string
       - description: The name of the service runner.
         in: path
         name: name
         required: true
-        type: string
         example: example-value
-      - $ref: '#/parameters/api-version'
+        schema:
+          type: string
+      - $ref: '#/components/parameters/api-version'
       responses:
         '200':
           description: OK
-          schema:
-            $ref: '#/definitions/ServiceRunner'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceRunner'
         default:
           description: BadRequest
-          schema:
-            $ref: '#/definitions/CloudError'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CloudError'
       tags:
       - ServiceRunners
       summary: Azure DevTest Labs Service Runners_ Get
@@ -102,151 +108,164 @@ paths:
       description: Create or replace an existing service runner.
       operationId: ServiceRunners_CreateOrUpdate
       parameters:
-      - $ref: '#/parameters/subscriptionId'
-      - $ref: '#/parameters/resourceGroupName'
+      - $ref: '#/components/parameters/subscriptionId'
+      - $ref: '#/components/parameters/resourceGroupName'
       - description: The name of the lab.
         in: path
         name: labName
         required: true
-        type: string
         example: example-value
+        schema:
+          type: string
       - description: The name of the service runner.
         in: path
         name: name
         required: true
-        type: string
         example: example-value
-      - description: A container for a managed identity to execute DevTest lab services.
-        in: body
-        name: serviceRunner
-        required: true
         schema:
-          $ref: '#/definitions/ServiceRunner'
-        example: example-value
-      - $ref: '#/parameters/api-version'
+          type: string
+      - $ref: '#/components/parameters/api-version'
       responses:
         '200':
           description: OK
-          schema:
-            $ref: '#/definitions/ServiceRunner'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceRunner'
         '201':
           description: Created
-          schema:
-            $ref: '#/definitions/ServiceRunner'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceRunner'
         default:
           description: BadRequest
-          schema:
-            $ref: '#/definitions/CloudError'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CloudError'
       tags:
       - ServiceRunners
       summary: Azure DevTest Labs Service Runners_ Create or Update
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
-definitions:
-  Resource:
-    description: An Azure resource.
-    properties:
-      id:
-        description: The identifier of the resource.
-        readOnly: true
-        type: string
-      location:
-        description: The location of the resource.
-        type: string
-      name:
-        description: The name of the resource.
-        readOnly: true
-        type: string
-      tags:
-        additionalProperties:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ServiceRunner'
+        description: A container for a managed identity to execute DevTest lab services.
+        required: true
+components:
+  schemas:
+    CloudError:
+      description: Error from a REST request.
+      properties:
+        error:
+          $ref: '#/components/schemas/CloudErrorBody'
+          description: The cloud error that occurred
+      type: object
+      x-ms-external: true
+    CloudErrorBody:
+      description: Body of an error from a REST request.
+      properties:
+        code:
+          description: The error code.
           type: string
-        description: The tags of the resource.
-        type: object
-      type:
-        description: The type of the resource.
-        readOnly: true
+        details:
+          description: Inner errors.
+          items:
+            $ref: '#/components/schemas/CloudErrorBody'
+          type: array
+        message:
+          description: The error message.
+          type: string
+        target:
+          description: The error target.
+          type: string
+      type: object
+      x-ms-external: true
+    ServiceRunner:
+      allOf:
+      - $ref: '#/components/schemas/Resource'
+      description: A container for a managed identity to execute DevTest lab services.
+      properties:
+        identity:
+          $ref: '#/components/schemas/IdentityProperties'
+          description: The identity of the resource.
+      type: object
+    Resource:
+      description: An Azure resource.
+      properties:
+        id:
+          description: The identifier of the resource.
+          readOnly: true
+          type: string
+        location:
+          description: The location of the resource.
+          type: string
+        name:
+          description: The name of the resource.
+          readOnly: true
+          type: string
+        tags:
+          additionalProperties:
+            type: string
+          description: The tags of the resource.
+          type: object
+        type:
+          description: The type of the resource.
+          readOnly: true
+          type: string
+      type: object
+      x-ms-azure-resource: true
+    IdentityProperties:
+      description: Properties of a managed identity
+      properties:
+        clientSecretUrl:
+          description: The client secret URL of the identity.
+          type: string
+        principalId:
+          description: The principal id of resource identity.
+          type: string
+        tenantId:
+          description: The tenant identifier of resource.
+          type: string
+        type:
+          description: Managed identity.
+          type: string
+      type: object
+  parameters:
+    subscriptionId:
+      description: The subscription ID.
+      in: path
+      name: subscriptionId
+      required: true
+      schema:
         type: string
-    type: object
-    x-ms-azure-resource: true
-  CloudError:
-    description: Error from a REST request.
-    properties:
-      error:
-        $ref: '#/definitions/CloudErrorBody'
-        description: The cloud error that occurred
-    type: object
-    x-ms-external: true
-  CloudErrorBody:
-    description: Body of an error from a REST request.
-    properties:
-      code:
-        description: The error code.
+    resourceGroupName:
+      description: The name of the resource group.
+      in: path
+      name: resourceGroupName
+      required: true
+      x-ms-parameter-location: method
+      schema:
         type: string
-      details:
-        description: Inner errors.
-        items:
-          $ref: '#/definitions/CloudErrorBody'
-        type: array
-      message:
-        description: The error message.
+    api-version:
+      description: Client API version.
+      in: query
+      name: api-version
+      required: true
+      schema:
         type: string
-      target:
-        description: The error target.
-        type: string
-    type: object
-    x-ms-external: true
-  IdentityProperties:
-    description: Properties of a managed identity
-    properties:
-      clientSecretUrl:
-        description: The client secret URL of the identity.
-        type: string
-      principalId:
-        description: The principal id of resource identity.
-        type: string
-      tenantId:
-        description: The tenant identifier of resource.
-        type: string
-      type:
-        description: Managed identity.
-        type: string
-    type: object
-  ServiceRunner:
-    allOf:
-    - $ref: '#/definitions/Resource'
-    description: A container for a managed identity to execute DevTest lab services.
-    properties:
-      identity:
-        $ref: '#/definitions/IdentityProperties'
-        description: The identity of the resource.
-    type: object
-parameters:
-  resourceGroupName:
-    description: The name of the resource group.
-    in: path
-    name: resourceGroupName
-    required: true
-    type: string
-    x-ms-parameter-location: method
-  subscriptionId:
-    description: The subscription ID.
-    in: path
-    name: subscriptionId
-    required: true
-    type: string
-  api-version:
-    default: '2018-09-15'
-    description: Client API version.
-    in: query
-    name: api-version
-    required: true
-    type: string
-securityDefinitions:
-  azure_auth:
-    authorizationUrl: https://login.microsoftonline.com/common/oauth2/authorize
-    description: OAuth2 Implicit Grant
-    flow: implicit
-    scopes:
-      user_impersonation: Access Microsoft Azure
-    type: oauth2
+        default: '2018-09-15'
+  securitySchemes:
+    azure_auth:
+      type: oauth2
+      flows:
+        implicit:
+          scopes:
+            user_impersonation: Access Microsoft Azure
+          authorizationUrl: https://login.microsoftonline.com/common/oauth2/authorize
+      description: OAuth2 Implicit Grant

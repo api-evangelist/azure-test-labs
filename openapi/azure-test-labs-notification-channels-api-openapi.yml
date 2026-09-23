@@ -1,7 +1,7 @@
 openapi: 3.2.0
 info:
   description: The DevTest Labs Client.
-  title: DevTestLabsClient Environments API
+  title: DevTestLabsClient Notification Channels API
   version: '2018-09-15'
   x-apisguru-categories:
   - cloud
@@ -23,12 +23,12 @@ security:
 - azure_auth:
   - user_impersonation
 tags:
-- name: Environments
+- name: Notification Channels
 paths:
-  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/users/{userName}/environments
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/notificationchannels
   : get:
-      description: List environments in a given user profile.
-      operationId: Environments_List
+      description: List notification channels in a given lab.
+      operationId: NotificationChannels_List
       parameters:
       - $ref: '#/components/parameters/subscriptionId'
       - $ref: '#/components/parameters/resourceGroupName'
@@ -39,14 +39,7 @@ paths:
         example: example-value
         schema:
           type: string
-      - description: The name of the user profile.
-        in: path
-        name: userName
-        required: true
-        example: example-value
-        schema:
-          type: string
-      - description: 'Specify the $expand query. Example: ''properties($select=deploymentProperties)'''
+      - description: 'Specify the $expand query. Example: ''properties($select=webHookUrl)'''
         in: query
         name: $expand
         example: example-value
@@ -78,7 +71,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DtlEnvironmentList'
+                $ref: '#/components/schemas/NotificationChannelList'
         default:
           description: BadRequest
           content:
@@ -86,18 +79,18 @@ paths:
               schema:
                 $ref: '#/components/schemas/CloudError'
       tags:
-      - Environments
-      x-ms-odata: '#/definitions/DtlEnvironment'
+      - Notification Channels
+      x-ms-odata: '#/definitions/NotificationChannel'
       x-ms-pageable:
         nextLinkName: nextLink
-      summary: Azure DevTest Labs Environments_ List
+      summary: Azure DevTest Labs Notification Channels_ List
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
-  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/users/{userName}/environments/{name}
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/notificationchannels/{name}
   : delete:
-      description: Delete environment. This operation can take a while to complete.
-      operationId: Environments_Delete
+      description: Delete notification channel.
+      operationId: NotificationChannels_Delete
       parameters:
       - $ref: '#/components/parameters/subscriptionId'
       - $ref: '#/components/parameters/resourceGroupName'
@@ -108,14 +101,7 @@ paths:
         example: example-value
         schema:
           type: string
-      - description: The name of the user profile.
-        in: path
-        name: userName
-        required: true
-        example: example-value
-        schema:
-          type: string
-      - description: The name of the environment.
+      - description: The name of the notification channel.
         in: path
         name: name
         required: true
@@ -126,8 +112,6 @@ paths:
       responses:
         '200':
           description: OK
-        '202':
-          description: Accepted
         '204':
           description: No Content
         default:
@@ -137,15 +121,14 @@ paths:
               schema:
                 $ref: '#/components/schemas/CloudError'
       tags:
-      - Environments
-      x-ms-long-running-operation: true
-      summary: Azure DevTest Labs Environments_ Delete
+      - Notification Channels
+      summary: Azure DevTest Labs Notification Channels_ Delete
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
     get:
-      description: Get environment.
-      operationId: Environments_Get
+      description: Get notification channel.
+      operationId: NotificationChannels_Get
       parameters:
       - $ref: '#/components/parameters/subscriptionId'
       - $ref: '#/components/parameters/resourceGroupName'
@@ -156,21 +139,14 @@ paths:
         example: example-value
         schema:
           type: string
-      - description: The name of the user profile.
-        in: path
-        name: userName
-        required: true
-        example: example-value
-        schema:
-          type: string
-      - description: The name of the environment.
+      - description: The name of the notification channel.
         in: path
         name: name
         required: true
         example: example-value
         schema:
           type: string
-      - description: 'Specify the $expand query. Example: ''properties($select=deploymentProperties)'''
+      - description: 'Specify the $expand query. Example: ''properties($select=webHookUrl)'''
         in: query
         name: $expand
         example: example-value
@@ -183,7 +159,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DtlEnvironment'
+                $ref: '#/components/schemas/NotificationChannel'
         default:
           description: BadRequest
           content:
@@ -191,14 +167,14 @@ paths:
               schema:
                 $ref: '#/components/schemas/CloudError'
       tags:
-      - Environments
-      summary: Azure DevTest Labs Environments_ Get
+      - Notification Channels
+      summary: Azure DevTest Labs Notification Channels_ Get
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
     patch:
-      description: Allows modifying tags of environments. All other properties will be ignored.
-      operationId: Environments_Update
+      description: Allows modifying tags of notification channels. All other properties will be ignored.
+      operationId: NotificationChannels_Update
       parameters:
       - $ref: '#/components/parameters/subscriptionId'
       - $ref: '#/components/parameters/resourceGroupName'
@@ -209,14 +185,7 @@ paths:
         example: example-value
         schema:
           type: string
-      - description: The name of the user profile.
-        in: path
-        name: userName
-        required: true
-        example: example-value
-        schema:
-          type: string
-      - description: The name of the environment.
+      - description: The name of the notification channel.
         in: path
         name: name
         required: true
@@ -230,7 +199,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DtlEnvironment'
+                $ref: '#/components/schemas/NotificationChannel'
         default:
           description: BadRequest
           content:
@@ -238,8 +207,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/CloudError'
       tags:
-      - Environments
-      summary: Azure DevTest Labs Environments_ Update
+      - Notification Channels
+      summary: Azure DevTest Labs Notification Channels_ Update
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
@@ -247,12 +216,12 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/DtlEnvironmentFragment'
-        description: An environment, which is essentially an ARM template deployment.
+              $ref: '#/components/schemas/NotificationChannelFragment'
+        description: A notification.
         required: true
     put:
-      description: Create or replace an existing environment. This operation can take a while to complete.
-      operationId: Environments_CreateOrUpdate
+      description: Create or replace an existing notification channel.
+      operationId: NotificationChannels_CreateOrUpdate
       parameters:
       - $ref: '#/components/parameters/subscriptionId'
       - $ref: '#/components/parameters/resourceGroupName'
@@ -263,14 +232,7 @@ paths:
         example: example-value
         schema:
           type: string
-      - description: The name of the user profile.
-        in: path
-        name: userName
-        required: true
-        example: example-value
-        schema:
-          type: string
-      - description: The name of the environment.
+      - description: The name of the notification channel.
         in: path
         name: name
         required: true
@@ -284,13 +246,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DtlEnvironment'
+                $ref: '#/components/schemas/NotificationChannel'
         '201':
           description: Created
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DtlEnvironment'
+                $ref: '#/components/schemas/NotificationChannel'
         default:
           description: BadRequest
           content:
@@ -298,9 +260,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/CloudError'
       tags:
-      - Environments
-      x-ms-long-running-operation: true
-      summary: Azure DevTest Labs Environments_ Create or Update
+      - Notification Channels
+      summary: Azure DevTest Labs Notification Channels_ Create or Update
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
@@ -308,44 +269,131 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/DtlEnvironment'
-        description: An environment, which is essentially an ARM template deployment.
+              $ref: '#/components/schemas/NotificationChannel'
+        description: A notification.
+        required: true
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/notificationchannels/{name}/notify
+  : post:
+      description: Send notification to provided channel.
+      operationId: NotificationChannels_Notify
+      parameters:
+      - $ref: '#/components/parameters/subscriptionId'
+      - $ref: '#/components/parameters/resourceGroupName'
+      - description: The name of the lab.
+        in: path
+        name: labName
+        required: true
+        example: example-value
+        schema:
+          type: string
+      - description: The name of the notification channel.
+        in: path
+        name: name
+        required: true
+        example: example-value
+        schema:
+          type: string
+      - $ref: '#/components/parameters/api-version'
+      responses:
+        '200':
+          description: OK
+        default:
+          description: BadRequest
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CloudError'
+      tags:
+      - Notification Channels
+      summary: Azure DevTest Labs Notification Channels_ Notify
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NotifyParameters'
+        description: Properties for generating a Notification.
         required: true
 components:
   schemas:
-    ArmTemplateParameterProperties:
-      description: Properties of an Azure Resource Manager template parameter.
-      properties:
-        name:
-          description: The name of the template parameter.
-          type: string
-        value:
-          description: The value of the template parameter.
-          type: string
-      type: object
-    DtlEnvironment:
+    NotificationChannel:
       allOf:
       - $ref: '#/components/schemas/Resource'
-      description: An environment, which is essentially an ARM template deployment.
+      description: A notification.
       properties:
         properties:
-          $ref: '#/components/schemas/EnvironmentProperties'
+          $ref: '#/components/schemas/NotificationChannelProperties'
           description: The properties of the resource.
           x-ms-client-flatten: true
       required:
       - properties
       type: object
-    DtlEnvironmentList:
-      description: The response of a list operation.
+    NotificationChannelPropertiesFragment:
+      description: Properties of a schedule.
       properties:
-        nextLink:
-          description: Link for next set of results.
+        description:
+          description: Description of notification.
           type: string
-        value:
-          description: Results of the list operation.
+        emailRecipient:
+          description: The email recipient to send notifications to (can be a list of semi-colon separated email addresses).
+          type: string
+        events:
+          description: The list of event for which this notification is enabled.
           items:
-            $ref: '#/components/schemas/DtlEnvironment'
+            $ref: '#/components/schemas/EventFragment'
           type: array
+        notificationLocale:
+          description: The locale to use when sending a notification (fallback for unsupported languages is EN).
+          type: string
+        webHookUrl:
+          description: The webhook URL to send notifications to.
+          type: string
+      type: object
+    NotificationChannelFragment:
+      allOf:
+      - $ref: '#/components/schemas/UpdateResource'
+      description: A notification.
+      properties:
+        properties:
+          $ref: '#/components/schemas/NotificationChannelPropertiesFragment'
+          description: The properties of the resource.
+          x-ms-client-flatten: true
+      type: object
+    NotificationChannelProperties:
+      description: Properties of a schedule.
+      properties:
+        createdDate:
+          description: The creation date of the notification channel.
+          format: date-time
+          readOnly: true
+          type: string
+        description:
+          description: Description of notification.
+          type: string
+        emailRecipient:
+          description: The email recipient to send notifications to (can be a list of semi-colon separated email addresses).
+          type: string
+        events:
+          description: The list of event for which this notification is enabled.
+          items:
+            $ref: '#/components/schemas/Event'
+          type: array
+        notificationLocale:
+          description: The locale to use when sending a notification (fallback for unsupported languages is EN).
+          type: string
+        provisioningState:
+          description: The provisioning status of the resource.
+          readOnly: true
+          type: string
+        uniqueIdentifier:
+          description: The unique immutable identifier of a resource (Guid).
+          readOnly: true
+          type: string
+        webHookUrl:
+          description: The webhook URL to send notifications to.
+          type: string
       type: object
     CloudError:
       description: Error from a REST request.
@@ -374,16 +422,51 @@ components:
           type: string
       type: object
       x-ms-external: true
-    EnvironmentDeploymentPropertiesFragment:
-      description: Properties of an environment deployment.
+    EventFragment:
+      description: An event to be notified for.
       properties:
-        armTemplateId:
-          description: The Azure Resource Manager template's identifier.
+        eventName:
+          description: The event type for which this notification is enabled (i.e. AutoShutdown, Cost)
+          enum:
+          - AutoShutdown
+          - Cost
           type: string
-        parameters:
-          description: The parameters of the Azure Resource Manager template.
+          x-ms-enum:
+            modelAsString: true
+            name: NotificationChannelEventType
+      type: object
+    Event:
+      description: An event to be notified for.
+      properties:
+        eventName:
+          description: The event type for which this notification is enabled (i.e. AutoShutdown, Cost)
+          enum:
+          - AutoShutdown
+          - Cost
+          type: string
+          x-ms-enum:
+            modelAsString: true
+            name: NotificationChannelEventType
+      type: object
+    UpdateResource:
+      description: Represents an update resource
+      properties:
+        tags:
+          additionalProperties:
+            type: string
+          description: The tags of the resource.
+          type: object
+      type: object
+    NotificationChannelList:
+      description: The response of a list operation.
+      properties:
+        nextLink:
+          description: Link for next set of results.
+          type: string
+        value:
+          description: Results of the list operation.
           items:
-            $ref: '#/components/schemas/ArmTemplateParameterPropertiesFragment'
+            $ref: '#/components/schemas/NotificationChannel'
           type: array
       type: object
     Resource:
@@ -411,81 +494,20 @@ components:
           type: string
       type: object
       x-ms-azure-resource: true
-    ArmTemplateParameterPropertiesFragment:
-      description: Properties of an Azure Resource Manager template parameter.
+    NotifyParameters:
+      description: Properties for generating a Notification.
       properties:
-        name:
-          description: The name of the template parameter.
+        eventName:
+          description: The type of event (i.e. AutoShutdown, Cost)
+          enum:
+          - AutoShutdown
+          - Cost
           type: string
-        value:
-          description: The value of the template parameter.
-          type: string
-      type: object
-    EnvironmentPropertiesFragment:
-      description: Properties of an environment.
-      properties:
-        armTemplateDisplayName:
-          description: The display name of the Azure Resource Manager template that produced the environment.
-          type: string
-        deploymentProperties:
-          $ref: '#/components/schemas/EnvironmentDeploymentPropertiesFragment'
-          description: The deployment properties of the environment.
-      type: object
-    UpdateResource:
-      description: Represents an update resource
-      properties:
-        tags:
-          additionalProperties:
-            type: string
-          description: The tags of the resource.
-          type: object
-      type: object
-    EnvironmentDeploymentProperties:
-      description: Properties of an environment deployment.
-      properties:
-        armTemplateId:
-          description: The Azure Resource Manager template's identifier.
-          type: string
-        parameters:
-          description: The parameters of the Azure Resource Manager template.
-          items:
-            $ref: '#/components/schemas/ArmTemplateParameterProperties'
-          type: array
-      type: object
-    DtlEnvironmentFragment:
-      allOf:
-      - $ref: '#/components/schemas/UpdateResource'
-      description: An environment, which is essentially an ARM template deployment.
-      properties:
-        properties:
-          $ref: '#/components/schemas/EnvironmentPropertiesFragment'
-          description: The properties of the resource.
-          x-ms-client-flatten: true
-      type: object
-    EnvironmentProperties:
-      description: Properties of an environment.
-      properties:
-        armTemplateDisplayName:
-          description: The display name of the Azure Resource Manager template that produced the environment.
-          type: string
-        createdByUser:
-          description: The creator of the environment.
-          readOnly: true
-          type: string
-        deploymentProperties:
-          $ref: '#/components/schemas/EnvironmentDeploymentProperties'
-          description: The deployment properties of the environment.
-        provisioningState:
-          description: The provisioning status of the resource.
-          readOnly: true
-          type: string
-        resourceGroupId:
-          description: The identifier of the resource group containing the environment's resources.
-          readOnly: true
-          type: string
-        uniqueIdentifier:
-          description: The unique immutable identifier of a resource (Guid).
-          readOnly: true
+          x-ms-enum:
+            modelAsString: true
+            name: NotificationChannelEventType
+        jsonPayload:
+          description: Properties for the notification in json format.
           type: string
       type: object
   parameters:

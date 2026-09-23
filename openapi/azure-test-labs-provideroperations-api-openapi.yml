@@ -1,8 +1,8 @@
-swagger: '2.0'
+openapi: 3.2.0
 info:
   description: The DevTest Labs Client.
-  title: DevTestLabsClient ArmTemplates ProviderOperations API
-  version: '2.0'
+  title: DevTestLabsClient Provider Operations API
+  version: '2018-09-15'
   x-apisguru-categories:
   - cloud
   x-logo:
@@ -10,19 +10,15 @@ info:
   x-origin:
   - format: swagger
     url: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/devtestlabs/resource-manager/Microsoft.DevTestLab/stable/2018-09-15/DTL.json
+    version: '2.0'
   x-preferred: true
   x-providerName: azure.com
   x-serviceName: devtestlabs-DTL
   x-tags:
   - Azure
   - Microsoft
-host: management.azure.com
-schemes:
-- https
-consumes:
-- application/json
-produces:
-- application/json
+servers:
+- url: https://management.azure.com
 security:
 - azure_auth:
   - user_impersonation
@@ -34,12 +30,14 @@ paths:
       description: Result of the request to list REST API operations
       operationId: ProviderOperations_List
       parameters:
-      - $ref: '#/parameters/api-version'
+      - $ref: '#/components/parameters/api-version'
       responses:
         '200':
           description: Success
-          schema:
-            $ref: '#/definitions/ProviderOperationResult'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProviderOperationResult'
       tags:
       - ProviderOperations
       x-ms-examples:
@@ -620,59 +618,62 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
-definitions:
-  ProviderOperationResult:
-    description: Result of the request to list REST API operations
-    properties:
-      nextLink:
-        description: URL to get the next set of operation list results if there are any.
-        readOnly: true
+components:
+  schemas:
+    ProviderOperationResult:
+      description: Result of the request to list REST API operations
+      properties:
+        nextLink:
+          description: URL to get the next set of operation list results if there are any.
+          readOnly: true
+          type: string
+        value:
+          description: List of operations supported by the resource provider.
+          items:
+            $ref: '#/components/schemas/OperationMetadata'
+          type: array
+      type: object
+    OperationMetadataDisplay:
+      description: The object that describes the operations
+      properties:
+        description:
+          description: Friendly name of the operation
+          type: string
+        operation:
+          description: 'Operation type: read, write, delete, listKeys/action, etc.'
+          type: string
+        provider:
+          description: Friendly name of the resource provider
+          type: string
+        resource:
+          description: Resource type on which the operation is performed.
+          type: string
+      type: object
+    OperationMetadata:
+      description: The REST API operation supported by DevTestLab ResourceProvider.
+      properties:
+        display:
+          $ref: '#/components/schemas/OperationMetadataDisplay'
+          description: The object that describes the operations
+        name:
+          description: 'Operation name: {provider}/{resource}/{operation}'
+          type: string
+      type: object
+  parameters:
+    api-version:
+      description: Client API version.
+      in: query
+      name: api-version
+      required: true
+      schema:
         type: string
-      value:
-        description: List of operations supported by the resource provider.
-        items:
-          $ref: '#/definitions/OperationMetadata'
-        type: array
-    type: object
-  OperationMetadataDisplay:
-    description: The object that describes the operations
-    properties:
-      description:
-        description: Friendly name of the operation
-        type: string
-      operation:
-        description: 'Operation type: read, write, delete, listKeys/action, etc.'
-        type: string
-      provider:
-        description: Friendly name of the resource provider
-        type: string
-      resource:
-        description: Resource type on which the operation is performed.
-        type: string
-    type: object
-  OperationMetadata:
-    description: The REST API operation supported by DevTestLab ResourceProvider.
-    properties:
-      display:
-        $ref: '#/definitions/OperationMetadataDisplay'
-        description: The object that describes the operations
-      name:
-        description: 'Operation name: {provider}/{resource}/{operation}'
-        type: string
-    type: object
-parameters:
-  api-version:
-    default: '2018-09-15'
-    description: Client API version.
-    in: query
-    name: api-version
-    required: true
-    type: string
-securityDefinitions:
-  azure_auth:
-    authorizationUrl: https://login.microsoftonline.com/common/oauth2/authorize
-    description: OAuth2 Implicit Grant
-    flow: implicit
-    scopes:
-      user_impersonation: Access Microsoft Azure
-    type: oauth2
+        default: '2018-09-15'
+  securitySchemes:
+    azure_auth:
+      type: oauth2
+      flows:
+        implicit:
+          scopes:
+            user_impersonation: Access Microsoft Azure
+          authorizationUrl: https://login.microsoftonline.com/common/oauth2/authorize
+      description: OAuth2 Implicit Grant

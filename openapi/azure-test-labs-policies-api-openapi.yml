@@ -1,8 +1,8 @@
-swagger: '2.0'
+openapi: 3.2.0
 info:
   description: The DevTest Labs Client.
-  title: DevTestLabsClient ArmTemplates Policies API
-  version: '2.0'
+  title: DevTestLabsClient Policies API
+  version: '2018-09-15'
   x-apisguru-categories:
   - cloud
   x-logo:
@@ -10,19 +10,15 @@ info:
   x-origin:
   - format: swagger
     url: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/devtestlabs/resource-manager/Microsoft.DevTestLab/stable/2018-09-15/DTL.json
+    version: '2.0'
   x-preferred: true
   x-providerName: azure.com
   x-serviceName: devtestlabs-DTL
   x-tags:
   - Azure
   - Microsoft
-host: management.azure.com
-schemes:
-- https
-consumes:
-- application/json
-produces:
-- application/json
+servers:
+- url: https://management.azure.com
 security:
 - azure_auth:
   - user_impersonation
@@ -34,51 +30,61 @@ paths:
       description: List policies in a given policy set.
       operationId: Policies_List
       parameters:
-      - $ref: '#/parameters/subscriptionId'
-      - $ref: '#/parameters/resourceGroupName'
+      - $ref: '#/components/parameters/subscriptionId'
+      - $ref: '#/components/parameters/resourceGroupName'
       - description: The name of the lab.
         in: path
         name: labName
         required: true
-        type: string
         example: example-value
+        schema:
+          type: string
       - description: The name of the policy set.
         in: path
         name: policySetName
         required: true
-        type: string
         example: example-value
+        schema:
+          type: string
       - description: 'Specify the $expand query. Example: ''properties($select=description)'''
         in: query
         name: $expand
-        type: string
         example: example-value
+        schema:
+          type: string
       - description: 'The filter to apply to the operation. Example: ''$filter=contains(name,''myName'')'
         in: query
         name: $filter
-        type: string
         example: example-value
+        schema:
+          type: string
       - description: 'The maximum number of resources to return from the operation. Example: ''$top=10'''
-        format: int32
         in: query
         name: $top
-        type: integer
         example: example-value
+        schema:
+          type: integer
+          format: int32
       - description: 'The ordering expression for the results, using OData notation. Example: ''$orderby=name desc'''
         in: query
         name: $orderby
-        type: string
         example: example-value
-      - $ref: '#/parameters/api-version'
+        schema:
+          type: string
+      - $ref: '#/components/parameters/api-version'
       responses:
         '200':
           description: OK
-          schema:
-            $ref: '#/definitions/PolicyList'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PolicyList'
         default:
           description: BadRequest
-          schema:
-            $ref: '#/definitions/CloudError'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CloudError'
       tags:
       - Policies
       x-ms-odata: '#/definitions/Policy'
@@ -93,27 +99,30 @@ paths:
       description: Delete policy.
       operationId: Policies_Delete
       parameters:
-      - $ref: '#/parameters/subscriptionId'
-      - $ref: '#/parameters/resourceGroupName'
+      - $ref: '#/components/parameters/subscriptionId'
+      - $ref: '#/components/parameters/resourceGroupName'
       - description: The name of the lab.
         in: path
         name: labName
         required: true
-        type: string
         example: example-value
+        schema:
+          type: string
       - description: The name of the policy set.
         in: path
         name: policySetName
         required: true
-        type: string
         example: example-value
+        schema:
+          type: string
       - description: The name of the policy.
         in: path
         name: name
         required: true
-        type: string
         example: example-value
-      - $ref: '#/parameters/api-version'
+        schema:
+          type: string
+      - $ref: '#/components/parameters/api-version'
       responses:
         '200':
           description: OK
@@ -121,8 +130,10 @@ paths:
           description: No Content
         default:
           description: BadRequest
-          schema:
-            $ref: '#/definitions/CloudError'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CloudError'
       tags:
       - Policies
       summary: Azure DevTest Labs Policies_ Delete
@@ -133,41 +144,49 @@ paths:
       description: Get policy.
       operationId: Policies_Get
       parameters:
-      - $ref: '#/parameters/subscriptionId'
-      - $ref: '#/parameters/resourceGroupName'
+      - $ref: '#/components/parameters/subscriptionId'
+      - $ref: '#/components/parameters/resourceGroupName'
       - description: The name of the lab.
         in: path
         name: labName
         required: true
-        type: string
         example: example-value
+        schema:
+          type: string
       - description: The name of the policy set.
         in: path
         name: policySetName
         required: true
-        type: string
         example: example-value
+        schema:
+          type: string
       - description: The name of the policy.
         in: path
         name: name
         required: true
-        type: string
         example: example-value
+        schema:
+          type: string
       - description: 'Specify the $expand query. Example: ''properties($select=description)'''
         in: query
         name: $expand
-        type: string
         example: example-value
-      - $ref: '#/parameters/api-version'
+        schema:
+          type: string
+      - $ref: '#/components/parameters/api-version'
       responses:
         '200':
           description: OK
-          schema:
-            $ref: '#/definitions/Policy'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Policy'
         default:
           description: BadRequest
-          schema:
-            $ref: '#/definitions/CloudError'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CloudError'
       tags:
       - Policies
       summary: Azure DevTest Labs Policies_ Get
@@ -178,331 +197,352 @@ paths:
       description: Allows modifying tags of policies. All other properties will be ignored.
       operationId: Policies_Update
       parameters:
-      - $ref: '#/parameters/subscriptionId'
-      - $ref: '#/parameters/resourceGroupName'
+      - $ref: '#/components/parameters/subscriptionId'
+      - $ref: '#/components/parameters/resourceGroupName'
       - description: The name of the lab.
         in: path
         name: labName
         required: true
-        type: string
         example: example-value
+        schema:
+          type: string
       - description: The name of the policy set.
         in: path
         name: policySetName
         required: true
-        type: string
         example: example-value
+        schema:
+          type: string
       - description: The name of the policy.
         in: path
         name: name
         required: true
-        type: string
         example: example-value
-      - description: A Policy.
-        in: body
-        name: policy
-        required: true
         schema:
-          $ref: '#/definitions/PolicyFragment'
-        example: example-value
-      - $ref: '#/parameters/api-version'
+          type: string
+      - $ref: '#/components/parameters/api-version'
       responses:
         '200':
           description: OK
-          schema:
-            $ref: '#/definitions/Policy'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Policy'
         default:
           description: BadRequest
-          schema:
-            $ref: '#/definitions/CloudError'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CloudError'
       tags:
       - Policies
       summary: Azure DevTest Labs Policies_ Update
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PolicyFragment'
+        description: A Policy.
+        required: true
     put:
       description: Create or replace an existing policy.
       operationId: Policies_CreateOrUpdate
       parameters:
-      - $ref: '#/parameters/subscriptionId'
-      - $ref: '#/parameters/resourceGroupName'
+      - $ref: '#/components/parameters/subscriptionId'
+      - $ref: '#/components/parameters/resourceGroupName'
       - description: The name of the lab.
         in: path
         name: labName
         required: true
-        type: string
         example: example-value
+        schema:
+          type: string
       - description: The name of the policy set.
         in: path
         name: policySetName
         required: true
-        type: string
         example: example-value
+        schema:
+          type: string
       - description: The name of the policy.
         in: path
         name: name
         required: true
-        type: string
         example: example-value
-      - description: A Policy.
-        in: body
-        name: policy
-        required: true
         schema:
-          $ref: '#/definitions/Policy'
-        example: example-value
-      - $ref: '#/parameters/api-version'
+          type: string
+      - $ref: '#/components/parameters/api-version'
       responses:
         '200':
           description: OK
-          schema:
-            $ref: '#/definitions/Policy'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Policy'
         '201':
           description: Created
-          schema:
-            $ref: '#/definitions/Policy'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Policy'
         default:
           description: BadRequest
-          schema:
-            $ref: '#/definitions/CloudError'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CloudError'
       tags:
       - Policies
       summary: Azure DevTest Labs Policies_ Create or Update
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
-definitions:
-  Resource:
-    description: An Azure resource.
-    properties:
-      id:
-        description: The identifier of the resource.
-        readOnly: true
-        type: string
-      location:
-        description: The location of the resource.
-        type: string
-      name:
-        description: The name of the resource.
-        readOnly: true
-        type: string
-      tags:
-        additionalProperties:
-          type: string
-        description: The tags of the resource.
-        type: object
-      type:
-        description: The type of the resource.
-        readOnly: true
-        type: string
-    type: object
-    x-ms-azure-resource: true
-  PolicyFragment:
-    allOf:
-    - $ref: '#/definitions/UpdateResource'
-    description: A Policy.
-    properties:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Policy'
+        description: A Policy.
+        required: true
+components:
+  schemas:
+    PolicyProperties:
+      description: Properties of a Policy.
       properties:
-        $ref: '#/definitions/PolicyPropertiesFragment'
-        description: The properties of the resource.
-        x-ms-client-flatten: true
-    type: object
-  PolicyList:
-    description: The response of a list operation.
-    properties:
-      nextLink:
-        description: Link for next set of results.
-        type: string
-      value:
-        description: Results of the list operation.
-        items:
-          $ref: '#/definitions/Policy'
-        type: array
-    type: object
-  CloudError:
-    description: Error from a REST request.
-    properties:
-      error:
-        $ref: '#/definitions/CloudErrorBody'
-        description: The cloud error that occurred
-    type: object
-    x-ms-external: true
-  PolicyPropertiesFragment:
-    description: Properties of a Policy.
-    properties:
-      description:
-        description: The description of the policy.
-        type: string
-      evaluatorType:
-        description: The evaluator type of the policy (i.e. AllowedValuesPolicy, MaxValuePolicy).
-        enum:
-        - AllowedValuesPolicy
-        - MaxValuePolicy
-        type: string
-        x-ms-enum:
-          modelAsString: true
-          name: PolicyEvaluatorType
-      factData:
-        description: The fact data of the policy.
-        type: string
-      factName:
-        description: The fact name of the policy (e.g. LabVmCount, LabVmSize, MaxVmsAllowedPerLab, etc.
-        enum:
-        - UserOwnedLabVmCount
-        - UserOwnedLabPremiumVmCount
-        - LabVmCount
-        - LabPremiumVmCount
-        - LabVmSize
-        - GalleryImage
-        - UserOwnedLabVmCountInSubnet
-        - LabTargetCost
-        - EnvironmentTemplate
-        - ScheduleEditPermission
-        type: string
-        x-ms-enum:
-          modelAsString: true
-          name: PolicyFactName
-      status:
-        description: The status of the policy.
-        enum:
-        - Enabled
-        - Disabled
-        type: string
-        x-ms-enum:
-          modelAsString: true
-          name: PolicyStatus
-      threshold:
-        description: The threshold of the policy (i.e. a number for MaxValuePolicy, and a JSON array of values for AllowedValuesPolicy).
-        type: string
-    type: object
-  CloudErrorBody:
-    description: Body of an error from a REST request.
-    properties:
-      code:
-        description: The error code.
-        type: string
-      details:
-        description: Inner errors.
-        items:
-          $ref: '#/definitions/CloudErrorBody'
-        type: array
-      message:
-        description: The error message.
-        type: string
-      target:
-        description: The error target.
-        type: string
-    type: object
-    x-ms-external: true
-  UpdateResource:
-    description: Represents an update resource
-    properties:
-      tags:
-        additionalProperties:
+        createdDate:
+          description: The creation date of the policy.
+          format: date-time
+          readOnly: true
           type: string
-        description: The tags of the resource.
-        type: object
-    type: object
-  PolicyProperties:
-    description: Properties of a Policy.
-    properties:
-      createdDate:
-        description: The creation date of the policy.
-        format: date-time
-        readOnly: true
-        type: string
-      description:
-        description: The description of the policy.
-        type: string
-      evaluatorType:
-        description: The evaluator type of the policy (i.e. AllowedValuesPolicy, MaxValuePolicy).
-        enum:
-        - AllowedValuesPolicy
-        - MaxValuePolicy
-        type: string
-        x-ms-enum:
-          modelAsString: true
-          name: PolicyEvaluatorType
-      factData:
-        description: The fact data of the policy.
-        type: string
-      factName:
-        description: The fact name of the policy (e.g. LabVmCount, LabVmSize, MaxVmsAllowedPerLab, etc.
-        enum:
-        - UserOwnedLabVmCount
-        - UserOwnedLabPremiumVmCount
-        - LabVmCount
-        - LabPremiumVmCount
-        - LabVmSize
-        - GalleryImage
-        - UserOwnedLabVmCountInSubnet
-        - LabTargetCost
-        - EnvironmentTemplate
-        - ScheduleEditPermission
-        type: string
-        x-ms-enum:
-          modelAsString: true
-          name: PolicyFactName
-      provisioningState:
-        description: The provisioning status of the resource.
-        readOnly: true
-        type: string
-      status:
-        description: The status of the policy.
-        enum:
-        - Enabled
-        - Disabled
-        type: string
-        x-ms-enum:
-          modelAsString: true
-          name: PolicyStatus
-      threshold:
-        description: The threshold of the policy (i.e. a number for MaxValuePolicy, and a JSON array of values for AllowedValuesPolicy).
-        type: string
-      uniqueIdentifier:
-        description: The unique immutable identifier of a resource (Guid).
-        readOnly: true
-        type: string
-    type: object
-  Policy:
-    allOf:
-    - $ref: '#/definitions/Resource'
-    description: A Policy.
-    properties:
+        description:
+          description: The description of the policy.
+          type: string
+        evaluatorType:
+          description: The evaluator type of the policy (i.e. AllowedValuesPolicy, MaxValuePolicy).
+          enum:
+          - AllowedValuesPolicy
+          - MaxValuePolicy
+          type: string
+          x-ms-enum:
+            modelAsString: true
+            name: PolicyEvaluatorType
+        factData:
+          description: The fact data of the policy.
+          type: string
+        factName:
+          description: The fact name of the policy (e.g. LabVmCount, LabVmSize, MaxVmsAllowedPerLab, etc.
+          enum:
+          - UserOwnedLabVmCount
+          - UserOwnedLabPremiumVmCount
+          - LabVmCount
+          - LabPremiumVmCount
+          - LabVmSize
+          - GalleryImage
+          - UserOwnedLabVmCountInSubnet
+          - LabTargetCost
+          - EnvironmentTemplate
+          - ScheduleEditPermission
+          type: string
+          x-ms-enum:
+            modelAsString: true
+            name: PolicyFactName
+        provisioningState:
+          description: The provisioning status of the resource.
+          readOnly: true
+          type: string
+        status:
+          description: The status of the policy.
+          enum:
+          - Enabled
+          - Disabled
+          type: string
+          x-ms-enum:
+            modelAsString: true
+            name: PolicyStatus
+        threshold:
+          description: The threshold of the policy (i.e. a number for MaxValuePolicy, and a JSON array of values for AllowedValuesPolicy).
+          type: string
+        uniqueIdentifier:
+          description: The unique immutable identifier of a resource (Guid).
+          readOnly: true
+          type: string
+      type: object
+    PolicyPropertiesFragment:
+      description: Properties of a Policy.
       properties:
-        $ref: '#/definitions/PolicyProperties'
-        description: The properties of the resource.
-        x-ms-client-flatten: true
-    required:
-    - properties
-    type: object
-parameters:
-  resourceGroupName:
-    description: The name of the resource group.
-    in: path
-    name: resourceGroupName
-    required: true
-    type: string
-    x-ms-parameter-location: method
-  subscriptionId:
-    description: The subscription ID.
-    in: path
-    name: subscriptionId
-    required: true
-    type: string
-  api-version:
-    default: '2018-09-15'
-    description: Client API version.
-    in: query
-    name: api-version
-    required: true
-    type: string
-securityDefinitions:
-  azure_auth:
-    authorizationUrl: https://login.microsoftonline.com/common/oauth2/authorize
-    description: OAuth2 Implicit Grant
-    flow: implicit
-    scopes:
-      user_impersonation: Access Microsoft Azure
-    type: oauth2
+        description:
+          description: The description of the policy.
+          type: string
+        evaluatorType:
+          description: The evaluator type of the policy (i.e. AllowedValuesPolicy, MaxValuePolicy).
+          enum:
+          - AllowedValuesPolicy
+          - MaxValuePolicy
+          type: string
+          x-ms-enum:
+            modelAsString: true
+            name: PolicyEvaluatorType
+        factData:
+          description: The fact data of the policy.
+          type: string
+        factName:
+          description: The fact name of the policy (e.g. LabVmCount, LabVmSize, MaxVmsAllowedPerLab, etc.
+          enum:
+          - UserOwnedLabVmCount
+          - UserOwnedLabPremiumVmCount
+          - LabVmCount
+          - LabPremiumVmCount
+          - LabVmSize
+          - GalleryImage
+          - UserOwnedLabVmCountInSubnet
+          - LabTargetCost
+          - EnvironmentTemplate
+          - ScheduleEditPermission
+          type: string
+          x-ms-enum:
+            modelAsString: true
+            name: PolicyFactName
+        status:
+          description: The status of the policy.
+          enum:
+          - Enabled
+          - Disabled
+          type: string
+          x-ms-enum:
+            modelAsString: true
+            name: PolicyStatus
+        threshold:
+          description: The threshold of the policy (i.e. a number for MaxValuePolicy, and a JSON array of values for AllowedValuesPolicy).
+          type: string
+      type: object
+    CloudError:
+      description: Error from a REST request.
+      properties:
+        error:
+          $ref: '#/components/schemas/CloudErrorBody'
+          description: The cloud error that occurred
+      type: object
+      x-ms-external: true
+    CloudErrorBody:
+      description: Body of an error from a REST request.
+      properties:
+        code:
+          description: The error code.
+          type: string
+        details:
+          description: Inner errors.
+          items:
+            $ref: '#/components/schemas/CloudErrorBody'
+          type: array
+        message:
+          description: The error message.
+          type: string
+        target:
+          description: The error target.
+          type: string
+      type: object
+      x-ms-external: true
+    PolicyList:
+      description: The response of a list operation.
+      properties:
+        nextLink:
+          description: Link for next set of results.
+          type: string
+        value:
+          description: Results of the list operation.
+          items:
+            $ref: '#/components/schemas/Policy'
+          type: array
+      type: object
+    PolicyFragment:
+      allOf:
+      - $ref: '#/components/schemas/UpdateResource'
+      description: A Policy.
+      properties:
+        properties:
+          $ref: '#/components/schemas/PolicyPropertiesFragment'
+          description: The properties of the resource.
+          x-ms-client-flatten: true
+      type: object
+    UpdateResource:
+      description: Represents an update resource
+      properties:
+        tags:
+          additionalProperties:
+            type: string
+          description: The tags of the resource.
+          type: object
+      type: object
+    Resource:
+      description: An Azure resource.
+      properties:
+        id:
+          description: The identifier of the resource.
+          readOnly: true
+          type: string
+        location:
+          description: The location of the resource.
+          type: string
+        name:
+          description: The name of the resource.
+          readOnly: true
+          type: string
+        tags:
+          additionalProperties:
+            type: string
+          description: The tags of the resource.
+          type: object
+        type:
+          description: The type of the resource.
+          readOnly: true
+          type: string
+      type: object
+      x-ms-azure-resource: true
+    Policy:
+      allOf:
+      - $ref: '#/components/schemas/Resource'
+      description: A Policy.
+      properties:
+        properties:
+          $ref: '#/components/schemas/PolicyProperties'
+          description: The properties of the resource.
+          x-ms-client-flatten: true
+      required:
+      - properties
+      type: object
+  parameters:
+    subscriptionId:
+      description: The subscription ID.
+      in: path
+      name: subscriptionId
+      required: true
+      schema:
+        type: string
+    resourceGroupName:
+      description: The name of the resource group.
+      in: path
+      name: resourceGroupName
+      required: true
+      x-ms-parameter-location: method
+      schema:
+        type: string
+    api-version:
+      description: Client API version.
+      in: query
+      name: api-version
+      required: true
+      schema:
+        type: string
+        default: '2018-09-15'
+  securitySchemes:
+    azure_auth:
+      type: oauth2
+      flows:
+        implicit:
+          scopes:
+            user_impersonation: Access Microsoft Azure
+          authorizationUrl: https://login.microsoftonline.com/common/oauth2/authorize
+      description: OAuth2 Implicit Grant
