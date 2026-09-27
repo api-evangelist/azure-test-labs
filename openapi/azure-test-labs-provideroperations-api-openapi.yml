@@ -620,6 +620,16 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    OperationMetadata:
+      description: The REST API operation supported by DevTestLab ResourceProvider.
+      properties:
+        display:
+          $ref: '#/components/schemas/OperationMetadataDisplay'
+          description: The object that describes the operations
+        name:
+          description: 'Operation name: {provider}/{resource}/{operation}'
+          type: string
+      type: object
     ProviderOperationResult:
       description: Result of the request to list REST API operations
       properties:
@@ -647,16 +657,6 @@ components:
           type: string
         resource:
           description: Resource type on which the operation is performed.
-          type: string
-      type: object
-    OperationMetadata:
-      description: The REST API operation supported by DevTestLab ResourceProvider.
-      properties:
-        display:
-          $ref: '#/components/schemas/OperationMetadataDisplay'
-          description: The object that describes the operations
-        name:
-          description: 'Operation name: {provider}/{resource}/{operation}'
           type: string
       type: object
   parameters:

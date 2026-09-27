@@ -75,14 +75,37 @@ paths:
         required: true
 components:
   schemas:
-    CloudError:
-      description: Error from a REST request.
+    PolicySetResult:
+      description: Result of a policy set evaluation.
       properties:
-        error:
-          $ref: '#/components/schemas/CloudErrorBody'
-          description: The cloud error that occurred
+        hasError:
+          description: A value indicating whether this policy set evaluation has discovered violations.
+          type: boolean
+        policyViolations:
+          description: The list of policy violations.
+          items:
+            $ref: '#/components/schemas/PolicyViolation'
+          type: array
       type: object
-      x-ms-external: true
+    EvaluatePoliciesResponse:
+      description: Response body for evaluating a policy set.
+      properties:
+        results:
+          description: Results of evaluating a policy set.
+          items:
+            $ref: '#/components/schemas/PolicySetResult'
+          type: array
+      type: object
+    PolicyViolation:
+      description: Policy violation.
+      properties:
+        code:
+          description: The code of the policy violation.
+          type: string
+        message:
+          description: The message of the policy violation.
+          type: string
+      type: object
     EvaluatePoliciesProperties:
       description: Properties for evaluating a policy set.
       properties:
@@ -118,18 +141,14 @@ components:
           type: string
       type: object
       x-ms-external: true
-    PolicySetResult:
-      description: Result of a policy set evaluation.
+    CloudError:
+      description: Error from a REST request.
       properties:
-        hasError:
-          description: A value indicating whether this policy set evaluation has discovered violations.
-          type: boolean
-        policyViolations:
-          description: The list of policy violations.
-          items:
-            $ref: '#/components/schemas/PolicyViolation'
-          type: array
+        error:
+          $ref: '#/components/schemas/CloudErrorBody'
+          description: The cloud error that occurred
       type: object
+      x-ms-external: true
     EvaluatePoliciesRequest:
       description: Request body for evaluating a policy set.
       properties:
@@ -137,25 +156,6 @@ components:
           description: Policies to evaluate.
           items:
             $ref: '#/components/schemas/EvaluatePoliciesProperties'
-          type: array
-      type: object
-    PolicyViolation:
-      description: Policy violation.
-      properties:
-        code:
-          description: The code of the policy violation.
-          type: string
-        message:
-          description: The message of the policy violation.
-          type: string
-      type: object
-    EvaluatePoliciesResponse:
-      description: Response body for evaluating a policy set.
-      properties:
-        results:
-          description: Results of evaluating a policy set.
-          items:
-            $ref: '#/components/schemas/PolicySetResult'
           type: array
       type: object
   parameters:
@@ -166,14 +166,6 @@ components:
       required: true
       schema:
         type: string
-    resourceGroupName:
-      description: The name of the resource group.
-      in: path
-      name: resourceGroupName
-      required: true
-      x-ms-parameter-location: method
-      schema:
-        type: string
     api-version:
       description: Client API version.
       in: query
@@ -182,6 +174,14 @@ components:
       schema:
         type: string
         default: '2018-09-15'
+    resourceGroupName:
+      description: The name of the resource group.
+      in: path
+      name: resourceGroupName
+      required: true
+      x-ms-parameter-location: method
+      schema:
+        type: string
   securitySchemes:
     azure_auth:
       type: oauth2

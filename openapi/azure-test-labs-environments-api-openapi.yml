@@ -313,28 +313,6 @@ paths:
         required: true
 components:
   schemas:
-    ArmTemplateParameterProperties:
-      description: Properties of an Azure Resource Manager template parameter.
-      properties:
-        name:
-          description: The name of the template parameter.
-          type: string
-        value:
-          description: The value of the template parameter.
-          type: string
-      type: object
-    DtlEnvironment:
-      allOf:
-      - $ref: '#/components/schemas/Resource'
-      description: An environment, which is essentially an ARM template deployment.
-      properties:
-        properties:
-          $ref: '#/components/schemas/EnvironmentProperties'
-          description: The properties of the resource.
-          x-ms-client-flatten: true
-      required:
-      - properties
-      type: object
     DtlEnvironmentList:
       description: The response of a list operation.
       properties:
@@ -347,44 +325,15 @@ components:
             $ref: '#/components/schemas/DtlEnvironment'
           type: array
       type: object
-    CloudError:
-      description: Error from a REST request.
+    EnvironmentPropertiesFragment:
+      description: Properties of an environment.
       properties:
-        error:
-          $ref: '#/components/schemas/CloudErrorBody'
-          description: The cloud error that occurred
-      type: object
-      x-ms-external: true
-    CloudErrorBody:
-      description: Body of an error from a REST request.
-      properties:
-        code:
-          description: The error code.
+        armTemplateDisplayName:
+          description: The display name of the Azure Resource Manager template that produced the environment.
           type: string
-        details:
-          description: Inner errors.
-          items:
-            $ref: '#/components/schemas/CloudErrorBody'
-          type: array
-        message:
-          description: The error message.
-          type: string
-        target:
-          description: The error target.
-          type: string
-      type: object
-      x-ms-external: true
-    EnvironmentDeploymentPropertiesFragment:
-      description: Properties of an environment deployment.
-      properties:
-        armTemplateId:
-          description: The Azure Resource Manager template's identifier.
-          type: string
-        parameters:
-          description: The parameters of the Azure Resource Manager template.
-          items:
-            $ref: '#/components/schemas/ArmTemplateParameterPropertiesFragment'
-          type: array
+        deploymentProperties:
+          $ref: '#/components/schemas/EnvironmentDeploymentPropertiesFragment'
+          description: The deployment properties of the environment.
       type: object
     Resource:
       description: An Azure resource.
@@ -411,25 +360,34 @@ components:
           type: string
       type: object
       x-ms-azure-resource: true
-    ArmTemplateParameterPropertiesFragment:
-      description: Properties of an Azure Resource Manager template parameter.
+    CloudErrorBody:
+      description: Body of an error from a REST request.
       properties:
-        name:
-          description: The name of the template parameter.
+        code:
+          description: The error code.
           type: string
-        value:
-          description: The value of the template parameter.
+        details:
+          description: Inner errors.
+          items:
+            $ref: '#/components/schemas/CloudErrorBody'
+          type: array
+        message:
+          description: The error message.
+          type: string
+        target:
+          description: The error target.
           type: string
       type: object
-    EnvironmentPropertiesFragment:
-      description: Properties of an environment.
+      x-ms-external: true
+    DtlEnvironmentFragment:
+      allOf:
+      - $ref: '#/components/schemas/UpdateResource'
+      description: An environment, which is essentially an ARM template deployment.
       properties:
-        armTemplateDisplayName:
-          description: The display name of the Azure Resource Manager template that produced the environment.
-          type: string
-        deploymentProperties:
-          $ref: '#/components/schemas/EnvironmentDeploymentPropertiesFragment'
-          description: The deployment properties of the environment.
+        properties:
+          $ref: '#/components/schemas/EnvironmentPropertiesFragment'
+          description: The properties of the resource.
+          x-ms-client-flatten: true
       type: object
     UpdateResource:
       description: Represents an update resource
@@ -440,27 +398,35 @@ components:
           description: The tags of the resource.
           type: object
       type: object
-    EnvironmentDeploymentProperties:
-      description: Properties of an environment deployment.
-      properties:
-        armTemplateId:
-          description: The Azure Resource Manager template's identifier.
-          type: string
-        parameters:
-          description: The parameters of the Azure Resource Manager template.
-          items:
-            $ref: '#/components/schemas/ArmTemplateParameterProperties'
-          type: array
-      type: object
-    DtlEnvironmentFragment:
+    DtlEnvironment:
       allOf:
-      - $ref: '#/components/schemas/UpdateResource'
+      - $ref: '#/components/schemas/Resource'
       description: An environment, which is essentially an ARM template deployment.
       properties:
         properties:
-          $ref: '#/components/schemas/EnvironmentPropertiesFragment'
+          $ref: '#/components/schemas/EnvironmentProperties'
           description: The properties of the resource.
           x-ms-client-flatten: true
+      required:
+      - properties
+      type: object
+    CloudError:
+      description: Error from a REST request.
+      properties:
+        error:
+          $ref: '#/components/schemas/CloudErrorBody'
+          description: The cloud error that occurred
+      type: object
+      x-ms-external: true
+    ArmTemplateParameterProperties:
+      description: Properties of an Azure Resource Manager template parameter.
+      properties:
+        name:
+          description: The name of the template parameter.
+          type: string
+        value:
+          description: The value of the template parameter.
+          type: string
       type: object
     EnvironmentProperties:
       description: Properties of an environment.
@@ -488,20 +454,46 @@ components:
           readOnly: true
           type: string
       type: object
+    EnvironmentDeploymentProperties:
+      description: Properties of an environment deployment.
+      properties:
+        armTemplateId:
+          description: The Azure Resource Manager template's identifier.
+          type: string
+        parameters:
+          description: The parameters of the Azure Resource Manager template.
+          items:
+            $ref: '#/components/schemas/ArmTemplateParameterProperties'
+          type: array
+      type: object
+    ArmTemplateParameterPropertiesFragment:
+      description: Properties of an Azure Resource Manager template parameter.
+      properties:
+        name:
+          description: The name of the template parameter.
+          type: string
+        value:
+          description: The value of the template parameter.
+          type: string
+      type: object
+    EnvironmentDeploymentPropertiesFragment:
+      description: Properties of an environment deployment.
+      properties:
+        armTemplateId:
+          description: The Azure Resource Manager template's identifier.
+          type: string
+        parameters:
+          description: The parameters of the Azure Resource Manager template.
+          items:
+            $ref: '#/components/schemas/ArmTemplateParameterPropertiesFragment'
+          type: array
+      type: object
   parameters:
     subscriptionId:
       description: The subscription ID.
       in: path
       name: subscriptionId
       required: true
-      schema:
-        type: string
-    resourceGroupName:
-      description: The name of the resource group.
-      in: path
-      name: resourceGroupName
-      required: true
-      x-ms-parameter-location: method
       schema:
         type: string
     api-version:
@@ -512,6 +504,14 @@ components:
       schema:
         type: string
         default: '2018-09-15'
+    resourceGroupName:
+      description: The name of the resource group.
+      in: path
+      name: resourceGroupName
+      required: true
+      x-ms-parameter-location: method
+      schema:
+        type: string
   securitySchemes:
     azure_auth:
       type: oauth2

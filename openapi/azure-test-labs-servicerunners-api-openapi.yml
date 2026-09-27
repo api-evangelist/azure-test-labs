@@ -158,43 +158,31 @@ paths:
         description: A container for a managed identity to execute DevTest lab services.
         required: true
 components:
+  parameters:
+    subscriptionId:
+      description: The subscription ID.
+      in: path
+      name: subscriptionId
+      required: true
+      schema:
+        type: string
+    api-version:
+      description: Client API version.
+      in: query
+      name: api-version
+      required: true
+      schema:
+        type: string
+        default: '2018-09-15'
+    resourceGroupName:
+      description: The name of the resource group.
+      in: path
+      name: resourceGroupName
+      required: true
+      x-ms-parameter-location: method
+      schema:
+        type: string
   schemas:
-    CloudError:
-      description: Error from a REST request.
-      properties:
-        error:
-          $ref: '#/components/schemas/CloudErrorBody'
-          description: The cloud error that occurred
-      type: object
-      x-ms-external: true
-    CloudErrorBody:
-      description: Body of an error from a REST request.
-      properties:
-        code:
-          description: The error code.
-          type: string
-        details:
-          description: Inner errors.
-          items:
-            $ref: '#/components/schemas/CloudErrorBody'
-          type: array
-        message:
-          description: The error message.
-          type: string
-        target:
-          description: The error target.
-          type: string
-      type: object
-      x-ms-external: true
-    ServiceRunner:
-      allOf:
-      - $ref: '#/components/schemas/Resource'
-      description: A container for a managed identity to execute DevTest lab services.
-      properties:
-        identity:
-          $ref: '#/components/schemas/IdentityProperties'
-          description: The identity of the resource.
-      type: object
     Resource:
       description: An Azure resource.
       properties:
@@ -220,6 +208,42 @@ components:
           type: string
       type: object
       x-ms-azure-resource: true
+    ServiceRunner:
+      allOf:
+      - $ref: '#/components/schemas/Resource'
+      description: A container for a managed identity to execute DevTest lab services.
+      properties:
+        identity:
+          $ref: '#/components/schemas/IdentityProperties'
+          description: The identity of the resource.
+      type: object
+    CloudErrorBody:
+      description: Body of an error from a REST request.
+      properties:
+        code:
+          description: The error code.
+          type: string
+        details:
+          description: Inner errors.
+          items:
+            $ref: '#/components/schemas/CloudErrorBody'
+          type: array
+        message:
+          description: The error message.
+          type: string
+        target:
+          description: The error target.
+          type: string
+      type: object
+      x-ms-external: true
+    CloudError:
+      description: Error from a REST request.
+      properties:
+        error:
+          $ref: '#/components/schemas/CloudErrorBody'
+          description: The cloud error that occurred
+      type: object
+      x-ms-external: true
     IdentityProperties:
       description: Properties of a managed identity
       properties:
@@ -236,30 +260,6 @@ components:
           description: Managed identity.
           type: string
       type: object
-  parameters:
-    subscriptionId:
-      description: The subscription ID.
-      in: path
-      name: subscriptionId
-      required: true
-      schema:
-        type: string
-    resourceGroupName:
-      description: The name of the resource group.
-      in: path
-      name: resourceGroupName
-      required: true
-      x-ms-parameter-location: method
-      schema:
-        type: string
-    api-version:
-      description: Client API version.
-      in: query
-      name: api-version
-      required: true
-      schema:
-        type: string
-        default: '2018-09-15'
   securitySchemes:
     azure_auth:
       type: oauth2

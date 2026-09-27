@@ -829,157 +829,119 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    CloudErrorBody:
-      description: Body of an error from a REST request.
+    NetworkInterfaceProperties:
+      description: Properties of a network interface.
       properties:
-        code:
-          description: The error code.
+        dnsName:
+          description: The DNS name.
           type: string
-        details:
-          description: Inner errors.
-          items:
-            $ref: '#/components/schemas/CloudErrorBody'
-          type: array
-        message:
-          description: The error message.
+        privateIpAddress:
+          description: The private IP address.
           type: string
-        target:
-          description: The error target.
+        publicIpAddress:
+          description: The public IP address.
+          type: string
+        publicIpAddressId:
+          description: The resource ID of the public IP address.
+          type: string
+        rdpAuthority:
+          description: The RdpAuthority property is a server DNS host name or IP address followed by the service port number for RDP (Remote Desktop Protocol).
+          type: string
+        sharedPublicIpAddressConfiguration:
+          $ref: '#/components/schemas/SharedPublicIpAddressConfiguration'
+          description: The configuration for sharing a public IP address across multiple virtual machines.
+        sshAuthority:
+          description: The SshAuthority property is a server DNS host name or IP address followed by the service port number for SSH.
+          type: string
+        subnetId:
+          description: The resource ID of the sub net.
+          type: string
+        virtualNetworkId:
+          description: The resource ID of the virtual network.
           type: string
       type: object
-      x-ms-external: true
-    LabVirtualMachineCreationParameter:
-      description: Properties for creating a virtual machine.
+    Lab:
+      allOf:
+      - $ref: '#/components/schemas/Resource'
+      description: A lab.
       properties:
-        location:
-          description: The location of the new virtual machine or environment
-          type: string
-        name:
-          description: The name of the virtual machine or environment
-          type: string
         properties:
-          $ref: '#/components/schemas/LabVirtualMachineCreationParameterProperties'
+          $ref: '#/components/schemas/LabProperties'
           description: The properties of the resource.
           x-ms-client-flatten: true
+      type: object
+    GenerateUploadUriResponse:
+      description: Response body for generating an upload URI.
+      properties:
+        uploadUri:
+          description: The upload URI for the VHD.
+          type: string
+      type: object
+    ScheduleCreationParameterProperties:
+      description: Properties for schedule creation.
+      properties:
+        dailyRecurrence:
+          $ref: '#/components/schemas/DayDetails'
+          description: If the schedule will occur once each day of the week, specify the daily recurrence.
+        hourlyRecurrence:
+          $ref: '#/components/schemas/HourDetails'
+          description: If the schedule will occur multiple times a day, specify the hourly recurrence.
+        notificationSettings:
+          $ref: '#/components/schemas/NotificationSettings'
+          description: Notification settings.
+        status:
+          description: The status of the schedule (i.e. Enabled, Disabled)
+          enum:
+          - Enabled
+          - Disabled
+          type: string
+          x-ms-enum:
+            modelAsString: true
+            name: EnableStatus
+        targetResourceId:
+          description: The resource ID to which the schedule belongs
+          type: string
+        taskType:
+          description: The task type of the schedule (e.g. LabVmsShutdownTask, LabVmAutoStart).
+          type: string
+        timeZoneId:
+          description: The time zone ID (e.g. Pacific Standard time).
+          type: string
+        weeklyRecurrence:
+          $ref: '#/components/schemas/WeekDetails'
+          description: If the schedule will occur only some days of the week, specify the weekly recurrence.
+      type: object
+    LabSupportPropertiesFragment:
+      description: Properties of a lab's support banner
+      properties:
+        enabled:
+          description: Is the lab support banner active/enabled at this time?
+          enum:
+          - Enabled
+          - Disabled
+          type: string
+          x-ms-enum:
+            modelAsString: true
+            name: EnableStatus
+        markdown:
+          description: The markdown text (if any) that this lab displays in the UI. If left empty/null, nothing will be shown.
+          type: string
+      type: object
+    UpdateResource:
+      description: Represents an update resource
+      properties:
         tags:
           additionalProperties:
             type: string
           description: The tags of the resource.
           type: object
       type: object
-    LabProperties:
-      description: Properties of a lab.
+    DayDetails:
+      description: Properties of a daily schedule.
       properties:
-        announcement:
-          $ref: '#/components/schemas/LabAnnouncementProperties'
-          description: The properties of any lab announcement associated with this lab
-        artifactsStorageAccount:
-          description: The lab's artifact storage account.
-          readOnly: true
+        time:
+          description: The time of day the schedule will occur.
           type: string
-        createdDate:
-          description: The creation date of the lab.
-          format: date-time
-          readOnly: true
-          type: string
-        defaultPremiumStorageAccount:
-          description: The lab's default premium storage account.
-          readOnly: true
-          type: string
-        defaultStorageAccount:
-          description: The lab's default storage account.
-          readOnly: true
-          type: string
-        environmentPermission:
-          description: The access rights to be granted to the user when provisioning an environment
-          enum:
-          - Reader
-          - Contributor
-          type: string
-          x-ms-enum:
-            modelAsString: true
-            name: EnvironmentPermission
-        extendedProperties:
-          additionalProperties:
-            type: string
-          description: Extended properties of the lab used for experimental features
-          type: object
-        labStorageType:
-          description: Type of storage used by the lab. It can be either Premium or Standard. Default is Premium.
-          enum:
-          - Standard
-          - Premium
-          - StandardSSD
-          type: string
-          x-ms-enum:
-            modelAsString: true
-            name: StorageType
-        loadBalancerId:
-          description: The load balancer used to for lab VMs that use shared IP address.
-          readOnly: true
-          type: string
-        mandatoryArtifactsResourceIdsLinux:
-          description: The ordered list of artifact resource IDs that should be applied on all Linux VM creations by default, prior to the artifacts specified by the user.
-          items:
-            type: string
-          type: array
-        mandatoryArtifactsResourceIdsWindows:
-          description: The ordered list of artifact resource IDs that should be applied on all Windows VM creations by default, prior to the artifacts specified by the user.
-          items:
-            type: string
-          type: array
-        networkSecurityGroupId:
-          description: The Network Security Group attached to the lab VMs Network interfaces to restrict open ports.
-          readOnly: true
-          type: string
-        premiumDataDiskStorageAccount:
-          description: The lab's premium data disk storage account.
-          readOnly: true
-          type: string
-        premiumDataDisks:
-          description: 'The setting to enable usage of premium data disks.
-
-            When its value is ''Enabled'', creation of standard or premium data disks is allowed.
-
-            When its value is ''Disabled'', only creation of standard data disks is allowed.'
-          enum:
-          - Disabled
-          - Enabled
-          type: string
-          x-ms-enum:
-            modelAsString: true
-            name: PremiumDataDisk
-        provisioningState:
-          description: The provisioning status of the resource.
-          readOnly: true
-          type: string
-        publicIpId:
-          description: The public IP address for the lab's load balancer.
-          readOnly: true
-          type: string
-        support:
-          $ref: '#/components/schemas/LabSupportProperties'
-          description: The properties of any lab support message associated with this lab
-        uniqueIdentifier:
-          description: The unique immutable identifier of a resource (Guid).
-          readOnly: true
-          type: string
-        vaultName:
-          description: The lab's Key vault.
-          readOnly: true
-          type: string
-        vmCreationResourceGroup:
-          description: The resource group in which all new lab virtual machines will be created. To let DevTest Labs manage resource group creation, set this value to null.
-          readOnly: true
-          type: string
-      type: object
-    HourDetails:
-      description: Properties of an hourly schedule.
-      properties:
-        minute:
-          description: Minutes of the hour the schedule will run.
-          format: int32
-          type: integer
       type: object
     ArtifactInstallProperties:
       description: Properties of an artifact.
@@ -1008,18 +970,6 @@ components:
         vmExtensionStatusMessage:
           description: The status message from the virtual machine extension.
           type: string
-      type: object
-    LabVhdList:
-      description: The response of a list operation.
-      properties:
-        nextLink:
-          description: Link for next set of results.
-          type: string
-        value:
-          description: Results of the list operation.
-          items:
-            $ref: '#/components/schemas/LabVhd'
-          type: array
       type: object
     LabVirtualMachineCreationParameterProperties:
       description: Properties for virtual machine creation.
@@ -1136,71 +1086,6 @@ components:
             modelAsString: true
             name: VirtualMachineCreationSource
       type: object
-    GenerateUploadUriParameter:
-      description: Properties for generating an upload URI.
-      properties:
-        blobName:
-          description: The blob name of the upload URI.
-          type: string
-      type: object
-    CloudError:
-      description: Error from a REST request.
-      properties:
-        error:
-          $ref: '#/components/schemas/CloudErrorBody'
-          description: The cloud error that occurred
-      type: object
-      x-ms-external: true
-    ArtifactParameterProperties:
-      description: Properties of an artifact parameter.
-      properties:
-        name:
-          description: The name of the artifact parameter.
-          type: string
-        value:
-          description: The value of the artifact parameter.
-          type: string
-      type: object
-    InboundNatRule:
-      description: A rule for NAT - exposing a VM's port (backendPort) on the public IP address using a load balancer.
-      properties:
-        backendPort:
-          description: The port to which the external traffic will be redirected.
-          format: int32
-          type: integer
-        frontendPort:
-          description: The external endpoint port of the inbound connection. Possible values range between 1 and 65535, inclusive. If unspecified, a value will be allocated automatically.
-          format: int32
-          type: integer
-        transportProtocol:
-          description: The transport protocol for the endpoint.
-          enum:
-          - Tcp
-          - Udp
-          type: string
-          x-ms-enum:
-            modelAsString: true
-            name: TransportProtocol
-      type: object
-    WeekDetails:
-      description: Properties of a weekly schedule.
-      properties:
-        time:
-          description: The time of the day the schedule will occur.
-          type: string
-        weekdays:
-          description: The days of the week for which the schedule is set (e.g. Sunday, Monday, Tuesday, etc.).
-          items:
-            type: string
-          type: array
-      type: object
-    GenerateUploadUriResponse:
-      description: Response body for generating an upload URI.
-      properties:
-        uploadUri:
-          description: The upload URI for the VHD.
-          type: string
-      type: object
     DataDiskProperties:
       description: Request body for adding a new or existing data disk to a virtual machine.
       properties:
@@ -1220,205 +1105,6 @@ components:
           x-ms-enum:
             modelAsString: true
             name: HostCachingOptions
-      type: object
-    LabAnnouncementProperties:
-      description: Properties of a lab's announcement banner
-      properties:
-        enabled:
-          description: Is the lab announcement active/enabled at this time?
-          enum:
-          - Enabled
-          - Disabled
-          type: string
-          x-ms-enum:
-            modelAsString: true
-            name: EnableStatus
-        expirationDate:
-          description: The time at which the announcement expires (null for never)
-          format: date-time
-          type: string
-        expired:
-          description: Has this announcement expired?
-          type: boolean
-        markdown:
-          description: The markdown text (if any) that this lab displays in the UI. If left empty/null, nothing will be shown.
-          type: string
-        provisioningState:
-          description: The provisioning status of the resource.
-          readOnly: true
-          type: string
-        title:
-          description: The plain text title for the lab announcement
-          type: string
-        uniqueIdentifier:
-          description: The unique immutable identifier of a resource (Guid).
-          readOnly: true
-          type: string
-      type: object
-    UpdateResource:
-      description: Represents an update resource
-      properties:
-        tags:
-          additionalProperties:
-            type: string
-          description: The tags of the resource.
-          type: object
-      type: object
-    Lab:
-      allOf:
-      - $ref: '#/components/schemas/Resource'
-      description: A lab.
-      properties:
-        properties:
-          $ref: '#/components/schemas/LabProperties'
-          description: The properties of the resource.
-          x-ms-client-flatten: true
-      type: object
-    ImportLabVirtualMachineRequest:
-      description: This represents the payload required to import a virtual machine from a different lab into the current one
-      properties:
-        destinationVirtualMachineName:
-          description: The name of the virtual machine in the destination lab
-          type: string
-        sourceVirtualMachineResourceId:
-          description: The full resource ID of the virtual machine to be imported.
-          type: string
-      type: object
-    LabFragment:
-      allOf:
-      - $ref: '#/components/schemas/UpdateResource'
-      description: A lab.
-      properties:
-        properties:
-          $ref: '#/components/schemas/LabPropertiesFragment'
-          description: The properties of the resource.
-          x-ms-client-flatten: true
-      type: object
-    LabVhd:
-      description: Properties of a VHD in the lab.
-      properties:
-        id:
-          description: The URI to the VHD.
-          type: string
-      type: object
-    NotificationSettings:
-      description: Notification settings for a schedule.
-      properties:
-        emailRecipient:
-          description: The email recipient to send notifications to (can be a list of semi-colon separated email addresses).
-          type: string
-        notificationLocale:
-          description: The locale to use when sending a notification (fallback for unsupported languages is EN).
-          type: string
-        status:
-          description: If notifications are enabled for this schedule (i.e. Enabled, Disabled).
-          enum:
-          - Enabled
-          - Disabled
-          type: string
-          x-ms-enum:
-            modelAsString: true
-            name: EnableStatus
-        timeInMinutes:
-          description: Time in minutes before event at which notification will be sent.
-          format: int32
-          type: integer
-        webhookUrl:
-          description: The webhook URL to which the notification will be sent.
-          type: string
-      type: object
-    NetworkInterfaceProperties:
-      description: Properties of a network interface.
-      properties:
-        dnsName:
-          description: The DNS name.
-          type: string
-        privateIpAddress:
-          description: The private IP address.
-          type: string
-        publicIpAddress:
-          description: The public IP address.
-          type: string
-        publicIpAddressId:
-          description: The resource ID of the public IP address.
-          type: string
-        rdpAuthority:
-          description: The RdpAuthority property is a server DNS host name or IP address followed by the service port number for RDP (Remote Desktop Protocol).
-          type: string
-        sharedPublicIpAddressConfiguration:
-          $ref: '#/components/schemas/SharedPublicIpAddressConfiguration'
-          description: The configuration for sharing a public IP address across multiple virtual machines.
-        sshAuthority:
-          description: The SshAuthority property is a server DNS host name or IP address followed by the service port number for SSH.
-          type: string
-        subnetId:
-          description: The resource ID of the sub net.
-          type: string
-        virtualNetworkId:
-          description: The resource ID of the virtual network.
-          type: string
-      type: object
-    ScheduleCreationParameterProperties:
-      description: Properties for schedule creation.
-      properties:
-        dailyRecurrence:
-          $ref: '#/components/schemas/DayDetails'
-          description: If the schedule will occur once each day of the week, specify the daily recurrence.
-        hourlyRecurrence:
-          $ref: '#/components/schemas/HourDetails'
-          description: If the schedule will occur multiple times a day, specify the hourly recurrence.
-        notificationSettings:
-          $ref: '#/components/schemas/NotificationSettings'
-          description: Notification settings.
-        status:
-          description: The status of the schedule (i.e. Enabled, Disabled)
-          enum:
-          - Enabled
-          - Disabled
-          type: string
-          x-ms-enum:
-            modelAsString: true
-            name: EnableStatus
-        targetResourceId:
-          description: The resource ID to which the schedule belongs
-          type: string
-        taskType:
-          description: The task type of the schedule (e.g. LabVmsShutdownTask, LabVmAutoStart).
-          type: string
-        timeZoneId:
-          description: The time zone ID (e.g. Pacific Standard time).
-          type: string
-        weeklyRecurrence:
-          $ref: '#/components/schemas/WeekDetails'
-          description: If the schedule will occur only some days of the week, specify the weekly recurrence.
-      type: object
-    GalleryImageReference:
-      description: The reference information for an Azure Marketplace image.
-      properties:
-        offer:
-          description: The offer of the gallery image.
-          type: string
-        osType:
-          description: The OS type of the gallery image.
-          type: string
-        publisher:
-          description: The publisher of the gallery image.
-          type: string
-        sku:
-          description: The SKU of the gallery image.
-          type: string
-        version:
-          description: The version of the gallery image.
-          type: string
-      type: object
-    SharedPublicIpAddressConfiguration:
-      description: Properties of a virtual machine that determine how it is connected to a load balancer.
-      properties:
-        inboundNatRules:
-          description: The incoming NAT rules
-          items:
-            $ref: '#/components/schemas/InboundNatRule'
-          type: array
       type: object
     LabPropertiesFragment:
       description: Properties of a lab.
@@ -1477,24 +1163,12 @@ components:
           $ref: '#/components/schemas/LabSupportPropertiesFragment'
           description: The properties of any lab support message associated with this lab
       type: object
-    ScheduleCreationParameter:
-      description: Properties for creating a schedule.
+    LabVhd:
+      description: Properties of a VHD in the lab.
       properties:
-        location:
-          description: The location of the new virtual machine or environment
+        id:
+          description: The URI to the VHD.
           type: string
-        name:
-          description: The name of the virtual machine or environment
-          type: string
-        properties:
-          $ref: '#/components/schemas/ScheduleCreationParameterProperties'
-          description: The properties of the schedule.
-          x-ms-client-flatten: true
-        tags:
-          additionalProperties:
-            type: string
-          description: The tags of the resource.
-          type: object
       type: object
     Resource:
       description: An Azure resource.
@@ -1521,7 +1195,41 @@ components:
           type: string
       type: object
       x-ms-azure-resource: true
-    LabSupportPropertiesFragment:
+    WeekDetails:
+      description: Properties of a weekly schedule.
+      properties:
+        time:
+          description: The time of the day the schedule will occur.
+          type: string
+        weekdays:
+          description: The days of the week for which the schedule is set (e.g. Sunday, Monday, Tuesday, etc.).
+          items:
+            type: string
+          type: array
+      type: object
+    LabFragment:
+      allOf:
+      - $ref: '#/components/schemas/UpdateResource'
+      description: A lab.
+      properties:
+        properties:
+          $ref: '#/components/schemas/LabPropertiesFragment'
+          description: The properties of the resource.
+          x-ms-client-flatten: true
+      type: object
+    LabList:
+      description: The response of a list operation.
+      properties:
+        nextLink:
+          description: Link for next set of results.
+          type: string
+        value:
+          description: Results of the list operation.
+          items:
+            $ref: '#/components/schemas/Lab'
+          type: array
+      type: object
+    LabSupportProperties:
       description: Properties of a lab's support banner
       properties:
         enabled:
@@ -1535,17 +1243,6 @@ components:
             name: EnableStatus
         markdown:
           description: The markdown text (if any) that this lab displays in the UI. If left empty/null, nothing will be shown.
-          type: string
-      type: object
-    ExportResourceUsageParameters:
-      description: The parameters of the export operation.
-      properties:
-        blobStorageAbsoluteSasUri:
-          description: The blob storage absolute sas uri with write permission to the container which the usage data needs to be uploaded to.
-          type: string
-        usageStartDate:
-          description: The start time of the usage. If not provided, usage will be reported since the beginning of data collection.
-          format: date-time
           type: string
       type: object
     ArtifactDeploymentStatusProperties:
@@ -1563,6 +1260,307 @@ components:
           format: int32
           type: integer
       type: object
+    LabAnnouncementProperties:
+      description: Properties of a lab's announcement banner
+      properties:
+        enabled:
+          description: Is the lab announcement active/enabled at this time?
+          enum:
+          - Enabled
+          - Disabled
+          type: string
+          x-ms-enum:
+            modelAsString: true
+            name: EnableStatus
+        expirationDate:
+          description: The time at which the announcement expires (null for never)
+          format: date-time
+          type: string
+        expired:
+          description: Has this announcement expired?
+          type: boolean
+        markdown:
+          description: The markdown text (if any) that this lab displays in the UI. If left empty/null, nothing will be shown.
+          type: string
+        provisioningState:
+          description: The provisioning status of the resource.
+          readOnly: true
+          type: string
+        title:
+          description: The plain text title for the lab announcement
+          type: string
+        uniqueIdentifier:
+          description: The unique immutable identifier of a resource (Guid).
+          readOnly: true
+          type: string
+      type: object
+    LabVhdList:
+      description: The response of a list operation.
+      properties:
+        nextLink:
+          description: Link for next set of results.
+          type: string
+        value:
+          description: Results of the list operation.
+          items:
+            $ref: '#/components/schemas/LabVhd'
+          type: array
+      type: object
+    SharedPublicIpAddressConfiguration:
+      description: Properties of a virtual machine that determine how it is connected to a load balancer.
+      properties:
+        inboundNatRules:
+          description: The incoming NAT rules
+          items:
+            $ref: '#/components/schemas/InboundNatRule'
+          type: array
+      type: object
+    GalleryImageReference:
+      description: The reference information for an Azure Marketplace image.
+      properties:
+        offer:
+          description: The offer of the gallery image.
+          type: string
+        osType:
+          description: The OS type of the gallery image.
+          type: string
+        publisher:
+          description: The publisher of the gallery image.
+          type: string
+        sku:
+          description: The SKU of the gallery image.
+          type: string
+        version:
+          description: The version of the gallery image.
+          type: string
+      type: object
+    HourDetails:
+      description: Properties of an hourly schedule.
+      properties:
+        minute:
+          description: Minutes of the hour the schedule will run.
+          format: int32
+          type: integer
+      type: object
+    ExportResourceUsageParameters:
+      description: The parameters of the export operation.
+      properties:
+        blobStorageAbsoluteSasUri:
+          description: The blob storage absolute sas uri with write permission to the container which the usage data needs to be uploaded to.
+          type: string
+        usageStartDate:
+          description: The start time of the usage. If not provided, usage will be reported since the beginning of data collection.
+          format: date-time
+          type: string
+      type: object
+    ImportLabVirtualMachineRequest:
+      description: This represents the payload required to import a virtual machine from a different lab into the current one
+      properties:
+        destinationVirtualMachineName:
+          description: The name of the virtual machine in the destination lab
+          type: string
+        sourceVirtualMachineResourceId:
+          description: The full resource ID of the virtual machine to be imported.
+          type: string
+      type: object
+    LabProperties:
+      description: Properties of a lab.
+      properties:
+        announcement:
+          $ref: '#/components/schemas/LabAnnouncementProperties'
+          description: The properties of any lab announcement associated with this lab
+        artifactsStorageAccount:
+          description: The lab's artifact storage account.
+          readOnly: true
+          type: string
+        createdDate:
+          description: The creation date of the lab.
+          format: date-time
+          readOnly: true
+          type: string
+        defaultPremiumStorageAccount:
+          description: The lab's default premium storage account.
+          readOnly: true
+          type: string
+        defaultStorageAccount:
+          description: The lab's default storage account.
+          readOnly: true
+          type: string
+        environmentPermission:
+          description: The access rights to be granted to the user when provisioning an environment
+          enum:
+          - Reader
+          - Contributor
+          type: string
+          x-ms-enum:
+            modelAsString: true
+            name: EnvironmentPermission
+        extendedProperties:
+          additionalProperties:
+            type: string
+          description: Extended properties of the lab used for experimental features
+          type: object
+        labStorageType:
+          description: Type of storage used by the lab. It can be either Premium or Standard. Default is Premium.
+          enum:
+          - Standard
+          - Premium
+          - StandardSSD
+          type: string
+          x-ms-enum:
+            modelAsString: true
+            name: StorageType
+        loadBalancerId:
+          description: The load balancer used to for lab VMs that use shared IP address.
+          readOnly: true
+          type: string
+        mandatoryArtifactsResourceIdsLinux:
+          description: The ordered list of artifact resource IDs that should be applied on all Linux VM creations by default, prior to the artifacts specified by the user.
+          items:
+            type: string
+          type: array
+        mandatoryArtifactsResourceIdsWindows:
+          description: The ordered list of artifact resource IDs that should be applied on all Windows VM creations by default, prior to the artifacts specified by the user.
+          items:
+            type: string
+          type: array
+        networkSecurityGroupId:
+          description: The Network Security Group attached to the lab VMs Network interfaces to restrict open ports.
+          readOnly: true
+          type: string
+        premiumDataDiskStorageAccount:
+          description: The lab's premium data disk storage account.
+          readOnly: true
+          type: string
+        premiumDataDisks:
+          description: 'The setting to enable usage of premium data disks.
+
+            When its value is ''Enabled'', creation of standard or premium data disks is allowed.
+
+            When its value is ''Disabled'', only creation of standard data disks is allowed.'
+          enum:
+          - Disabled
+          - Enabled
+          type: string
+          x-ms-enum:
+            modelAsString: true
+            name: PremiumDataDisk
+        provisioningState:
+          description: The provisioning status of the resource.
+          readOnly: true
+          type: string
+        publicIpId:
+          description: The public IP address for the lab's load balancer.
+          readOnly: true
+          type: string
+        support:
+          $ref: '#/components/schemas/LabSupportProperties'
+          description: The properties of any lab support message associated with this lab
+        uniqueIdentifier:
+          description: The unique immutable identifier of a resource (Guid).
+          readOnly: true
+          type: string
+        vaultName:
+          description: The lab's Key vault.
+          readOnly: true
+          type: string
+        vmCreationResourceGroup:
+          description: The resource group in which all new lab virtual machines will be created. To let DevTest Labs manage resource group creation, set this value to null.
+          readOnly: true
+          type: string
+      type: object
+    BulkCreationParameters:
+      description: Parameters for creating multiple virtual machines as a single action.
+      properties:
+        instanceCount:
+          description: The number of virtual machine instances to create.
+          format: int32
+          type: integer
+      type: object
+    InboundNatRule:
+      description: A rule for NAT - exposing a VM's port (backendPort) on the public IP address using a load balancer.
+      properties:
+        backendPort:
+          description: The port to which the external traffic will be redirected.
+          format: int32
+          type: integer
+        frontendPort:
+          description: The external endpoint port of the inbound connection. Possible values range between 1 and 65535, inclusive. If unspecified, a value will be allocated automatically.
+          format: int32
+          type: integer
+        transportProtocol:
+          description: The transport protocol for the endpoint.
+          enum:
+          - Tcp
+          - Udp
+          type: string
+          x-ms-enum:
+            modelAsString: true
+            name: TransportProtocol
+      type: object
+    LabVirtualMachineCreationParameter:
+      description: Properties for creating a virtual machine.
+      properties:
+        location:
+          description: The location of the new virtual machine or environment
+          type: string
+        name:
+          description: The name of the virtual machine or environment
+          type: string
+        properties:
+          $ref: '#/components/schemas/LabVirtualMachineCreationParameterProperties'
+          description: The properties of the resource.
+          x-ms-client-flatten: true
+        tags:
+          additionalProperties:
+            type: string
+          description: The tags of the resource.
+          type: object
+      type: object
+    ArtifactParameterProperties:
+      description: Properties of an artifact parameter.
+      properties:
+        name:
+          description: The name of the artifact parameter.
+          type: string
+        value:
+          description: The value of the artifact parameter.
+          type: string
+      type: object
+    NotificationSettings:
+      description: Notification settings for a schedule.
+      properties:
+        emailRecipient:
+          description: The email recipient to send notifications to (can be a list of semi-colon separated email addresses).
+          type: string
+        notificationLocale:
+          description: The locale to use when sending a notification (fallback for unsupported languages is EN).
+          type: string
+        status:
+          description: If notifications are enabled for this schedule (i.e. Enabled, Disabled).
+          enum:
+          - Enabled
+          - Disabled
+          type: string
+          x-ms-enum:
+            modelAsString: true
+            name: EnableStatus
+        timeInMinutes:
+          description: Time in minutes before event at which notification will be sent.
+          format: int32
+          type: integer
+        webhookUrl:
+          description: The webhook URL to which the notification will be sent.
+          type: string
+      type: object
+    CloudError:
+      description: Error from a REST request.
+      properties:
+        error:
+          $ref: '#/components/schemas/CloudErrorBody'
+          description: The cloud error that occurred
+      type: object
+      x-ms-external: true
     LabAnnouncementPropertiesFragment:
       description: Properties of a lab's announcement banner
       properties:
@@ -1589,6 +1587,32 @@ components:
           description: The plain text title for the lab announcement
           type: string
       type: object
+    CloudErrorBody:
+      description: Body of an error from a REST request.
+      properties:
+        code:
+          description: The error code.
+          type: string
+        details:
+          description: Inner errors.
+          items:
+            $ref: '#/components/schemas/CloudErrorBody'
+          type: array
+        message:
+          description: The error message.
+          type: string
+        target:
+          description: The error target.
+          type: string
+      type: object
+      x-ms-external: true
+    GenerateUploadUriParameter:
+      description: Properties for generating an upload URI.
+      properties:
+        blobName:
+          description: The blob name of the upload URI.
+          type: string
+      type: object
     AttachNewDataDiskOptions:
       description: Properties to attach new disk to the Virtual Machine.
       properties:
@@ -1610,48 +1634,24 @@ components:
             modelAsString: true
             name: StorageType
       type: object
-    LabSupportProperties:
-      description: Properties of a lab's support banner
+    ScheduleCreationParameter:
+      description: Properties for creating a schedule.
       properties:
-        enabled:
-          description: Is the lab support banner active/enabled at this time?
-          enum:
-          - Enabled
-          - Disabled
+        location:
+          description: The location of the new virtual machine or environment
           type: string
-          x-ms-enum:
-            modelAsString: true
-            name: EnableStatus
-        markdown:
-          description: The markdown text (if any) that this lab displays in the UI. If left empty/null, nothing will be shown.
+        name:
+          description: The name of the virtual machine or environment
           type: string
-      type: object
-    DayDetails:
-      description: Properties of a daily schedule.
-      properties:
-        time:
-          description: The time of day the schedule will occur.
-          type: string
-      type: object
-    LabList:
-      description: The response of a list operation.
-      properties:
-        nextLink:
-          description: Link for next set of results.
-          type: string
-        value:
-          description: Results of the list operation.
-          items:
-            $ref: '#/components/schemas/Lab'
-          type: array
-      type: object
-    BulkCreationParameters:
-      description: Parameters for creating multiple virtual machines as a single action.
-      properties:
-        instanceCount:
-          description: The number of virtual machine instances to create.
-          format: int32
-          type: integer
+        properties:
+          $ref: '#/components/schemas/ScheduleCreationParameterProperties'
+          description: The properties of the schedule.
+          x-ms-client-flatten: true
+        tags:
+          additionalProperties:
+            type: string
+          description: The tags of the resource.
+          type: object
       type: object
   parameters:
     subscriptionId:

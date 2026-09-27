@@ -309,6 +309,64 @@ paths:
         required: true
 components:
   schemas:
+    PolicyList:
+      description: The response of a list operation.
+      properties:
+        nextLink:
+          description: Link for next set of results.
+          type: string
+        value:
+          description: Results of the list operation.
+          items:
+            $ref: '#/components/schemas/Policy'
+          type: array
+      type: object
+    PolicyFragment:
+      allOf:
+      - $ref: '#/components/schemas/UpdateResource'
+      description: A Policy.
+      properties:
+        properties:
+          $ref: '#/components/schemas/PolicyPropertiesFragment'
+          description: The properties of the resource.
+          x-ms-client-flatten: true
+      type: object
+    CloudErrorBody:
+      description: Body of an error from a REST request.
+      properties:
+        code:
+          description: The error code.
+          type: string
+        details:
+          description: Inner errors.
+          items:
+            $ref: '#/components/schemas/CloudErrorBody'
+          type: array
+        message:
+          description: The error message.
+          type: string
+        target:
+          description: The error target.
+          type: string
+      type: object
+      x-ms-external: true
+    CloudError:
+      description: Error from a REST request.
+      properties:
+        error:
+          $ref: '#/components/schemas/CloudErrorBody'
+          description: The cloud error that occurred
+      type: object
+      x-ms-external: true
+    UpdateResource:
+      description: Represents an update resource
+      properties:
+        tags:
+          additionalProperties:
+            type: string
+          description: The tags of the resource.
+          type: object
+      type: object
     PolicyProperties:
       description: Properties of a Policy.
       properties:
@@ -370,6 +428,43 @@ components:
           readOnly: true
           type: string
       type: object
+    Resource:
+      description: An Azure resource.
+      properties:
+        id:
+          description: The identifier of the resource.
+          readOnly: true
+          type: string
+        location:
+          description: The location of the resource.
+          type: string
+        name:
+          description: The name of the resource.
+          readOnly: true
+          type: string
+        tags:
+          additionalProperties:
+            type: string
+          description: The tags of the resource.
+          type: object
+        type:
+          description: The type of the resource.
+          readOnly: true
+          type: string
+      type: object
+      x-ms-azure-resource: true
+    Policy:
+      allOf:
+      - $ref: '#/components/schemas/Resource'
+      description: A Policy.
+      properties:
+        properties:
+          $ref: '#/components/schemas/PolicyProperties'
+          description: The properties of the resource.
+          x-ms-client-flatten: true
+      required:
+      - properties
+      type: object
     PolicyPropertiesFragment:
       description: Properties of a Policy.
       properties:
@@ -418,115 +513,12 @@ components:
           description: The threshold of the policy (i.e. a number for MaxValuePolicy, and a JSON array of values for AllowedValuesPolicy).
           type: string
       type: object
-    CloudError:
-      description: Error from a REST request.
-      properties:
-        error:
-          $ref: '#/components/schemas/CloudErrorBody'
-          description: The cloud error that occurred
-      type: object
-      x-ms-external: true
-    CloudErrorBody:
-      description: Body of an error from a REST request.
-      properties:
-        code:
-          description: The error code.
-          type: string
-        details:
-          description: Inner errors.
-          items:
-            $ref: '#/components/schemas/CloudErrorBody'
-          type: array
-        message:
-          description: The error message.
-          type: string
-        target:
-          description: The error target.
-          type: string
-      type: object
-      x-ms-external: true
-    PolicyList:
-      description: The response of a list operation.
-      properties:
-        nextLink:
-          description: Link for next set of results.
-          type: string
-        value:
-          description: Results of the list operation.
-          items:
-            $ref: '#/components/schemas/Policy'
-          type: array
-      type: object
-    PolicyFragment:
-      allOf:
-      - $ref: '#/components/schemas/UpdateResource'
-      description: A Policy.
-      properties:
-        properties:
-          $ref: '#/components/schemas/PolicyPropertiesFragment'
-          description: The properties of the resource.
-          x-ms-client-flatten: true
-      type: object
-    UpdateResource:
-      description: Represents an update resource
-      properties:
-        tags:
-          additionalProperties:
-            type: string
-          description: The tags of the resource.
-          type: object
-      type: object
-    Resource:
-      description: An Azure resource.
-      properties:
-        id:
-          description: The identifier of the resource.
-          readOnly: true
-          type: string
-        location:
-          description: The location of the resource.
-          type: string
-        name:
-          description: The name of the resource.
-          readOnly: true
-          type: string
-        tags:
-          additionalProperties:
-            type: string
-          description: The tags of the resource.
-          type: object
-        type:
-          description: The type of the resource.
-          readOnly: true
-          type: string
-      type: object
-      x-ms-azure-resource: true
-    Policy:
-      allOf:
-      - $ref: '#/components/schemas/Resource'
-      description: A Policy.
-      properties:
-        properties:
-          $ref: '#/components/schemas/PolicyProperties'
-          description: The properties of the resource.
-          x-ms-client-flatten: true
-      required:
-      - properties
-      type: object
   parameters:
     subscriptionId:
       description: The subscription ID.
       in: path
       name: subscriptionId
       required: true
-      schema:
-        type: string
-    resourceGroupName:
-      description: The name of the resource group.
-      in: path
-      name: resourceGroupName
-      required: true
-      x-ms-parameter-location: method
       schema:
         type: string
     api-version:
@@ -537,6 +529,14 @@ components:
       schema:
         type: string
         default: '2018-09-15'
+    resourceGroupName:
+      description: The name of the resource group.
+      in: path
+      name: resourceGroupName
+      required: true
+      x-ms-parameter-location: method
+      schema:
+        type: string
   securitySchemes:
     azure_auth:
       type: oauth2

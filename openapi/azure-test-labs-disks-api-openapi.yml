@@ -421,6 +421,46 @@ paths:
         required: true
 components:
   schemas:
+    DetachDiskProperties:
+      description: Properties of the disk to detach.
+      properties:
+        leasedByLabVmId:
+          description: The resource ID of the Lab VM to which the disk is attached.
+          type: string
+      type: object
+    DiskPropertiesFragment:
+      description: Properties of a disk.
+      properties:
+        diskBlobName:
+          description: When backed by a blob, the name of the VHD blob without extension.
+          type: string
+        diskSizeGiB:
+          description: The size of the disk in GibiBytes.
+          format: int32
+          type: integer
+        diskType:
+          description: The storage type for the disk (i.e. Standard, Premium).
+          enum:
+          - Standard
+          - Premium
+          - StandardSSD
+          type: string
+          x-ms-enum:
+            modelAsString: true
+            name: StorageType
+        diskUri:
+          description: When backed by a blob, the URI of underlying blob.
+          type: string
+        hostCaching:
+          description: The host caching policy of the disk (i.e. None, ReadOnly, ReadWrite).
+          type: string
+        leasedByLabVmId:
+          description: The resource ID of the VM to which this disk is leased.
+          type: string
+        managedDiskId:
+          description: When backed by managed disk, this is the ID of the compute disk resource.
+          type: string
+      type: object
     AttachDiskProperties:
       description: Properties of the disk to attach.
       properties:
@@ -428,14 +468,43 @@ components:
           description: The resource ID of the Lab virtual machine to which the disk is attached.
           type: string
       type: object
-    CloudError:
-      description: Error from a REST request.
+    DiskList:
+      description: The response of a list operation.
       properties:
-        error:
-          $ref: '#/components/schemas/CloudErrorBody'
-          description: The cloud error that occurred
+        nextLink:
+          description: Link for next set of results.
+          type: string
+        value:
+          description: Results of the list operation.
+          items:
+            $ref: '#/components/schemas/Disk'
+          type: array
       type: object
-      x-ms-external: true
+    Resource:
+      description: An Azure resource.
+      properties:
+        id:
+          description: The identifier of the resource.
+          readOnly: true
+          type: string
+        location:
+          description: The location of the resource.
+          type: string
+        name:
+          description: The name of the resource.
+          readOnly: true
+          type: string
+        tags:
+          additionalProperties:
+            type: string
+          description: The tags of the resource.
+          type: object
+        type:
+          description: The type of the resource.
+          readOnly: true
+          type: string
+      type: object
+      x-ms-azure-resource: true
     DiskFragment:
       allOf:
       - $ref: '#/components/schemas/UpdateResource'
@@ -465,6 +534,35 @@ components:
           type: string
       type: object
       x-ms-external: true
+    CloudError:
+      description: Error from a REST request.
+      properties:
+        error:
+          $ref: '#/components/schemas/CloudErrorBody'
+          description: The cloud error that occurred
+      type: object
+      x-ms-external: true
+    UpdateResource:
+      description: Represents an update resource
+      properties:
+        tags:
+          additionalProperties:
+            type: string
+          description: The tags of the resource.
+          type: object
+      type: object
+    Disk:
+      allOf:
+      - $ref: '#/components/schemas/Resource'
+      description: A Disk.
+      properties:
+        properties:
+          $ref: '#/components/schemas/DiskProperties'
+          description: The properties of the resource.
+          x-ms-client-flatten: true
+      required:
+      - properties
+      type: object
     DiskProperties:
       description: Properties of a disk.
       properties:
@@ -511,118 +609,12 @@ components:
           readOnly: true
           type: string
       type: object
-    DetachDiskProperties:
-      description: Properties of the disk to detach.
-      properties:
-        leasedByLabVmId:
-          description: The resource ID of the Lab VM to which the disk is attached.
-          type: string
-      type: object
-    Disk:
-      allOf:
-      - $ref: '#/components/schemas/Resource'
-      description: A Disk.
-      properties:
-        properties:
-          $ref: '#/components/schemas/DiskProperties'
-          description: The properties of the resource.
-          x-ms-client-flatten: true
-      required:
-      - properties
-      type: object
-    DiskList:
-      description: The response of a list operation.
-      properties:
-        nextLink:
-          description: Link for next set of results.
-          type: string
-        value:
-          description: Results of the list operation.
-          items:
-            $ref: '#/components/schemas/Disk'
-          type: array
-      type: object
-    DiskPropertiesFragment:
-      description: Properties of a disk.
-      properties:
-        diskBlobName:
-          description: When backed by a blob, the name of the VHD blob without extension.
-          type: string
-        diskSizeGiB:
-          description: The size of the disk in GibiBytes.
-          format: int32
-          type: integer
-        diskType:
-          description: The storage type for the disk (i.e. Standard, Premium).
-          enum:
-          - Standard
-          - Premium
-          - StandardSSD
-          type: string
-          x-ms-enum:
-            modelAsString: true
-            name: StorageType
-        diskUri:
-          description: When backed by a blob, the URI of underlying blob.
-          type: string
-        hostCaching:
-          description: The host caching policy of the disk (i.e. None, ReadOnly, ReadWrite).
-          type: string
-        leasedByLabVmId:
-          description: The resource ID of the VM to which this disk is leased.
-          type: string
-        managedDiskId:
-          description: When backed by managed disk, this is the ID of the compute disk resource.
-          type: string
-      type: object
-    UpdateResource:
-      description: Represents an update resource
-      properties:
-        tags:
-          additionalProperties:
-            type: string
-          description: The tags of the resource.
-          type: object
-      type: object
-    Resource:
-      description: An Azure resource.
-      properties:
-        id:
-          description: The identifier of the resource.
-          readOnly: true
-          type: string
-        location:
-          description: The location of the resource.
-          type: string
-        name:
-          description: The name of the resource.
-          readOnly: true
-          type: string
-        tags:
-          additionalProperties:
-            type: string
-          description: The tags of the resource.
-          type: object
-        type:
-          description: The type of the resource.
-          readOnly: true
-          type: string
-      type: object
-      x-ms-azure-resource: true
   parameters:
     subscriptionId:
       description: The subscription ID.
       in: path
       name: subscriptionId
       required: true
-      schema:
-        type: string
-    resourceGroupName:
-      description: The name of the resource group.
-      in: path
-      name: resourceGroupName
-      required: true
-      x-ms-parameter-location: method
       schema:
         type: string
     api-version:
@@ -633,6 +625,14 @@ components:
       schema:
         type: string
         default: '2018-09-15'
+    resourceGroupName:
+      description: The name of the resource group.
+      in: path
+      name: resourceGroupName
+      required: true
+      x-ms-parameter-location: method
+      schema:
+        type: string
   securitySchemes:
     azure_auth:
       type: oauth2

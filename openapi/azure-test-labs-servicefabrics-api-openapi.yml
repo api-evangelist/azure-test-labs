@@ -455,14 +455,32 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    ServiceFabricPropertiesFragment:
-      description: Properties of a service fabric.
+    ApplicableSchedule:
+      allOf:
+      - $ref: '#/components/schemas/Resource'
+      description: Schedules applicable to a virtual machine. The schedules may have been defined on a VM or on lab level.
       properties:
-        environmentId:
-          description: The resource id of the environment under which the service fabric resource is present
-          type: string
-        externalServiceFabricId:
-          description: The backing service fabric resource's id
+        properties:
+          $ref: '#/components/schemas/ApplicableScheduleProperties'
+          description: The properties of the resource.
+          x-ms-client-flatten: true
+      required:
+      - properties
+      type: object
+    UpdateResource:
+      description: Represents an update resource
+      properties:
+        tags:
+          additionalProperties:
+            type: string
+          description: The tags of the resource.
+          type: object
+      type: object
+    DayDetails:
+      description: Properties of a daily schedule.
+      properties:
+        time:
+          description: The time of day the schedule will occur.
           type: string
       type: object
     ScheduleProperties:
@@ -512,64 +530,15 @@ components:
           $ref: '#/components/schemas/WeekDetails'
           description: If the schedule will occur only some days of the week, specify the weekly recurrence.
       type: object
-    CloudErrorBody:
-      description: Body of an error from a REST request.
-      properties:
-        code:
-          description: The error code.
-          type: string
-        details:
-          description: Inner errors.
-          items:
-            $ref: '#/components/schemas/CloudErrorBody'
-          type: array
-        message:
-          description: The error message.
-          type: string
-        target:
-          description: The error target.
-          type: string
-      type: object
-      x-ms-external: true
-    HourDetails:
-      description: Properties of an hourly schedule.
-      properties:
-        minute:
-          description: Minutes of the hour the schedule will run.
-          format: int32
-          type: integer
-      type: object
-    ApplicableSchedule:
+    ServiceFabricFragment:
       allOf:
-      - $ref: '#/components/schemas/Resource'
-      description: Schedules applicable to a virtual machine. The schedules may have been defined on a VM or on lab level.
+      - $ref: '#/components/schemas/UpdateResource'
+      description: A Service Fabric.
       properties:
         properties:
-          $ref: '#/components/schemas/ApplicableScheduleProperties'
+          $ref: '#/components/schemas/ServiceFabricPropertiesFragment'
           description: The properties of the resource.
           x-ms-client-flatten: true
-      required:
-      - properties
-      type: object
-    CloudError:
-      description: Error from a REST request.
-      properties:
-        error:
-          $ref: '#/components/schemas/CloudErrorBody'
-          description: The cloud error that occurred
-      type: object
-      x-ms-external: true
-    WeekDetails:
-      description: Properties of a weekly schedule.
-      properties:
-        time:
-          description: The time of the day the schedule will occur.
-          type: string
-        weekdays:
-          description: The days of the week for which the schedule is set (e.g. Sunday, Monday, Tuesday, etc.).
-          items:
-            type: string
-          type: array
       type: object
     ServiceFabricList:
       description: The response of a list operation.
@@ -583,22 +552,80 @@ components:
             $ref: '#/components/schemas/ServiceFabric'
           type: array
       type: object
-    UpdateResource:
-      description: Represents an update resource
+    Resource:
+      description: An Azure resource.
       properties:
+        id:
+          description: The identifier of the resource.
+          readOnly: true
+          type: string
+        location:
+          description: The location of the resource.
+          type: string
+        name:
+          description: The name of the resource.
+          readOnly: true
+          type: string
         tags:
           additionalProperties:
             type: string
           description: The tags of the resource.
           type: object
+        type:
+          description: The type of the resource.
+          readOnly: true
+          type: string
       type: object
-    Schedule:
+      x-ms-azure-resource: true
+    WeekDetails:
+      description: Properties of a weekly schedule.
+      properties:
+        time:
+          description: The time of the day the schedule will occur.
+          type: string
+        weekdays:
+          description: The days of the week for which the schedule is set (e.g. Sunday, Monday, Tuesday, etc.).
+          items:
+            type: string
+          type: array
+      type: object
+    HourDetails:
+      description: Properties of an hourly schedule.
+      properties:
+        minute:
+          description: Minutes of the hour the schedule will run.
+          format: int32
+          type: integer
+      type: object
+    ServiceFabricProperties:
+      description: Properties of a service fabric.
+      properties:
+        applicableSchedule:
+          $ref: '#/components/schemas/ApplicableSchedule'
+          description: The applicable schedule for the virtual machine.
+          readOnly: true
+        environmentId:
+          description: The resource id of the environment under which the service fabric resource is present
+          type: string
+        externalServiceFabricId:
+          description: The backing service fabric resource's id
+          type: string
+        provisioningState:
+          description: The provisioning status of the resource.
+          readOnly: true
+          type: string
+        uniqueIdentifier:
+          description: The unique immutable identifier of a resource (Guid).
+          readOnly: true
+          type: string
+      type: object
+    ServiceFabric:
       allOf:
       - $ref: '#/components/schemas/Resource'
-      description: A schedule.
+      description: A Service Fabric.
       properties:
         properties:
-          $ref: '#/components/schemas/ScheduleProperties'
+          $ref: '#/components/schemas/ServiceFabricProperties'
           description: The properties of the resource.
           x-ms-client-flatten: true
       required:
@@ -613,16 +640,6 @@ components:
         labVmsStartup:
           $ref: '#/components/schemas/Schedule'
           description: The auto-startup schedule, if one has been set at the lab or lab resource level.
-      type: object
-    ServiceFabricFragment:
-      allOf:
-      - $ref: '#/components/schemas/UpdateResource'
-      description: A Service Fabric.
-      properties:
-        properties:
-          $ref: '#/components/schemas/ServiceFabricPropertiesFragment'
-          description: The properties of the resource.
-          x-ms-client-flatten: true
       type: object
     NotificationSettings:
       description: Notification settings for a schedule.
@@ -650,72 +667,55 @@ components:
           description: The webhook URL to which the notification will be sent.
           type: string
       type: object
-    ServiceFabricProperties:
+    Schedule:
+      allOf:
+      - $ref: '#/components/schemas/Resource'
+      description: A schedule.
+      properties:
+        properties:
+          $ref: '#/components/schemas/ScheduleProperties'
+          description: The properties of the resource.
+          x-ms-client-flatten: true
+      required:
+      - properties
+      type: object
+    ServiceFabricPropertiesFragment:
       description: Properties of a service fabric.
       properties:
-        applicableSchedule:
-          $ref: '#/components/schemas/ApplicableSchedule'
-          description: The applicable schedule for the virtual machine.
-          readOnly: true
         environmentId:
           description: The resource id of the environment under which the service fabric resource is present
           type: string
         externalServiceFabricId:
           description: The backing service fabric resource's id
           type: string
-        provisioningState:
-          description: The provisioning status of the resource.
-          readOnly: true
-          type: string
-        uniqueIdentifier:
-          description: The unique immutable identifier of a resource (Guid).
-          readOnly: true
-          type: string
       type: object
-    Resource:
-      description: An Azure resource.
+    CloudError:
+      description: Error from a REST request.
       properties:
-        id:
-          description: The identifier of the resource.
-          readOnly: true
-          type: string
-        location:
-          description: The location of the resource.
-          type: string
-        name:
-          description: The name of the resource.
-          readOnly: true
-          type: string
-        tags:
-          additionalProperties:
-            type: string
-          description: The tags of the resource.
-          type: object
-        type:
-          description: The type of the resource.
-          readOnly: true
-          type: string
+        error:
+          $ref: '#/components/schemas/CloudErrorBody'
+          description: The cloud error that occurred
       type: object
-      x-ms-azure-resource: true
-    DayDetails:
-      description: Properties of a daily schedule.
+      x-ms-external: true
+    CloudErrorBody:
+      description: Body of an error from a REST request.
       properties:
-        time:
-          description: The time of day the schedule will occur.
+        code:
+          description: The error code.
+          type: string
+        details:
+          description: Inner errors.
+          items:
+            $ref: '#/components/schemas/CloudErrorBody'
+          type: array
+        message:
+          description: The error message.
+          type: string
+        target:
+          description: The error target.
           type: string
       type: object
-    ServiceFabric:
-      allOf:
-      - $ref: '#/components/schemas/Resource'
-      description: A Service Fabric.
-      properties:
-        properties:
-          $ref: '#/components/schemas/ServiceFabricProperties'
-          description: The properties of the resource.
-          x-ms-client-flatten: true
-      required:
-      - properties
-      type: object
+      x-ms-external: true
   parameters:
     subscriptionId:
       description: The subscription ID.

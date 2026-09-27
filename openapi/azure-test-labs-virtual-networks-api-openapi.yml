@@ -441,59 +441,98 @@ paths:
         required: true
 components:
   schemas:
-    VirtualNetworkFragment:
-      allOf:
-      - $ref: '#/components/schemas/UpdateResource'
-      description: A virtual network.
+    ExternalSubnet:
+      description: Subnet information as returned by the Microsoft.Network API.
       properties:
-        properties:
-          $ref: '#/components/schemas/VirtualNetworkPropertiesFragment'
-          description: The properties of the resource.
-          x-ms-client-flatten: true
-      type: object
-    CloudErrorBody:
-      description: Body of an error from a REST request.
-      properties:
-        code:
-          description: The error code.
+        id:
+          description: Gets or sets the identifier.
           type: string
-        details:
-          description: Inner errors.
-          items:
-            $ref: '#/components/schemas/CloudErrorBody'
-          type: array
-        message:
-          description: The error message.
-          type: string
-        target:
-          description: The error target.
+        name:
+          description: Gets or sets the name.
           type: string
       type: object
-      x-ms-external: true
-    CloudError:
-      description: Error from a REST request.
+    SubnetOverrideFragment:
+      description: Property overrides on a subnet of a virtual network.
       properties:
-        error:
-          $ref: '#/components/schemas/CloudErrorBody'
-          description: The cloud error that occurred
-      type: object
-      x-ms-external: true
-    PortFragment:
-      description: Properties of a network port.
-      properties:
-        backendPort:
-          description: Backend port of the target virtual machine.
-          format: int32
-          type: integer
-        transportProtocol:
-          description: Protocol type of the port.
+        labSubnetName:
+          description: The name given to the subnet within the lab.
+          type: string
+        resourceId:
+          description: The resource ID of the subnet.
+          type: string
+        sharedPublicIpAddressConfiguration:
+          $ref: '#/components/schemas/SubnetSharedPublicIpAddressConfigurationFragment'
+          description: Properties that virtual machines on this subnet will share.
+        useInVmCreationPermission:
+          description: Indicates whether this subnet can be used during virtual machine creation (i.e. Allow, Deny).
           enum:
-          - Tcp
-          - Udp
+          - Default
+          - Deny
+          - Allow
           type: string
           x-ms-enum:
             modelAsString: true
-            name: TransportProtocol
+            name: UsagePermissionType
+        usePublicIpAddressPermission:
+          description: Indicates whether public IP addresses can be assigned to virtual machines on this subnet (i.e. Allow, Deny).
+          enum:
+          - Default
+          - Deny
+          - Allow
+          type: string
+          x-ms-enum:
+            modelAsString: true
+            name: UsagePermissionType
+        virtualNetworkPoolName:
+          description: The virtual network pool associated with this subnet.
+          type: string
+      type: object
+    SubnetSharedPublicIpAddressConfigurationFragment:
+      description: Configuration for public IP address sharing.
+      properties:
+        allowedPorts:
+          description: Backend ports that virtual machines on this subnet are allowed to expose
+          items:
+            $ref: '#/components/schemas/PortFragment'
+          type: array
+      type: object
+    SubnetFragment:
+      description: Subnet information.
+      properties:
+        allowPublicIp:
+          description: The permission policy of the subnet for allowing public IP addresses (i.e. Allow, Deny)).
+          enum:
+          - Default
+          - Deny
+          - Allow
+          type: string
+          x-ms-enum:
+            modelAsString: true
+            name: UsagePermissionType
+        labSubnetName:
+          description: The name of the subnet as seen in the lab.
+          type: string
+        resourceId:
+          description: The resource ID of the subnet.
+          type: string
+      type: object
+    SubnetSharedPublicIpAddressConfiguration:
+      description: Configuration for public IP address sharing.
+      properties:
+        allowedPorts:
+          description: Backend ports that virtual machines on this subnet are allowed to expose
+          items:
+            $ref: '#/components/schemas/Port'
+          type: array
+      type: object
+    UpdateResource:
+      description: Represents an update resource
+      properties:
+        tags:
+          additionalProperties:
+            type: string
+          description: The tags of the resource.
+          type: object
       type: object
     VirtualNetwork:
       allOf:
@@ -504,6 +543,81 @@ components:
           $ref: '#/components/schemas/VirtualNetworkProperties'
           description: The properties of the resource.
           x-ms-client-flatten: true
+      type: object
+    VirtualNetworkFragment:
+      allOf:
+      - $ref: '#/components/schemas/UpdateResource'
+      description: A virtual network.
+      properties:
+        properties:
+          $ref: '#/components/schemas/VirtualNetworkPropertiesFragment'
+          description: The properties of the resource.
+          x-ms-client-flatten: true
+      type: object
+    Subnet:
+      description: Subnet information.
+      properties:
+        allowPublicIp:
+          description: The permission policy of the subnet for allowing public IP addresses (i.e. Allow, Deny)).
+          enum:
+          - Default
+          - Deny
+          - Allow
+          type: string
+          x-ms-enum:
+            modelAsString: true
+            name: UsagePermissionType
+        labSubnetName:
+          description: The name of the subnet as seen in the lab.
+          type: string
+        resourceId:
+          description: The resource ID of the subnet.
+          type: string
+      type: object
+    Resource:
+      description: An Azure resource.
+      properties:
+        id:
+          description: The identifier of the resource.
+          readOnly: true
+          type: string
+        location:
+          description: The location of the resource.
+          type: string
+        name:
+          description: The name of the resource.
+          readOnly: true
+          type: string
+        tags:
+          additionalProperties:
+            type: string
+          description: The tags of the resource.
+          type: object
+        type:
+          description: The type of the resource.
+          readOnly: true
+          type: string
+      type: object
+      x-ms-azure-resource: true
+    VirtualNetworkPropertiesFragment:
+      description: Properties of a virtual network.
+      properties:
+        allowedSubnets:
+          description: The allowed subnets of the virtual network.
+          items:
+            $ref: '#/components/schemas/SubnetFragment'
+          type: array
+        description:
+          description: The description of the virtual network.
+          type: string
+        externalProviderResourceId:
+          description: The Microsoft.Network resource identifier of the virtual network.
+          type: string
+        subnetOverrides:
+          description: The subnet overrides of the virtual network.
+          items:
+            $ref: '#/components/schemas/SubnetOverrideFragment'
+          type: array
       type: object
     VirtualNetworkProperties:
       description: Properties of a virtual network.
@@ -544,110 +658,50 @@ components:
           readOnly: true
           type: string
       type: object
-    UpdateResource:
-      description: Represents an update resource
+    Port:
+      description: Properties of a network port.
       properties:
-        tags:
-          additionalProperties:
-            type: string
-          description: The tags of the resource.
-          type: object
-      type: object
-    SubnetFragment:
-      description: Subnet information.
-      properties:
-        allowPublicIp:
-          description: The permission policy of the subnet for allowing public IP addresses (i.e. Allow, Deny)).
+        backendPort:
+          description: Backend port of the target virtual machine.
+          format: int32
+          type: integer
+        transportProtocol:
+          description: Protocol type of the port.
           enum:
-          - Default
-          - Deny
-          - Allow
+          - Tcp
+          - Udp
           type: string
           x-ms-enum:
             modelAsString: true
-            name: UsagePermissionType
-        labSubnetName:
-          description: The name of the subnet as seen in the lab.
-          type: string
-        resourceId:
-          description: The resource ID of the subnet.
-          type: string
+            name: TransportProtocol
       type: object
-    VirtualNetworkPropertiesFragment:
-      description: Properties of a virtual network.
+    CloudError:
+      description: Error from a REST request.
       properties:
-        allowedSubnets:
-          description: The allowed subnets of the virtual network.
+        error:
+          $ref: '#/components/schemas/CloudErrorBody'
+          description: The cloud error that occurred
+      type: object
+      x-ms-external: true
+    CloudErrorBody:
+      description: Body of an error from a REST request.
+      properties:
+        code:
+          description: The error code.
+          type: string
+        details:
+          description: Inner errors.
           items:
-            $ref: '#/components/schemas/SubnetFragment'
+            $ref: '#/components/schemas/CloudErrorBody'
           type: array
-        description:
-          description: The description of the virtual network.
+        message:
+          description: The error message.
           type: string
-        externalProviderResourceId:
-          description: The Microsoft.Network resource identifier of the virtual network.
-          type: string
-        subnetOverrides:
-          description: The subnet overrides of the virtual network.
-          items:
-            $ref: '#/components/schemas/SubnetOverrideFragment'
-          type: array
-      type: object
-    ExternalSubnet:
-      description: Subnet information as returned by the Microsoft.Network API.
-      properties:
-        id:
-          description: Gets or sets the identifier.
-          type: string
-        name:
-          description: Gets or sets the name.
+        target:
+          description: The error target.
           type: string
       type: object
-    SubnetSharedPublicIpAddressConfigurationFragment:
-      description: Configuration for public IP address sharing.
-      properties:
-        allowedPorts:
-          description: Backend ports that virtual machines on this subnet are allowed to expose
-          items:
-            $ref: '#/components/schemas/PortFragment'
-          type: array
-      type: object
-    SubnetOverrideFragment:
-      description: Property overrides on a subnet of a virtual network.
-      properties:
-        labSubnetName:
-          description: The name given to the subnet within the lab.
-          type: string
-        resourceId:
-          description: The resource ID of the subnet.
-          type: string
-        sharedPublicIpAddressConfiguration:
-          $ref: '#/components/schemas/SubnetSharedPublicIpAddressConfigurationFragment'
-          description: Properties that virtual machines on this subnet will share.
-        useInVmCreationPermission:
-          description: Indicates whether this subnet can be used during virtual machine creation (i.e. Allow, Deny).
-          enum:
-          - Default
-          - Deny
-          - Allow
-          type: string
-          x-ms-enum:
-            modelAsString: true
-            name: UsagePermissionType
-        usePublicIpAddressPermission:
-          description: Indicates whether public IP addresses can be assigned to virtual machines on this subnet (i.e. Allow, Deny).
-          enum:
-          - Default
-          - Deny
-          - Allow
-          type: string
-          x-ms-enum:
-            modelAsString: true
-            name: UsagePermissionType
-        virtualNetworkPoolName:
-          description: The virtual network pool associated with this subnet.
-          type: string
-      type: object
+      x-ms-external: true
     SubnetOverride:
       description: Property overrides on a subnet of a virtual network.
       properties:
@@ -684,41 +738,19 @@ components:
           description: The virtual network pool associated with this subnet.
           type: string
       type: object
-    Resource:
-      description: An Azure resource.
+    VirtualNetworkList:
+      description: The response of a list operation.
       properties:
-        id:
-          description: The identifier of the resource.
-          readOnly: true
+        nextLink:
+          description: Link for next set of results.
           type: string
-        location:
-          description: The location of the resource.
-          type: string
-        name:
-          description: The name of the resource.
-          readOnly: true
-          type: string
-        tags:
-          additionalProperties:
-            type: string
-          description: The tags of the resource.
-          type: object
-        type:
-          description: The type of the resource.
-          readOnly: true
-          type: string
-      type: object
-      x-ms-azure-resource: true
-    SubnetSharedPublicIpAddressConfiguration:
-      description: Configuration for public IP address sharing.
-      properties:
-        allowedPorts:
-          description: Backend ports that virtual machines on this subnet are allowed to expose
+        value:
+          description: Results of the list operation.
           items:
-            $ref: '#/components/schemas/Port'
+            $ref: '#/components/schemas/VirtualNetwork'
           type: array
       type: object
-    Port:
+    PortFragment:
       description: Properties of a network port.
       properties:
         backendPort:
@@ -734,38 +766,6 @@ components:
           x-ms-enum:
             modelAsString: true
             name: TransportProtocol
-      type: object
-    VirtualNetworkList:
-      description: The response of a list operation.
-      properties:
-        nextLink:
-          description: Link for next set of results.
-          type: string
-        value:
-          description: Results of the list operation.
-          items:
-            $ref: '#/components/schemas/VirtualNetwork'
-          type: array
-      type: object
-    Subnet:
-      description: Subnet information.
-      properties:
-        allowPublicIp:
-          description: The permission policy of the subnet for allowing public IP addresses (i.e. Allow, Deny)).
-          enum:
-          - Default
-          - Deny
-          - Allow
-          type: string
-          x-ms-enum:
-            modelAsString: true
-            name: UsagePermissionType
-        labSubnetName:
-          description: The name of the subnet as seen in the lab.
-          type: string
-        resourceId:
-          description: The resource ID of the subnet.
-          type: string
       type: object
   parameters:
     subscriptionId:

@@ -351,6 +351,105 @@ components:
           description: The webhook URL to send notifications to.
           type: string
       type: object
+    NotificationChannelList:
+      description: The response of a list operation.
+      properties:
+        nextLink:
+          description: Link for next set of results.
+          type: string
+        value:
+          description: Results of the list operation.
+          items:
+            $ref: '#/components/schemas/NotificationChannel'
+          type: array
+      type: object
+    Event:
+      description: An event to be notified for.
+      properties:
+        eventName:
+          description: The event type for which this notification is enabled (i.e. AutoShutdown, Cost)
+          enum:
+          - AutoShutdown
+          - Cost
+          type: string
+          x-ms-enum:
+            modelAsString: true
+            name: NotificationChannelEventType
+      type: object
+    Resource:
+      description: An Azure resource.
+      properties:
+        id:
+          description: The identifier of the resource.
+          readOnly: true
+          type: string
+        location:
+          description: The location of the resource.
+          type: string
+        name:
+          description: The name of the resource.
+          readOnly: true
+          type: string
+        tags:
+          additionalProperties:
+            type: string
+          description: The tags of the resource.
+          type: object
+        type:
+          description: The type of the resource.
+          readOnly: true
+          type: string
+      type: object
+      x-ms-azure-resource: true
+    EventFragment:
+      description: An event to be notified for.
+      properties:
+        eventName:
+          description: The event type for which this notification is enabled (i.e. AutoShutdown, Cost)
+          enum:
+          - AutoShutdown
+          - Cost
+          type: string
+          x-ms-enum:
+            modelAsString: true
+            name: NotificationChannelEventType
+      type: object
+    CloudErrorBody:
+      description: Body of an error from a REST request.
+      properties:
+        code:
+          description: The error code.
+          type: string
+        details:
+          description: Inner errors.
+          items:
+            $ref: '#/components/schemas/CloudErrorBody'
+          type: array
+        message:
+          description: The error message.
+          type: string
+        target:
+          description: The error target.
+          type: string
+      type: object
+      x-ms-external: true
+    UpdateResource:
+      description: Represents an update resource
+      properties:
+        tags:
+          additionalProperties:
+            type: string
+          description: The tags of the resource.
+          type: object
+      type: object
+    CloudError:
+      description: Error from a REST request.
+      properties:
+        error:
+          $ref: '#/components/schemas/CloudErrorBody'
+          description: The cloud error that occurred
+      type: object
+      x-ms-external: true
     NotificationChannelFragment:
       allOf:
       - $ref: '#/components/schemas/UpdateResource'
@@ -360,6 +459,22 @@ components:
           $ref: '#/components/schemas/NotificationChannelPropertiesFragment'
           description: The properties of the resource.
           x-ms-client-flatten: true
+      type: object
+    NotifyParameters:
+      description: Properties for generating a Notification.
+      properties:
+        eventName:
+          description: The type of event (i.e. AutoShutdown, Cost)
+          enum:
+          - AutoShutdown
+          - Cost
+          type: string
+          x-ms-enum:
+            modelAsString: true
+            name: NotificationChannelEventType
+        jsonPayload:
+          description: Properties for the notification in json format.
+          type: string
       type: object
     NotificationChannelProperties:
       description: Properties of a schedule.
@@ -395,135 +510,12 @@ components:
           description: The webhook URL to send notifications to.
           type: string
       type: object
-    CloudError:
-      description: Error from a REST request.
-      properties:
-        error:
-          $ref: '#/components/schemas/CloudErrorBody'
-          description: The cloud error that occurred
-      type: object
-      x-ms-external: true
-    CloudErrorBody:
-      description: Body of an error from a REST request.
-      properties:
-        code:
-          description: The error code.
-          type: string
-        details:
-          description: Inner errors.
-          items:
-            $ref: '#/components/schemas/CloudErrorBody'
-          type: array
-        message:
-          description: The error message.
-          type: string
-        target:
-          description: The error target.
-          type: string
-      type: object
-      x-ms-external: true
-    EventFragment:
-      description: An event to be notified for.
-      properties:
-        eventName:
-          description: The event type for which this notification is enabled (i.e. AutoShutdown, Cost)
-          enum:
-          - AutoShutdown
-          - Cost
-          type: string
-          x-ms-enum:
-            modelAsString: true
-            name: NotificationChannelEventType
-      type: object
-    Event:
-      description: An event to be notified for.
-      properties:
-        eventName:
-          description: The event type for which this notification is enabled (i.e. AutoShutdown, Cost)
-          enum:
-          - AutoShutdown
-          - Cost
-          type: string
-          x-ms-enum:
-            modelAsString: true
-            name: NotificationChannelEventType
-      type: object
-    UpdateResource:
-      description: Represents an update resource
-      properties:
-        tags:
-          additionalProperties:
-            type: string
-          description: The tags of the resource.
-          type: object
-      type: object
-    NotificationChannelList:
-      description: The response of a list operation.
-      properties:
-        nextLink:
-          description: Link for next set of results.
-          type: string
-        value:
-          description: Results of the list operation.
-          items:
-            $ref: '#/components/schemas/NotificationChannel'
-          type: array
-      type: object
-    Resource:
-      description: An Azure resource.
-      properties:
-        id:
-          description: The identifier of the resource.
-          readOnly: true
-          type: string
-        location:
-          description: The location of the resource.
-          type: string
-        name:
-          description: The name of the resource.
-          readOnly: true
-          type: string
-        tags:
-          additionalProperties:
-            type: string
-          description: The tags of the resource.
-          type: object
-        type:
-          description: The type of the resource.
-          readOnly: true
-          type: string
-      type: object
-      x-ms-azure-resource: true
-    NotifyParameters:
-      description: Properties for generating a Notification.
-      properties:
-        eventName:
-          description: The type of event (i.e. AutoShutdown, Cost)
-          enum:
-          - AutoShutdown
-          - Cost
-          type: string
-          x-ms-enum:
-            modelAsString: true
-            name: NotificationChannelEventType
-        jsonPayload:
-          description: Properties for the notification in json format.
-          type: string
-      type: object
   parameters:
     subscriptionId:
       description: The subscription ID.
       in: path
       name: subscriptionId
       required: true
-      schema:
-        type: string
-    resourceGroupName:
-      description: The name of the resource group.
-      in: path
-      name: resourceGroupName
-      required: true
-      x-ms-parameter-location: method
       schema:
         type: string
     api-version:
@@ -534,6 +526,14 @@ components:
       schema:
         type: string
         default: '2018-09-15'
+    resourceGroupName:
+      description: The name of the resource group.
+      in: path
+      name: resourceGroupName
+      required: true
+      x-ms-parameter-location: method
+      schema:
+        type: string
   securitySchemes:
     azure_auth:
       type: oauth2

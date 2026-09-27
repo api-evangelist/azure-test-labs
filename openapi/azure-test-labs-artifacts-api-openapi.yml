@@ -205,46 +205,30 @@ paths:
         required: true
 components:
   schemas:
-    ArmTemplateInfo:
-      description: Information about a generated ARM template.
+    GenerateArmTemplateRequest:
+      description: Parameters for generating an ARM template for deploying artifacts.
       properties:
+        fileUploadOptions:
+          description: Options for uploading the files for the artifact. UploadFilesAndGenerateSasTokens is the default value.
+          enum:
+          - UploadFilesAndGenerateSasTokens
+          - None
+          type: string
+          x-ms-enum:
+            modelAsString: true
+            name: FileUploadOptions
+        location:
+          description: The location of the virtual machine.
+          type: string
         parameters:
           description: The parameters of the ARM template.
-          type: object
-        template:
-          description: The template's contents.
-          type: object
-      type: object
-    ArtifactList:
-      description: The response of a list operation.
-      properties:
-        nextLink:
-          description: Link for next set of results.
-          type: string
-        value:
-          description: Results of the list operation.
           items:
-            $ref: '#/components/schemas/Artifact'
+            $ref: '#/components/schemas/ParameterInfo'
           type: array
-      type: object
-    ParameterInfo:
-      description: Information about an artifact's parameter.
-      properties:
-        name:
-          description: The name of the artifact parameter.
-          type: string
-        value:
-          description: The value of the artifact parameter.
+        virtualMachineName:
+          description: The resource name of the virtual machine.
           type: string
       type: object
-    CloudError:
-      description: Error from a REST request.
-      properties:
-        error:
-          $ref: '#/components/schemas/CloudErrorBody'
-          description: The cloud error that occurred
-      type: object
-      x-ms-external: true
     ArtifactProperties:
       description: Properties of an artifact.
       properties:
@@ -280,49 +264,6 @@ components:
         title:
           description: The artifact's title.
           readOnly: true
-          type: string
-      type: object
-    CloudErrorBody:
-      description: Body of an error from a REST request.
-      properties:
-        code:
-          description: The error code.
-          type: string
-        details:
-          description: Inner errors.
-          items:
-            $ref: '#/components/schemas/CloudErrorBody'
-          type: array
-        message:
-          description: The error message.
-          type: string
-        target:
-          description: The error target.
-          type: string
-      type: object
-      x-ms-external: true
-    GenerateArmTemplateRequest:
-      description: Parameters for generating an ARM template for deploying artifacts.
-      properties:
-        fileUploadOptions:
-          description: Options for uploading the files for the artifact. UploadFilesAndGenerateSasTokens is the default value.
-          enum:
-          - UploadFilesAndGenerateSasTokens
-          - None
-          type: string
-          x-ms-enum:
-            modelAsString: true
-            name: FileUploadOptions
-        location:
-          description: The location of the virtual machine.
-          type: string
-        parameters:
-          description: The parameters of the ARM template.
-          items:
-            $ref: '#/components/schemas/ParameterInfo'
-          type: array
-        virtualMachineName:
-          description: The resource name of the virtual machine.
           type: string
       type: object
     Artifact:
@@ -362,20 +303,71 @@ components:
           type: string
       type: object
       x-ms-azure-resource: true
+    ArtifactList:
+      description: The response of a list operation.
+      properties:
+        nextLink:
+          description: Link for next set of results.
+          type: string
+        value:
+          description: Results of the list operation.
+          items:
+            $ref: '#/components/schemas/Artifact'
+          type: array
+      type: object
+    CloudErrorBody:
+      description: Body of an error from a REST request.
+      properties:
+        code:
+          description: The error code.
+          type: string
+        details:
+          description: Inner errors.
+          items:
+            $ref: '#/components/schemas/CloudErrorBody'
+          type: array
+        message:
+          description: The error message.
+          type: string
+        target:
+          description: The error target.
+          type: string
+      type: object
+      x-ms-external: true
+    CloudError:
+      description: Error from a REST request.
+      properties:
+        error:
+          $ref: '#/components/schemas/CloudErrorBody'
+          description: The cloud error that occurred
+      type: object
+      x-ms-external: true
+    ArmTemplateInfo:
+      description: Information about a generated ARM template.
+      properties:
+        parameters:
+          description: The parameters of the ARM template.
+          type: object
+        template:
+          description: The template's contents.
+          type: object
+      type: object
+    ParameterInfo:
+      description: Information about an artifact's parameter.
+      properties:
+        name:
+          description: The name of the artifact parameter.
+          type: string
+        value:
+          description: The value of the artifact parameter.
+          type: string
+      type: object
   parameters:
     subscriptionId:
       description: The subscription ID.
       in: path
       name: subscriptionId
       required: true
-      schema:
-        type: string
-    resourceGroupName:
-      description: The name of the resource group.
-      in: path
-      name: resourceGroupName
-      required: true
-      x-ms-parameter-location: method
       schema:
         type: string
     api-version:
@@ -386,6 +378,14 @@ components:
       schema:
         type: string
         default: '2018-09-15'
+    resourceGroupName:
+      description: The name of the resource group.
+      in: path
+      name: resourceGroupName
+      required: true
+      x-ms-parameter-location: method
+      schema:
+        type: string
   securitySchemes:
     azure_auth:
       type: oauth2
