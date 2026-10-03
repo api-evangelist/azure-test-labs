@@ -274,6 +274,15 @@ paths:
         required: true
 components:
   schemas:
+    UpdateResource:
+      description: Represents an update resource
+      properties:
+        tags:
+          additionalProperties:
+            type: string
+          description: The tags of the resource.
+          type: object
+      type: object
     ArtifactSource:
       allOf:
       - $ref: '#/components/schemas/Resource'
@@ -285,41 +294,6 @@ components:
           x-ms-client-flatten: true
       required:
       - properties
-      type: object
-    Resource:
-      description: An Azure resource.
-      properties:
-        id:
-          description: The identifier of the resource.
-          readOnly: true
-          type: string
-        location:
-          description: The location of the resource.
-          type: string
-        name:
-          description: The name of the resource.
-          readOnly: true
-          type: string
-        tags:
-          additionalProperties:
-            type: string
-          description: The tags of the resource.
-          type: object
-        type:
-          description: The type of the resource.
-          readOnly: true
-          type: string
-      type: object
-      x-ms-azure-resource: true
-    ArtifactSourceFragment:
-      allOf:
-      - $ref: '#/components/schemas/UpdateResource'
-      description: Properties of an artifact source.
-      properties:
-        properties:
-          $ref: '#/components/schemas/ArtifactSourcePropertiesFragment'
-          description: The properties of the resource.
-          x-ms-client-flatten: true
       type: object
     CloudErrorBody:
       description: Body of an error from a REST request.
@@ -348,67 +322,6 @@ components:
           description: The cloud error that occurred
       type: object
       x-ms-external: true
-    UpdateResource:
-      description: Represents an update resource
-      properties:
-        tags:
-          additionalProperties:
-            type: string
-          description: The tags of the resource.
-          type: object
-      type: object
-    ArtifactSourcePropertiesFragment:
-      description: Properties of an artifact source.
-      properties:
-        armTemplateFolderPath:
-          description: The folder containing Azure Resource Manager templates.
-          type: string
-        branchRef:
-          description: The artifact source's branch reference.
-          type: string
-        displayName:
-          description: The artifact source's display name.
-          type: string
-        folderPath:
-          description: The folder containing artifacts.
-          type: string
-        securityToken:
-          description: The security token to authenticate to the artifact source.
-          type: string
-        sourceType:
-          description: The artifact source's type.
-          enum:
-          - VsoGit
-          - GitHub
-          type: string
-          x-ms-enum:
-            modelAsString: true
-            name: SourceControlType
-        status:
-          description: 'Indicates if the artifact source is enabled (values: Enabled, Disabled).'
-          enum:
-          - Enabled
-          - Disabled
-          type: string
-          x-ms-enum:
-            modelAsString: true
-            name: EnableStatus
-        uri:
-          description: The artifact source's URI.
-          type: string
-      type: object
-    ArtifactSourceList:
-      description: The response of a list operation.
-      properties:
-        nextLink:
-          description: Link for next set of results.
-          type: string
-        value:
-          description: Results of the list operation.
-          items:
-            $ref: '#/components/schemas/ArtifactSource'
-          type: array
-      type: object
     ArtifactSourceProperties:
       description: Properties of an artifact source.
       properties:
@@ -462,12 +375,107 @@ components:
           description: The artifact source's URI.
           type: string
       type: object
+    ArtifactSourcePropertiesFragment:
+      description: Properties of an artifact source.
+      properties:
+        armTemplateFolderPath:
+          description: The folder containing Azure Resource Manager templates.
+          type: string
+        branchRef:
+          description: The artifact source's branch reference.
+          type: string
+        displayName:
+          description: The artifact source's display name.
+          type: string
+        folderPath:
+          description: The folder containing artifacts.
+          type: string
+        securityToken:
+          description: The security token to authenticate to the artifact source.
+          type: string
+        sourceType:
+          description: The artifact source's type.
+          enum:
+          - VsoGit
+          - GitHub
+          type: string
+          x-ms-enum:
+            modelAsString: true
+            name: SourceControlType
+        status:
+          description: 'Indicates if the artifact source is enabled (values: Enabled, Disabled).'
+          enum:
+          - Enabled
+          - Disabled
+          type: string
+          x-ms-enum:
+            modelAsString: true
+            name: EnableStatus
+        uri:
+          description: The artifact source's URI.
+          type: string
+      type: object
+    Resource:
+      description: An Azure resource.
+      properties:
+        id:
+          description: The identifier of the resource.
+          readOnly: true
+          type: string
+        location:
+          description: The location of the resource.
+          type: string
+        name:
+          description: The name of the resource.
+          readOnly: true
+          type: string
+        tags:
+          additionalProperties:
+            type: string
+          description: The tags of the resource.
+          type: object
+        type:
+          description: The type of the resource.
+          readOnly: true
+          type: string
+      type: object
+      x-ms-azure-resource: true
+    ArtifactSourceList:
+      description: The response of a list operation.
+      properties:
+        nextLink:
+          description: Link for next set of results.
+          type: string
+        value:
+          description: Results of the list operation.
+          items:
+            $ref: '#/components/schemas/ArtifactSource'
+          type: array
+      type: object
+    ArtifactSourceFragment:
+      allOf:
+      - $ref: '#/components/schemas/UpdateResource'
+      description: Properties of an artifact source.
+      properties:
+        properties:
+          $ref: '#/components/schemas/ArtifactSourcePropertiesFragment'
+          description: The properties of the resource.
+          x-ms-client-flatten: true
+      type: object
   parameters:
     subscriptionId:
       description: The subscription ID.
       in: path
       name: subscriptionId
       required: true
+      schema:
+        type: string
+    resourceGroupName:
+      description: The name of the resource group.
+      in: path
+      name: resourceGroupName
+      required: true
+      x-ms-parameter-location: method
       schema:
         type: string
     api-version:
@@ -478,14 +486,6 @@ components:
       schema:
         type: string
         default: '2018-09-15'
-    resourceGroupName:
-      description: The name of the resource group.
-      in: path
-      name: resourceGroupName
-      required: true
-      x-ms-parameter-location: method
-      schema:
-        type: string
   securitySchemes:
     azure_auth:
       type: oauth2

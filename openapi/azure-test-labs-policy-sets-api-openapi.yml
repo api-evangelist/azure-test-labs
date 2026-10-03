@@ -87,41 +87,6 @@ components:
             $ref: '#/components/schemas/PolicyViolation'
           type: array
       type: object
-    EvaluatePoliciesResponse:
-      description: Response body for evaluating a policy set.
-      properties:
-        results:
-          description: Results of evaluating a policy set.
-          items:
-            $ref: '#/components/schemas/PolicySetResult'
-          type: array
-      type: object
-    PolicyViolation:
-      description: Policy violation.
-      properties:
-        code:
-          description: The code of the policy violation.
-          type: string
-        message:
-          description: The message of the policy violation.
-          type: string
-      type: object
-    EvaluatePoliciesProperties:
-      description: Properties for evaluating a policy set.
-      properties:
-        factData:
-          description: The fact data.
-          type: string
-        factName:
-          description: The fact name.
-          type: string
-        userObjectId:
-          description: The user for which policies will be evaluated
-          type: string
-        valueOffset:
-          description: The value offset.
-          type: string
-      type: object
     CloudErrorBody:
       description: Body of an error from a REST request.
       properties:
@@ -149,6 +114,25 @@ components:
           description: The cloud error that occurred
       type: object
       x-ms-external: true
+    EvaluatePoliciesResponse:
+      description: Response body for evaluating a policy set.
+      properties:
+        results:
+          description: Results of evaluating a policy set.
+          items:
+            $ref: '#/components/schemas/PolicySetResult'
+          type: array
+      type: object
+    PolicyViolation:
+      description: Policy violation.
+      properties:
+        code:
+          description: The code of the policy violation.
+          type: string
+        message:
+          description: The message of the policy violation.
+          type: string
+      type: object
     EvaluatePoliciesRequest:
       description: Request body for evaluating a policy set.
       properties:
@@ -158,14 +142,23 @@ components:
             $ref: '#/components/schemas/EvaluatePoliciesProperties'
           type: array
       type: object
+    EvaluatePoliciesProperties:
+      description: Properties for evaluating a policy set.
+      properties:
+        factData:
+          description: The fact data.
+          type: string
+        factName:
+          description: The fact name.
+          type: string
+        userObjectId:
+          description: The user for which policies will be evaluated
+          type: string
+        valueOffset:
+          description: The value offset.
+          type: string
+      type: object
   parameters:
-    subscriptionId:
-      description: The subscription ID.
-      in: path
-      name: subscriptionId
-      required: true
-      schema:
-        type: string
     api-version:
       description: Client API version.
       in: query
@@ -180,6 +173,13 @@ components:
       name: resourceGroupName
       required: true
       x-ms-parameter-location: method
+      schema:
+        type: string
+    subscriptionId:
+      description: The subscription ID.
+      in: path
+      name: subscriptionId
+      required: true
       schema:
         type: string
   securitySchemes:

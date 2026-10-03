@@ -205,6 +205,55 @@ paths:
         required: true
 components:
   schemas:
+    CloudErrorBody:
+      description: Body of an error from a REST request.
+      properties:
+        code:
+          description: The error code.
+          type: string
+        details:
+          description: Inner errors.
+          items:
+            $ref: '#/components/schemas/CloudErrorBody'
+          type: array
+        message:
+          description: The error message.
+          type: string
+        target:
+          description: The error target.
+          type: string
+      type: object
+      x-ms-external: true
+    ParameterInfo:
+      description: Information about an artifact's parameter.
+      properties:
+        name:
+          description: The name of the artifact parameter.
+          type: string
+        value:
+          description: The value of the artifact parameter.
+          type: string
+      type: object
+    CloudError:
+      description: Error from a REST request.
+      properties:
+        error:
+          $ref: '#/components/schemas/CloudErrorBody'
+          description: The cloud error that occurred
+      type: object
+      x-ms-external: true
+    ArtifactList:
+      description: The response of a list operation.
+      properties:
+        nextLink:
+          description: Link for next set of results.
+          type: string
+        value:
+          description: Results of the list operation.
+          items:
+            $ref: '#/components/schemas/Artifact'
+          type: array
+      type: object
     GenerateArmTemplateRequest:
       description: Parameters for generating an ARM template for deploying artifacts.
       properties:
@@ -228,6 +277,53 @@ components:
         virtualMachineName:
           description: The resource name of the virtual machine.
           type: string
+      type: object
+    Resource:
+      description: An Azure resource.
+      properties:
+        id:
+          description: The identifier of the resource.
+          readOnly: true
+          type: string
+        location:
+          description: The location of the resource.
+          type: string
+        name:
+          description: The name of the resource.
+          readOnly: true
+          type: string
+        tags:
+          additionalProperties:
+            type: string
+          description: The tags of the resource.
+          type: object
+        type:
+          description: The type of the resource.
+          readOnly: true
+          type: string
+      type: object
+      x-ms-azure-resource: true
+    Artifact:
+      allOf:
+      - $ref: '#/components/schemas/Resource'
+      description: An artifact.
+      properties:
+        properties:
+          $ref: '#/components/schemas/ArtifactProperties'
+          description: The properties of the resource.
+          x-ms-client-flatten: true
+      required:
+      - properties
+      type: object
+    ArmTemplateInfo:
+      description: Information about a generated ARM template.
+      properties:
+        parameters:
+          description: The parameters of the ARM template.
+          type: object
+        template:
+          description: The template's contents.
+          type: object
       type: object
     ArtifactProperties:
       description: Properties of an artifact.
@@ -266,110 +362,7 @@ components:
           readOnly: true
           type: string
       type: object
-    Artifact:
-      allOf:
-      - $ref: '#/components/schemas/Resource'
-      description: An artifact.
-      properties:
-        properties:
-          $ref: '#/components/schemas/ArtifactProperties'
-          description: The properties of the resource.
-          x-ms-client-flatten: true
-      required:
-      - properties
-      type: object
-    Resource:
-      description: An Azure resource.
-      properties:
-        id:
-          description: The identifier of the resource.
-          readOnly: true
-          type: string
-        location:
-          description: The location of the resource.
-          type: string
-        name:
-          description: The name of the resource.
-          readOnly: true
-          type: string
-        tags:
-          additionalProperties:
-            type: string
-          description: The tags of the resource.
-          type: object
-        type:
-          description: The type of the resource.
-          readOnly: true
-          type: string
-      type: object
-      x-ms-azure-resource: true
-    ArtifactList:
-      description: The response of a list operation.
-      properties:
-        nextLink:
-          description: Link for next set of results.
-          type: string
-        value:
-          description: Results of the list operation.
-          items:
-            $ref: '#/components/schemas/Artifact'
-          type: array
-      type: object
-    CloudErrorBody:
-      description: Body of an error from a REST request.
-      properties:
-        code:
-          description: The error code.
-          type: string
-        details:
-          description: Inner errors.
-          items:
-            $ref: '#/components/schemas/CloudErrorBody'
-          type: array
-        message:
-          description: The error message.
-          type: string
-        target:
-          description: The error target.
-          type: string
-      type: object
-      x-ms-external: true
-    CloudError:
-      description: Error from a REST request.
-      properties:
-        error:
-          $ref: '#/components/schemas/CloudErrorBody'
-          description: The cloud error that occurred
-      type: object
-      x-ms-external: true
-    ArmTemplateInfo:
-      description: Information about a generated ARM template.
-      properties:
-        parameters:
-          description: The parameters of the ARM template.
-          type: object
-        template:
-          description: The template's contents.
-          type: object
-      type: object
-    ParameterInfo:
-      description: Information about an artifact's parameter.
-      properties:
-        name:
-          description: The name of the artifact parameter.
-          type: string
-        value:
-          description: The value of the artifact parameter.
-          type: string
-      type: object
   parameters:
-    subscriptionId:
-      description: The subscription ID.
-      in: path
-      name: subscriptionId
-      required: true
-      schema:
-        type: string
     api-version:
       description: Client API version.
       in: query
@@ -384,6 +377,13 @@ components:
       name: resourceGroupName
       required: true
       x-ms-parameter-location: method
+      schema:
+        type: string
+    subscriptionId:
+      description: The subscription ID.
+      in: path
+      name: subscriptionId
+      required: true
       schema:
         type: string
   securitySchemes:

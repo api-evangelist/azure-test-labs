@@ -619,7 +619,32 @@ paths:
         delay: 0
         dispatcher: FALLBACK
 components:
+  parameters:
+    api-version:
+      description: Client API version.
+      in: query
+      name: api-version
+      required: true
+      schema:
+        type: string
+        default: '2018-09-15'
   schemas:
+    OperationMetadataDisplay:
+      description: The object that describes the operations
+      properties:
+        description:
+          description: Friendly name of the operation
+          type: string
+        operation:
+          description: 'Operation type: read, write, delete, listKeys/action, etc.'
+          type: string
+        provider:
+          description: Friendly name of the resource provider
+          type: string
+        resource:
+          description: Resource type on which the operation is performed.
+          type: string
+      type: object
     OperationMetadata:
       description: The REST API operation supported by DevTestLab ResourceProvider.
       properties:
@@ -643,31 +668,6 @@ components:
             $ref: '#/components/schemas/OperationMetadata'
           type: array
       type: object
-    OperationMetadataDisplay:
-      description: The object that describes the operations
-      properties:
-        description:
-          description: Friendly name of the operation
-          type: string
-        operation:
-          description: 'Operation type: read, write, delete, listKeys/action, etc.'
-          type: string
-        provider:
-          description: Friendly name of the resource provider
-          type: string
-        resource:
-          description: Resource type on which the operation is performed.
-          type: string
-      type: object
-  parameters:
-    api-version:
-      description: Client API version.
-      in: query
-      name: api-version
-      required: true
-      schema:
-        type: string
-        default: '2018-09-15'
   securitySchemes:
     azure_auth:
       type: oauth2

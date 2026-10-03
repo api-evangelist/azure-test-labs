@@ -60,39 +60,7 @@ paths:
         delay: 0
         dispatcher: FALLBACK
 components:
-  parameters:
-    locationName:
-      description: The name of the location.
-      in: path
-      name: locationName
-      required: true
-      x-ms-parameter-location: method
-      schema:
-        type: string
-    subscriptionId:
-      description: The subscription ID.
-      in: path
-      name: subscriptionId
-      required: true
-      schema:
-        type: string
-    api-version:
-      description: Client API version.
-      in: query
-      name: api-version
-      required: true
-      schema:
-        type: string
-        default: '2018-09-15'
   schemas:
-    CloudError:
-      description: Error from a REST request.
-      properties:
-        error:
-          $ref: '#/components/schemas/CloudErrorBody'
-          description: The cloud error that occurred
-      type: object
-      x-ms-external: true
     CloudErrorBody:
       description: Body of an error from a REST request.
       properties:
@@ -112,16 +80,14 @@ components:
           type: string
       type: object
       x-ms-external: true
-    OperationError:
-      description: Error details for the operation in case of a failure.
+    CloudError:
+      description: Error from a REST request.
       properties:
-        code:
-          description: The error code of the operation error.
-          type: string
-        message:
-          description: The error message of the operation error.
-          type: string
+        error:
+          $ref: '#/components/schemas/CloudErrorBody'
+          description: The cloud error that occurred
       type: object
+      x-ms-external: true
     OperationResult:
       description: An Operation Result
       properties:
@@ -181,6 +147,40 @@ components:
             modelAsString: true
             name: HttpStatusCode
       type: object
+    OperationError:
+      description: Error details for the operation in case of a failure.
+      properties:
+        code:
+          description: The error code of the operation error.
+          type: string
+        message:
+          description: The error message of the operation error.
+          type: string
+      type: object
+  parameters:
+    locationName:
+      description: The name of the location.
+      in: path
+      name: locationName
+      required: true
+      x-ms-parameter-location: method
+      schema:
+        type: string
+    api-version:
+      description: Client API version.
+      in: query
+      name: api-version
+      required: true
+      schema:
+        type: string
+        default: '2018-09-15'
+    subscriptionId:
+      description: The subscription ID.
+      in: path
+      name: subscriptionId
+      required: true
+      schema:
+        type: string
   securitySchemes:
     azure_auth:
       type: oauth2
