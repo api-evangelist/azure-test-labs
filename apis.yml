@@ -355,6 +355,9 @@ apis:
   - type: Documentation
     url: https://docs.microsoft.com/en-us/azure/devtest-labs/
 common:
+- type: CapabilityMap
+  url: capabilities/azure-test-labs-capability-edges.yml
+  name: Azure DevTest Labs Business Capability Map
 - type: PostmanWorkspace
   url: https://www.postman.com/kinlaneapi/azure-devtest-labs/overview
 - type: AgenticAccess

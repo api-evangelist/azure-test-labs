@@ -1,0 +1,56 @@
+slug: azure-test-labs
+provider: Azure DevTest Labs
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 4
+edges:
+- tag: Environments
+  spec_file: azure-test-labs-environments-api-openapi.yml
+  capability_id: BC-4210.20
+  capability_id_l1: BC-4210
+  capability_name: Environment Management
+  confidence: 0.85
+  evidence: '"Environments_CreateOrUpdate" with schemas "DtlEnvironment", "EnvironmentDeploymentProperties",
+    "ArmTemplateParameterProperties" under "/labs/{labName}/users/{userName}/environments"'
+  reason: Creation, update and deletion of lab environments deployed from ARM templates for development
+    and testing is exactly provisioning and stewardship of non-production environments.
+- tag: Labs
+  spec_file: azure-test-labs-labs-api-openapi.yml
+  capability_id: BC-4210.20
+  capability_id_l1: BC-4210
+  capability_name: Environment Management
+  confidence: 0.8
+  evidence: '"Labs_CreateEnvironment", "Labs_ClaimAnyVm", "Labs_ImportVirtualMachine" with schemas "LabProperties",
+    "LabVirtualMachineCreationParameter"'
+  reason: The Labs resource is the container for pre-configured development and test environments; its
+    operations create environments, claim and import VMs — provisioning and stewardship of non-production
+    environments.
+- tag: Costs
+  spec_file: azure-test-labs-costs-api-openapi.yml
+  capability_id: BC-600.80
+  capability_id_l1: BC-600
+  capability_name: IT Financial Management
+  confidence: 0.75
+  evidence: Costs_CreateOrUpdate; schemas LabCostProperties, TargetCostProperties, CostThresholdProperties,
+    LabCostSummaryProperties
+  reason: Target cost, cost thresholds and cost summaries for a lab — tracking and controlling IT/cloud
+    spend, matching IT Financial Management rather than corporate finance.
+- tag: Virtual Machines
+  spec_file: azure-test-labs-virtual-machines-api-openapi.yml
+  capability_id: BC-4210.20
+  capability_id_l1: BC-4210
+  capability_name: Environment Management
+  confidence: 0.7
+  evidence: VirtualMachines_Claim, VirtualMachines_ApplyArtifacts, VirtualMachines_AddDataDisk under /labs/{labName}/virtualmachines;
+    schema LabVirtualMachineProperties
+  reason: Self-service provisioning, claiming and lifecycle of lab VMs 'for development and testing purposes'
+    is provisioning and stewardship of non-production environments.
