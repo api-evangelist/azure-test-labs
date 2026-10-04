@@ -150,25 +150,18 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    CloudErrorBody:
-      description: Body of an error from a REST request.
+    ArmTemplate:
+      allOf:
+      - $ref: '#/components/schemas/Resource'
+      description: An Azure Resource Manager template.
       properties:
-        code:
-          description: The error code.
-          type: string
-        details:
-          description: Inner errors.
-          items:
-            $ref: '#/components/schemas/CloudErrorBody'
-          type: array
-        message:
-          description: The error message.
-          type: string
-        target:
-          description: The error target.
-          type: string
+        properties:
+          $ref: '#/components/schemas/ArmTemplateProperties'
+          description: The properties of the resource.
+          x-ms-client-flatten: true
+      required:
+      - properties
       type: object
-      x-ms-external: true
     CloudError:
       description: Error from a REST request.
       properties:
@@ -263,18 +256,25 @@ components:
           type: string
       type: object
       x-ms-azure-resource: true
-    ArmTemplate:
-      allOf:
-      - $ref: '#/components/schemas/Resource'
-      description: An Azure Resource Manager template.
+    CloudErrorBody:
+      description: Body of an error from a REST request.
       properties:
-        properties:
-          $ref: '#/components/schemas/ArmTemplateProperties'
-          description: The properties of the resource.
-          x-ms-client-flatten: true
-      required:
-      - properties
+        code:
+          description: The error code.
+          type: string
+        details:
+          description: Inner errors.
+          items:
+            $ref: '#/components/schemas/CloudErrorBody'
+          type: array
+        message:
+          description: The error message.
+          type: string
+        target:
+          description: The error target.
+          type: string
       type: object
+      x-ms-external: true
   parameters:
     api-version:
       description: Client API version.
@@ -284,19 +284,19 @@ components:
       schema:
         type: string
         default: '2018-09-15'
+    subscriptionId:
+      description: The subscription ID.
+      in: path
+      name: subscriptionId
+      required: true
+      schema:
+        type: string
     resourceGroupName:
       description: The name of the resource group.
       in: path
       name: resourceGroupName
       required: true
       x-ms-parameter-location: method
-      schema:
-        type: string
-    subscriptionId:
-      description: The subscription ID.
-      in: path
-      name: subscriptionId
-      required: true
       schema:
         type: string
   securitySchemes:

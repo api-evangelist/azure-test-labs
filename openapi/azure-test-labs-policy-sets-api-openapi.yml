@@ -75,6 +75,15 @@ paths:
         required: true
 components:
   schemas:
+    EvaluatePoliciesRequest:
+      description: Request body for evaluating a policy set.
+      properties:
+        policies:
+          description: Policies to evaluate.
+          items:
+            $ref: '#/components/schemas/EvaluatePoliciesProperties'
+          type: array
+      type: object
     PolicySetResult:
       description: Result of a policy set evaluation.
       properties:
@@ -85,6 +94,49 @@ components:
           description: The list of policy violations.
           items:
             $ref: '#/components/schemas/PolicyViolation'
+          type: array
+      type: object
+    CloudError:
+      description: Error from a REST request.
+      properties:
+        error:
+          $ref: '#/components/schemas/CloudErrorBody'
+          description: The cloud error that occurred
+      type: object
+      x-ms-external: true
+    EvaluatePoliciesProperties:
+      description: Properties for evaluating a policy set.
+      properties:
+        factData:
+          description: The fact data.
+          type: string
+        factName:
+          description: The fact name.
+          type: string
+        userObjectId:
+          description: The user for which policies will be evaluated
+          type: string
+        valueOffset:
+          description: The value offset.
+          type: string
+      type: object
+    PolicyViolation:
+      description: Policy violation.
+      properties:
+        code:
+          description: The code of the policy violation.
+          type: string
+        message:
+          description: The message of the policy violation.
+          type: string
+      type: object
+    EvaluatePoliciesResponse:
+      description: Response body for evaluating a policy set.
+      properties:
+        results:
+          description: Results of evaluating a policy set.
+          items:
+            $ref: '#/components/schemas/PolicySetResult'
           type: array
       type: object
     CloudErrorBody:
@@ -106,58 +158,6 @@ components:
           type: string
       type: object
       x-ms-external: true
-    CloudError:
-      description: Error from a REST request.
-      properties:
-        error:
-          $ref: '#/components/schemas/CloudErrorBody'
-          description: The cloud error that occurred
-      type: object
-      x-ms-external: true
-    EvaluatePoliciesResponse:
-      description: Response body for evaluating a policy set.
-      properties:
-        results:
-          description: Results of evaluating a policy set.
-          items:
-            $ref: '#/components/schemas/PolicySetResult'
-          type: array
-      type: object
-    PolicyViolation:
-      description: Policy violation.
-      properties:
-        code:
-          description: The code of the policy violation.
-          type: string
-        message:
-          description: The message of the policy violation.
-          type: string
-      type: object
-    EvaluatePoliciesRequest:
-      description: Request body for evaluating a policy set.
-      properties:
-        policies:
-          description: Policies to evaluate.
-          items:
-            $ref: '#/components/schemas/EvaluatePoliciesProperties'
-          type: array
-      type: object
-    EvaluatePoliciesProperties:
-      description: Properties for evaluating a policy set.
-      properties:
-        factData:
-          description: The fact data.
-          type: string
-        factName:
-          description: The fact name.
-          type: string
-        userObjectId:
-          description: The user for which policies will be evaluated
-          type: string
-        valueOffset:
-          description: The value offset.
-          type: string
-      type: object
   parameters:
     api-version:
       description: Client API version.
@@ -167,19 +167,19 @@ components:
       schema:
         type: string
         default: '2018-09-15'
+    subscriptionId:
+      description: The subscription ID.
+      in: path
+      name: subscriptionId
+      required: true
+      schema:
+        type: string
     resourceGroupName:
       description: The name of the resource group.
       in: path
       name: resourceGroupName
       required: true
       x-ms-parameter-location: method
-      schema:
-        type: string
-    subscriptionId:
-      description: The subscription ID.
-      in: path
-      name: subscriptionId
-      required: true
       schema:
         type: string
   securitySchemes:

@@ -275,6 +275,53 @@ paths:
         required: true
 components:
   schemas:
+    ArtifactInstallProperties:
+      description: Properties of an artifact.
+      properties:
+        artifactId:
+          description: The artifact's identifier.
+          type: string
+        artifactTitle:
+          description: The artifact's title.
+          type: string
+        deploymentStatusMessage:
+          description: The status message from the deployment.
+          type: string
+        installTime:
+          description: The time that the artifact starts to install on the virtual machine.
+          format: date-time
+          type: string
+        parameters:
+          description: The parameters of the artifact.
+          items:
+            $ref: '#/components/schemas/ArtifactParameterProperties'
+          type: array
+        status:
+          description: The status of the artifact.
+          type: string
+        vmExtensionStatusMessage:
+          description: The status message from the virtual machine extension.
+          type: string
+      type: object
+    GalleryImageReferenceFragment:
+      description: The reference information for an Azure Marketplace image.
+      properties:
+        offer:
+          description: The offer of the gallery image.
+          type: string
+        osType:
+          description: The OS type of the gallery image.
+          type: string
+        publisher:
+          description: The publisher of the gallery image.
+          type: string
+        sku:
+          description: The SKU of the gallery image.
+          type: string
+        version:
+          description: The version of the gallery image.
+          type: string
+      type: object
     DayDetails:
       description: Properties of a daily schedule.
       properties:
@@ -282,68 +329,84 @@ components:
           description: The time of day the schedule will occur.
           type: string
       type: object
-    WeekDetailsFragment:
-      description: Properties of a weekly schedule.
+    HourDetailsFragment:
+      description: Properties of an hourly schedule.
       properties:
-        time:
-          description: The time of the day the schedule will occur.
-          type: string
-        weekdays:
-          description: The days of the week for which the schedule is set (e.g. Sunday, Monday, Tuesday, etc.).
+        minute:
+          description: Minutes of the hour the schedule will run.
+          format: int32
+          type: integer
+      type: object
+    SharedPublicIpAddressConfigurationFragment:
+      description: Properties of a virtual machine that determine how it is connected to a load balancer.
+      properties:
+        inboundNatRules:
+          description: The incoming NAT rules
           items:
-            type: string
+            $ref: '#/components/schemas/InboundNatRuleFragment'
           type: array
       type: object
-    DataDiskPropertiesFragment:
-      description: Request body for adding a new or existing data disk to a virtual machine.
+    ScheduleCreationParameterProperties:
+      description: Properties for schedule creation.
       properties:
-        attachNewDataDiskOptions:
-          $ref: '#/components/schemas/AttachNewDataDiskOptionsFragment'
-          description: Specifies options to attach a new disk to the virtual machine.
-        existingLabDiskId:
-          description: Specifies the existing lab disk id to attach to virtual machine.
-          type: string
-        hostCaching:
-          description: Caching option for a data disk (i.e. None, ReadOnly, ReadWrite).
+        dailyRecurrence:
+          $ref: '#/components/schemas/DayDetails'
+          description: If the schedule will occur once each day of the week, specify the daily recurrence.
+        hourlyRecurrence:
+          $ref: '#/components/schemas/HourDetails'
+          description: If the schedule will occur multiple times a day, specify the hourly recurrence.
+        notificationSettings:
+          $ref: '#/components/schemas/NotificationSettings'
+          description: Notification settings.
+        status:
+          description: The status of the schedule (i.e. Enabled, Disabled)
           enum:
-          - None
-          - ReadOnly
-          - ReadWrite
+          - Enabled
+          - Disabled
           type: string
           x-ms-enum:
             modelAsString: true
-            name: HostCachingOptions
+            name: EnableStatus
+        targetResourceId:
+          description: The resource ID to which the schedule belongs
+          type: string
+        taskType:
+          description: The task type of the schedule (e.g. LabVmsShutdownTask, LabVmAutoStart).
+          type: string
+        timeZoneId:
+          description: The time zone ID (e.g. Pacific Standard time).
+          type: string
+        weeklyRecurrence:
+          $ref: '#/components/schemas/WeekDetails'
+          description: If the schedule will occur only some days of the week, specify the weekly recurrence.
       type: object
-    LabVirtualMachineCreationParameterFragment:
-      description: Properties for creating a virtual machine.
+    ArtifactInstallPropertiesFragment:
+      description: Properties of an artifact.
       properties:
-        location:
-          description: The location of the new virtual machine or environment
+        artifactId:
+          description: The artifact's identifier.
           type: string
-        name:
-          description: The name of the virtual machine or environment
+        artifactTitle:
+          description: The artifact's title.
           type: string
-        properties:
-          $ref: '#/components/schemas/LabVirtualMachineCreationParameterPropertiesFragment'
-          description: The properties of the resource.
-          x-ms-client-flatten: true
-        tags:
-          additionalProperties:
-            type: string
-          description: The tags of the resource.
-          type: object
-      type: object
-    WeekDetails:
-      description: Properties of a weekly schedule.
-      properties:
-        time:
-          description: The time of the day the schedule will occur.
+        deploymentStatusMessage:
+          description: The status message from the deployment.
           type: string
-        weekdays:
-          description: The days of the week for which the schedule is set (e.g. Sunday, Monday, Tuesday, etc.).
+        installTime:
+          description: The time that the artifact starts to install on the virtual machine.
+          format: date-time
+          type: string
+        parameters:
+          description: The parameters of the artifact.
           items:
-            type: string
+            $ref: '#/components/schemas/ArtifactParameterPropertiesFragment'
           type: array
+        status:
+          description: The status of the artifact.
+          type: string
+        vmExtensionStatusMessage:
+          description: The status message from the virtual machine extension.
+          type: string
       type: object
     AttachNewDataDiskOptionsFragment:
       description: Properties to attach new disk to the Virtual Machine.
@@ -365,6 +428,18 @@ components:
           x-ms-enum:
             modelAsString: true
             name: StorageType
+      type: object
+    FormulaList:
+      description: The response of a list operation.
+      properties:
+        nextLink:
+          description: Link for next set of results.
+          type: string
+        value:
+          description: Results of the list operation.
+          items:
+            $ref: '#/components/schemas/Formula'
+          type: array
       type: object
     ScheduleCreationParameterPropertiesFragment:
       description: Properties for schedule creation.
@@ -400,6 +475,475 @@ components:
           $ref: '#/components/schemas/WeekDetailsFragment'
           description: If the schedule will occur only some days of the week, specify the weekly recurrence.
       type: object
+    ArtifactDeploymentStatusProperties:
+      description: Properties of an artifact deployment.
+      properties:
+        artifactsApplied:
+          description: The total count of the artifacts that were successfully applied.
+          format: int32
+          type: integer
+        deploymentStatus:
+          description: The deployment status of the artifact.
+          type: string
+        totalArtifacts:
+          description: The total count of the artifacts that were tentatively applied.
+          format: int32
+          type: integer
+      type: object
+    UpdateResource:
+      description: Represents an update resource
+      properties:
+        tags:
+          additionalProperties:
+            type: string
+          description: The tags of the resource.
+          type: object
+      type: object
+    CloudError:
+      description: Error from a REST request.
+      properties:
+        error:
+          $ref: '#/components/schemas/CloudErrorBody'
+          description: The cloud error that occurred
+      type: object
+      x-ms-external: true
+    LabVirtualMachineCreationParameterProperties:
+      description: Properties for virtual machine creation.
+      properties:
+        allowClaim:
+          description: Indicates whether another user can take ownership of the virtual machine
+          type: boolean
+        artifactDeploymentStatus:
+          $ref: '#/components/schemas/ArtifactDeploymentStatusProperties'
+          description: The artifact deployment status for the virtual machine.
+        artifacts:
+          description: The artifacts to be installed on the virtual machine.
+          items:
+            $ref: '#/components/schemas/ArtifactInstallProperties'
+          type: array
+        bulkCreationParameters:
+          $ref: '#/components/schemas/BulkCreationParameters'
+          description: The number of virtual machine instances to create.
+        computeId:
+          description: The resource identifier (Microsoft.Compute) of the virtual machine.
+          type: string
+        createdByUser:
+          description: The email address of creator of the virtual machine.
+          type: string
+        createdByUserId:
+          description: The object identifier of the creator of the virtual machine.
+          type: string
+        createdDate:
+          description: The creation date of the virtual machine.
+          format: date-time
+          type: string
+        customImageId:
+          description: The custom image identifier of the virtual machine.
+          type: string
+        dataDiskParameters:
+          description: New or existing data disks to attach to the virtual machine after creation
+          items:
+            $ref: '#/components/schemas/DataDiskProperties'
+          type: array
+        disallowPublicIpAddress:
+          description: Indicates whether the virtual machine is to be created without a public IP address.
+          type: boolean
+        environmentId:
+          description: The resource ID of the environment that contains this virtual machine, if any.
+          type: string
+        expirationDate:
+          description: The expiration date for VM.
+          format: date-time
+          type: string
+        fqdn:
+          description: The fully-qualified domain name of the virtual machine.
+          type: string
+        galleryImageReference:
+          $ref: '#/components/schemas/GalleryImageReference'
+          description: The Microsoft Azure Marketplace image reference of the virtual machine.
+        isAuthenticationWithSshKey:
+          description: Indicates whether this virtual machine uses an SSH key for authentication.
+          type: boolean
+        labSubnetName:
+          description: The lab subnet name of the virtual machine.
+          type: string
+        labVirtualNetworkId:
+          description: The lab virtual network identifier of the virtual machine.
+          type: string
+        lastKnownPowerState:
+          description: Last known compute power state captured in DTL
+          type: string
+        networkInterface:
+          $ref: '#/components/schemas/NetworkInterfaceProperties'
+          description: The network interface properties.
+        notes:
+          description: The notes of the virtual machine.
+          type: string
+        osType:
+          description: The OS type of the virtual machine.
+          type: string
+        ownerObjectId:
+          description: The object identifier of the owner of the virtual machine.
+          type: string
+        ownerUserPrincipalName:
+          description: The user principal name of the virtual machine owner.
+          type: string
+        password:
+          description: The password of the virtual machine administrator.
+          type: string
+        planId:
+          description: The id of the plan associated with the virtual machine image
+          type: string
+        scheduleParameters:
+          description: Virtual Machine schedules to be created
+          items:
+            $ref: '#/components/schemas/ScheduleCreationParameter'
+          type: array
+        size:
+          description: The size of the virtual machine.
+          type: string
+        sshKey:
+          description: The SSH key of the virtual machine administrator.
+          type: string
+        storageType:
+          description: Storage type to use for virtual machine (i.e. Standard, Premium).
+          type: string
+        userName:
+          description: The user name of the virtual machine.
+          type: string
+        virtualMachineCreationSource:
+          description: Tells source of creation of lab virtual machine. Output property only.
+          enum:
+          - FromCustomImage
+          - FromGalleryImage
+          - FromSharedGalleryImage
+          type: string
+          x-ms-enum:
+            modelAsString: true
+            name: VirtualMachineCreationSource
+      type: object
+    FormulaFragment:
+      allOf:
+      - $ref: '#/components/schemas/UpdateResource'
+      description: A formula for creating a VM, specifying an image base and other parameters
+      properties:
+        properties:
+          $ref: '#/components/schemas/FormulaPropertiesFragment'
+          description: The properties of the resource.
+          x-ms-client-flatten: true
+      type: object
+    DayDetailsFragment:
+      description: Properties of a daily schedule.
+      properties:
+        time:
+          description: The time of day the schedule will occur.
+          type: string
+      type: object
+    NetworkInterfaceProperties:
+      description: Properties of a network interface.
+      properties:
+        dnsName:
+          description: The DNS name.
+          type: string
+        privateIpAddress:
+          description: The private IP address.
+          type: string
+        publicIpAddress:
+          description: The public IP address.
+          type: string
+        publicIpAddressId:
+          description: The resource ID of the public IP address.
+          type: string
+        rdpAuthority:
+          description: The RdpAuthority property is a server DNS host name or IP address followed by the service port number for RDP (Remote Desktop Protocol).
+          type: string
+        sharedPublicIpAddressConfiguration:
+          $ref: '#/components/schemas/SharedPublicIpAddressConfiguration'
+          description: The configuration for sharing a public IP address across multiple virtual machines.
+        sshAuthority:
+          description: The SshAuthority property is a server DNS host name or IP address followed by the service port number for SSH.
+          type: string
+        subnetId:
+          description: The resource ID of the sub net.
+          type: string
+        virtualNetworkId:
+          description: The resource ID of the virtual network.
+          type: string
+      type: object
+    BulkCreationParametersFragment:
+      description: Parameters for creating multiple virtual machines as a single action.
+      properties:
+        instanceCount:
+          description: The number of virtual machine instances to create.
+          format: int32
+          type: integer
+      type: object
+    HourDetails:
+      description: Properties of an hourly schedule.
+      properties:
+        minute:
+          description: Minutes of the hour the schedule will run.
+          format: int32
+          type: integer
+      type: object
+    ScheduleCreationParameterFragment:
+      description: Properties for creating a schedule.
+      properties:
+        location:
+          description: The location of the new virtual machine or environment
+          type: string
+        name:
+          description: The name of the virtual machine or environment
+          type: string
+        properties:
+          $ref: '#/components/schemas/ScheduleCreationParameterPropertiesFragment'
+          description: The properties of the schedule.
+          x-ms-client-flatten: true
+        tags:
+          additionalProperties:
+            type: string
+          description: The tags of the resource.
+          type: object
+      type: object
+    SharedPublicIpAddressConfiguration:
+      description: Properties of a virtual machine that determine how it is connected to a load balancer.
+      properties:
+        inboundNatRules:
+          description: The incoming NAT rules
+          items:
+            $ref: '#/components/schemas/InboundNatRule'
+          type: array
+      type: object
+    ArtifactParameterProperties:
+      description: Properties of an artifact parameter.
+      properties:
+        name:
+          description: The name of the artifact parameter.
+          type: string
+        value:
+          description: The value of the artifact parameter.
+          type: string
+      type: object
+    InboundNatRule:
+      description: A rule for NAT - exposing a VM's port (backendPort) on the public IP address using a load balancer.
+      properties:
+        backendPort:
+          description: The port to which the external traffic will be redirected.
+          format: int32
+          type: integer
+        frontendPort:
+          description: The external endpoint port of the inbound connection. Possible values range between 1 and 65535, inclusive. If unspecified, a value will be allocated automatically.
+          format: int32
+          type: integer
+        transportProtocol:
+          description: The transport protocol for the endpoint.
+          enum:
+          - Tcp
+          - Udp
+          type: string
+          x-ms-enum:
+            modelAsString: true
+            name: TransportProtocol
+      type: object
+    NotificationSettings:
+      description: Notification settings for a schedule.
+      properties:
+        emailRecipient:
+          description: The email recipient to send notifications to (can be a list of semi-colon separated email addresses).
+          type: string
+        notificationLocale:
+          description: The locale to use when sending a notification (fallback for unsupported languages is EN).
+          type: string
+        status:
+          description: If notifications are enabled for this schedule (i.e. Enabled, Disabled).
+          enum:
+          - Enabled
+          - Disabled
+          type: string
+          x-ms-enum:
+            modelAsString: true
+            name: EnableStatus
+        timeInMinutes:
+          description: Time in minutes before event at which notification will be sent.
+          format: int32
+          type: integer
+        webhookUrl:
+          description: The webhook URL to which the notification will be sent.
+          type: string
+      type: object
+    WeekDetailsFragment:
+      description: Properties of a weekly schedule.
+      properties:
+        time:
+          description: The time of the day the schedule will occur.
+          type: string
+        weekdays:
+          description: The days of the week for which the schedule is set (e.g. Sunday, Monday, Tuesday, etc.).
+          items:
+            type: string
+          type: array
+      type: object
+    ArtifactDeploymentStatusPropertiesFragment:
+      description: Properties of an artifact deployment.
+      properties:
+        artifactsApplied:
+          description: The total count of the artifacts that were successfully applied.
+          format: int32
+          type: integer
+        deploymentStatus:
+          description: The deployment status of the artifact.
+          type: string
+        totalArtifacts:
+          description: The total count of the artifacts that were tentatively applied.
+          format: int32
+          type: integer
+      type: object
+    Resource:
+      description: An Azure resource.
+      properties:
+        id:
+          description: The identifier of the resource.
+          readOnly: true
+          type: string
+        location:
+          description: The location of the resource.
+          type: string
+        name:
+          description: The name of the resource.
+          readOnly: true
+          type: string
+        tags:
+          additionalProperties:
+            type: string
+          description: The tags of the resource.
+          type: object
+        type:
+          description: The type of the resource.
+          readOnly: true
+          type: string
+      type: object
+      x-ms-azure-resource: true
+    FormulaPropertiesFromVmFragment:
+      description: Information about a VM from which a formula is to be created.
+      properties:
+        labVmId:
+          description: The identifier of the VM from which a formula is to be created.
+          type: string
+      type: object
+    FormulaPropertiesFromVm:
+      description: Information about a VM from which a formula is to be created.
+      properties:
+        labVmId:
+          description: The identifier of the VM from which a formula is to be created.
+          type: string
+      type: object
+    ScheduleCreationParameter:
+      description: Properties for creating a schedule.
+      properties:
+        location:
+          description: The location of the new virtual machine or environment
+          type: string
+        name:
+          description: The name of the virtual machine or environment
+          type: string
+        properties:
+          $ref: '#/components/schemas/ScheduleCreationParameterProperties'
+          description: The properties of the schedule.
+          x-ms-client-flatten: true
+        tags:
+          additionalProperties:
+            type: string
+          description: The tags of the resource.
+          type: object
+      type: object
+    LabVirtualMachineCreationParameter:
+      description: Properties for creating a virtual machine.
+      properties:
+        location:
+          description: The location of the new virtual machine or environment
+          type: string
+        name:
+          description: The name of the virtual machine or environment
+          type: string
+        properties:
+          $ref: '#/components/schemas/LabVirtualMachineCreationParameterProperties'
+          description: The properties of the resource.
+          x-ms-client-flatten: true
+        tags:
+          additionalProperties:
+            type: string
+          description: The tags of the resource.
+          type: object
+      type: object
+    NotificationSettingsFragment:
+      description: Notification settings for a schedule.
+      properties:
+        emailRecipient:
+          description: The email recipient to send notifications to (can be a list of semi-colon separated email addresses).
+          type: string
+        notificationLocale:
+          description: The locale to use when sending a notification (fallback for unsupported languages is EN).
+          type: string
+        status:
+          description: If notifications are enabled for this schedule (i.e. Enabled, Disabled).
+          enum:
+          - Enabled
+          - Disabled
+          type: string
+          x-ms-enum:
+            modelAsString: true
+            name: EnableStatus
+        timeInMinutes:
+          description: Time in minutes before event at which notification will be sent.
+          format: int32
+          type: integer
+        webhookUrl:
+          description: The webhook URL to which the notification will be sent.
+          type: string
+      type: object
+    Formula:
+      allOf:
+      - $ref: '#/components/schemas/Resource'
+      description: A formula for creating a VM, specifying an image base and other parameters
+      properties:
+        properties:
+          $ref: '#/components/schemas/FormulaProperties'
+          description: The properties of the resource.
+          x-ms-client-flatten: true
+      required:
+      - properties
+      type: object
+    NetworkInterfacePropertiesFragment:
+      description: Properties of a network interface.
+      properties:
+        dnsName:
+          description: The DNS name.
+          type: string
+        privateIpAddress:
+          description: The private IP address.
+          type: string
+        publicIpAddress:
+          description: The public IP address.
+          type: string
+        publicIpAddressId:
+          description: The resource ID of the public IP address.
+          type: string
+        rdpAuthority:
+          description: The RdpAuthority property is a server DNS host name or IP address followed by the service port number for RDP (Remote Desktop Protocol).
+          type: string
+        sharedPublicIpAddressConfiguration:
+          $ref: '#/components/schemas/SharedPublicIpAddressConfigurationFragment'
+          description: The configuration for sharing a public IP address across multiple virtual machines.
+        sshAuthority:
+          description: The SshAuthority property is a server DNS host name or IP address followed by the service port number for SSH.
+          type: string
+        subnetId:
+          description: The resource ID of the sub net.
+          type: string
+        virtualNetworkId:
+          description: The resource ID of the virtual network.
+          type: string
+      type: object
     FormulaPropertiesFragment:
       description: Properties of a formula.
       properties:
@@ -418,6 +962,167 @@ components:
         vm:
           $ref: '#/components/schemas/FormulaPropertiesFromVmFragment'
           description: Information about a VM from which a formula is to be created.
+      type: object
+    GalleryImageReference:
+      description: The reference information for an Azure Marketplace image.
+      properties:
+        offer:
+          description: The offer of the gallery image.
+          type: string
+        osType:
+          description: The OS type of the gallery image.
+          type: string
+        publisher:
+          description: The publisher of the gallery image.
+          type: string
+        sku:
+          description: The SKU of the gallery image.
+          type: string
+        version:
+          description: The version of the gallery image.
+          type: string
+      type: object
+    ArtifactParameterPropertiesFragment:
+      description: Properties of an artifact parameter.
+      properties:
+        name:
+          description: The name of the artifact parameter.
+          type: string
+        value:
+          description: The value of the artifact parameter.
+          type: string
+      type: object
+    DataDiskPropertiesFragment:
+      description: Request body for adding a new or existing data disk to a virtual machine.
+      properties:
+        attachNewDataDiskOptions:
+          $ref: '#/components/schemas/AttachNewDataDiskOptionsFragment'
+          description: Specifies options to attach a new disk to the virtual machine.
+        existingLabDiskId:
+          description: Specifies the existing lab disk id to attach to virtual machine.
+          type: string
+        hostCaching:
+          description: Caching option for a data disk (i.e. None, ReadOnly, ReadWrite).
+          enum:
+          - None
+          - ReadOnly
+          - ReadWrite
+          type: string
+          x-ms-enum:
+            modelAsString: true
+            name: HostCachingOptions
+      type: object
+    WeekDetails:
+      description: Properties of a weekly schedule.
+      properties:
+        time:
+          description: The time of the day the schedule will occur.
+          type: string
+        weekdays:
+          description: The days of the week for which the schedule is set (e.g. Sunday, Monday, Tuesday, etc.).
+          items:
+            type: string
+          type: array
+      type: object
+    CloudErrorBody:
+      description: Body of an error from a REST request.
+      properties:
+        code:
+          description: The error code.
+          type: string
+        details:
+          description: Inner errors.
+          items:
+            $ref: '#/components/schemas/CloudErrorBody'
+          type: array
+        message:
+          description: The error message.
+          type: string
+        target:
+          description: The error target.
+          type: string
+      type: object
+      x-ms-external: true
+    AttachNewDataDiskOptions:
+      description: Properties to attach new disk to the Virtual Machine.
+      properties:
+        diskName:
+          description: The name of the disk to be attached.
+          type: string
+        diskSizeGiB:
+          description: Size of the disk to be attached in GibiBytes.
+          format: int32
+          type: integer
+        diskType:
+          description: The storage type for the disk (i.e. Standard, Premium).
+          enum:
+          - Standard
+          - Premium
+          - StandardSSD
+          type: string
+          x-ms-enum:
+            modelAsString: true
+            name: StorageType
+      type: object
+    LabVirtualMachineCreationParameterFragment:
+      description: Properties for creating a virtual machine.
+      properties:
+        location:
+          description: The location of the new virtual machine or environment
+          type: string
+        name:
+          description: The name of the virtual machine or environment
+          type: string
+        properties:
+          $ref: '#/components/schemas/LabVirtualMachineCreationParameterPropertiesFragment'
+          description: The properties of the resource.
+          x-ms-client-flatten: true
+        tags:
+          additionalProperties:
+            type: string
+          description: The tags of the resource.
+          type: object
+      type: object
+    InboundNatRuleFragment:
+      description: A rule for NAT - exposing a VM's port (backendPort) on the public IP address using a load balancer.
+      properties:
+        backendPort:
+          description: The port to which the external traffic will be redirected.
+          format: int32
+          type: integer
+        frontendPort:
+          description: The external endpoint port of the inbound connection. Possible values range between 1 and 65535, inclusive. If unspecified, a value will be allocated automatically.
+          format: int32
+          type: integer
+        transportProtocol:
+          description: The transport protocol for the endpoint.
+          enum:
+          - Tcp
+          - Udp
+          type: string
+          x-ms-enum:
+            modelAsString: true
+            name: TransportProtocol
+      type: object
+    DataDiskProperties:
+      description: Request body for adding a new or existing data disk to a virtual machine.
+      properties:
+        attachNewDataDiskOptions:
+          $ref: '#/components/schemas/AttachNewDataDiskOptions'
+          description: Specifies options to attach a new disk to the virtual machine.
+        existingLabDiskId:
+          description: Specifies the existing lab disk id to attach to virtual machine.
+          type: string
+        hostCaching:
+          description: Caching option for a data disk (i.e. None, ReadOnly, ReadWrite).
+          enum:
+          - None
+          - ReadOnly
+          - ReadWrite
+          type: string
+          x-ms-enum:
+            modelAsString: true
+            name: HostCachingOptions
       type: object
     LabVirtualMachineCreationParameterPropertiesFragment:
       description: Properties for virtual machine creation.
@@ -534,204 +1239,6 @@ components:
             modelAsString: true
             name: VirtualMachineCreationSource
       type: object
-    BulkCreationParametersFragment:
-      description: Parameters for creating multiple virtual machines as a single action.
-      properties:
-        instanceCount:
-          description: The number of virtual machine instances to create.
-          format: int32
-          type: integer
-      type: object
-    FormulaPropertiesFromVmFragment:
-      description: Information about a VM from which a formula is to be created.
-      properties:
-        labVmId:
-          description: The identifier of the VM from which a formula is to be created.
-          type: string
-      type: object
-    ArtifactInstallPropertiesFragment:
-      description: Properties of an artifact.
-      properties:
-        artifactId:
-          description: The artifact's identifier.
-          type: string
-        artifactTitle:
-          description: The artifact's title.
-          type: string
-        deploymentStatusMessage:
-          description: The status message from the deployment.
-          type: string
-        installTime:
-          description: The time that the artifact starts to install on the virtual machine.
-          format: date-time
-          type: string
-        parameters:
-          description: The parameters of the artifact.
-          items:
-            $ref: '#/components/schemas/ArtifactParameterPropertiesFragment'
-          type: array
-        status:
-          description: The status of the artifact.
-          type: string
-        vmExtensionStatusMessage:
-          description: The status message from the virtual machine extension.
-          type: string
-      type: object
-    AttachNewDataDiskOptions:
-      description: Properties to attach new disk to the Virtual Machine.
-      properties:
-        diskName:
-          description: The name of the disk to be attached.
-          type: string
-        diskSizeGiB:
-          description: Size of the disk to be attached in GibiBytes.
-          format: int32
-          type: integer
-        diskType:
-          description: The storage type for the disk (i.e. Standard, Premium).
-          enum:
-          - Standard
-          - Premium
-          - StandardSSD
-          type: string
-          x-ms-enum:
-            modelAsString: true
-            name: StorageType
-      type: object
-    FormulaList:
-      description: The response of a list operation.
-      properties:
-        nextLink:
-          description: Link for next set of results.
-          type: string
-        value:
-          description: Results of the list operation.
-          items:
-            $ref: '#/components/schemas/Formula'
-          type: array
-      type: object
-    HourDetails:
-      description: Properties of an hourly schedule.
-      properties:
-        minute:
-          description: Minutes of the hour the schedule will run.
-          format: int32
-          type: integer
-      type: object
-    ArtifactParameterPropertiesFragment:
-      description: Properties of an artifact parameter.
-      properties:
-        name:
-          description: The name of the artifact parameter.
-          type: string
-        value:
-          description: The value of the artifact parameter.
-          type: string
-      type: object
-    FormulaPropertiesFromVm:
-      description: Information about a VM from which a formula is to be created.
-      properties:
-        labVmId:
-          description: The identifier of the VM from which a formula is to be created.
-          type: string
-      type: object
-    DataDiskProperties:
-      description: Request body for adding a new or existing data disk to a virtual machine.
-      properties:
-        attachNewDataDiskOptions:
-          $ref: '#/components/schemas/AttachNewDataDiskOptions'
-          description: Specifies options to attach a new disk to the virtual machine.
-        existingLabDiskId:
-          description: Specifies the existing lab disk id to attach to virtual machine.
-          type: string
-        hostCaching:
-          description: Caching option for a data disk (i.e. None, ReadOnly, ReadWrite).
-          enum:
-          - None
-          - ReadOnly
-          - ReadWrite
-          type: string
-          x-ms-enum:
-            modelAsString: true
-            name: HostCachingOptions
-      type: object
-    ArtifactDeploymentStatusProperties:
-      description: Properties of an artifact deployment.
-      properties:
-        artifactsApplied:
-          description: The total count of the artifacts that were successfully applied.
-          format: int32
-          type: integer
-        deploymentStatus:
-          description: The deployment status of the artifact.
-          type: string
-        totalArtifacts:
-          description: The total count of the artifacts that were tentatively applied.
-          format: int32
-          type: integer
-      type: object
-    ScheduleCreationParameterProperties:
-      description: Properties for schedule creation.
-      properties:
-        dailyRecurrence:
-          $ref: '#/components/schemas/DayDetails'
-          description: If the schedule will occur once each day of the week, specify the daily recurrence.
-        hourlyRecurrence:
-          $ref: '#/components/schemas/HourDetails'
-          description: If the schedule will occur multiple times a day, specify the hourly recurrence.
-        notificationSettings:
-          $ref: '#/components/schemas/NotificationSettings'
-          description: Notification settings.
-        status:
-          description: The status of the schedule (i.e. Enabled, Disabled)
-          enum:
-          - Enabled
-          - Disabled
-          type: string
-          x-ms-enum:
-            modelAsString: true
-            name: EnableStatus
-        targetResourceId:
-          description: The resource ID to which the schedule belongs
-          type: string
-        taskType:
-          description: The task type of the schedule (e.g. LabVmsShutdownTask, LabVmAutoStart).
-          type: string
-        timeZoneId:
-          description: The time zone ID (e.g. Pacific Standard time).
-          type: string
-        weeklyRecurrence:
-          $ref: '#/components/schemas/WeekDetails'
-          description: If the schedule will occur only some days of the week, specify the weekly recurrence.
-      type: object
-    SharedPublicIpAddressConfigurationFragment:
-      description: Properties of a virtual machine that determine how it is connected to a load balancer.
-      properties:
-        inboundNatRules:
-          description: The incoming NAT rules
-          items:
-            $ref: '#/components/schemas/InboundNatRuleFragment'
-          type: array
-      type: object
-    LabVirtualMachineCreationParameter:
-      description: Properties for creating a virtual machine.
-      properties:
-        location:
-          description: The location of the new virtual machine or environment
-          type: string
-        name:
-          description: The name of the virtual machine or environment
-          type: string
-        properties:
-          $ref: '#/components/schemas/LabVirtualMachineCreationParameterProperties'
-          description: The properties of the resource.
-          x-ms-client-flatten: true
-        tags:
-          additionalProperties:
-            type: string
-          description: The tags of the resource.
-          type: object
-      type: object
     BulkCreationParameters:
       description: Parameters for creating multiple virtual machines as a single action.
       properties:
@@ -739,61 +1246,6 @@ components:
           description: The number of virtual machine instances to create.
           format: int32
           type: integer
-      type: object
-    GalleryImageReferenceFragment:
-      description: The reference information for an Azure Marketplace image.
-      properties:
-        offer:
-          description: The offer of the gallery image.
-          type: string
-        osType:
-          description: The OS type of the gallery image.
-          type: string
-        publisher:
-          description: The publisher of the gallery image.
-          type: string
-        sku:
-          description: The SKU of the gallery image.
-          type: string
-        version:
-          description: The version of the gallery image.
-          type: string
-      type: object
-    FormulaFragment:
-      allOf:
-      - $ref: '#/components/schemas/UpdateResource'
-      description: A formula for creating a VM, specifying an image base and other parameters
-      properties:
-        properties:
-          $ref: '#/components/schemas/FormulaPropertiesFragment'
-          description: The properties of the resource.
-          x-ms-client-flatten: true
-      type: object
-    NotificationSettingsFragment:
-      description: Notification settings for a schedule.
-      properties:
-        emailRecipient:
-          description: The email recipient to send notifications to (can be a list of semi-colon separated email addresses).
-          type: string
-        notificationLocale:
-          description: The locale to use when sending a notification (fallback for unsupported languages is EN).
-          type: string
-        status:
-          description: If notifications are enabled for this schedule (i.e. Enabled, Disabled).
-          enum:
-          - Enabled
-          - Disabled
-          type: string
-          x-ms-enum:
-            modelAsString: true
-            name: EnableStatus
-        timeInMinutes:
-          description: Time in minutes before event at which notification will be sent.
-          format: int32
-          type: integer
-        webhookUrl:
-          description: The webhook URL to which the notification will be sent.
-          type: string
       type: object
     FormulaProperties:
       description: Properties of a formula.
@@ -827,458 +1279,6 @@ components:
           $ref: '#/components/schemas/FormulaPropertiesFromVm'
           description: Information about a VM from which a formula is to be created.
       type: object
-    LabVirtualMachineCreationParameterProperties:
-      description: Properties for virtual machine creation.
-      properties:
-        allowClaim:
-          description: Indicates whether another user can take ownership of the virtual machine
-          type: boolean
-        artifactDeploymentStatus:
-          $ref: '#/components/schemas/ArtifactDeploymentStatusProperties'
-          description: The artifact deployment status for the virtual machine.
-        artifacts:
-          description: The artifacts to be installed on the virtual machine.
-          items:
-            $ref: '#/components/schemas/ArtifactInstallProperties'
-          type: array
-        bulkCreationParameters:
-          $ref: '#/components/schemas/BulkCreationParameters'
-          description: The number of virtual machine instances to create.
-        computeId:
-          description: The resource identifier (Microsoft.Compute) of the virtual machine.
-          type: string
-        createdByUser:
-          description: The email address of creator of the virtual machine.
-          type: string
-        createdByUserId:
-          description: The object identifier of the creator of the virtual machine.
-          type: string
-        createdDate:
-          description: The creation date of the virtual machine.
-          format: date-time
-          type: string
-        customImageId:
-          description: The custom image identifier of the virtual machine.
-          type: string
-        dataDiskParameters:
-          description: New or existing data disks to attach to the virtual machine after creation
-          items:
-            $ref: '#/components/schemas/DataDiskProperties'
-          type: array
-        disallowPublicIpAddress:
-          description: Indicates whether the virtual machine is to be created without a public IP address.
-          type: boolean
-        environmentId:
-          description: The resource ID of the environment that contains this virtual machine, if any.
-          type: string
-        expirationDate:
-          description: The expiration date for VM.
-          format: date-time
-          type: string
-        fqdn:
-          description: The fully-qualified domain name of the virtual machine.
-          type: string
-        galleryImageReference:
-          $ref: '#/components/schemas/GalleryImageReference'
-          description: The Microsoft Azure Marketplace image reference of the virtual machine.
-        isAuthenticationWithSshKey:
-          description: Indicates whether this virtual machine uses an SSH key for authentication.
-          type: boolean
-        labSubnetName:
-          description: The lab subnet name of the virtual machine.
-          type: string
-        labVirtualNetworkId:
-          description: The lab virtual network identifier of the virtual machine.
-          type: string
-        lastKnownPowerState:
-          description: Last known compute power state captured in DTL
-          type: string
-        networkInterface:
-          $ref: '#/components/schemas/NetworkInterfaceProperties'
-          description: The network interface properties.
-        notes:
-          description: The notes of the virtual machine.
-          type: string
-        osType:
-          description: The OS type of the virtual machine.
-          type: string
-        ownerObjectId:
-          description: The object identifier of the owner of the virtual machine.
-          type: string
-        ownerUserPrincipalName:
-          description: The user principal name of the virtual machine owner.
-          type: string
-        password:
-          description: The password of the virtual machine administrator.
-          type: string
-        planId:
-          description: The id of the plan associated with the virtual machine image
-          type: string
-        scheduleParameters:
-          description: Virtual Machine schedules to be created
-          items:
-            $ref: '#/components/schemas/ScheduleCreationParameter'
-          type: array
-        size:
-          description: The size of the virtual machine.
-          type: string
-        sshKey:
-          description: The SSH key of the virtual machine administrator.
-          type: string
-        storageType:
-          description: Storage type to use for virtual machine (i.e. Standard, Premium).
-          type: string
-        userName:
-          description: The user name of the virtual machine.
-          type: string
-        virtualMachineCreationSource:
-          description: Tells source of creation of lab virtual machine. Output property only.
-          enum:
-          - FromCustomImage
-          - FromGalleryImage
-          - FromSharedGalleryImage
-          type: string
-          x-ms-enum:
-            modelAsString: true
-            name: VirtualMachineCreationSource
-      type: object
-    NetworkInterfaceProperties:
-      description: Properties of a network interface.
-      properties:
-        dnsName:
-          description: The DNS name.
-          type: string
-        privateIpAddress:
-          description: The private IP address.
-          type: string
-        publicIpAddress:
-          description: The public IP address.
-          type: string
-        publicIpAddressId:
-          description: The resource ID of the public IP address.
-          type: string
-        rdpAuthority:
-          description: The RdpAuthority property is a server DNS host name or IP address followed by the service port number for RDP (Remote Desktop Protocol).
-          type: string
-        sharedPublicIpAddressConfiguration:
-          $ref: '#/components/schemas/SharedPublicIpAddressConfiguration'
-          description: The configuration for sharing a public IP address across multiple virtual machines.
-        sshAuthority:
-          description: The SshAuthority property is a server DNS host name or IP address followed by the service port number for SSH.
-          type: string
-        subnetId:
-          description: The resource ID of the sub net.
-          type: string
-        virtualNetworkId:
-          description: The resource ID of the virtual network.
-          type: string
-      type: object
-    SharedPublicIpAddressConfiguration:
-      description: Properties of a virtual machine that determine how it is connected to a load balancer.
-      properties:
-        inboundNatRules:
-          description: The incoming NAT rules
-          items:
-            $ref: '#/components/schemas/InboundNatRule'
-          type: array
-      type: object
-    ArtifactParameterProperties:
-      description: Properties of an artifact parameter.
-      properties:
-        name:
-          description: The name of the artifact parameter.
-          type: string
-        value:
-          description: The value of the artifact parameter.
-          type: string
-      type: object
-    NetworkInterfacePropertiesFragment:
-      description: Properties of a network interface.
-      properties:
-        dnsName:
-          description: The DNS name.
-          type: string
-        privateIpAddress:
-          description: The private IP address.
-          type: string
-        publicIpAddress:
-          description: The public IP address.
-          type: string
-        publicIpAddressId:
-          description: The resource ID of the public IP address.
-          type: string
-        rdpAuthority:
-          description: The RdpAuthority property is a server DNS host name or IP address followed by the service port number for RDP (Remote Desktop Protocol).
-          type: string
-        sharedPublicIpAddressConfiguration:
-          $ref: '#/components/schemas/SharedPublicIpAddressConfigurationFragment'
-          description: The configuration for sharing a public IP address across multiple virtual machines.
-        sshAuthority:
-          description: The SshAuthority property is a server DNS host name or IP address followed by the service port number for SSH.
-          type: string
-        subnetId:
-          description: The resource ID of the sub net.
-          type: string
-        virtualNetworkId:
-          description: The resource ID of the virtual network.
-          type: string
-      type: object
-    UpdateResource:
-      description: Represents an update resource
-      properties:
-        tags:
-          additionalProperties:
-            type: string
-          description: The tags of the resource.
-          type: object
-      type: object
-    DayDetailsFragment:
-      description: Properties of a daily schedule.
-      properties:
-        time:
-          description: The time of day the schedule will occur.
-          type: string
-      type: object
-    GalleryImageReference:
-      description: The reference information for an Azure Marketplace image.
-      properties:
-        offer:
-          description: The offer of the gallery image.
-          type: string
-        osType:
-          description: The OS type of the gallery image.
-          type: string
-        publisher:
-          description: The publisher of the gallery image.
-          type: string
-        sku:
-          description: The SKU of the gallery image.
-          type: string
-        version:
-          description: The version of the gallery image.
-          type: string
-      type: object
-    CloudErrorBody:
-      description: Body of an error from a REST request.
-      properties:
-        code:
-          description: The error code.
-          type: string
-        details:
-          description: Inner errors.
-          items:
-            $ref: '#/components/schemas/CloudErrorBody'
-          type: array
-        message:
-          description: The error message.
-          type: string
-        target:
-          description: The error target.
-          type: string
-      type: object
-      x-ms-external: true
-    ArtifactInstallProperties:
-      description: Properties of an artifact.
-      properties:
-        artifactId:
-          description: The artifact's identifier.
-          type: string
-        artifactTitle:
-          description: The artifact's title.
-          type: string
-        deploymentStatusMessage:
-          description: The status message from the deployment.
-          type: string
-        installTime:
-          description: The time that the artifact starts to install on the virtual machine.
-          format: date-time
-          type: string
-        parameters:
-          description: The parameters of the artifact.
-          items:
-            $ref: '#/components/schemas/ArtifactParameterProperties'
-          type: array
-        status:
-          description: The status of the artifact.
-          type: string
-        vmExtensionStatusMessage:
-          description: The status message from the virtual machine extension.
-          type: string
-      type: object
-    CloudError:
-      description: Error from a REST request.
-      properties:
-        error:
-          $ref: '#/components/schemas/CloudErrorBody'
-          description: The cloud error that occurred
-      type: object
-      x-ms-external: true
-    Formula:
-      allOf:
-      - $ref: '#/components/schemas/Resource'
-      description: A formula for creating a VM, specifying an image base and other parameters
-      properties:
-        properties:
-          $ref: '#/components/schemas/FormulaProperties'
-          description: The properties of the resource.
-          x-ms-client-flatten: true
-      required:
-      - properties
-      type: object
-    HourDetailsFragment:
-      description: Properties of an hourly schedule.
-      properties:
-        minute:
-          description: Minutes of the hour the schedule will run.
-          format: int32
-          type: integer
-      type: object
-    InboundNatRule:
-      description: A rule for NAT - exposing a VM's port (backendPort) on the public IP address using a load balancer.
-      properties:
-        backendPort:
-          description: The port to which the external traffic will be redirected.
-          format: int32
-          type: integer
-        frontendPort:
-          description: The external endpoint port of the inbound connection. Possible values range between 1 and 65535, inclusive. If unspecified, a value will be allocated automatically.
-          format: int32
-          type: integer
-        transportProtocol:
-          description: The transport protocol for the endpoint.
-          enum:
-          - Tcp
-          - Udp
-          type: string
-          x-ms-enum:
-            modelAsString: true
-            name: TransportProtocol
-      type: object
-    InboundNatRuleFragment:
-      description: A rule for NAT - exposing a VM's port (backendPort) on the public IP address using a load balancer.
-      properties:
-        backendPort:
-          description: The port to which the external traffic will be redirected.
-          format: int32
-          type: integer
-        frontendPort:
-          description: The external endpoint port of the inbound connection. Possible values range between 1 and 65535, inclusive. If unspecified, a value will be allocated automatically.
-          format: int32
-          type: integer
-        transportProtocol:
-          description: The transport protocol for the endpoint.
-          enum:
-          - Tcp
-          - Udp
-          type: string
-          x-ms-enum:
-            modelAsString: true
-            name: TransportProtocol
-      type: object
-    ScheduleCreationParameter:
-      description: Properties for creating a schedule.
-      properties:
-        location:
-          description: The location of the new virtual machine or environment
-          type: string
-        name:
-          description: The name of the virtual machine or environment
-          type: string
-        properties:
-          $ref: '#/components/schemas/ScheduleCreationParameterProperties'
-          description: The properties of the schedule.
-          x-ms-client-flatten: true
-        tags:
-          additionalProperties:
-            type: string
-          description: The tags of the resource.
-          type: object
-      type: object
-    NotificationSettings:
-      description: Notification settings for a schedule.
-      properties:
-        emailRecipient:
-          description: The email recipient to send notifications to (can be a list of semi-colon separated email addresses).
-          type: string
-        notificationLocale:
-          description: The locale to use when sending a notification (fallback for unsupported languages is EN).
-          type: string
-        status:
-          description: If notifications are enabled for this schedule (i.e. Enabled, Disabled).
-          enum:
-          - Enabled
-          - Disabled
-          type: string
-          x-ms-enum:
-            modelAsString: true
-            name: EnableStatus
-        timeInMinutes:
-          description: Time in minutes before event at which notification will be sent.
-          format: int32
-          type: integer
-        webhookUrl:
-          description: The webhook URL to which the notification will be sent.
-          type: string
-      type: object
-    Resource:
-      description: An Azure resource.
-      properties:
-        id:
-          description: The identifier of the resource.
-          readOnly: true
-          type: string
-        location:
-          description: The location of the resource.
-          type: string
-        name:
-          description: The name of the resource.
-          readOnly: true
-          type: string
-        tags:
-          additionalProperties:
-            type: string
-          description: The tags of the resource.
-          type: object
-        type:
-          description: The type of the resource.
-          readOnly: true
-          type: string
-      type: object
-      x-ms-azure-resource: true
-    ScheduleCreationParameterFragment:
-      description: Properties for creating a schedule.
-      properties:
-        location:
-          description: The location of the new virtual machine or environment
-          type: string
-        name:
-          description: The name of the virtual machine or environment
-          type: string
-        properties:
-          $ref: '#/components/schemas/ScheduleCreationParameterPropertiesFragment'
-          description: The properties of the schedule.
-          x-ms-client-flatten: true
-        tags:
-          additionalProperties:
-            type: string
-          description: The tags of the resource.
-          type: object
-      type: object
-    ArtifactDeploymentStatusPropertiesFragment:
-      description: Properties of an artifact deployment.
-      properties:
-        artifactsApplied:
-          description: The total count of the artifacts that were successfully applied.
-          format: int32
-          type: integer
-        deploymentStatus:
-          description: The deployment status of the artifact.
-          type: string
-        totalArtifacts:
-          description: The total count of the artifacts that were tentatively applied.
-          format: int32
-          type: integer
-      type: object
   parameters:
     api-version:
       description: Client API version.
@@ -1288,19 +1288,19 @@ components:
       schema:
         type: string
         default: '2018-09-15'
+    subscriptionId:
+      description: The subscription ID.
+      in: path
+      name: subscriptionId
+      required: true
+      schema:
+        type: string
     resourceGroupName:
       description: The name of the resource group.
       in: path
       name: resourceGroupName
       required: true
       x-ms-parameter-location: method
-      schema:
-        type: string
-    subscriptionId:
-      description: The subscription ID.
-      in: path
-      name: subscriptionId
-      required: true
       schema:
         type: string
   securitySchemes:

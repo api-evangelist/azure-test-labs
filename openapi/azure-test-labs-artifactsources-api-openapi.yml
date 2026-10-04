@@ -274,6 +274,28 @@ paths:
         required: true
 components:
   schemas:
+    ArtifactSourceFragment:
+      allOf:
+      - $ref: '#/components/schemas/UpdateResource'
+      description: Properties of an artifact source.
+      properties:
+        properties:
+          $ref: '#/components/schemas/ArtifactSourcePropertiesFragment'
+          description: The properties of the resource.
+          x-ms-client-flatten: true
+      type: object
+    ArtifactSourceList:
+      description: The response of a list operation.
+      properties:
+        nextLink:
+          description: Link for next set of results.
+          type: string
+        value:
+          description: Results of the list operation.
+          items:
+            $ref: '#/components/schemas/ArtifactSource'
+          type: array
+      type: object
     UpdateResource:
       description: Represents an update resource
       properties:
@@ -283,6 +305,39 @@ components:
           description: The tags of the resource.
           type: object
       type: object
+    CloudError:
+      description: Error from a REST request.
+      properties:
+        error:
+          $ref: '#/components/schemas/CloudErrorBody'
+          description: The cloud error that occurred
+      type: object
+      x-ms-external: true
+    Resource:
+      description: An Azure resource.
+      properties:
+        id:
+          description: The identifier of the resource.
+          readOnly: true
+          type: string
+        location:
+          description: The location of the resource.
+          type: string
+        name:
+          description: The name of the resource.
+          readOnly: true
+          type: string
+        tags:
+          additionalProperties:
+            type: string
+          description: The tags of the resource.
+          type: object
+        type:
+          description: The type of the resource.
+          readOnly: true
+          type: string
+      type: object
+      x-ms-azure-resource: true
     ArtifactSource:
       allOf:
       - $ref: '#/components/schemas/Resource'
@@ -295,33 +350,46 @@ components:
       required:
       - properties
       type: object
-    CloudErrorBody:
-      description: Body of an error from a REST request.
+    ArtifactSourcePropertiesFragment:
+      description: Properties of an artifact source.
       properties:
-        code:
-          description: The error code.
+        armTemplateFolderPath:
+          description: The folder containing Azure Resource Manager templates.
           type: string
-        details:
-          description: Inner errors.
-          items:
-            $ref: '#/components/schemas/CloudErrorBody'
-          type: array
-        message:
-          description: The error message.
+        branchRef:
+          description: The artifact source's branch reference.
           type: string
-        target:
-          description: The error target.
+        displayName:
+          description: The artifact source's display name.
+          type: string
+        folderPath:
+          description: The folder containing artifacts.
+          type: string
+        securityToken:
+          description: The security token to authenticate to the artifact source.
+          type: string
+        sourceType:
+          description: The artifact source's type.
+          enum:
+          - VsoGit
+          - GitHub
+          type: string
+          x-ms-enum:
+            modelAsString: true
+            name: SourceControlType
+        status:
+          description: 'Indicates if the artifact source is enabled (values: Enabled, Disabled).'
+          enum:
+          - Enabled
+          - Disabled
+          type: string
+          x-ms-enum:
+            modelAsString: true
+            name: EnableStatus
+        uri:
+          description: The artifact source's URI.
           type: string
       type: object
-      x-ms-external: true
-    CloudError:
-      description: Error from a REST request.
-      properties:
-        error:
-          $ref: '#/components/schemas/CloudErrorBody'
-          description: The cloud error that occurred
-      type: object
-      x-ms-external: true
     ArtifactSourceProperties:
       description: Properties of an artifact source.
       properties:
@@ -375,94 +443,34 @@ components:
           description: The artifact source's URI.
           type: string
       type: object
-    ArtifactSourcePropertiesFragment:
-      description: Properties of an artifact source.
+    CloudErrorBody:
+      description: Body of an error from a REST request.
       properties:
-        armTemplateFolderPath:
-          description: The folder containing Azure Resource Manager templates.
+        code:
+          description: The error code.
           type: string
-        branchRef:
-          description: The artifact source's branch reference.
-          type: string
-        displayName:
-          description: The artifact source's display name.
-          type: string
-        folderPath:
-          description: The folder containing artifacts.
-          type: string
-        securityToken:
-          description: The security token to authenticate to the artifact source.
-          type: string
-        sourceType:
-          description: The artifact source's type.
-          enum:
-          - VsoGit
-          - GitHub
-          type: string
-          x-ms-enum:
-            modelAsString: true
-            name: SourceControlType
-        status:
-          description: 'Indicates if the artifact source is enabled (values: Enabled, Disabled).'
-          enum:
-          - Enabled
-          - Disabled
-          type: string
-          x-ms-enum:
-            modelAsString: true
-            name: EnableStatus
-        uri:
-          description: The artifact source's URI.
-          type: string
-      type: object
-    Resource:
-      description: An Azure resource.
-      properties:
-        id:
-          description: The identifier of the resource.
-          readOnly: true
-          type: string
-        location:
-          description: The location of the resource.
-          type: string
-        name:
-          description: The name of the resource.
-          readOnly: true
-          type: string
-        tags:
-          additionalProperties:
-            type: string
-          description: The tags of the resource.
-          type: object
-        type:
-          description: The type of the resource.
-          readOnly: true
-          type: string
-      type: object
-      x-ms-azure-resource: true
-    ArtifactSourceList:
-      description: The response of a list operation.
-      properties:
-        nextLink:
-          description: Link for next set of results.
-          type: string
-        value:
-          description: Results of the list operation.
+        details:
+          description: Inner errors.
           items:
-            $ref: '#/components/schemas/ArtifactSource'
+            $ref: '#/components/schemas/CloudErrorBody'
           type: array
+        message:
+          description: The error message.
+          type: string
+        target:
+          description: The error target.
+          type: string
       type: object
-    ArtifactSourceFragment:
-      allOf:
-      - $ref: '#/components/schemas/UpdateResource'
-      description: Properties of an artifact source.
-      properties:
-        properties:
-          $ref: '#/components/schemas/ArtifactSourcePropertiesFragment'
-          description: The properties of the resource.
-          x-ms-client-flatten: true
-      type: object
+      x-ms-external: true
   parameters:
+    api-version:
+      description: Client API version.
+      in: query
+      name: api-version
+      required: true
+      schema:
+        type: string
+        default: '2018-09-15'
     subscriptionId:
       description: The subscription ID.
       in: path
@@ -478,14 +486,6 @@ components:
       x-ms-parameter-location: method
       schema:
         type: string
-    api-version:
-      description: Client API version.
-      in: query
-      name: api-version
-      required: true
-      schema:
-        type: string
-        default: '2018-09-15'
   securitySchemes:
     azure_auth:
       type: oauth2

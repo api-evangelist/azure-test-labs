@@ -61,33 +61,16 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    CloudErrorBody:
-      description: Body of an error from a REST request.
+    OperationError:
+      description: Error details for the operation in case of a failure.
       properties:
         code:
-          description: The error code.
+          description: The error code of the operation error.
           type: string
-        details:
-          description: Inner errors.
-          items:
-            $ref: '#/components/schemas/CloudErrorBody'
-          type: array
         message:
-          description: The error message.
-          type: string
-        target:
-          description: The error target.
+          description: The error message of the operation error.
           type: string
       type: object
-      x-ms-external: true
-    CloudError:
-      description: Error from a REST request.
-      properties:
-        error:
-          $ref: '#/components/schemas/CloudErrorBody'
-          description: The cloud error that occurred
-      type: object
-      x-ms-external: true
     OperationResult:
       description: An Operation Result
       properties:
@@ -147,16 +130,33 @@ components:
             modelAsString: true
             name: HttpStatusCode
       type: object
-    OperationError:
-      description: Error details for the operation in case of a failure.
+    CloudError:
+      description: Error from a REST request.
+      properties:
+        error:
+          $ref: '#/components/schemas/CloudErrorBody'
+          description: The cloud error that occurred
+      type: object
+      x-ms-external: true
+    CloudErrorBody:
+      description: Body of an error from a REST request.
       properties:
         code:
-          description: The error code of the operation error.
+          description: The error code.
           type: string
+        details:
+          description: Inner errors.
+          items:
+            $ref: '#/components/schemas/CloudErrorBody'
+          type: array
         message:
-          description: The error message of the operation error.
+          description: The error message.
+          type: string
+        target:
+          description: The error target.
           type: string
       type: object
+      x-ms-external: true
   parameters:
     locationName:
       description: The name of the location.

@@ -420,7 +420,55 @@ paths:
         description: Properties of the disk to detach.
         required: true
 components:
+  parameters:
+    api-version:
+      description: Client API version.
+      in: query
+      name: api-version
+      required: true
+      schema:
+        type: string
+        default: '2018-09-15'
+    subscriptionId:
+      description: The subscription ID.
+      in: path
+      name: subscriptionId
+      required: true
+      schema:
+        type: string
+    resourceGroupName:
+      description: The name of the resource group.
+      in: path
+      name: resourceGroupName
+      required: true
+      x-ms-parameter-location: method
+      schema:
+        type: string
   schemas:
+    UpdateResource:
+      description: Represents an update resource
+      properties:
+        tags:
+          additionalProperties:
+            type: string
+          description: The tags of the resource.
+          type: object
+      type: object
+    CloudError:
+      description: Error from a REST request.
+      properties:
+        error:
+          $ref: '#/components/schemas/CloudErrorBody'
+          description: The cloud error that occurred
+      type: object
+      x-ms-external: true
+    AttachDiskProperties:
+      description: Properties of the disk to attach.
+      properties:
+        leasedByLabVmId:
+          description: The resource ID of the Lab virtual machine to which the disk is attached.
+          type: string
+      type: object
     DiskProperties:
       description: Properties of a disk.
       properties:
@@ -467,54 +515,6 @@ components:
           readOnly: true
           type: string
       type: object
-    UpdateResource:
-      description: Represents an update resource
-      properties:
-        tags:
-          additionalProperties:
-            type: string
-          description: The tags of the resource.
-          type: object
-      type: object
-    CloudErrorBody:
-      description: Body of an error from a REST request.
-      properties:
-        code:
-          description: The error code.
-          type: string
-        details:
-          description: Inner errors.
-          items:
-            $ref: '#/components/schemas/CloudErrorBody'
-          type: array
-        message:
-          description: The error message.
-          type: string
-        target:
-          description: The error target.
-          type: string
-      type: object
-      x-ms-external: true
-    CloudError:
-      description: Error from a REST request.
-      properties:
-        error:
-          $ref: '#/components/schemas/CloudErrorBody'
-          description: The cloud error that occurred
-      type: object
-      x-ms-external: true
-    Disk:
-      allOf:
-      - $ref: '#/components/schemas/Resource'
-      description: A Disk.
-      properties:
-        properties:
-          $ref: '#/components/schemas/DiskProperties'
-          description: The properties of the resource.
-          x-ms-client-flatten: true
-      required:
-      - properties
-      type: object
     DiskFragment:
       allOf:
       - $ref: '#/components/schemas/UpdateResource'
@@ -524,25 +524,6 @@ components:
           $ref: '#/components/schemas/DiskPropertiesFragment'
           description: The properties of the resource.
           x-ms-client-flatten: true
-      type: object
-    DiskList:
-      description: The response of a list operation.
-      properties:
-        nextLink:
-          description: Link for next set of results.
-          type: string
-        value:
-          description: Results of the list operation.
-          items:
-            $ref: '#/components/schemas/Disk'
-          type: array
-      type: object
-    DetachDiskProperties:
-      description: Properties of the disk to detach.
-      properties:
-        leasedByLabVmId:
-          description: The resource ID of the Lab VM to which the disk is attached.
-          type: string
       type: object
     Resource:
       description: An Azure resource.
@@ -569,12 +550,17 @@ components:
           type: string
       type: object
       x-ms-azure-resource: true
-    AttachDiskProperties:
-      description: Properties of the disk to attach.
+    DiskList:
+      description: The response of a list operation.
       properties:
-        leasedByLabVmId:
-          description: The resource ID of the Lab virtual machine to which the disk is attached.
+        nextLink:
+          description: Link for next set of results.
           type: string
+        value:
+          description: Results of the list operation.
+          items:
+            $ref: '#/components/schemas/Disk'
+          type: array
       type: object
     DiskPropertiesFragment:
       description: Properties of a disk.
@@ -609,30 +595,44 @@ components:
           description: When backed by managed disk, this is the ID of the compute disk resource.
           type: string
       type: object
-  parameters:
-    api-version:
-      description: Client API version.
-      in: query
-      name: api-version
-      required: true
-      schema:
-        type: string
-        default: '2018-09-15'
-    resourceGroupName:
-      description: The name of the resource group.
-      in: path
-      name: resourceGroupName
-      required: true
-      x-ms-parameter-location: method
-      schema:
-        type: string
-    subscriptionId:
-      description: The subscription ID.
-      in: path
-      name: subscriptionId
-      required: true
-      schema:
-        type: string
+    Disk:
+      allOf:
+      - $ref: '#/components/schemas/Resource'
+      description: A Disk.
+      properties:
+        properties:
+          $ref: '#/components/schemas/DiskProperties'
+          description: The properties of the resource.
+          x-ms-client-flatten: true
+      required:
+      - properties
+      type: object
+    DetachDiskProperties:
+      description: Properties of the disk to detach.
+      properties:
+        leasedByLabVmId:
+          description: The resource ID of the Lab VM to which the disk is attached.
+          type: string
+      type: object
+    CloudErrorBody:
+      description: Body of an error from a REST request.
+      properties:
+        code:
+          description: The error code.
+          type: string
+        details:
+          description: Inner errors.
+          items:
+            $ref: '#/components/schemas/CloudErrorBody'
+          type: array
+        message:
+          description: The error message.
+          type: string
+        target:
+          description: The error target.
+          type: string
+      type: object
+      x-ms-external: true
   securitySchemes:
     azure_auth:
       type: oauth2
