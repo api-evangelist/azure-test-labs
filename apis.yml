@@ -355,6 +355,12 @@ apis:
   - type: Documentation
     url: https://docs.microsoft.com/en-us/azure/devtest-labs/
 common:
+- type: Plans
+  url: plans/azure-test-labs-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/azure-test-labs-rate-limits.yml
+- type: FinOps
+  url: finops/azure-test-labs-finops.yml
 - type: CapabilityMap
   url: capabilities/azure-test-labs-capability-edges.yml
   name: Azure DevTest Labs Business Capability Map
