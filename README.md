@@ -1,4 +1,4 @@
-# Azure DevTest Labs (azure-test-labs)
+# Azure DevTest Labs
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,89 +64,252 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Azure DevTest Labs enables developers to efficiently self-manage virtual machines and PaaS resources for development and testing without waiting for approvals.
+Azure DevTest Labs enables developers to efficiently self-manage virtual machines and PaaS resources without waiting for approvals. DevTest Labs creates labs consisting of pre-configured bases or Azure Resource Manager templates for development and testing purposes.
 
-**URL:** [Visit APIs.json URL](https://raw.githubusercontent.com/api-evangelist/azure-test-labs/refs/heads/main/apis.yml)
+**Areas:** Microsoft Azure · Development · Infrastructure · Labs · Testing · Virtual Machines
 
-**Run:** [Capabilities Using Naftiko](https://github.com/naftiko/fleet?utm_source=api-evangelist&utm_medium=readme&utm_campaign=company-api-evangelist&utm_content=repo)
+## Azure DevTest Labs on APIs.io
 
-## Tags:
+Everything profiled for Azure DevTest Labs is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/azure-test-labs/](https://apis.io/providers/azure-test-labs/)** — or go straight to one of the APIs or properties below.
 
- - Development, Infrastructure, Labs, Testing, Virtual Machines
+### APIs (25)
 
-## Timestamps
+- [Azure DevTest Labs ArmTemplates API](https://apis.io/apis/azure-test-labs/azure-test-labs-armtemplates-api/) — The ArmTemplates API from Azure DevTest Labs — 2 operation(s) for armtemplates.
+- [Azure DevTest Labs Artifacts API](https://apis.io/apis/azure-test-labs/azure-test-labs-artifacts-api/) — The Artifacts API from Azure DevTest Labs — 3 operation(s) for artifacts.
+- [Azure DevTest Labs ArtifactSources API](https://apis.io/apis/azure-test-labs/azure-test-labs-artifactsources-api/) — The ArtifactSources API from Azure DevTest Labs — 2 operation(s) for artifactsources.
+- [Azure DevTest Labs Costs API](https://apis.io/apis/azure-test-labs/azure-test-labs-costs-api/) — The Costs API from Azure DevTest Labs — 1 operation(s) for costs.
+- [Azure DevTest Labs CustomImages API](https://apis.io/apis/azure-test-labs/azure-test-labs-customimages-api/) — The CustomImages API from Azure DevTest Labs — 2 operation(s) for customimages.
+- [Azure DevTest Labs Disks API](https://apis.io/apis/azure-test-labs/azure-test-labs-disks-api/) — The Disks API from Azure DevTest Labs — 4 operation(s) for disks.
+- [Azure DevTest Labs Environments API](https://apis.io/apis/azure-test-labs/azure-test-labs-environments-api/) — The Environments API from Azure DevTest Labs — 2 operation(s) for environments.
+- [Azure DevTest Labs Formulas API](https://apis.io/apis/azure-test-labs/azure-test-labs-formulas-api/) — The Formulas API from Azure DevTest Labs — 2 operation(s) for formulas.
+- [Azure DevTest Labs GalleryImages API](https://apis.io/apis/azure-test-labs/azure-test-labs-galleryimages-api/) — The GalleryImages API from Azure DevTest Labs — 1 operation(s) for galleryimages.
+- [Azure DevTest Labs GlobalSchedules API](https://apis.io/apis/azure-test-labs/azure-test-labs-globalschedules-api/) — The GlobalSchedules API from Azure DevTest Labs — 5 operation(s) for globalschedules.
+- [Azure DevTest Labs API](https://apis.io/apis/azure-test-labs/azure-test-labs-labs-api/) — The Labs API from Azure DevTest Labs — 9 operation(s) for labs.
+- [Azure DevTest Labs Operations API](https://apis.io/apis/azure-test-labs/azure-test-labs-operations-api/) — The Operations API from Azure DevTest Labs — 1 operation(s) for operations.
+- [Azure DevTest Labs Policies API](https://apis.io/apis/azure-test-labs/azure-test-labs-policies-api/) — The Policies API from Azure DevTest Labs — 2 operation(s) for policies.
+- [Azure DevTest Labs ProviderOperations API](https://apis.io/apis/azure-test-labs/azure-test-labs-provideroperations-api/) — The ProviderOperations API from Azure DevTest Labs — 1 operation(s) for provideroperations.
+- [Azure DevTest Labs Schedules API](https://apis.io/apis/azure-test-labs/azure-test-labs-schedules-api/) — The Schedules API from Azure DevTest Labs — 4 operation(s) for schedules.
+- [Azure DevTest Labs Secrets API](https://apis.io/apis/azure-test-labs/azure-test-labs-secrets-api/) — The Secrets API from Azure DevTest Labs — 2 operation(s) for secrets.
+- [Azure DevTest Labs ServiceFabrics API](https://apis.io/apis/azure-test-labs/azure-test-labs-servicefabrics-api/) — The ServiceFabrics API from Azure DevTest Labs — 5 operation(s) for servicefabrics.
+- [Azure DevTest Labs ServiceFabricSchedules API](https://apis.io/apis/azure-test-labs/azure-test-labs-servicefabricschedules-api/) — The ServiceFabricSchedules API from Azure DevTest Labs — 3 operation(s) for servicefabricschedules.
+- [Azure DevTest Labs ServiceRunners API](https://apis.io/apis/azure-test-labs/azure-test-labs-servicerunners-api/) — The ServiceRunners API from Azure DevTest Labs — 1 operation(s) for servicerunners.
+- [Azure DevTest Labs Users API](https://apis.io/apis/azure-test-labs/azure-test-labs-users-api/) — The Users API from Azure DevTest Labs — 2 operation(s) for users.
+- [Azure DevTest Labs VirtualMachineSchedules API](https://apis.io/apis/azure-test-labs/azure-test-labs-virtualmachineschedules-api/) — The VirtualMachineSchedules API from Azure DevTest Labs — 3 operation(s) for virtualmachineschedules.
+- [Azure DevTest Labs Notification Channels API](https://apis.io/apis/azure-test-labs/azure-test-labs-notification-channels-api/) — The Notification Channels API from Azure DevTest Labs — 3 operation(s) for notification channels.
+- [Azure DevTest Labs Policy Sets API](https://apis.io/apis/azure-test-labs/azure-test-labs-policy-sets-api/) — The Policy Sets API from Azure DevTest Labs — 1 operation(s) for policy sets.
+- [Azure DevTest Labs Virtual Machines API](https://apis.io/apis/azure-test-labs/azure-test-labs-virtual-machines-api/) — The Virtual Machines API from Azure DevTest Labs — 15 operation(s) for virtual machines.
+- [Azure DevTest Labs Virtual Networks API](https://apis.io/apis/azure-test-labs/azure-test-labs-virtual-networks-api/) — The Virtual Networks API from Azure DevTest Labs — 2 operation(s) for virtual networks.
 
-- **Created:** 2024-01-01
-- **Modified:** 2026-04-19
+### Published properties
 
-## APIs
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-### Azure DevTest Labs
-Azure DevTest Labs enables developers to efficiently self-manage virtual machines and PaaS resources for development and testing without waiting for approvals.
+#### Agentic access (1)
 
-**Human URL:** [https://azure.microsoft.com/en-us/services/devtest-lab/](https://azure.microsoft.com/en-us/services/devtest-lab/)
+Which operations an agent can call, which act, and which need a human in the loop.
 
-#### Tags:
+- [Azure Test Labs Agentic Access](https://apis.io/agentic-access/azure-test-labs/azure-test-labs-agentic-access/)
 
- - Artifacts, Environments, Labs, Virtual Machines
+#### JSON Schema (30)
 
-#### Properties
+The data models the API reads and writes.
 
-- [Documentation](https://azure.microsoft.com/en-us/services/devtest-lab/)
-- [OpenAPI](openapi/azure-test-labs-openapi.yaml)
+- [ApplicableSchedule](https://apis.io/schemas/azure-test-labs/azure-test-labs-applicable-schedule/)
+- [ApplicableScheduleFragment](https://apis.io/schemas/azure-test-labs/azure-test-labs-applicable-schedule-fragment/)
+- [ApplicableScheduleProperties](https://apis.io/schemas/azure-test-labs/azure-test-labs-applicable-schedule-properties/)
+- [ApplicableSchedulePropertiesFragment](https://apis.io/schemas/azure-test-labs/azure-test-labs-applicable-schedule-properties-fragment/)
+- [ApplyArtifactsRequest](https://apis.io/schemas/azure-test-labs/azure-test-labs-apply-artifacts-request/)
+- [ArmTemplate](https://apis.io/schemas/azure-test-labs/azure-test-labs-arm-template/)
+- [ArmTemplateInfo](https://apis.io/schemas/azure-test-labs/azure-test-labs-arm-template-info/)
+- [ArmTemplateList](https://apis.io/schemas/azure-test-labs/azure-test-labs-arm-template-list/)
+- [ArmTemplateParameterProperties](https://apis.io/schemas/azure-test-labs/azure-test-labs-arm-template-parameter-properties/)
+- [ArmTemplateParameterPropertiesFragment](https://apis.io/schemas/azure-test-labs/azure-test-labs-arm-template-parameter-properties-fragment/)
+- [ArmTemplateProperties](https://apis.io/schemas/azure-test-labs/azure-test-labs-arm-template-properties/)
+- [Artifact](https://apis.io/schemas/azure-test-labs/azure-test-labs-artifact/)
+- [ArtifactDeploymentStatusProperties](https://apis.io/schemas/azure-test-labs/azure-test-labs-artifact-deployment-status-properties/)
+- [ArtifactDeploymentStatusPropertiesFragment](https://apis.io/schemas/azure-test-labs/azure-test-labs-artifact-deployment-status-properties-fragment/)
+- [ArtifactInstallProperties](https://apis.io/schemas/azure-test-labs/azure-test-labs-artifact-install-properties/)
+- [ArtifactInstallPropertiesFragment](https://apis.io/schemas/azure-test-labs/azure-test-labs-artifact-install-properties-fragment/)
+- [ArtifactList](https://apis.io/schemas/azure-test-labs/azure-test-labs-artifact-list/)
+- [ArtifactParameterProperties](https://apis.io/schemas/azure-test-labs/azure-test-labs-artifact-parameter-properties/)
+- [ArtifactParameterPropertiesFragment](https://apis.io/schemas/azure-test-labs/azure-test-labs-artifact-parameter-properties-fragment/)
+- [ArtifactProperties](https://apis.io/schemas/azure-test-labs/azure-test-labs-artifact-properties/)
+- [ArtifactSource](https://apis.io/schemas/azure-test-labs/azure-test-labs-artifact-source/)
+- [ArtifactSourceFragment](https://apis.io/schemas/azure-test-labs/azure-test-labs-artifact-source-fragment/)
+- [ArtifactSourceList](https://apis.io/schemas/azure-test-labs/azure-test-labs-artifact-source-list/)
+- [ArtifactSourceProperties](https://apis.io/schemas/azure-test-labs/azure-test-labs-artifact-source-properties/)
+- [ArtifactSourcePropertiesFragment](https://apis.io/schemas/azure-test-labs/azure-test-labs-artifact-source-properties-fragment/)
+- …and 5 more published on APIs.io
 
-## Common Properties
+#### JSON Structure (30)
 
+Data models expressed in JSON Structure.
 
-## Artifacts
+- [Azure Test Labs Applicable Schedule Fragment Structure](https://apis.io/json-structure/azure-test-labs/azure-test-labs-applicable-schedule-fragment-structure/)
+- [Azure Test Labs Applicable Schedule Properties Fragment Structure](https://apis.io/json-structure/azure-test-labs/azure-test-labs-applicable-schedule-properties-fragment-structure/)
+- [Azure Test Labs Applicable Schedule Properties Structure](https://apis.io/json-structure/azure-test-labs/azure-test-labs-applicable-schedule-properties-structure/)
+- [Azure Test Labs Applicable Schedule Structure](https://apis.io/json-structure/azure-test-labs/azure-test-labs-applicable-schedule-structure/)
+- [Azure Test Labs Apply Artifacts Request Structure](https://apis.io/json-structure/azure-test-labs/azure-test-labs-apply-artifacts-request-structure/)
+- [Azure Test Labs Arm Template Info Structure](https://apis.io/json-structure/azure-test-labs/azure-test-labs-arm-template-info-structure/)
+- [Azure Test Labs Arm Template List Structure](https://apis.io/json-structure/azure-test-labs/azure-test-labs-arm-template-list-structure/)
+- [Azure Test Labs Arm Template Parameter Properties Fragment Structure](https://apis.io/json-structure/azure-test-labs/azure-test-labs-arm-template-parameter-properties-fragment-structure/)
+- [Azure Test Labs Arm Template Parameter Properties Structure](https://apis.io/json-structure/azure-test-labs/azure-test-labs-arm-template-parameter-properties-structure/)
+- [Azure Test Labs Arm Template Properties Structure](https://apis.io/json-structure/azure-test-labs/azure-test-labs-arm-template-properties-structure/)
+- [Azure Test Labs Arm Template Structure](https://apis.io/json-structure/azure-test-labs/azure-test-labs-arm-template-structure/)
+- [Azure Test Labs Artifact Deployment Status Properties Fragment Structure](https://apis.io/json-structure/azure-test-labs/azure-test-labs-artifact-deployment-status-properties-fragment-structure/)
+- [Azure Test Labs Artifact Deployment Status Properties Structure](https://apis.io/json-structure/azure-test-labs/azure-test-labs-artifact-deployment-status-properties-structure/)
+- [Azure Test Labs Artifact Install Properties Fragment Structure](https://apis.io/json-structure/azure-test-labs/azure-test-labs-artifact-install-properties-fragment-structure/)
+- [Azure Test Labs Artifact Install Properties Structure](https://apis.io/json-structure/azure-test-labs/azure-test-labs-artifact-install-properties-structure/)
+- [Azure Test Labs Artifact List Structure](https://apis.io/json-structure/azure-test-labs/azure-test-labs-artifact-list-structure/)
+- [Azure Test Labs Artifact Parameter Properties Fragment Structure](https://apis.io/json-structure/azure-test-labs/azure-test-labs-artifact-parameter-properties-fragment-structure/)
+- [Azure Test Labs Artifact Parameter Properties Structure](https://apis.io/json-structure/azure-test-labs/azure-test-labs-artifact-parameter-properties-structure/)
+- [Azure Test Labs Artifact Properties Structure](https://apis.io/json-structure/azure-test-labs/azure-test-labs-artifact-properties-structure/)
+- [Azure Test Labs Artifact Source Fragment Structure](https://apis.io/json-structure/azure-test-labs/azure-test-labs-artifact-source-fragment-structure/)
+- [Azure Test Labs Artifact Source List Structure](https://apis.io/json-structure/azure-test-labs/azure-test-labs-artifact-source-list-structure/)
+- [Azure Test Labs Artifact Source Properties Fragment Structure](https://apis.io/json-structure/azure-test-labs/azure-test-labs-artifact-source-properties-fragment-structure/)
+- [Azure Test Labs Artifact Source Properties Structure](https://apis.io/json-structure/azure-test-labs/azure-test-labs-artifact-source-properties-structure/)
+- [Azure Test Labs Artifact Source Structure](https://apis.io/json-structure/azure-test-labs/azure-test-labs-artifact-source-structure/)
+- [Azure Test Labs Artifact Structure](https://apis.io/json-structure/azure-test-labs/azure-test-labs-artifact-structure/)
+- …and 5 more published on APIs.io
 
-Machine-readable API specifications organized by format.
+#### JSON-LD (1)
 
-### OpenAPI
+Linked-data contexts for the provider's vocabulary.
 
-- [Azure Test Labs](openapi/azure-test-labs-openapi.yaml)
+- [Azure Test Labs Context](https://apis.io/jsonld/azure-test-labs/azure-test-labs-context/)
 
-### JSON Schema
+#### Vocabulary (1)
 
-- [Arm Template Parameter Properties](json-schema/azure-test-labs-arm-template-parameter-properties-schema.json)
-- [Applicable Schedule Fragment](json-schema/azure-test-labs-applicable-schedule-fragment-schema.json)
-- [Arm Template List](json-schema/azure-test-labs-arm-template-list-schema.json)
-- [Bulk Creation Parameters](json-schema/azure-test-labs-bulk-creation-parameters-schema.json)
-- [Artifact](json-schema/azure-test-labs-artifact-schema.json)
-- [Artifact Parameter Properties Fragment](json-schema/azure-test-labs-artifact-parameter-properties-fragment-schema.json)
-- [Attach New Data Disk Options](json-schema/azure-test-labs-attach-new-data-disk-options-schema.json)
-- [Attach Disk Properties](json-schema/azure-test-labs-attach-disk-properties-schema.json)
-- [Artifact Properties](json-schema/azure-test-labs-artifact-properties-schema.json)
-- [Artifact Source Properties](json-schema/azure-test-labs-artifact-source-properties-schema.json)
+The provider's domain terms, defined.
 
-### JSON-LD
+- [Azure Test Labs Vocabulary](https://apis.io/vocabularies/azure-test-labs/azure-test-labs-vocabulary/)
 
-- [Azure Test Labs Context](json-ld/azure-test-labs-context.jsonld)
+#### Examples (30)
 
-## Capabilities
+Example requests and responses.
 
-Naftiko capabilities organized as shared per-API definitions composed into customer-facing workflows.
+- [Azure Test Labs Applicable Schedule Example](https://apis.io/examples/azure-test-labs/azure-test-labs-applicable-schedule-example/)
+- [Azure Test Labs Applicable Schedule Fragment Example](https://apis.io/examples/azure-test-labs/azure-test-labs-applicable-schedule-fragment-example/)
+- [Azure Test Labs Applicable Schedule Properties Example](https://apis.io/examples/azure-test-labs/azure-test-labs-applicable-schedule-properties-example/)
+- [Azure Test Labs Applicable Schedule Properties Fragment Example](https://apis.io/examples/azure-test-labs/azure-test-labs-applicable-schedule-properties-fragment-example/)
+- [Azure Test Labs Apply Artifacts Request Example](https://apis.io/examples/azure-test-labs/azure-test-labs-apply-artifacts-request-example/)
+- [Azure Test Labs Arm Template Example](https://apis.io/examples/azure-test-labs/azure-test-labs-arm-template-example/)
+- [Azure Test Labs Arm Template Info Example](https://apis.io/examples/azure-test-labs/azure-test-labs-arm-template-info-example/)
+- [Azure Test Labs Arm Template List Example](https://apis.io/examples/azure-test-labs/azure-test-labs-arm-template-list-example/)
+- [Azure Test Labs Arm Template Parameter Properties Example](https://apis.io/examples/azure-test-labs/azure-test-labs-arm-template-parameter-properties-example/)
+- [Azure Test Labs Arm Template Parameter Properties Fragment Example](https://apis.io/examples/azure-test-labs/azure-test-labs-arm-template-parameter-properties-fragment-example/)
+- [Azure Test Labs Arm Template Properties Example](https://apis.io/examples/azure-test-labs/azure-test-labs-arm-template-properties-example/)
+- [Azure Test Labs Artifact Deployment Status Properties Example](https://apis.io/examples/azure-test-labs/azure-test-labs-artifact-deployment-status-properties-example/)
+- [Azure Test Labs Artifact Deployment Status Properties Fragment Example](https://apis.io/examples/azure-test-labs/azure-test-labs-artifact-deployment-status-properties-fragment-example/)
+- [Azure Test Labs Artifact Example](https://apis.io/examples/azure-test-labs/azure-test-labs-artifact-example/)
+- [Azure Test Labs Artifact Install Properties Example](https://apis.io/examples/azure-test-labs/azure-test-labs-artifact-install-properties-example/)
+- [Azure Test Labs Artifact Install Properties Fragment Example](https://apis.io/examples/azure-test-labs/azure-test-labs-artifact-install-properties-fragment-example/)
+- [Azure Test Labs Artifact List Example](https://apis.io/examples/azure-test-labs/azure-test-labs-artifact-list-example/)
+- [Azure Test Labs Artifact Parameter Properties Example](https://apis.io/examples/azure-test-labs/azure-test-labs-artifact-parameter-properties-example/)
+- [Azure Test Labs Artifact Parameter Properties Fragment Example](https://apis.io/examples/azure-test-labs/azure-test-labs-artifact-parameter-properties-fragment-example/)
+- [Azure Test Labs Artifact Properties Example](https://apis.io/examples/azure-test-labs/azure-test-labs-artifact-properties-example/)
+- [Azure Test Labs Artifact Source Example](https://apis.io/examples/azure-test-labs/azure-test-labs-artifact-source-example/)
+- [Azure Test Labs Artifact Source Fragment Example](https://apis.io/examples/azure-test-labs/azure-test-labs-artifact-source-fragment-example/)
+- [Azure Test Labs Artifact Source List Example](https://apis.io/examples/azure-test-labs/azure-test-labs-artifact-source-list-example/)
+- [Azure Test Labs Artifact Source Properties Example](https://apis.io/examples/azure-test-labs/azure-test-labs-artifact-source-properties-example/)
+- [Azure Test Labs Artifact Source Properties Fragment Example](https://apis.io/examples/azure-test-labs/azure-test-labs-artifact-source-properties-fragment-example/)
+- …and 5 more published on APIs.io
 
-### Shared Per-API Definitions
+#### Collections (50)
 
-- [Azure Test Labs](capabilities/shared/azure-test-labs.yaml)
+Postman and Open Collection request collections.
 
-### Workflow Capabilities
+- [DevTestLabsClient ArmTemplates API](https://apis.io/collections/azure-test-labs/open-azure-test-labs-armtemplates-api/)
+- [DevTestLabsClient ArmTemplates Artifacts API](https://apis.io/collections/azure-test-labs/open-azure-test-labs-artifacts-api/)
+- [DevTestLabsClient ArmTemplates ArtifactSources API](https://apis.io/collections/azure-test-labs/open-azure-test-labs-artifactsources-api/)
+- [DevTestLabsClient ArmTemplates Costs API](https://apis.io/collections/azure-test-labs/open-azure-test-labs-costs-api/)
+- [DevTestLabsClient ArmTemplates CustomImages API](https://apis.io/collections/azure-test-labs/open-azure-test-labs-customimages-api/)
+- [DevTestLabsClient ArmTemplates Disks API](https://apis.io/collections/azure-test-labs/open-azure-test-labs-disks-api/)
+- [DevTestLabsClient ArmTemplates Environments API](https://apis.io/collections/azure-test-labs/open-azure-test-labs-environments-api/)
+- [DevTestLabsClient ArmTemplates Formulas API](https://apis.io/collections/azure-test-labs/open-azure-test-labs-formulas-api/)
+- [DevTestLabsClient ArmTemplates GalleryImages API](https://apis.io/collections/azure-test-labs/open-azure-test-labs-galleryimages-api/)
+- [DevTestLabsClient ArmTemplates GlobalSchedules API](https://apis.io/collections/azure-test-labs/open-azure-test-labs-globalschedules-api/)
+- [DevTestLabsClient ArmTemplates Labs API](https://apis.io/collections/azure-test-labs/open-azure-test-labs-labs-api/)
+- [DevTestLabsClient ArmTemplates NotificationChannels API](https://apis.io/collections/azure-test-labs/open-azure-test-labs-notificationchannels-api/)
+- [DevTestLabsClient ArmTemplates Operations API](https://apis.io/collections/azure-test-labs/open-azure-test-labs-operations-api/)
+- [DevTestLabsClient ArmTemplates Policies API](https://apis.io/collections/azure-test-labs/open-azure-test-labs-policies-api/)
+- [DevTestLabsClient ArmTemplates PolicySets API](https://apis.io/collections/azure-test-labs/open-azure-test-labs-policysets-api/)
+- [DevTestLabsClient ArmTemplates ProviderOperations API](https://apis.io/collections/azure-test-labs/open-azure-test-labs-provideroperations-api/)
+- [DevTestLabsClient ArmTemplates Schedules API](https://apis.io/collections/azure-test-labs/open-azure-test-labs-schedules-api/)
+- [DevTestLabsClient ArmTemplates Secrets API](https://apis.io/collections/azure-test-labs/open-azure-test-labs-secrets-api/)
+- [DevTestLabsClient ArmTemplates ServiceFabrics API](https://apis.io/collections/azure-test-labs/open-azure-test-labs-servicefabrics-api/)
+- [DevTestLabsClient ArmTemplates ServiceFabricSchedules API](https://apis.io/collections/azure-test-labs/open-azure-test-labs-servicefabricschedules-api/)
+- [DevTestLabsClient ArmTemplates ServiceRunners API](https://apis.io/collections/azure-test-labs/open-azure-test-labs-servicerunners-api/)
+- [DevTestLabsClient ArmTemplates Users API](https://apis.io/collections/azure-test-labs/open-azure-test-labs-users-api/)
+- [DevTestLabsClient ArmTemplates VirtualMachines API](https://apis.io/collections/azure-test-labs/open-azure-test-labs-virtualmachines-api/)
+- [DevTestLabsClient ArmTemplates VirtualMachineSchedules API](https://apis.io/collections/azure-test-labs/open-azure-test-labs-virtualmachineschedules-api/)
+- [DevTestLabsClient ArmTemplates VirtualNetworks API](https://apis.io/collections/azure-test-labs/open-azure-test-labs-virtualnetworks-api/)
+- …and 25 more published on APIs.io
 
-| Workflow | APIs Combined | Tools | Persona |
-|----------|--------------|-------|----------|
-| [Azure Test Labs Management](capabilities/azure-test-labs-management.yaml) | Azure DevTest Labs | 5 | Cloud Engineer |
+#### Governance rules (2)
 
-## Vocabulary
+Spectral rulesets for the provider's contracts.
 
-- [Azure Test Labs Vocabulary](vocabulary/azure-test-labs-vocabulary.yaml)
+- [Azure DevTest Labs — jsonschema rules](https://apis.io/rules/azure-test-labs/azure-test-labs-jsonschema-spectral-rules/)
+- [Azure DevTest Labs API Rules](https://apis.io/rules/azure-test-labs/azure-test-labs-spectral-rules/)
 
-## Rules
+#### Security (2)
 
-- [Azure Test Labs Spectral Rules](rules/azure-test-labs-spectral-rules.yml) — 15 rules enforcing Azure DevTest Labs API conventions
+Authentication, trust centre, and vulnerability disclosure.
 
-## Maintainers
+- [Azure Test Labs Authentication](https://apis.io/security/azure-test-labs/azure-test-labs-authentication/)
+- [Azure Test Labs Domain Security](https://apis.io/security/azure-test-labs/azure-test-labs-domain-security/)
 
-**FN:** Kin Lane
+#### OAuth scopes (1)
 
-**Email:** kin@apievangelist.com
+The permissions the API asks for.
+
+- [Azure Test Labs Scopes](https://apis.io/scopes/azure-test-labs/azure-test-labs-scopes/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Azure Test Labs Plans Pricing](https://apis.io/plans/azure-test-labs/azure-test-labs-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Azure Test Labs Rate Limits](https://apis.io/rate-limits/azure-test-labs/azure-test-labs-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Azure Test Labs Finops](https://apis.io/finops/azure-test-labs/azure-test-labs-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Documentation](https://docs.microsoft.com/en-us/azure/devtest-labs/)
+- [Getting started](https://azure.microsoft.com/en-us/get-started/)
+- [Support](https://azure.microsoft.com/en-us/support/)
+- [Blog](https://azure.microsoft.com/en-us/blog/)
+- [Terms of service](https://azure.microsoft.com/en-us/support/legal/)
+- [Privacy policy](https://privacy.microsoft.com/en-us/privacystatement)
+- [Status](https://status.azure.com/)
+
+## API Evangelist rating
+
+**Unrated** — no public website could be reached for this company, so there was almost nothing to measure and nothing a reader could check.
+
+This is not a score of zero. No rating is published for this company. If that is wrong because something public exists that we missed, say so on this repository or email [info@apievangelist.com](mailto:info@apievangelist.com) and it will be re-run — free, and no justification needed.
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Azure DevTest Labs: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/azure-test-labs/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
